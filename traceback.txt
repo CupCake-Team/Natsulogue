@@ -1,0 +1,44 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 21, in script call
+    call ch0_main from _call_ch0_main
+  File "game/script-ch0.rpy", line 354, in script
+    play music t6t
+  File "renpy/common/000statements.rpy", line 123, in execute_play_music
+    renpy.music.play(_audio_eval(p["file"]),
+  File "renpy/common/000statements.rpy", line 32, in _audio_eval
+    return eval(expr, locals=store.audio.__dict__)
+  File "game/script-ch0.rpy", line 354, in <module>
+    play music t6t
+NameError: name 't6t' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 21, in script call
+    call ch0_main from _call_ch0_main
+  File "game/script-ch0.rpy", line 354, in script
+    play music t6t
+  File "renpy/ast.py", line 2015, in execute
+    self.call("execute")
+  File "renpy/ast.py", line 2003, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "renpy/statements.py", line 278, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 123, in execute_play_music
+    renpy.music.play(_audio_eval(p["file"]),
+  File "renpy/common/000statements.rpy", line 32, in _audio_eval
+    return eval(expr, locals=store.audio.__dict__)
+  File "renpy/python.py", line 2276, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "renpy/python.py", line 2269, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script-ch0.rpy", line 354, in <module>
+    play music t6t
+NameError: name 't6t' is not defined
+
+Windows-10-10.0.19041
+Ren'Py 7.5.0.46n
+Doki Doki Literature Club? -0.0.5
+Mon Nov 29 00:45:15 2021
