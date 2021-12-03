@@ -1,42 +1,41 @@
-Mon Nov 29 00:48:35 2021
+Sat Dec  4 01:28:08 2021
 Windows-10-10.0.19041
-Ren'Py 7.5.0.46n
+Ren'Py 7.4.11.2215
  
 
-Bootstrap to the start of init.init took 0.11s
+Bootstrap to the start of init.init took 0.10s
 Early init took 0.00s
-Loader init took 1.15s
+Loader init took 1.22s
 Loading error handling took 0.05s
-Loading script took 0.42s
+Loading script took 1.40s
 Loading save slot metadata. took 0.01s
 Loading persistent took 0.00s
-Imported steam.
-Failed to initialize steam.
+Importing _renpysteam: ImportError('No module named _renpysteam',)
 Set script version to: (7, 5, 0)
-Running init code took 0.34s
-Loading analysis data took 0.06s
-Analyze and compile ATL took 0.04s
+Running init code took 0.17s
+Loading analysis data took 0.12s
+Analyze and compile ATL took 0.06s
 Index archives took 0.00s
-Dump and make backups. took 0.00s
+Dump and make backups. took 0.11s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.06s
+Initial gc. took 0.10s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: "Couldn't load nvlib." (can be ignored)
 Creating interface object took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.09s
+Init translation took 0.11s
 Build styles took 0.01s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.12s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.06s
+Prepare screens took 0.17s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
+Save bytecode. took 0.09s
+Running _start took 0.01s
 Performance test:
-Interface start took 0.13s
+Interface start took 0.17s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -44,8 +43,8 @@ swap interval: 1 frames
 Windowed mode.
 Vendor: 'ATI Technologies Inc.'
 Renderer: 'Radeon RX 580 Series'
-Version: '4.6.14742 Compatibility Profile Context 21.7.2 27.20.22021.1002'
+Version: '4.6.14761 Compatibility Profile Context 21.11.3 30.0.13037.1003'
 Display Info: None
-Screen sizes: virtual=(1280, 720) physical=(1739, 978) drawable=(1739, 978)
+Screen sizes: virtual=(1280, 720) physical=(1280, 720) drawable=(1280, 720)
 Could not open 'cache/shaders.txt':
 Maximum texture size: 4096x4096
