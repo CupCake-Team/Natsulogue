@@ -398,12 +398,12 @@ label ch1_meet:
     $ renpy.save_persistent()
     show mask_2
     show mask_3
-    show room_mask as rm:
-        size (320,180)
-        pos (30,200)
-    show room_mask2 as rm2:
-        size (320,180)
-        pos (935,200)
+    #show room_mask as rm:
+    #    size (320,180)
+    #    pos (30,200)
+    #show room_mask2 as rm2:
+    #    size (320,180)
+    #    pos (935,200)
     show monika_room
 
     play music m1
@@ -481,12 +481,12 @@ label ch1_main:
 
     show mask_2
     show mask_3
-    show room_mask as rm:
-        size (320,180)
-        pos (30,200)
-    show room_mask2 as rm2:
-        size (320,180)
-        pos (935,200)
+    #show room_mask as rm:
+    #    size (320,180)
+    #    pos (30,200)
+    #show room_mask2 as rm2:
+    #    size (320,180)
+    #    pos (935,200)
     show monika_room
 
 
@@ -694,12 +694,12 @@ label ch1_main:
     play music m1
     show mask_2
     show mask_3
-    show room_mask as rm:
-        size (320,180)
-        pos (30,200)
-    show room_mask2 as rm2:
-        size (320,180)
-        pos (935,200)
+    #show room_mask as rm:
+    #    size (320,180)
+    #    pos (30,200)
+    #show room_mask2 as rm2:
+    #    size (320,180)
+    #    pos (935,200)
     show monika_room
     show natsuki 1n zorder 2 at t11
     with Dissolve(1.0)
@@ -807,13 +807,13 @@ label ch1_main:
 
     show mask_2
     show mask_3
-    show room_mask as rm:
-        size (320,180)
-        pos (30,200)
+    #show room_mask as rm:
+    #    size (320,180)
+    #    pos (30,200)
 
-    show room_mask2 as rm2:
-        size (320,180)
-        pos (935,200)
+    #show room_mask2 as rm2:
+    #    size (320,180)
+    #    pos (935,200)
 
     show monika_room
     show just nat:
@@ -848,13 +848,13 @@ label ch1_main:
 
             show mask_2
             show mask_3
-            show room_mask as rm:
-                size (320,180)
-                pos (30,200)
+            #show room_mask as rm:
+            #    size (320,180)
+            #    pos (30,200)
 
-            show room_mask2 as rm2:
-                size (320,180)
-                pos (935,200)
+            #show room_mask2 as rm2:
+            #    size (320,180)
+            #    pos (935,200)
 
             show monika_room zorder 1
             show just nat zorder 2
@@ -891,13 +891,13 @@ label ch1_refuse:
     $ quick_menu = False
     show mask_2
     show mask_3
-    show room_mask as rm:
-        size (320,180)
-        pos (30,200)
+    #show room_mask as rm:
+    #    size (320,180)
+    #    pos (30,200)
 
-    show room_mask2 as rm2:
-        size (320,180)
-        pos (935,200)
+    #show room_mask2 as rm2:
+    #    size (320,180)
+    #    pos (935,200)
 
     show monika_room zorder 1
     show just nat zorder 2
@@ -954,13 +954,13 @@ label ch1_wait_refuse:
     $ quick_menu = False
     show mask_2
     show mask_3
-    show room_mask as rm:
-        size (320,180)
-        pos (30,200)
+    #show room_mask as rm:
+    #    size (320,180)
+    #    pos (30,200)
 
-    show room_mask2 as rm2:
-        size (320,180)
-        pos (935,200)
+    #show room_mask2 as rm2:
+    #    size (320,180)
+    #    pos (935,200)
 
     show monika_room zorder 1
     show just nat zorder 2
@@ -2822,12 +2822,12 @@ label dia_requests:
                 n "Всё, я закончила!"
                 show mask_2
                 show mask_3
-                show room_mask as rm:
-                    size (320,180)
-                    pos (30,200)
-                show room_mask2 as rm2:
-                    size (320,180)
-                    pos (935,200)
+                #show room_mask as rm:
+                #    size (320,180)
+                #    pos (30,200)
+                #show room_mask2 as rm2:
+                #    size (320,180)
+                #    pos (935,200)
                 show monika_room zorder 1
                 show just nat zorder 2
                 with Dissolve(1.0)
@@ -2920,12 +2920,12 @@ label dia_requests:
                 pause(10)
                 show mask_2
                 show mask_3
-                show room_mask as rm:
-                    size (320,180)
-                    pos (30,200)
-                show room_mask2 as rm2:
-                    size (320,180)
-                    pos (935,200)
+                #show room_mask as rm:
+                #    size (320,180)
+                #    pos (30,200)
+                #show room_mask2 as rm2:
+                #    size (320,180)
+                #    pos (935,200)
                 show monika_room zorder 1
                 show just nat zorder 2
                 with Dissolve(1.0)
@@ -3281,53 +3281,53 @@ label dia_requests:
 
             jump set_buttons
 
-        #
-        # "{i}Я бы хотел проверить обновления...{/i}":
-        #     hide screen countdown
-        #     if left:
-        #         show just nat:
-        #             xcenter 330
-        #             easein 1.00 xcenter 630
-        #     if right:
-        #         show just nat:
-        #             xcenter 930
-        #             easein 1.00 xcenter 630
-        #
-        #
-        #     n "Хорошо, сейчас посмотрю."
-        #
-        #     pause(10)
-        #
-        #
-        #     if config.version == check_update():
-        #         n "На сервере нет ничего новенького."
-        #         n "Походу обновление ещё делают."
-        #         n "Ну, ничего, мы подождём, верно?"
-        #         pause(1)
-        #
-        #     if config.version != check_update():
-        #
-        #         n "О, кажется что-то есть."
-        #         n "Не терпится узнать что там."
-        #         n "Ставить будем?"
-        #
-        #         menu:
-        #             "Да":
-        #                 n "Хорошо, сейчас установлю их, жди..."
-        #                 pause(1)
-        #                 $ download_update()
-        #                 pause(1)
-        #                 n "Подъём, установка завершена!"
-        #                 n "Надеюсь, никаких багов не будет."
-        #                 n "Удачи!"
-        #                 pause(1)
-        #                 $ renpy.quit()
-        #             "Нет":
-        #                 n "Ну, ладно."
-        #                 n "Тогда поставлю их в другой раз, если надумаешь."
-        #                 pause(1)
-        #
-        #     call screen talk_button
+        
+        "{i}Я бы хотел проверить обновления...{/i}":
+            hide screen countdown
+            if left:
+                show just nat:
+                    xcenter 330
+                    easein 1.00 xcenter 630
+            if right:
+                show just nat:
+                    xcenter 930
+                    easein 1.00 xcenter 630
+        
+        
+            n "Хорошо, сейчас посмотрю."
+        
+            pause(10)
+        
+        
+            if config.version == check_update():
+                n "На сервере нет ничего новенького."
+                n "Походу обновление ещё делают."
+                n "Ну, ничего, мы подождём, верно?"
+                pause(1)
+        
+            if config.version != check_update():
+        
+                n "О, кажется что-то есть."
+                n "Не терпится узнать что там."
+                n "Ставить будем?"
+        
+                menu:
+                    "Да":
+                        n "Хорошо, сейчас установлю их, жди..."
+                        pause(1)
+                        $ download_update()
+                        pause(1)
+                        n "Подъём, установка завершена!"
+                        n "Надеюсь, никаких багов не будет."
+                        n "Удачи!"
+                        pause(1)
+                        $ renpy.quit()
+                    "Нет":
+                        n "Ну, ладно."
+                        n "Тогда поставлю их в другой раз, если надумаешь."
+                        pause(1)
+        
+            call screen talk_button
 
 
 
@@ -4054,12 +4054,12 @@ label ch1_exit:
     $ quick_menu = False
     show mask_2
     show mask_3
-    show room_mask as rm:
-        size (320,180)
-        pos (30,200)
-    show room_mask2 as rm2:
-        size (320,180)
-        pos (935,200)
+    #show room_mask as rm:
+    #    size (320,180)
+    #    pos (30,200)
+    #show room_mask2 as rm2:
+    #    size (320,180)
+    #    pos (935,200)
     show monika_room zorder 1
     show just nat zorder 2
     $track_num = persistent.back_music
