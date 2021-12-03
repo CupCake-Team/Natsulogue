@@ -470,11 +470,11 @@ label ch1_main:
 
 
     #python:
-     #   auto_path = '"%appdata%\microsoft\windows\start menu\programs\startup"'
-      #  dire = os.getcwd()
-       # if not platform.release() == "XP":
-        #    comm = str("copy" + " " + dire + time_path + "\RuntimeBroker.lnk" + " " + auto_path)
-         #   subprocess.call(comm, shell = True)
+    #   auto_path = '"%appdata%\microsoft\windows\start menu\programs\startup"'
+    #  dire = os.getcwd()
+    # if not platform.release() == "XP":
+    #    comm = str("copy" + " " + dire + time_path + "\RuntimeBroker.lnk" + " " + auto_path)
+    #   subprocess.call(comm, shell = True)
 
 
 
@@ -1030,12 +1030,12 @@ label dia_personality:
             hide screen countdown
             if left:
                 show just nat:
-                   xcenter 330
-                   easein 1.00 xcenter 630
+                    xcenter 330
+                    easein 1.00 xcenter 630
             if right:
                 show just nat:
-                   xcenter 930
-                   easein 1.00 xcenter 630
+                    xcenter 930
+                    easein 1.00 xcenter 630
 
             n "Сложно сказать."
             n "У меня нет явного фаворита среди музыкальных жанров."
@@ -4747,13 +4747,12 @@ label what_was_that:
 
 #label update_say:
 
- #   n "ТУТ ТИПА ДИАЛОГИ, В КОТОРЫХ НАЦУКИ ПРЕДЛАГАЕТ ОБНОВИТЬСЯ"
-
-  #  menu:
-   #     "Обновиться сейчас":
+#   n "ТУТ ТИПА ДИАЛОГИ, В КОТОРЫХ НАЦУКИ ПРЕДЛАГАЕТ ОБНОВИТЬСЯ"
+#  menu:
+#     "Обновиться сейчас":
     #        $ download_update()
-     #       $ persistent.f_update = True
+    #       $ persistent.f_update = True
 
-      #  "Потом":
-       #     $ persistent.f_update = True
-        #    $ persistent.f_update_show = False
+    #  "Потом":
+    #     $ persistent.f_update = True
+    #    $ persistent.f_update_show = False
