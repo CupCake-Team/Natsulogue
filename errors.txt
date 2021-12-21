@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/screens.rpy", line 1509: u'action' is not a keyword argument or valid child for the screen statement.
+    action [SetVariable("soundvlm", 0.0), SetVariable("sounum", 0), SetVariable("soungrad", 0), Function(renpy.sound.stop, channel="sound"), Show("vol_texts"), Function(renpy.show, "level_cir", at_list=[vol_sound_level_animation], zorder=4)]
+          ^
+
+Ren'Py Version: Ren'Py 7.4.11.2266
+Wed Dec 22 01:38:31 2021

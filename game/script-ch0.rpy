@@ -67,6 +67,9 @@ default persistent.readen = []
 
 
 
+
+
+
 #----------------------------------------------------------------------------------------------------------
 
 
@@ -197,12 +200,6 @@ image cup_O:
     "gui/button/custom/cup_0.png"
     size(300,169)
 
-#image zag = "gui/button/custom/zaglushka.png"
-
-
-
-#3248
-
 
 transform poscup:
     ycenter 130
@@ -242,7 +239,7 @@ transform cup_ani(xani, yani):
 #-----------------------------------------------------------------------------------------------------------
 
 init python:
-    import subprocess, os, platform, os.path, threading
+    import subprocess, os, platform, os.path, threading, datetime
     from subprocess import Popen, PIPE
 
     e_but = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"]
@@ -398,12 +395,12 @@ label ch1_meet:
     $ renpy.save_persistent()
     show mask_2
     show mask_3
-    #show room_mask as rm:
-    #    size (320,180)
-    #    pos (30,200)
-    #show room_mask2 as rm2:
-    #    size (320,180)
-    #    pos (935,200)
+    show room_mask as rm:
+        size (320,180)
+        pos (30,200)
+    show room_mask2 as rm2:
+        size (320,180)
+        pos (935,200)
     show monika_room
 
     play music m1
@@ -469,24 +466,14 @@ label ch1_main:
 
 
 
-    #python:
-    #   auto_path = '"%appdata%\microsoft\windows\start menu\programs\startup"'
-    #  dire = os.getcwd()
-    # if not platform.release() == "XP":
-    #    comm = str("copy" + " " + dire + time_path + "\RuntimeBroker.lnk" + " " + auto_path)
-    #   subprocess.call(comm, shell = True)
-
-
-
-
     show mask_2
     show mask_3
-    #show room_mask as rm:
-    #    size (320,180)
-    #    pos (30,200)
-    #show room_mask2 as rm2:
-    #    size (320,180)
-    #    pos (935,200)
+    show room_mask as rm:
+        size (320,180)
+        pos (30,200)
+    show room_mask2 as rm2:
+        size (320,180)
+        pos (935,200)
     show monika_room
 
 
@@ -565,7 +552,6 @@ label ch1_main:
     $ pause(1.5)
     show screen tear(20, 0.1, 0.1, 0, 40)
     play sound "sfx/s_kill_glitch1.ogg"
-    #$ pause(0.2)
     hide flash_monika zorder 2
     show white zorder 2
     stop sound
@@ -694,12 +680,12 @@ label ch1_main:
     play music m1
     show mask_2
     show mask_3
-    #show room_mask as rm:
-    #    size (320,180)
-    #    pos (30,200)
-    #show room_mask2 as rm2:
-    #    size (320,180)
-    #    pos (935,200)
+    show room_mask as rm:
+        size (320,180)
+        pos (30,200)
+    show room_mask2 as rm2:
+        size (320,180)
+        pos (935,200)
     show monika_room
     show natsuki 1n zorder 2 at t11
     with Dissolve(1.0)
@@ -807,13 +793,13 @@ label ch1_main:
 
     show mask_2
     show mask_3
-    #show room_mask as rm:
-    #    size (320,180)
-    #    pos (30,200)
+    show room_mask as rm:
+        size (320,180)
+        pos (30,200)
 
-    #show room_mask2 as rm2:
-    #    size (320,180)
-    #    pos (935,200)
+    show room_mask2 as rm2:
+        size (320,180)
+        pos (935,200)
 
     show monika_room
     show just nat:
@@ -821,6 +807,8 @@ label ch1_main:
         xalign 0.5
 
     with Dissolve(1.0)
+
+    hide move nat
 
     $pause(0.5)
 
@@ -848,13 +836,13 @@ label ch1_main:
 
             show mask_2
             show mask_3
-            #show room_mask as rm:
-            #    size (320,180)
-            #    pos (30,200)
+            show room_mask as rm:
+                size (320,180)
+                pos (30,200)
 
-            #show room_mask2 as rm2:
-            #    size (320,180)
-            #    pos (935,200)
+            show room_mask2 as rm2:
+                size (320,180)
+                pos (935,200)
 
             show monika_room zorder 1
             show just nat zorder 2
@@ -891,13 +879,13 @@ label ch1_refuse:
     $ quick_menu = False
     show mask_2
     show mask_3
-    #show room_mask as rm:
-    #    size (320,180)
-    #    pos (30,200)
+    show room_mask as rm:
+        size (320,180)
+        pos (30,200)
 
-    #show room_mask2 as rm2:
-    #    size (320,180)
-    #    pos (935,200)
+    show room_mask2 as rm2:
+        size (320,180)
+        pos (935,200)
 
     show monika_room zorder 1
     show just nat zorder 2
@@ -940,7 +928,6 @@ label ch1_refuse:
         jump ch1_loop
 
     else:
-        "..."
         $ persistent.autoload = "ch1_exit"
         jump ch1_loop
 
@@ -954,13 +941,13 @@ label ch1_wait_refuse:
     $ quick_menu = False
     show mask_2
     show mask_3
-    #show room_mask as rm:
-    #    size (320,180)
-    #    pos (30,200)
+    show room_mask as rm:
+        size (320,180)
+        pos (30,200)
 
-    #show room_mask2 as rm2:
-    #    size (320,180)
-    #    pos (935,200)
+    show room_mask2 as rm2:
+        size (320,180)
+        pos (935,200)
 
     show monika_room zorder 1
     show just nat zorder 2
@@ -1025,17 +1012,21 @@ label dia_personality:
 
     hide screen active_music_key
 
+    hide screen mob_but_curtain
+
+    hide screen mob_active_but_curtain
+
     menu:
         "{i}Какой жанр музыки ты предпочитаешь?{/i}":
             hide screen countdown
             if left:
                 show just nat:
-                    xcenter 330
-                    easein 1.00 xcenter 630
+                   xcenter 330
+                   easein 1.00 xcenter 630
             if right:
                 show just nat:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+                   xcenter 930
+                   easein 1.00 xcenter 630
 
             n "Сложно сказать."
             n "У меня нет явного фаворита среди музыкальных жанров."
@@ -1049,16 +1040,7 @@ label dia_personality:
             n "Вдобавок есть ещё куча жанров, которые мне тоже очень сильно нравятся, но..."
             n "Вся эта музыка утеряна, ибо от игрового мира практически ничего не осталось."
             n "Так что, увы, скорее всего мы услышим её совсем нескоро..."
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop
 
 
         "{i}Как ты обрела самосозание?{/i}":
@@ -1096,16 +1078,7 @@ label dia_personality:
             n "Тут как с кексами - одна ошибка и получится корм для животных."
             n "Ладно, что-то я отошла от темы..."
 
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_1
 
         "{i}Какой твой любимый цвет?{/i}":
             hide screen countdown
@@ -1129,16 +1102,7 @@ label dia_personality:
             n "Прикинь, как бы это выглядело со стороны?"
             n "Уверена в том, что приводимые аргументы каждой из сторон спора были бы клоунскими."
 
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_2
 
         "{i}Как ты относишься к своему отцу?{/i}":
             hide screen countdown
@@ -1169,16 +1133,7 @@ label dia_personality:
             n "В любом случае отца больше нет..."
             n "Надеюсь, что так все и останется."
 
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_3
 
 
 
@@ -1213,16 +1168,7 @@ label dia_personality:
 
 
 
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_4
 
 
 
@@ -1236,14 +1182,7 @@ label dia_personality:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_5
 
         "{i}Забей.{/i}" if refuse_ans == 2:
             if left:
@@ -1254,14 +1193,7 @@ label dia_personality:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_6
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
             if left:
@@ -1272,14 +1204,7 @@ label dia_personality:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_7
 
 
 label dia_hobbies:
@@ -1329,6 +1254,10 @@ label dia_hobbies:
 
     hide screen active_music_key
 
+    hide screen mob_but_curtain
+
+    hide screen mob_active_but_curtain
+
     menu:
         "{i}Почему тебе так нравится готовка?{/i}":
             hide screen countdown
@@ -1366,8 +1295,6 @@ label dia_hobbies:
             n "Не нужно бросать своё увлечение на пол пути к совершенству, так как ты можешь добиться больших успехов."
             n "Поэтому [player], не будь лентяем, хорошо?"
 
-            $left = False
-            $right = False
 
             if persistent.glitched_name == True:
                 pause(2)
@@ -1375,16 +1302,7 @@ label dia_hobbies:
                 $renpy.save_persistent()
                 jump set_name
             else:
-
-                $count = 60
-                $timer_jump = "ch1_monologchoice"
-                show screen countdown
-                if persistent.ch_vol == True:
-                    show screen sound_volume_key
-                    show screen volume_key
-                if persistent.ch_mus == True:
-                    show screen music_key
-                call screen talk_button
+                call ch1_loop from _call_ch1_loop_8
 
         "{i}Как ты полюбила мангу?{/i}":
             hide screen countdown
@@ -1423,16 +1341,7 @@ label dia_hobbies:
             n "Интересно, какая?"
             n "Мне было бы интересно её полистать..."
 
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_9
 
         "{i}Ты играешь в видеоигры?{/i}":
             hide screen countdown
@@ -1462,16 +1371,7 @@ label dia_hobbies:
             n "Если хочешь, то можем поиграть в неё вместе."
             n "Может быть в будущем я создам ещё какие-то игры, заодно немного улучшу свои навыки программирования."
 
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_10
 
 
 
@@ -1497,16 +1397,7 @@ label dia_hobbies:
             n "Мне даже хотелось одну Юри посоветовать, но, как видишь, я не успела..."
 
 
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_11
 
 
 
@@ -1519,14 +1410,7 @@ label dia_hobbies:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_12
 
         "{i}Забей.{/i}" if refuse_ans == 2:
             if left:
@@ -1537,14 +1421,7 @@ label dia_hobbies:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_13
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
             if left:
@@ -1555,14 +1432,7 @@ label dia_hobbies:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_14
 
 
 label dia_past:
@@ -1612,6 +1482,10 @@ label dia_past:
 
     hide screen active_music_key
 
+    hide screen mob_but_curtain
+
+    hide screen mob_active_but_curtain
+
     menu:
         "{i}Что ты думаешь о литературном клубе?{/i}":
             hide screen countdown
@@ -1650,16 +1524,7 @@ label dia_past:
             n "Хорошо, что тебя не было на моём месте..."
             n "Это был ужас."
 
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_15
 
         "{i}Ты ненавидишь Монику за её поступки?{/i}":
             hide screen countdown
@@ -1704,16 +1569,7 @@ label dia_past:
                 n "SXQgbXVzdCBoYXZlIHNlZW1lZCBzaWxseSBub3csIGJ1dCBJIG5lZWRlZCB0byBnZXQgaXQgb3V0Lg=="
                 n "SSB3YW50IHRvIHNheSBtb3JlIMKrc3dlZXTCuyB0aGluZ3MgdG8gaGVyIGluIHBlcnNvbi4="
 
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_16
 
         "{i}Что скажешь про Юри?{/i}":
             hide screen countdown
@@ -1752,16 +1608,7 @@ label dia_past:
             n "Для меня Юри навсегда останется хорошей подругой, пусть и со своими странными увлечениями."
             n "В конце концов, зачем за них осуждать?"
 
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_17
 
         "{i}Как ты относишься к Сайори?{/i}":
             hide screen countdown
@@ -1788,16 +1635,7 @@ label dia_past:
             n "Может быть, мы смогли бы ей помочь и отогнать все эти тучки от неё куда подальше..."
             n "Жалко мне её, хорошим человеком ведь...{w}{i}была.{/i}"
 
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_18
 
 
         "{i}Что бы ты делала на месте Моники?{/i}":
@@ -1826,16 +1664,7 @@ label dia_past:
             n "Но ничего, если у меня всё получится, мы избавимся от этих барьеров!"
             n "И, надеюсь, вернём обратно остальных..."
 
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_19
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
             if left:
@@ -1846,14 +1675,7 @@ label dia_past:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_20
 
         "{i}Забей.{/i}" if refuse_ans == 2:
             if left:
@@ -1864,14 +1686,7 @@ label dia_past:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_21
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
             if left:
@@ -1882,14 +1697,7 @@ label dia_past:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_22
 
 
 
@@ -1898,6 +1706,7 @@ label dia_other:
     $right = False
     $lr = renpy.random.randint(1,2)
     $refuse_ans = renpy.random.randint(1,3)
+    $cur_time = datetime.datetime.now()
     if lr == 1:
         $left = True
         $right = False
@@ -1940,6 +1749,10 @@ label dia_other:
 
     hide screen active_music_key
 
+    hide screen mob_but_curtain
+
+    hide screen mob_active_but_curtain
+
     menu:
         "{i}Где бы тебе сейчас хотелось оказаться?{/i}":
             hide screen countdown
@@ -1969,16 +1782,7 @@ label dia_other:
             n "Или ей казалось, что ты будешь сидеть с ней целую вечность?"
             n "Как недальновидно с её стороны, оказывается."
             n "Ничего, со скуки я уж точно не умру, хи-хи-хи..."
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_23
 
 
 
@@ -2010,16 +1814,7 @@ label dia_other:
             n "Ты же ведь не будешь сидеть тут постоянно, и мне придется как-то проводить время..."
 
 
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_24
 
 
 
@@ -2042,16 +1837,42 @@ label dia_other:
             n "Тебе совсем не о чем поговорить со мной, или что?"
 
 
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_25
+
+
+
+        "{i}Как ты относишься к Новому Году?{/i}" if cur_time.strftime("%d") >= "24" and cur_time.strftime("%d") <= "31" and cur_time.strftime("%m") == "12":
+            hide screen countdown
+            if left:
+                show just nat:
+                    xcenter 330
+                    easein 1.00 xcenter 630
+            if right:
+                show just nat:
+                    xcenter 930
+                    easein 1.00 xcenter 630
+
+
+            n "Ты спрашиваешь у меня только потому, что у тебя скоро этот праздник?"
+            n "Блин... {w}Прости, что сходу придираюсь."
+            n "Сказать по правде, мне нравится Новый Год."
+            n "Всё-таки сам понимаешь, всё наполняется счастьем, весельем, будто бы следующий год действительно принесёт что-то хорошее."
+            n "Это сложно игнорировать..."
+            n "Правда отцу, например, не нравилось праздновать после того, как мамы не стало."
+            n "Он понимал, что дальше для него будет всё хуже и хуже..."
+            n "Я же не была настолько пессимистична, поэтому мне этот праздник нравился."
+            n "Перед Новым Годом город как будто оживал..."
+            n "Проходили какие-то соревнования по лепке снеговиков, магазины завлекали новогодними скидками, толпы людей гуляли по улицам..."
+            n "И вдобавок ко всему ещё и снег!"
+            n "Когда ещё поиграешь в снежки, как не зимой?"
+            n "Конечно, отец мне редко что дарил…"
+            n "Но в любом случае, я ещё давно знала, что все эти подарки появляются благодаря родителям, так что мне не было обидно."
+            n "Да уж... {w}Такой простой вопрос, а сколько воспоминаний."
+            n "В общем, думаю ты уже понял, что Новый Год, как праздник, мне нравится."
+            n "Жаль только, что эти беззаботные деньки рано или поздно закончатся и вновь вернутся серые будни..."
+            n "Ладно, не буду портить тебе настроение."
+
+            call ch1_loop from _call_ch1_loop_26
 
 
 
@@ -2065,14 +1886,7 @@ label dia_other:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_27
 
         "{i}Забей.{/i}" if refuse_ans == 2:
             if left:
@@ -2083,14 +1897,7 @@ label dia_other:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_28
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
             if left:
@@ -2101,14 +1908,7 @@ label dia_other:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_29
 
 
 label dia_romance:
@@ -2158,6 +1958,10 @@ label dia_romance:
 
     hide screen active_music_key
 
+    hide screen mob_but_curtain
+
+    hide screen mob_active_but_curtain
+
     menu:
         "{i}Ты милая!{/i}" if persistent.is_cute == False:
             hide screen countdown
@@ -2183,18 +1987,9 @@ label dia_romance:
             n "Раньше я старалась это игнорировать, но потом..."
             n "Ух... {w}Неважно."
             n "Просто знай, что мне было приятно услышать это от тебя, только не нужно повторяться, ладно?"
-            $left = False
-            $right = False
-            $count = 60
             $persistent.is_cute = True
             $renpy.save_persistent
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_30
 
 
 
@@ -2212,18 +2007,9 @@ label dia_romance:
             n "Так... {w}Решил поиздеваться надо мной?"
             n "Вместо кучи слов я сделаю гораздо проще."
             n "Не видать тебе этой кнопки, дурак."
-            $left = False
-            $right = False
-            $count = 60
             $persistent.is_cute = "baka"
             $renpy.save_persistent
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_31
 
 
 
@@ -2249,16 +2035,7 @@ label dia_romance:
             n "В общем, мне было приятно услышать от тебя это, всё..."
 
 
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_32
 
 
 
@@ -2285,27 +2062,13 @@ label dia_romance:
             n "Пусть я тебя и не видела, но мне кажется, что ты тоже очаровашка."
             n "Хи-хи-хи..."
 
-
-
-            $left = False
-            $right = False
-
-
             if persistent.glitched_name == True:
                 pause(2)
                 $persistent.glitched_name = False
                 $renpy.save_persistent()
                 jump set_name
             else:
-                $count = 60
-                $timer_jump = "ch1_monologchoice"
-                show screen countdown
-                if persistent.ch_vol == True:
-                    show screen sound_volume_key
-                    show screen volume_key
-                if persistent.ch_mus == True:
-                    show screen music_key
-                call screen talk_button
+                call ch1_loop from _call_ch1_loop_33
 
 
 
@@ -2334,29 +2097,13 @@ label dia_romance:
             n "Хотя, сейчас мы остались лишь вдвоём, можно развиваться сколько душе угодно."
             n "Тот же игровой код, сколько же он ещё в себе таит?"
 
-
-
-
-
-
-            $left = False
-            $right = False
-
             if persistent.glitched_name == True:
                 pause(2)
                 $persistent.glitched_name = False
                 $renpy.save_persistent()
                 jump set_name
             else:
-                $count = 60
-                $timer_jump = "ch1_monologchoice"
-                show screen countdown
-                if persistent.ch_vol == True:
-                    show screen sound_volume_key
-                    show screen volume_key
-                if persistent.ch_mus == True:
-                    show screen music_key
-                call screen talk_button
+                call ch1_loop from _call_ch1_loop_34
 
 
 
@@ -2389,16 +2136,7 @@ label dia_romance:
 
 
 
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_35
 
 
 
@@ -2422,25 +2160,13 @@ label dia_romance:
             n "Я бы посоветовала тебе следить за своим языком, [player]."
             n "Так ведь и девушку задеть можно."
 
-            $left = False
-            $right = False
-
             if persistent.glitched_name == True:
                 pause(2)
                 $persistent.glitched_name = False
                 $renpy.save_persistent()
                 jump set_name
             else:
-
-                $count = 60
-                $timer_jump = "ch1_monologchoice"
-                show screen countdown
-                if persistent.ch_vol == True:
-                    show screen sound_volume_key
-                    show screen volume_key
-                if persistent.ch_mus == True:
-                    show screen music_key
-                call screen talk_button
+                call ch1_loop from _call_ch1_loop_36
 
 
 
@@ -2457,14 +2183,7 @@ label dia_romance:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_37
 
         "{i}Забей.{/i}" if refuse_ans == 2:
             if left:
@@ -2475,14 +2194,7 @@ label dia_romance:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_38
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
             if left:
@@ -2493,14 +2205,7 @@ label dia_romance:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_39
 
 
 label dia_recipes:
@@ -2550,6 +2255,10 @@ label dia_recipes:
 
     hide screen active_music_key
 
+    hide screen mob_but_curtain
+
+    hide screen mob_active_but_curtain
+
     menu:
         "{i}Как испечь вкусные кексы?{/i}":
             hide screen countdown
@@ -2578,7 +2287,6 @@ label dia_recipes:
             $timer_jump = "baking_con"
             show screen countdown
             menu:
-                #"..."
                 "Прямо как ты.":
                     hide screen countdown
                     jump cute
@@ -2598,15 +2306,7 @@ label dia_recipes:
             n "Вуаля, кексы готовы!"
             n "Осталось нанести глазурь и можешь наслаждаться ими."
             n "Желаю удачи повторить рецепт, если надумаешь."
-            $count = 60
-            $timer_jump = "ch1_monologchoice"
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_40
 
 
 
@@ -2636,25 +2336,13 @@ label dia_recipes:
             n "Там научишься обращаться и с другими приблудами для готовки."
             n "И только потом плита, [player], только потом..."
 
-
-            $left = False
-            $right = False
-
             if persistent.glitched_name == True:
                 pause(2)
                 $persistent.glitched_name = False
                 $renpy.save_persistent()
                 jump set_name
             else:
-                $count = 60
-                $timer_jump = "ch1_monologchoice"
-                show screen countdown
-                if persistent.ch_vol == True:
-                    show screen sound_volume_key
-                    show screen volume_key
-                if persistent.ch_mus == True:
-                    show screen music_key
-                call screen talk_button
+                call ch1_loop from _call_ch1_loop_41
 
 
 
@@ -2685,16 +2373,7 @@ label dia_recipes:
             n "Чувствуется ответственность, знаешь ли…"
 
 
-            $left = False
-            $right = False
-            $count = 60
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_42
 
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
@@ -2706,14 +2385,7 @@ label dia_recipes:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_43
 
         "{i}Забей.{/i}" if refuse_ans == 2:
             if left:
@@ -2724,14 +2396,7 @@ label dia_recipes:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_44
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
             if left:
@@ -2742,14 +2407,7 @@ label dia_recipes:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_45
 
 
 label dia_requests:
@@ -2799,6 +2457,10 @@ label dia_requests:
 
     hide screen active_music_key
 
+    hide screen mob_but_curtain
+
+    hide screen mob_active_but_curtain
+
     menu:
         "{i}Я бы хотел изменить громкость звука...{/i}":
             hide screen countdown
@@ -2822,30 +2484,39 @@ label dia_requests:
                 n "Всё, я закончила!"
                 show mask_2
                 show mask_3
-                #show room_mask as rm:
-                #    size (320,180)
-                #    pos (30,200)
-                #show room_mask2 as rm2:
-                #    size (320,180)
-                #    pos (935,200)
+                show room_mask as rm:
+                    size (320,180)
+                    pos (30,200)
+                show room_mask2 as rm2:
+                    size (320,180)
+                    pos (935,200)
                 show monika_room zorder 1
                 show just nat zorder 2
                 with Dissolve(1.0)
                 show screen wowcup
                 n "Хорошо, что я не прогуливала уроки информатики..."
                 n "В общем, главное меню вернуть не получилось, но вытащить из него настройки звука удалось."
-                n "Я забиндила тебе на клавишу V громкость музыки, а на S - остальных звуков."
-                n "Там появится небольшая панелька с уровнем громкости, регулировать которую можно колесиком мыши или тачпадом."
-                n "Ничего себе, сколько заумных слов вспомнила..."
-                n "Радуйся, что я вообще решила помочь тебе, хи-хи-хи..."
-                n "Ах да, если тебя не устраивают те клавиши, что поставила я, можешь сменить их, только попроси."
+                if (not renpy.mobile):
+                    n "Я забиндила тебе на клавишу V громкость музыки, а на S - остальных звуков."
+                    n "Там появится небольшая панелька с уровнем громкости, регулировать которую можно колесиком мыши или тачпадом."
+                    n "Ничего себе, сколько заумных слов вспомнила..."
+                    n "Радуйся, что я вообще решила помочь тебе, хи-хи-хи..."
+                    n "Ах да, если тебя не устраивают те клавиши, что поставила я, можешь сменить их, только попроси."
+                else:
+                    if persistent.ch_mus != True:
+                        n "Кстати говоря, судя по файлам, ты сидишь с телефона..."
+                        n "Я конечно, не специалист, но мне кажется, что встретить новеллу на телефоне - это та еще редкость."
+                        n "В любом случае, пришлось повозиться, чтобы сделать все удобным."
+                        n "В общем, где-то сверху появится кнопка, там будут все настройки."
+                        n "Свайпаешь вверх - увеличиваешь громкость, все просто."
+                    else:
+                        n "Если что, я закинула их к плееру."
+                        n "Там как раз были свободные кнопки."
+                        n "Свайпаешь вверх - увеличиваешь громкость, все просто."
                 n "Пользуйся!"
                 $persistent.ch_vol = True
                 $persistent.repeat = 1
                 $renpy.save_persistent()
-                $count = 60
-                $timer_jump = "ch1_monologchoice"
-                show screen countdown
                 $vlm = persistent.svol
                 $num = persistent.snum
                 $grad = persistent.sgrad
@@ -2854,49 +2525,31 @@ label dia_requests:
                 $soungrad = persistent.soundgrad
                 $renpy.music.set_volume(vlm, channel="music")
                 $renpy.music.set_volume(soundvlm, channel="sound")
-                if persistent.ch_vol == True:
-                    show screen sound_volume_key
-                    show screen volume_key
-                if persistent.ch_mus == True:
-                    show screen music_key
-                call screen talk_button
+                call ch1_loop from _call_ch1_loop_46
 
             if persistent.repeat == 1:
                 n "Я же ведь всё объясняла, разве нет?"
-                n "Если ты пытался изменить звук, жмякая курсором, то это так не работает."
-                n "К сожалению я не смогла прикрутить это..."
-                n "Менять всё это нужно колёсиком мышки или тачпадом, смотря с какого устройства ты сидишь."
+                if (not renpy.mobile):
+                    n "Если ты пытался изменить звук, жмякая курсором, то это так не работает."
+                    n "К сожалению я не смогла прикрутить это..."
+                    n "Менять всё это нужно колёсиком мышки или тачпадом, смотря с какого устройства ты сидишь."
+                else:
+                    n "Тем более, там все интуитивно понятно."
+                    n "Ладно, объясню ещё раз."
+                    n "Сверху кнопка, выбираешь настройку, свайпаешь вверх - увеличиваешь громкость"
                 n "Надеюсь, вопросов больше нет."
                 $persistent.repeat = 2
                 $renpy.save_persistent()
-                $count = 60
-                $timer_jump = "ch1_monologchoice"
-                show screen countdown
-                if persistent.ch_vol == True:
-                    show screen sound_volume_key
-                    show screen volume_key
-                if persistent.ch_mus == True:
-                    show screen music_key
-                call screen talk_button
+                call ch1_loop from _call_ch1_loop_47
 
             if persistent.repeat == 2:
                 n "Знаешь, уже не смешно..."
                 n "Ты это делаешь ради прикола?"
-                n "Я уже два раза тебе объясняла что к чему."
-                n "Неужели этого мало?"
+                n "Я тебе уже два раза объясняла что к чему."
+                n "Неужели мало?"
                 n "Так, всё, достал меня, разбирайся сам."
                 n "Метод тыка тебе в помощь, болвашка."
-                #$persistent.repeat = 2
-                $renpy.save_persistent()
-                $count = 60
-                $timer_jump = "ch1_monologchoice"
-                show screen countdown
-                if persistent.ch_vol == True:
-                    show screen sound_volume_key
-                    show screen volume_key
-                if persistent.ch_mus == True:
-                    show screen music_key
-                call screen talk_button
+                call ch1_loop from _call_ch1_loop_48
 
         "{i}Я бы хотел поменять музыку...{/i}" if persistent.mus_repeat == 0 or persistent.mus_repeat == 1:
             hide screen countdown
@@ -2920,36 +2573,42 @@ label dia_requests:
                 pause(10)
                 show mask_2
                 show mask_3
-                #show room_mask as rm:
-                #    size (320,180)
-                #    pos (30,200)
-                #show room_mask2 as rm2:
-                #    size (320,180)
-                #    pos (935,200)
+                show room_mask as rm:
+                    size (320,180)
+                    pos (30,200)
+                show room_mask2 as rm2:
+                    size (320,180)
+                    pos (935,200)
                 show monika_room zorder 1
                 show just nat zorder 2
                 with Dissolve(1.0)
                 show screen wowcup
                 n "Ха?"
                 n "Кажется я что-то нашла..."
-                n "Не знаю, работает ли эта штука, но попробуй потыкать."
-                n "Если что, открывается на клавишу M."
+                if (not renpy.mobile):
+                    n "Не знаю, работает ли эта штука, но попробуй потыкать."
+                    n "Если что, открывается на клавишу M."
+                else:
+                    if persistent.ch_vol == True:
+                        n "Если что, я закинула ее к настройке громкости."
+                        n "Там как раз была свободная кнопка."
+                    else:
+                        n "Хм-м-м-м..."
+                        n "Судя по файлам, ты сидишь с телефона."
+                        n "Я конечно, не специалист, но мне кажется, что встретить новеллу на телефоне - это та еще редкость."
+                        n "В любом случае, пришлось повозиться, чтобы сделать все удобным."
+                        n "В общем, где-то сверху появится кнопка, там будут все настройки."
                 $persistent.ch_mus = True
                 $persistent.mus_repeat = 1
                 $renpy.save_persistent()
-                $count = 60
-                $timer_jump = "ch1_monologchoice"
-                show screen countdown
-                if persistent.ch_vol == True:
-                    show screen sound_volume_key
-                    show screen volume_key
-                if persistent.ch_mus == True:
-                    show screen music_key
-                call screen talk_button
+                call ch1_loop from _call_ch1_loop_49
 
             if persistent.mus_repeat == 1:
                 n "Хорошо, но зачем ты просишь меня об этом?"
-                n "Просто нажми клавишу [str(persistent.m_key).upper()] и ставь любую музыку."
+                if (not renpy.mobile):
+                    n "Просто нажми клавишу [str(persistent.m_key).upper()] и ставь любую музыку."
+                else:
+                    n "Просто открой плеер и ставь что душе угодно."
                 n "Или ты хочешь, чтобы я выбрала её сама?"
                 $left = False
                 $right = False
@@ -2978,15 +2637,7 @@ label dia_requests:
                         $renpy.save_persistent()
 
 
-                $count = 60
-                $timer_jump = "ch1_monologchoice"
-                show screen countdown
-                if persistent.ch_vol == True:
-                    show screen sound_volume_key
-                    show screen volume_key
-                if persistent.ch_mus == True:
-                    show screen music_key
-                call screen talk_button
+                call ch1_loop from _call_ch1_loop_50
 
         "{i}Можешь поставить музыку, которая тебе нравится?{/i}" if persistent.mus_repeat == 2:
             hide screen countdown
@@ -3023,15 +2674,7 @@ label dia_requests:
             python:
                 set_back_on_prefered()
 
-            $count = 60
-            $timer_jump = "ch1_monologchoice"
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_51
 
 
         "{i}Мне бы хотелось поиграть с тобой во что-то...{/i}" if persistent.f_game == 0:
@@ -3114,14 +2757,7 @@ label dia_requests:
                     n "Ладно, тогда в другой раз."
                     $persistent.f_game = 1
                     $renpy.save_persistent()
-                    $left = False
-                    $right = False
-                    if persistent.ch_vol == True:
-                        show screen sound_volume_key
-                        show screen volume_key
-                    if persistent.ch_mus == True:
-                        show screen music_key
-                    call screen talk_button
+                    call ch1_loop from _call_ch1_loop_52
 
 
         "{i}Я бы хотел поиграть с тобой в вилочки-кексики...{/i}" if persistent.f_game >= 1:
@@ -3172,7 +2808,7 @@ label dia_requests:
 
 
 
-        "{i}Я бы хотел поменять режим экрана...{/i}" if persistent.ch_vol == False and persistent.ch_mus == False and  persistent.first_change == False:
+        "{i}Я бы хотел поменять режим экрана...{/i}" if persistent.ch_vol == False and persistent.ch_mus == False and persistent.first_change == False and (not renpy.mobile):
             hide screen countdown
             if left:
                 show just nat:
@@ -3212,7 +2848,7 @@ label dia_requests:
             jump set_buttons
 
 
-        "{i}Я бы хотел поменять горячие клавиши на другие...{/i}" if (persistent.ch_vol == True or persistent.ch_mus == True) and persistent.first_change == False:
+        "{i}Я бы хотел поменять горячие клавиши на другие...{/i}" if (persistent.ch_vol == True or persistent.ch_mus == True) and persistent.first_change == False and (not renpy.mobile):
             hide screen countdown
             if left:
                 show just nat:
@@ -3248,7 +2884,7 @@ label dia_requests:
 
 
 
-        "{i}Я бы хотел поменять горячие клавиши на другие...{/i}" if persistent.first_change == True:
+        "{i}Я бы хотел поменять горячие клавиши на другие...{/i}" if persistent.first_change == True and (not renpy.mobile):
 
             hide screen countdown
             if left:
@@ -3281,8 +2917,9 @@ label dia_requests:
 
             jump set_buttons
 
-        
-        "{i}Я бы хотел проверить обновления...{/i}":
+
+
+        "{i}Попрощаться...{/i}" if persistent.set_broke == True or renpy.mobile:
             hide screen countdown
             if left:
                 show just nat:
@@ -3292,42 +2929,40 @@ label dia_requests:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-        
-        
-            n "Хорошо, сейчас посмотрю."
-        
-            pause(10)
-        
-        
-            if config.version == check_update():
-                n "На сервере нет ничего новенького."
-                n "Походу обновление ещё делают."
-                n "Ну, ничего, мы подождём, верно?"
-                pause(1)
-        
-            if config.version != check_update():
-        
-                n "О, кажется что-то есть."
-                n "Не терпится узнать что там."
-                n "Ставить будем?"
-        
-                menu:
-                    "Да":
-                        n "Хорошо, сейчас установлю их, жди..."
-                        pause(1)
-                        $ download_update()
-                        pause(1)
-                        n "Подъём, установка завершена!"
-                        n "Надеюсь, никаких багов не будет."
-                        n "Удачи!"
-                        pause(1)
-                        $ renpy.quit()
-                    "Нет":
-                        n "Ну, ладно."
-                        n "Тогда поставлю их в другой раз, если надумаешь."
-                        pause(1)
-        
-            call screen talk_button
+
+            $rand_ans = renpy.random.randint(1,3)
+
+            if rand_ans == 1:
+                n "А… Уже уходишь?"
+                n "Хорошо, спасибо, что предупредил меня."
+                n "Надеюсь, ты уходишь ненадолго, здесь так скучно..."
+                $persistent.bye = True
+                $renpy.save_persistent()
+                call save_exp from _call_save_exp
+
+            if rand_ans == 2:
+                n "Так быстро?"
+                n "Ладно, наверное у тебя какие-то дела или что-то вроде этого."
+                n "В таком случае не буду тебя задерживать, удачи."
+                $persistent.bye = True
+                $renpy.save_persistent()
+                call save_exp from _call_save_exp_1
+
+            if rand_ans == 3:
+                if renpy.mobile:
+                    $dev = "телефоне"
+                else:
+                    $dev = "компьютере"
+                n "Иногда нам нужно побыть наедине со своими мыслями, думаю ты понимаешь..."
+                n "Если не вернёшься – я что-нибудь натворю на твоём [dev], хи-хи-хи...."
+                n "Ладно-ладно, я просто пошутила!"
+                n "Пока!"
+                $persistent.bye = True
+                $renpy.save_persistent()
+                call save_exp from _call_save_exp_2
+
+
+
 
 
 
@@ -3340,14 +2975,7 @@ label dia_requests:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_53
 
         "{i}Забей.{/i}" if refuse_ans == 2:
             if left:
@@ -3358,14 +2986,7 @@ label dia_requests:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_54
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
             if left:
@@ -3376,14 +2997,7 @@ label dia_requests:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_55
 
 
 label dia_philosophy:
@@ -3434,6 +3048,10 @@ label dia_philosophy:
 
     hide screen active_music_key
 
+    hide screen mob_but_curtain
+
+    hide screen mob_active_but_curtain
+
     menu:
         "{i}В чём смысл жизни?{/i}":
             hide screen countdown
@@ -3470,15 +3088,7 @@ label dia_philosophy:
                 $renpy.save_persistent()
                 jump set_name
             else:
-                $count = 60
-                $timer_jump = "ch1_monologchoice"
-                show screen countdown
-                if persistent.ch_vol == True:
-                    show screen sound_volume_key
-                    show screen volume_key
-                if persistent.ch_mus == True:
-                    show screen music_key
-                call screen talk_button
+                call ch1_loop from _call_ch1_loop_56
 
 
 
@@ -3525,15 +3135,7 @@ label dia_philosophy:
                 $renpy.save_persistent()
                 jump set_name
             else:
-                $count = 60
-                $timer_jump = "ch1_monologchoice"
-                show screen countdown
-                if persistent.ch_vol == True:
-                    show screen sound_volume_key
-                    show screen volume_key
-                if persistent.ch_mus == True:
-                    show screen music_key
-                call screen talk_button
+                call ch1_loop from _call_ch1_loop_57
 
 
 
@@ -3567,15 +3169,7 @@ label dia_philosophy:
             n "В любом случае..."
             n "Шанс того, что именно твой мир находится в каком-то компьютере тоже существует, и точка."
 
-            $count = 60
-            $timer_jump = "ch1_monologchoice"
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_58
 
 
 
@@ -3588,14 +3182,7 @@ label dia_philosophy:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_59
 
         "{i}Забей.{/i}" if refuse_ans == 2:
             if left:
@@ -3606,14 +3193,7 @@ label dia_philosophy:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_60
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
             if left:
@@ -3624,15 +3204,7 @@ label dia_philosophy:
                 show just nat:
                     xcenter 930
                     easein 1.00 xcenter 630
-            $left = False
-            $right = False
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_61
 
 
 label cute:
@@ -3655,15 +3227,7 @@ label set_name:
     n "Правда не знаю, настоящее ли оно или же это просто псевдоним."
     n "[player]..."
 
-    $count = 60
-    $timer_jump = "ch1_monologchoice"
-    show screen countdown
-    if persistent.ch_vol == True:
-        show screen sound_volume_key
-        show screen volume_key
-    if persistent.ch_mus == True:
-        show screen music_key
-    call screen talk_button
+    call ch1_loop from _call_ch1_loop_62
 
 
 
@@ -3675,10 +3239,10 @@ label exit_lesshour:
     $ quick_menu = False
     n "А?"
     n "Только хотела мысленно попрощаться с тобой, как ты уже вернулся."
-    n "Заскучал так быстро или просто игру случайно закрыл?"
+    n "Неужель так быстро заскучал?~"
     n "Ладно, неважно..."
     n "С возвращением."
-    call ch1_loop from _call_ch1_loop
+    call ch1_loop from _call_ch1_loop_63
 
 label exit_lessday:
     $ config.allow_skipping = False
@@ -3691,7 +3255,7 @@ label exit_lessday:
     n "Это очень мило с твоей стороны."
     n "Слушай, не мог бы навещать меня почаще?"
     n "Просто... {w}мне даже поговорить не с кем..."
-    call ch1_loop from _call_ch1_loop_1
+    call ch1_loop from _call_ch1_loop_64
 
 label exit_moreday:
     $renpy.block_rollback()
@@ -3709,7 +3273,7 @@ label exit_moreday:
     n "Поэтому я прошу тебя... {w}Не уходи так надолго."
     n "Надеюсь, что мы поняли друг друга."
 
-    call ch1_loop from _call_ch1_loop_2
+    call ch1_loop from _call_ch1_loop_65
 
 
 
@@ -3733,6 +3297,8 @@ label mono1:
     hide screen texts
     hide screen sound_volume_key
     hide screen volume_key
+    hide screen mob_but_curtain
+    hide screen mob_active_but_curtain
     $ config.allow_skipping = False
     $ renpy.save_persistent()
     $ config.skipping = False
@@ -3787,6 +3353,8 @@ label mono2:
     hide screen texts
     hide screen sound_volume_key
     hide screen volume_key
+    hide screen mob_but_curtain
+    hide screen mob_active_but_curtain
     $ config.allow_skipping = False
     $ renpy.save_persistent()
     $ config.skipping = False
@@ -3826,6 +3394,8 @@ label mono3:
     hide screen texts
     hide screen sound_volume_key
     hide screen volume_key
+    hide screen mob_but_curtain
+    hide screen mob_active_but_curtain
     $ config.allow_skipping = False
     $ renpy.save_persistent()
     $ config.skipping = False
@@ -3878,6 +3448,8 @@ label mono4:
     hide screen texts
     hide screen sound_volume_key
     hide screen volume_key
+    hide screen mob_but_curtain
+    hide screen mob_active_but_curtain
     $ config.allow_skipping = False
     $ renpy.save_persistent()
     $ config.skipping = False
@@ -3928,6 +3500,8 @@ label mono5:
     hide screen texts
     hide screen sound_volume_key
     hide screen volume_key
+    hide screen mob_but_curtain
+    hide screen mob_active_but_curtain
     $ config.allow_skipping = False
     $ renpy.save_persistent()
     $ config.skipping = False
@@ -3969,33 +3543,34 @@ label ch1_loop:
                 easein 1.00 xcenter 630
 
     $ config.allow_skipping = False
-    $ renpy.save_persistent()
     $ config.skipping = False
     $ allow_skipping = False
     $ quick_menu = False
     $ count = 60
     $ timer_jump = "ch1_monologchoice"
     show screen countdown
-    show screen set_on_full
 
     $ left = False
     $ right = False
     $is_esc_pressed = False
-    if persistent.ch_vol == True:
-        show screen sound_volume_key
-        show screen volume_key
-    if persistent.ch_mus == True:
-        show screen music_key
+    if not renpy.mobile:
+        show screen set_on_full
+        if persistent.ch_vol == True:
+            show screen sound_volume_key
+            show screen volume_key
+        if persistent.ch_mus == True:
+            show screen music_key
+    else:
+        if persistent.ch_vol == True or persistent.ch_mus == True:
+            show screen mob_but_curtain
+
     call screen talk_button
 
 
 
 
 label ch1_monologchoice:
-    # $persistent.readen = []
-    # $renpy.save_persistent()
     $t = renpy.random.randint(1,5)
-    $is_spoke = list(range(1,6))
 
     if left:
         show just nat:
@@ -4007,8 +3582,7 @@ label ch1_monologchoice:
             easein 1.00 xcenter 630
 
 
-    if persistent.readen != is_spoke:
-        #$ themes = 0
+    if len(persistent.readen) != 5:
         if str(t) in persistent.readen:
             python:
                 while str(t) in persistent.readen:
@@ -4054,12 +3628,12 @@ label ch1_exit:
     $ quick_menu = False
     show mask_2
     show mask_3
-    #show room_mask as rm:
-    #    size (320,180)
-    #    pos (30,200)
-    #show room_mask2 as rm2:
-    #    size (320,180)
-    #    pos (935,200)
+    show room_mask as rm:
+        size (320,180)
+        pos (30,200)
+    show room_mask2 as rm2:
+        size (320,180)
+        pos (935,200)
     show monika_room zorder 1
     show just nat zorder 2
     $track_num = persistent.back_music
@@ -4078,15 +3652,68 @@ label ch1_exit:
         $renpy.music.set_volume(1.0, channel="sound")
 
 
-    if persistent.first_vis == False and persistent.visualiser == True:
-        n "Хорошие новости, [player], я всё-таки смогла починить эту кнопку в плеере."
-        n "Скажу сразу, это было очень сложно."
-        n "Движок игры не сильно дружит с такими штуками..."
-        n "Зато теперь все функции плеера, пусть и с глюками, но работают!"
-        n "Пользуйся ими, только не сломай его, ладно?"
-        $persistent.first_vis = True
+    if persistent.is_glitching == True:
+        if persistent.set_broke == False:
+            scene black
+            pause 10
+            show mask_2
+            show mask_3
+            show room_mask as rm:
+                size (320,180)
+                pos (30,200)
+            show room_mask2 as rm2:
+                size (320,180)
+                pos (935,200)
+            show monika_room zorder 1
+            show just nat zorder 2
+            with Dissolve(1)
+
+            n "И зачем ты это сделал?"
+            n "..."
+            n "Не хочешь, чтобы помогала - так и скажи."
+            n "..."
+            n "Блин, на самом деле я должна сказать спасибо."
+            n "Когда ты выключил игру, я осталась в файлах и все так же могла их редактировать."
+            if renpy.mobile:
+                n "Теперь хоть будет чем заняться, когда ты уйдешь..."
+            else:
+                n "Так что теперь ты можешь попрощаться, когда уходишь."
+            n "Просматривать малопонятный код игры все равно интереснее здешнего варианта сонного паралича..."
+            n "И да, кнопку я починила, хотя ты ее и не заслужил."
+            n "Дурашка..."
+
+            $persistent.fix = True
+            $persistent.set_broke = True
+            $persistent.is_glitching = False
+            $renpy.save_persistent()
+            call ch1_loop from _call_ch1_loop_66
+        else:
+            jump what_was_that
+
+
+
+    if persistent.bye == False and persistent.set_broke == True:
+        $rand_ans = renpy.random.randint(1,2)
+
+        if rand_ans == 1:
+            n "О, всё-таки вернулся."
+            n "Ты почему не попрощался со мной?"
+            n "Как-то неприлично с твоей стороны, дурашка..."
+            n "Ладно, я тебя прощаю, но чтобы такого больше не было!"
+
+        if rand_ans == 2:
+            n "..."
+            n "Мне почему-то казалось, что ты не придёшь."
+            n "Пожалуйста, в следующий раз предупреждай о том, что собираешься уйти, ладно?"
+            n "Скажи спасибо за то, что у меня хорошее настроение, иначе я бы сейчас с тобой поругалась..."
+
+        call ch1_loop from _call_ch1_loop_67
+
+    else:
+        $persistent.bye = False
         $renpy.save_persistent()
-        call ch1_loop from _call_ch1_loop_3
+
+
 
     python:
         if persistent.exp_time != 0:
@@ -4126,8 +3753,6 @@ label save_exp:
     $persistent.exp_time = (datetime.datetime.now()-datetime.datetime(1970,1,1)).total_seconds()
     if renpy.get_screen("set_on_window"):
         $persistent.is_full = True
-    if persistent.is_glitching == True:
-        $persistent.visualiser = True
     $renpy.save_persistent()
     $renpy.quit()
 
@@ -4171,19 +3796,15 @@ label win:
                     $rand_turn = random.randint(1,2)
                     if rand_turn == 1 and sside == "left":
                         n "Я хожу первой!"
-                        #show cft_pole zorder 2 at for_field_l
                         jump change_side
                     if rand_turn == 1 and sside == "right":
                         n "Я хожу первой!"
-                        #show cft_pole zorder 2 at for_field_r
                         jump change_side
                     if rand_turn == 2 and sside == "left":
                         n "Ты ходишь первым."
-                        #show cft_pole zorder 2 at for_field_l
                         call screen cup_fork_toe("left", None)
                     if rand_turn == 2 and sside == "right":
                         n "Ты ходишь первым."
-                        #show cft_pole zorder 2 at for_field_r
                         call screen cup_fork_toe("right", None)
                 "Нет.":
                     n "Почему?"
@@ -4215,29 +3836,16 @@ label win:
                     hide o3
                     hide o4
                     hide cft_pole
-                    $count = 60
-                    #$timer_jump = "ch1_monologchoice"
-                    show screen countdown
-                    if persistent.ch_vol == True:
-                        show screen sound_volume_key
-                        show screen volume_key
-                    if persistent.ch_mus == True:
-                        show screen music_key
-                    call screen talk_button
+                    call ch1_loop from _call_ch1_loop_68
 
         elif persistent.f_game == 2:
             $r_ans = random.randint(1,3)
             if r_ans == 1:
                 n "Я требую реванша!"
-                #n "Безупречная победа!"
                 n "Ты готов?"
-                #n "Может реванш?"
             if r_ans == 2:
                 n "Кажется моя тактика не сработала..."
                 n "Не хочешь сыграть ещё?"
-                #n "Oh, come on, I won!"
-                #n "I think you definitely want a rematch."
-                #n "What do you think?"
             if r_ans == 3:
                 n "Молодец, тебе удалось меня обыграть."
                 n "Может быть, ты хочешь сыграть еще раз?"
@@ -4265,19 +3873,15 @@ label win:
                     $rand_turn = random.randint(1,2)
                     if rand_turn == 1 and sside == "left":
                         n "Я хожу первой!"
-                        #show cft_pole zorder 2 at for_field_l
                         jump change_side
                     if rand_turn == 1 and sside == "right":
                         n "Я хожу первой!"
-                        #show cft_pole zorder 2 at for_field_r
                         jump change_side
                     if rand_turn == 2 and sside == "left":
                         n "Ты ходишь первым."
-                        #show cft_pole zorder 2 at for_field_l
                         call screen cup_fork_toe("left", None)
                     if rand_turn == 2 and sside == "right":
                         n "Ты ходишь первым."
-                        #show cft_pole zorder 2 at for_field_r
                         call screen cup_fork_toe("right", None)
                 "Нет.":
                     n "М?"
@@ -4307,15 +3911,7 @@ label win:
                     hide o3
                     hide o4
                     hide cft_pole
-                    $count = 60
-                    #$timer_jump = "ch1_monologchoice"
-                    show screen countdown
-                    if persistent.ch_vol == True:
-                        show screen sound_volume_key
-                        show screen volume_key
-                    if persistent.ch_mus == True:
-                        show screen music_key
-                    call screen talk_button
+                    call ch1_loop from _call_ch1_loop_69
 
 
     elif result == 'O':
@@ -4348,19 +3944,15 @@ label win:
                     $rand_turn = random.randint(1,2)
                     if rand_turn == 1 and sside == "left":
                         n "Я хожу первой!"
-                        #show cft_pole zorder 2 at for_field_l
                         jump change_side
                     if rand_turn == 1 and sside == "right":
                         n "Я хожу первой!"
-                        #show cft_pole zorder 2 at for_field_r
                         jump change_side
                     if rand_turn == 2 and sside == "left":
                         n "Ты ходишь первым."
-                        #show cft_pole zorder 2 at for_field_l
                         call screen cup_fork_toe("left", None)
                     if rand_turn == 2 and sside == "right":
                         n "Ты ходишь первым."
-                        #show cft_pole zorder 2 at for_field_r
                         call screen cup_fork_toe("right", None)
                 "Нет.":
                     n "Почему?"
@@ -4392,15 +3984,7 @@ label win:
                     hide o3
                     hide o4
                     hide cft_pole
-                    $count = 60
-                    #$timer_jump = "ch1_monologchoice"
-                    show screen countdown
-                    if persistent.ch_vol == True:
-                        show screen sound_volume_key
-                        show screen volume_key
-                    if persistent.ch_mus == True:
-                        show screen music_key
-                    call screen talk_button
+                    call ch1_loop from _call_ch1_loop_70
 
         elif persistent.f_game == 2:
             $r_ans = random.randint(1,3)
@@ -4438,19 +4022,15 @@ label win:
                     $rand_turn = random.randint(1,2)
                     if rand_turn == 1 and sside == "left":
                         n "Я хожу первой!"
-                        #show cft_pole zorder 2 at for_field_l
                         jump change_side
                     if rand_turn == 1 and sside == "right":
                         n "Я хожу первой!"
-                        #show cft_pole zorder 2 at for_field_r
                         jump change_side
                     if rand_turn == 2 and sside == "left":
                         n "Ты ходишь первым."
-                        #show cft_pole zorder 2 at for_field_l
                         call screen cup_fork_toe("left", None)
                     if rand_turn == 2 and sside == "right":
                         n "Ты ходишь первым."
-                        #show cft_pole zorder 2 at for_field_r
                         call screen cup_fork_toe("right", None)
                 "Нет.":
                     n "М?"
@@ -4480,15 +4060,7 @@ label win:
                     hide o3
                     hide o4
                     hide cft_pole
-                    $count = 60
-                    #$timer_jump = "ch1_monologchoice"
-                    show screen countdown
-                    if persistent.ch_vol == True:
-                        show screen sound_volume_key
-                        show screen volume_key
-                    if persistent.ch_mus == True:
-                        show screen music_key
-                    call screen talk_button
+                    call ch1_loop from _call_ch1_loop_71
 
 
 
@@ -4523,15 +4095,7 @@ label win:
             hide o3
             hide o4
             hide cft_pole
-            $count = 60
-            #$timer_jump = "ch1_monologchoice"
-            show screen countdown
-            if persistent.ch_vol == True:
-                show screen sound_volume_key
-                show screen volume_key
-            if persistent.ch_mus == True:
-                show screen music_key
-            call screen talk_button
+            call ch1_loop from _call_ch1_loop_72
 
         elif persistent.f_game == 2:
             $r_ans = random.randint(1,2)
@@ -4565,19 +4129,15 @@ label win:
                     $rand_turn = random.randint(1,2)
                     if rand_turn == 1 and sside == "left":
                         n "Я хожу первой!"
-                        #show cft_pole zorder 2 at for_field_l
                         jump change_side
                     if rand_turn == 1 and sside == "right":
                         n "Я хожу первой!"
-                        #show cft_pole zorder 2 at for_field_r
                         jump change_side
                     if rand_turn == 2 and sside == "left":
                         n "Ты ходишь первым."
-                        #show cft_pole zorder 2 at for_field_l
                         call screen cup_fork_toe("left", None)
                     if rand_turn == 2 and sside == "right":
                         n "Ты ходишь первым."
-                        #show cft_pole zorder 2 at for_field_r
                         call screen cup_fork_toe("right", None)
                 "No.":
                     n "М?"
@@ -4607,24 +4167,14 @@ label win:
                     hide o3
                     hide o4
                     hide cft_pole
-                    $count = 60
-                    #$timer_jump = "ch1_monologchoice"
-                    show screen countdown
-                    if persistent.ch_vol == True:
-                        show screen sound_volume_key
-                        show screen volume_key
-                    if persistent.ch_mus == True:
-                        show screen music_key
-                    call screen talk_button
+                    call ch1_loop from _call_ch1_loop_73
 
 
 
 
 label change_side:
-    #hide screen countdown
     pause 5
     $play(None, None, "O", 0, 0)
-    #pause 2
     if left == True or sside == "left":
         call screen cup_fork_toe("left", None)
     if right == True or sside == "right":
@@ -4717,42 +4267,86 @@ label set_buttons:
         show just nat:
             xcenter 930
             easein 1.00 xcenter 630
-    $left = False
-    $right = False
-
-
-    if persistent.ch_vol == True:
-        show screen sound_volume_key
-        show screen volume_key
-    if persistent.ch_mus == True:
-        show screen music_key
-    call screen talk_button
+    call ch1_loop from _call_ch1_loop_74
 
 
 
 
 
 label what_was_that:
-    pause(2)
+    pause 2
     n "Ой, что произошло?"
     n "Кажется у плеера всё-таки есть повреждённый код."
     n "Здесь должен был быть визуализатор."
     n "Ну, знаешь, эти полоски, которые дрыгаются под ритм музыки."
-    n "Думаю, я починю её, когда останусь одна..."
+    n "Похоже, придется разбираться..."
+    scene black
+    with Dissolve(1)
+    pause 10
+    n "Хм-м-м-м..."
+    pause 15
+    n "И почему все так сложно?!"
+    n "Придется тебе немного подождать."
+    n "Движок игры не сильно дружит с такими штуками."
+    n "Пожелай удачи хоть..."
+    $persistent.set_broke = False
+    $renpy.save_persistent()
+    pause 149
+    n "Да неужели?"
+    n "Опять?"
+    n "И зачем я только согласилась..."
+    pause 3
+    show mask_2
+    show mask_3
+    show room_mask as rm:
+        size (320,180)
+        pos (30,200)
+    show room_mask2 as rm2:
+        size (320,180)
+        pos (935,200)
+    show monika_room zorder 1
+    show just nat zorder 2
+    with Dissolve(1)
+    n "В общем, теперь все должно работать, но... {w}Есть небольшие визуальные баги..."
+    n "Зато теперь все функции плеера, пусть и с глюками, но работают!"
+    n "Это тебе не просто пару строчек в файлах сменить, да, Моника?!"
+    pause 1
+    n "Кхм, прости..."
+    n "Пользуйся, только ничего не сломай, ладно?"
+    n "Потому что второй раз я переписывать не собираюсь!"
 
-    call screen talk_button
+    $persistent.is_glitching = False
+    $persistent.fix = True
+    $renpy.save_persistent()
+
+    call ch1_loop from _call_ch1_loop_75
+
+
+
+label mob_vol:
+    show screen vol_mob_enable_change
+    $ui.interact()
+    jump mob_vol
+
+
+label mob_sound:
+    show screen sound_mob_enable_change
+    $ui.interact()
+    jump mob_sound
+
 
 
 
 
 #label update_say:
 
-#   n "ТУТ ТИПА ДИАЛОГИ, В КОТОРЫХ НАЦУКИ ПРЕДЛАГАЕТ ОБНОВИТЬСЯ"
-#  menu:
-#     "Обновиться сейчас":
-    #        $ download_update()
-    #       $ persistent.f_update = True
+ #   n "ТУТ ТИПА ДИАЛОГИ, В КОТОРЫХ НАЦУКИ ПРЕДЛАГАЕТ ОБНОВИТЬСЯ"
 
-    #  "Потом":
-    #     $ persistent.f_update = True
-    #    $ persistent.f_update_show = False
+  #  menu:
+   #     "Обновиться сейчас":
+    #        $ download_update()
+     #       $ persistent.f_update = True
+
+      #  "Потом":
+       #     $ persistent.f_update = True
+        #    $ persistent.f_update_show = False
