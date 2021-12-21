@@ -1,0 +1,10 @@
+
+.android.json
+characters/monika.chr
+characters/sayori.chr
+characters/yuri.chr
+game/cache/bytecode.rpyb
+game/cache/pyanalysis.rpyb
+game/cache/screens.rpyb
+*.rpyc
+*.rpyc
