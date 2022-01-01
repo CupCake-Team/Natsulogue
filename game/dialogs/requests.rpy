@@ -506,7 +506,7 @@ label dia_requests:
             jump set_buttons
 
 
-
+        
         "{i}Попрощаться...{/i}" if persistent.set_broke == True or renpy.mobile:
             hide screen countdown
             if left:
@@ -553,6 +553,26 @@ label dia_requests:
 
 
 
+        "Я хочу включить Параллакс":
+            hide screen countdown
+            if left:
+                show just nat:
+                    xcenter 330
+                    easein 1.00 xcenter 630
+            if right:
+                show just nat:
+                    xcenter 930
+                    easein 1.00 xcenter 630
+            n "Хорошо."
+            show monika_room:
+                subpixel True
+                topleft
+                zoom 1.015
+                block:
+                    function parallax
+                    repeat 
+            n "Вроде готово :/"
+            call ch1_loop from _call_ch1_loop_15
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
             if left:
