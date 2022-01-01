@@ -56,8 +56,11 @@ init python:
         _windows_hidden = True
         renpy.pause(time)
         _windows_hidden = False
-
-
+    def parallax(tf, st, tb):
+        x, y = renpy.get_mouse_pos()
+        w, h = renpy.get_physical_size()
+        tf.align = (float(x) / w, float(y) / h)
+        return 0
 
 
 
@@ -133,7 +136,7 @@ image end:
 image bg residential_day = "bg/residential.png"
 image bg class_day = "bg/class.png"
 image bg corridor = "bg/corridor.png"
-image bg club_day = "bg/club.png"
+image bg club_day = "images/bg/club.png"
 image bg club_day2:
     choice:
         "bg club_day"
@@ -237,7 +240,6 @@ image glitch_color2:
     parallel:
         alpha 0.7
         linear 0.45 alpha 0
-
 
 
 

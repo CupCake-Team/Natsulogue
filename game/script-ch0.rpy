@@ -117,8 +117,8 @@ image mask_3:
         xoffset 1280
         linear 180 xoffset 0
         repeat
-
-image monika_room = "images/cg/monika/monika_room.png"
+image monika_room= "images/cg/monika/monika_room.png"
+    
 
 image monika_bg = "images/cg/monika/monika_bg.png"
 image monika_bg_highlight:
