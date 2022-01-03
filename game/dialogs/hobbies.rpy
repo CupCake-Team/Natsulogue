@@ -11,11 +11,11 @@ label dia_hobbies:
         $left = False
 
     if left:
-        show just nat:
+        show natsuki_room r1:
             xcenter 630
             easein 1.00 xcenter 330
     if right:
-        show just nat:
+        show natsuki_room r1:
             xcenter 630
             easein 1.00 xcenter 930
 
@@ -53,11 +53,11 @@ label dia_hobbies:
         "{i}Почему тебе так нравится готовка?{/i}":
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             n "Я рада, что ты спросил меня об этом."
@@ -98,11 +98,11 @@ label dia_hobbies:
         "{i}Как ты полюбила мангу?{/i}":
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -137,11 +137,11 @@ label dia_hobbies:
         "{i}Ты играешь в видеоигры?{/i}":
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -169,11 +169,11 @@ label dia_hobbies:
         "{i}Как ты относишься к серьёзной литературе?{/i}":
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -194,33 +194,33 @@ label dia_hobbies:
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_12
 
         "{i}Забей.{/i}" if refuse_ans == 2:
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_13
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_14

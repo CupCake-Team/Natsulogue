@@ -93,12 +93,7 @@ image maskb:
     xtile 3
 
 image mask_test = AnimatedMask("#ff6000", "mask_mask", "maskb", 0.10, 32)
-
-
 image mask_test2 = AnimatedMask("#ffffff", "mask_mask", "maskb", 0.03, 16)
-
-
-
 image mask_test3 = AnimatedMask("#ff6000", "mask_mask_flip", "maskb", 0.10, 32)
 image mask_test4 = AnimatedMask("#ffffff", "mask_mask_flip", "maskb", 0.03, 16)
 
@@ -802,7 +797,7 @@ label ch1_main:
         pos (935,200)
 
     show monika_room
-    show just nat:
+    show natsuki_room r1:
         ypos 50
         xalign 0.5
 
@@ -845,7 +840,7 @@ label ch1_main:
                 pos (935,200)
 
             show monika_room zorder 1
-            show just nat zorder 2
+            show natsuki_room r1 zorder 2
             with Dissolve(1.0)
 
             n "Ого, я что-то нашла!"
@@ -888,7 +883,7 @@ label ch1_refuse:
         pos (935,200)
 
     show monika_room zorder 1
-    show just nat zorder 2
+    show natsuki_room r1 zorder 2
     play music m1
     n "О... {w}Явился - не запылился."
     n "Ладно, сделаю вид что твой отказ был дурацкой попыткой пошутить."
@@ -903,7 +898,7 @@ label ch1_refuse:
     $rand_except = renpy.random.randint(1,2)
 
     if rand_except == 1:
-        hide just nat
+        hide natsuki_room r1
         show fake_except_bg zorder 1
         show fake_except_1 zorder 1:
             xpos 0.1 ypos 0.05
@@ -914,7 +909,7 @@ label ch1_refuse:
         show fake_except_4 zorder 1:
             xpos 0.1 ypos 0.21
         $pause(2)
-        show just nat zorder 2
+        show natsuki_room r1 zorder 2
         n "А нет, всё-таки не всё..."
         $pause(1.5)
         hide fake_except_bg
@@ -950,7 +945,7 @@ label ch1_wait_refuse:
         pos (935,200)
 
     show monika_room zorder 1
-    show just nat zorder 2
+    show natsuki_room r1 zorder 2
     play music m1
 
     n "А...?"
@@ -1039,11 +1034,11 @@ label exit_moreday:
 label ch1_loop:
     if is_esc_pressed == True:
         if left:
-            show just nat:
+            show natsuki_room r1:
                 xcenter 330
                 easein 1.00 xcenter 630
         if right:
-            show just nat:
+            show natsuki_room r1:
                 xcenter 930
                 easein 1.00 xcenter 630
 
@@ -1093,7 +1088,7 @@ label ch1_exit:
         size (320,180)
         pos (935,200)
     show monika_room zorder 1
-    show just nat zorder 2
+    show natsuki_room r1 zorder 2
     $track_num = persistent.back_music
     $renpy.music.play(music_list[track_num], channel="music")
     if persistent.ch_vol == True:
@@ -1123,7 +1118,7 @@ label ch1_exit:
                 size (320,180)
                 pos (935,200)
             show monika_room zorder 1
-            show just nat zorder 2
+            show natsuki_room r1 zorder 2
             with Dissolve(1)
 
             n "И зачем ты это сделал?"
@@ -1271,11 +1266,11 @@ label win:
                     $persistent.f_game = 2
                     $renpy.save_persistent()
                     if sside == "left":
-                        show just nat:
+                        show natsuki_room r1:
                             xcenter 330
                             easein 1.00 xcenter 630
                     if sside == "right":
-                        show just nat:
+                        show natsuki_room r1:
                             xcenter 930
                             easein 1.00 xcenter 630
                     hide x0
@@ -1346,11 +1341,11 @@ label win:
                     n "Ну, ладно, как хочешь."
                     n "Если что, можем сыграть позже."
                     if sside == "left":
-                        show just nat:
+                        show natsuki_room r1:
                             xcenter 330
                             easein 1.00 xcenter 630
                     if sside == "right":
-                        show just nat:
+                        show natsuki_room r1:
                             xcenter 930
                             easein 1.00 xcenter 630
                     hide x0
@@ -1419,11 +1414,11 @@ label win:
                     $persistent.f_game = 2
                     $renpy.save_persistent()
                     if sside == "left":
-                        show just nat:
+                        show natsuki_room r1:
                             xcenter 330
                             easein 1.00 xcenter 630
                     if sside == "right":
-                        show just nat:
+                        show natsuki_room r1:
                             xcenter 930
                             easein 1.00 xcenter 630
                     hide x0
@@ -1495,11 +1490,11 @@ label win:
                     n "Ну, ладно, как хочешь."
                     n "Если что, можем сыграть позже."
                     if sside == "left":
-                        show just nat:
+                        show natsuki_room r1:
                             xcenter 330
                             easein 1.00 xcenter 630
                     if sside == "right":
-                        show just nat:
+                        show natsuki_room r1:
                             xcenter 930
                             easein 1.00 xcenter 630
                     hide x0
@@ -1530,11 +1525,11 @@ label win:
             $persistent.f_game = 2
             $renpy.save_persistent()
             if sside == "left":
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if sside == "right":
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             hide x0
@@ -1602,11 +1597,11 @@ label win:
                     n "Ну, ладно, как хочешь."
                     n "Если что, можем сыграть позже."
                     if sside == "left":
-                        show just nat:
+                        show natsuki_room r1:
                             xcenter 330
                             easein 1.00 xcenter 630
                     if sside == "right":
-                        show just nat:
+                        show natsuki_room r1:
                             xcenter 930
                             easein 1.00 xcenter 630
                     hide x0
@@ -1718,11 +1713,11 @@ label set_buttons:
 
 
     if left:
-        show just nat:
+        show natsuki_room r1:
             xcenter 330
             easein 1.00 xcenter 630
     if right:
-        show just nat:
+        show natsuki_room r1:
             xcenter 930
             easein 1.00 xcenter 630
     call ch1_loop from _call_ch1_loop_74
@@ -1763,7 +1758,7 @@ label what_was_that:
         size (320,180)
         pos (935,200)
     show monika_room zorder 1
-    show just nat zorder 2
+    show natsuki_room r1 zorder 2
     with Dissolve(1)
     n "В общем, теперь все должно работать, но... {w}Есть небольшие визуальные баги..."
     n "Зато теперь все функции плеера, пусть и с глюками, но работают!"

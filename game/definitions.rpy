@@ -241,6 +241,54 @@ image glitch_color2:
         alpha 0.7
         linear 0.45 alpha 0
 
+image natsuki_room r1:
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/a.png",)
+    zoom 0.5
+image natsuki_room r1a:
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/a.png")
+    zoom 0.5
+image natsuki_room r1b:
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/b.png")
+    zoom 0.5
+image natsuki_room r1c:
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/c.png")
+    zoom 0.5
+image natsuki_room r1d:
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/d.png")
+    zoom 0.5
+image natsuki_room r1e:
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/e.png")
+    zoom 0.5
+image natsuki_room r1f:
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/f.png")
+    zoom 0.5
+image natsuki_room r1g:
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/g.png")
+    zoom 0.5
+image natsuki_room r1h:
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/h.png")
+    zoom 0.5
+image natsuki_room r1i:
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/i.png")
+    zoom 0.5
+image natsuki_room r1j:
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/j.png")
+    zoom 0.5
+image natsuki_room r1k:
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/k.png")
+    zoom 0.5
+image natsuki_room r1l:
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/l.png")
+    zoom 0.5
+image natsuki_room r1m:
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/m.png")
+    zoom 0.5
+image natsuki_room r1n:
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/n.png")
+    zoom 0.5
+image natsuki_room r1o:
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/o.png")
+    zoom 0.5
 
 
 image sayori 1 = im.Composite((960, 960), (0, 0), "sayori/1l.png", (0, 0), "sayori/1r.png", (0, 0), "sayori/a.png")
@@ -798,7 +846,7 @@ image natsuki 5 = im.Composite((960, 960), (18, 22), "natsuki/1t.png", (0, 0), "
 image natsuki mouth = LiveComposite((960, 960), (0, 0), "natsuki/0.png", (390, 340), "n_rects_mouth", (480, 334), "n_rects_mouth")
 
 
-image just nat = "cg/monika/nat_bg.png"
+image just1 nat = "cg/monika/nat_bg.png"
 image move nat = "cg/monika/move.png"
 
 image n_rects_mouth:
@@ -1321,7 +1369,7 @@ define narrator = Character(ctc="ctc", ctc_position="fixed")
 define mc = DynamicCharacter('player', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
 define s = DynamicCharacter('s_name', image='sayori', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
 define m = DynamicCharacter('m_name', image='monika', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
-define n = DynamicCharacter('n_name', image='natsuki', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
+define n = DynamicCharacter('n_name', image='natsuki' and 'natsuki_room', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
 define y = DynamicCharacter('y_name', image='yuri', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
 define ny = Character('Nat & Yuri', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
 

@@ -11,11 +11,11 @@ label dia_personality:
         $left = False
 
     if left:
-        show just nat:
+        show natsuki_room r1:
             xcenter 630
             easein 1.00 xcenter 330
     if right:
-        show just nat:
+        show natsuki_room r1:
             xcenter 630
             easein 1.00 xcenter 930
 
@@ -53,11 +53,11 @@ label dia_personality:
         "{i}Какой жанр музыки ты предпочитаешь?{/i}":
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -79,11 +79,11 @@ label dia_personality:
         "{i}Как ты обрела самосозание?{/i}":
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -116,11 +116,11 @@ label dia_personality:
         "{i}Какой твой любимый цвет?{/i}":
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -140,11 +140,11 @@ label dia_personality:
         "{i}Как ты относишься к своему отцу?{/i}":
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -174,11 +174,11 @@ label dia_personality:
         "{i}Какое твоё любимое время года?{/i}":
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -208,33 +208,33 @@ label dia_personality:
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_5
 
         "{i}Забей.{/i}" if refuse_ans == 2:
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_6
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_7
