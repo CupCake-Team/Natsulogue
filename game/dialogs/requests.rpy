@@ -11,11 +11,11 @@ label dia_requests:
         $left = False
 
     if left:
-        show just nat:
+        show natsuki_room r1:
             xcenter 630
             easein 1.00 xcenter 330
     if right:
-        show just nat:
+        show natsuki_room r1:
             xcenter 630
             easein 1.00 xcenter 930
 
@@ -53,11 +53,11 @@ label dia_requests:
         "{i}Я бы хотел изменить громкость звука...{/i}":
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -79,7 +79,7 @@ label dia_requests:
                     size (320,180)
                     pos (935,200)
                 show monika_room zorder 1
-                show just nat zorder 2
+                show natsuki_room r1 zorder 2
                 with Dissolve(1.0)
                 show screen wowcup
                 n "Хорошо, что я не прогуливала уроки информатики..."
@@ -142,11 +142,11 @@ label dia_requests:
         "{i}Я бы хотел поменять музыку...{/i}" if persistent.mus_repeat == 0 or persistent.mus_repeat == 1:
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             if persistent.mus_repeat == 0:
@@ -168,7 +168,7 @@ label dia_requests:
                     size (320,180)
                     pos (935,200)
                 show monika_room zorder 1
-                show just nat zorder 2
+                show natsuki_room r1 zorder 2
                 with Dissolve(1.0)
                 show screen wowcup
                 n "Ха?"
@@ -230,11 +230,11 @@ label dia_requests:
         "{i}Можешь поставить музыку, которая тебе нравится?{/i}" if persistent.mus_repeat == 2:
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -268,11 +268,11 @@ label dia_requests:
         "{i}Мне бы хотелось поиграть с тобой во что-то...{/i}" if persistent.f_game == 0:
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             $left = False
@@ -305,28 +305,28 @@ label dia_requests:
                     $rand_turn = random.randint(1,2)
                     if rand_turn == 1 and left == True:
                         n "Я хожу первой!"
-                        show just nat:
+                        show natsuki_room r1:
                             xcenter 630
                             easein 1.00 xcenter 330
                         show cft_pole zorder 2 at for_field_l
                         jump change_side
                     if rand_turn == 1 and right == True:
                         n "Я хожу первой!"
-                        show just nat:
+                        show natsuki_room r1:
                             xcenter 630
                             easein 1.00 xcenter 930
                         show cft_pole zorder 2 at for_field_r
                         jump change_side
                     if rand_turn == 2 and left == True:
                         n "Ты ходишь первым."
-                        show just nat:
+                        show natsuki_room r1:
                             xcenter 630
                             easein 1.00 xcenter 330
                         show cft_pole zorder 2 at for_field_l
                         call screen cup_fork_toe("left", None)
                     if rand_turn == 2 and right == True:
                         n "Ты ходишь первым."
-                        show just nat:
+                        show natsuki_room r1:
                             xcenter 630
                             easein 1.00 xcenter 930
                         show cft_pole zorder 2 at for_field_r
@@ -351,11 +351,11 @@ label dia_requests:
         "{i}Я бы хотел поиграть с тобой в вилочки-кексики...{/i}" if persistent.f_game >= 1:
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             $r_ans = random.randint(1,2)
@@ -367,28 +367,28 @@ label dia_requests:
             $rand_turn = random.randint(1,2)
             if rand_turn == 1 and left == True:
                 n "Я хожу первой!"
-                show just nat:
+                show natsuki_room r1:
                     xcenter 630
                     easein 1.00 xcenter 330
                 show cft_pole zorder 2 at for_field_l
                 jump change_side
             if rand_turn == 1 and right == True:
                 n "Я хожу первой!"
-                show just nat:
+                show natsuki_room r1:
                     xcenter 630
                     easein 1.00 xcenter 930
                 show cft_pole zorder 2 at for_field_r
                 jump change_side
             if rand_turn == 2 and left == True:
                 n "Ты ходишь первым."
-                show just nat:
+                show natsuki_room r1:
                     xcenter 630
                     easein 1.00 xcenter 330
                 show cft_pole zorder 2 at for_field_l
                 call screen cup_fork_toe("left", None)
             if rand_turn == 2 and right == True:
                 n "Ты ходишь первым."
-                show just nat:
+                show natsuki_room r1:
                     xcenter 630
                     easein 1.00 xcenter 930
                 show cft_pole zorder 2 at for_field_r
@@ -399,11 +399,11 @@ label dia_requests:
         "{i}Я бы хотел поменять режим экрана...{/i}" if persistent.ch_vol == False and persistent.ch_mus == False and persistent.first_change == False and (not renpy.mobile):
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -422,11 +422,11 @@ label dia_requests:
 
 
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 630
                     easein 1.00 xcenter 330
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 630
                     easein 1.00 xcenter 930
 
@@ -439,11 +439,11 @@ label dia_requests:
         "{i}Я бы хотел поменять горячие клавиши на другие...{/i}" if (persistent.ch_vol == True or persistent.ch_mus == True) and persistent.first_change == False and (not renpy.mobile):
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -457,11 +457,11 @@ label dia_requests:
 
 
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 630
                     easein 1.00 xcenter 330
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 630
                     easein 1.00 xcenter 930
 
@@ -476,11 +476,11 @@ label dia_requests:
 
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -495,11 +495,11 @@ label dia_requests:
 
 
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 630
                     easein 1.00 xcenter 330
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 630
                     easein 1.00 xcenter 930
 
@@ -510,11 +510,11 @@ label dia_requests:
         "{i}Попрощаться...{/i}" if persistent.set_broke == True or renpy.mobile:
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -556,11 +556,11 @@ label dia_requests:
         "Я хочу включить Параллакс":
             hide screen countdown
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             n "Хорошо."
@@ -576,33 +576,33 @@ label dia_requests:
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_53
 
         "{i}Забей.{/i}" if refuse_ans == 2:
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_54
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
             if left:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show just nat:
+                show natsuki_room r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_55

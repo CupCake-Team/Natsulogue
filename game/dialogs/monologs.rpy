@@ -1,10 +1,10 @@
 label mono1:
     if left:
-        show just nat:
+        show natsuki_room r1:
             xcenter 330
             easein 1.00 xcenter 630
     if right:
-        show just nat:
+        show natsuki_room r1:
             xcenter 930
             easein 1.00 xcenter 630
     $left = False
@@ -56,11 +56,11 @@ label mono1:
 
 label mono2:
     if left:
-        show just nat:
+        show natsuki_room r1:
             xcenter 330
             easein 1.00 xcenter 630
     if right:
-        show just nat:
+        show natsuki_room r1:
             xcenter 930
             easein 1.00 xcenter 630
     $left = False
@@ -97,11 +97,11 @@ label mono2:
 
 label mono3:
     if left:
-        show just nat:
+        show natsuki_room r1:
             xcenter 330
             easein 1.00 xcenter 630
     if right:
-        show just nat:
+        show natsuki_room r1:
             xcenter 930
             easein 1.00 xcenter 630
     $ left = False
@@ -151,11 +151,11 @@ label mono3:
 
 label mono4:
     if left:
-        show just nat:
+        show natsuki_room r1:
             xcenter 330
             easein 1.00 xcenter 630
     if right:
-        show just nat:
+        show natsuki_room r1:
             xcenter 930
             easein 1.00 xcenter 630
     $left = False
@@ -203,11 +203,11 @@ label mono4:
 
 label mono5:
     if left:
-        show just nat:
+        show natsuki_room r1:
             xcenter 330
             easein 1.00 xcenter 630
     if right:
-        show just nat:
+        show natsuki_room r1:
             xcenter 930
             easein 1.00 xcenter 630
     $left = False
@@ -251,11 +251,11 @@ label ch1_monologchoice:
     $t = renpy.random.randint(1,5)
 
     if left:
-        show just nat:
+        show natsuki_room r1:
             xcenter 330
             easein 1.00 xcenter 630
     if right:
-        show just nat:
+        show natsuki_room r1:
             xcenter 930
             easein 1.00 xcenter 630
 
