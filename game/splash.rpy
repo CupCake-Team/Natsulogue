@@ -1,8 +1,3 @@
-
-
-
-
-
 init python:
     import sys, pickle
     from os.path import abspath
@@ -100,8 +95,6 @@ init python:
                 s.width = random.random() * self.areaWidth / 2
                 s.height = random.random() * self.areaHeight / 2
             return 0
-
-
 
 default l_u_l = True
 default r_u_l = True

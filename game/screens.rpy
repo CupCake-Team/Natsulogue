@@ -414,8 +414,11 @@ screen preferences():
                     label _("Пропускать")
                     textbutton _("Непрочитанное") action Preference("skip", "toggle")
                     textbutton _("После выбора") action Preference("after choices", "toggle")
-
-
+                vbox:
+                    style_prefix "radio"
+                    label _("Язык")
+                    textbutton _("Русский") action Language(None) 
+                    textbutton _("English") action Language("English")
 
 
 
