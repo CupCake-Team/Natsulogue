@@ -797,9 +797,7 @@ label ch1_main:
         pos (935,200)
 
     show monika_room
-    show natsuki_room r1:
-        ypos 50
-        xalign 0.5
+    show natsuki_room r1
 
     with Dissolve(1.0)
 
