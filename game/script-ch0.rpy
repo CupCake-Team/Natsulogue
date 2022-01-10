@@ -780,7 +780,8 @@ label ch1_main:
             pass
     #менюшка с yes без ожидания ответа(мб в будущем с ожиданием)
     call hideconsole () from _call_hideconsole_2
-    n 1p "Ва?!"
+    show natsuki 1p zorder 2 at t11
+    n "Ва?!"
     n 1h "Значит ты здесь..."
     n 1w "Так, стоп!"
     n 1v "Неужели ты видел всё, что происходило до этого?!"
