@@ -127,7 +127,7 @@ init python:
 
 
     def but_coord(but, coord):
-        #mob_dict = {"1":[0.385, 1.13], "1a":[0.36, 1.09], "2":[0.43, 0.99], "2a":[0.415, 0.95], "3":[0.5, 0.90], "3a":[0.5, 0.87], "4":[0.573, 0.99], "4a":[0.588, 0.95], "5":[0.615, 1.13], "5a":[0.64, 1.09], "but":[145, 260], "1b":[0.375, 1.032], "2b":[0.420, 0.88], "3b":[0.5, 0.8], "4b":[0.58, 0.88], "5b":[0.625, 1.032], "sens":[True, False]}
+        mob_dict = {"1":[0.385, 1.13], "1a":[0.36, 1.09], "2":[0.43, 0.99], "2a":[0.415, 0.95], "3":[0.5, 0.90], "3a":[0.5, 0.87], "4":[0.573, 0.99], "4a":[0.588, 0.95], "5":[0.615, 1.13], "5a":[0.64, 1.09], "but":[145, 260], "1b":[0.375, 1.032], "2b":[0.420, 0.88], "3b":[0.5, 0.8], "4b":[0.58, 0.88], "5b":[0.625, 1.032], "sens":[True, False]}
 
         pc_dict = {"1":[0.422, 1.072], "1a":[0.398, 1.033], "2":[0.452, 0.98], "2a":[0.437, 0.943], "3":[0.5, 0.918], "3a":[0.5, 0.858], "4":[0.549, 0.982], "4a":[0.564, 0.937], "5":[0.58, 1.072], "5a":[0.607, 1.034], "but":[120, 213], "1b":[0.422, 1.032], "2b":[0.452, 0.940], "3b":[0.5, 0.878], "4b":[0.549, 0.942], "5b":[0.580, 1.032]}
 
@@ -1451,7 +1451,7 @@ screen con_volume():
 
     elif num < 1:
 
-        key "mouseup_3" action [SetVariable("vlm", 0.0), SetVariable("num", 0), SetVariable("grad", 0), Function(renpy.music.stop, channel="music"), Show("vol_texts"), Function(renpy.show, "level_cir", at_list=[vol_level_animation], zorder=4)]
+        key "mouseup_3"action [SetVariable("vlm", 0.0), SetVariable("num", 0), SetVariable("grad", 0), Function(renpy.music.stop, channel="music"), Show("vol_texts"), Function(renpy.show, "level_cir", at_list=[vol_level_animation], zorder=4)]
 
         key "mouseup_4" action [SetVariable("num", num + 1), SetVariable("vlm", vlm + 0.01), SetVariable("grad", grad + 1), Function(renpy.music.set_volume, vlm, channel="music"), Show("vol_texts"), Function(renpy.show, "level_cir", at_list=[vol_level_animation], zorder=4)]
 
@@ -1824,3 +1824,6 @@ screen set_on_window():
 
 screen set_on_beginning():
     on "show" action Preference("display", "fullscreen")
+
+
+#-----------------------------------------------Оригинальные экраны----------------------------------------------------

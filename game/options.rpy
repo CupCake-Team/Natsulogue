@@ -19,7 +19,7 @@ define gui.show_name = False
 
 
 
-define config.version = "-0.0.5"
+define config.version = "Alpha 0.0.3"
 
 
 
@@ -156,7 +156,6 @@ define config.predict_statements = 50
 define config.rollback_enabled = False
 define config.menu_clear_layers = ["front"]
 define config.gl_test_image = "white"
-
 
 init python:
     if len(renpy.loadsave.location.locations) > 1: del(renpy.loadsave.location.locations[1])

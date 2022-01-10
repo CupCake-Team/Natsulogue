@@ -1,3 +1,8 @@
+
+
+
+
+
 init python:
     import sys, pickle
     from os.path import abspath
@@ -96,6 +101,8 @@ init python:
                 s.height = random.random() * self.areaHeight / 2
             return 0
 
+
+
 default l_u_l = True
 default r_u_l = True
 default r_d_l = True
@@ -111,8 +118,19 @@ default persistent.visualiser = False
 default persistent.first_vis = False
 default persistent.is_cute = False
 default persistent.glitched_name = True
-default button = 0
+default bttn = 0
 default track_num = 3
+default new_coord = 0
+default persistent.ch_mus = False
+default yn = 1000
+default yo = 1000
+default persistent.bye = False
+default but_num = 3
+default sens_k = 0
+default glitch_action = 0
+default mob_menu = True
+default persistent.fix = False
+default persistent.set_broke = None
 
 
 image splash_warning = ParameterizedText(style="splash_text", xalign=0.5, yalign=0.5)
@@ -295,8 +313,8 @@ label splashscreen:
                         f.write("1")
                 except:
                     renpy.jump("readonly")
+
     if config.version != persistent.oldversion:
-        $ restore_relevant_characters()
         $ persistent.oldversion = config.version
         $ renpy.save_persistent()
 
