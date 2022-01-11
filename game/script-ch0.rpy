@@ -424,10 +424,10 @@ label ch1_meet:
 
     play music m1
     call updateconsole ("os.path.exists('characters/sayori.chr')", "False") from _call_updateconsole_7
-    show natsuki 1n zorder 2 at t11
+    show natsuki 1c zorder 2 at t11
     n "Что?"
     call updateconsole ("os.path.exists('characters/yuri.chr')", "False") from _call_updateconsole_8
-    n "Где я?!"
+    n 1p "Где я?!"
     call updateconsole ("os.path.exists('characters/monika.chr')", "") from _call_updateconsole_9
 
     show screen tear(20, 0.1, 0.1, 0, 40)
