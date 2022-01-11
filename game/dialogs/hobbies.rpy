@@ -85,7 +85,7 @@ label dia_hobbies:
             n r1c "Так что я усвоила один урок."
             n r1d "Не нужно бросать своё увлечение на пол пути к совершенству, так как ты можешь добиться больших успехов."
             n r1g "Поэтому [player], не будь лентяем, хорошо?"
-
+            show natsuki_room r1
 
             if persistent.glitched_name == True:
                 pause(2)

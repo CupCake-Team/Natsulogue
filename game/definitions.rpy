@@ -56,11 +56,7 @@ init python:
         _windows_hidden = True
         renpy.pause(time)
         _windows_hidden = False
-    def parallax(tf, st, tb):
-        x, y = renpy.get_mouse_pos()
-        w, h = renpy.get_physical_size()
-        tf.align = (float(x) / w, float(y) / h)
-        return 0
+            
 
 
 
@@ -1466,4 +1462,7 @@ default sayori_confess = True
 default natsuki_23 = None
 
 define config.play_channel = "sound"
+
+default persistent.parallax_enabled = False
+default parallax_bg = False
 # Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

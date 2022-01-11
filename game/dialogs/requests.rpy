@@ -553,7 +553,7 @@ label dia_requests:
 
 
 
-        "Я хочу включить параллакс":
+        "Я бы хотел включить параллакс...":
             hide screen countdown
             if left:
                 show natsuki_room r1:
@@ -564,13 +564,10 @@ label dia_requests:
                     xcenter 930
                     easein 1.00 xcenter 630
             n "Хорошо."
-            show monika_room:
-                subpixel True
-                topleft
-                zoom 1.015
-                block:
-                    function parallax
-                    repeat 
+            if parallax_bg == True:
+                $ parallax_bg = False
+            if parallax_bg == False:
+                $ parallax_bg = True
             n "Вроде готово."
             call ch1_loop from _call_ch1_loop_15
 
