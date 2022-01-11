@@ -11,11 +11,11 @@ label dia_past:
         $left = False
 
     if left:
-        show natsuki_room r1:
+        show natsuki r1:
             xcenter 630
             easein 1.00 xcenter 330
     if right:
-        show natsuki_room r1:
+        show natsuki r1:
             xcenter 630
             easein 1.00 xcenter 930
 
@@ -53,11 +53,11 @@ label dia_past:
         "{i}Что ты думаешь о литературном клубе?{/i}":
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -92,11 +92,11 @@ label dia_past:
         "{i}Ты ненавидишь Монику за её поступки?{/i}":
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -137,11 +137,11 @@ label dia_past:
         "{i}Что скажешь про Юри?{/i}":
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -176,11 +176,11 @@ label dia_past:
         "{i}Как ты относишься к Сайори?{/i}":
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -204,11 +204,11 @@ label dia_past:
         "{i}Что бы ты делала на месте Моники?{/i}":
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -231,33 +231,33 @@ label dia_past:
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_20
 
         "{i}Забей.{/i}" if refuse_ans == 2:
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_21
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_22

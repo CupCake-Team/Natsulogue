@@ -11,11 +11,11 @@ label dia_romance:
         $left = False
 
     if left:
-        show natsuki_room r1:
+        show natsuki r1:
             xcenter 630
             easein 1.00 xcenter 330
     if right:
-        show natsuki_room r1:
+        show natsuki r1:
             xcenter 630
             easein 1.00 xcenter 930
 
@@ -53,11 +53,11 @@ label dia_romance:
         "{i}Ты милая!{/i}" if persistent.is_cute == False:
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             n r1k "..!"
@@ -84,11 +84,11 @@ label dia_romance:
         "{i}Ты милая!{/i}" if persistent.is_cute == True:
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             n "Так... {w}Решил поиздеваться надо мной?"
@@ -103,11 +103,11 @@ label dia_romance:
         "{i}Ты красивая!{/i}":
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -130,11 +130,11 @@ label dia_romance:
         "{i}Ты очаровашка!{/i}":
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -165,11 +165,11 @@ label dia_romance:
         "{i}Ты умная!{/i}":
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -200,11 +200,11 @@ label dia_romance:
         "{i}Ты лучшая!{/i}":
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -231,11 +231,11 @@ label dia_romance:
         "{i}Ты хороша!{/i}":
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -263,33 +263,33 @@ label dia_romance:
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_37
 
         "{i}Забей.{/i}" if refuse_ans == 2:
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_38
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_39
