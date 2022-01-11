@@ -511,8 +511,7 @@ label ch1_main:
     show natsuki 1s zorder 2 at t11
     n "Как же болит голова..."
     $pause(1.5)
-    show natsuki 1q at face
-    n "Ох..."
+    n 1q "Ох..."
     n "Нужно вспомни–{nw}"
     n scream "А–A–A–A–A–A–A–A–A–A–A–A–A–А–{nw}"
     stop music
