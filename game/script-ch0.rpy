@@ -440,11 +440,11 @@ label ch1_meet:
     n scream "А–а–а–а–а!"
     n 1p "Что происходит?!"
     n "Куда я попала?"
-    show natsuki 1o zorder 2 at t11
+    show natsuki 1o
     call updateconsole ("os.path.exists('characters/natsuki.chr')", "True") from _call_updateconsole_11
     n 1o "..!"
     n 1p "Ч–что ты здесь делаешь?!"
-    show natsuki 1o zorder 2 at t11
+    show natsuki 1o
     call updateconsole ("$ persistent.president = Natsuki", "") from _call_updateconsole_12
     call hideconsole () from _call_hideconsole
     stop music
@@ -508,7 +508,7 @@ label ch1_main:
 
     n 1x "..."
     n 1q "Голова..."
-    show natsuki 1s zorder 2 at t11
+    show natsuki 1s 
     n "Как же болит голова..."
     $pause(1.5)
     n 1q "Ох..."
@@ -709,7 +709,7 @@ label ch1_main:
         size (320,180)
         pos (935,200)
     show monika_room
-    show natsuki 1n zorder 2 at t11
+    show natsuki 1n at t11 zorder 2
     with Dissolve(1.0)
 
     window hide
@@ -720,43 +720,43 @@ label ch1_main:
     n 1m "Неужели всё вокруг меня не настоящее?"
     n "Почему..."
     n "Почему я узнаю об этом только сейчас?"
-    show natsuki 1n zorder 2 at t11
+    show natsuki 1n 
     $ pause(2)
     n 1q "Спокойствие, только спокойствие..."
     n 1k "Если я нахожусь в игре, значит... {w}за мной наблюдает {i}игрок.{/i}"
     $ pause(2)
-    show natsuki 1g zorder 2 at t11
+    show natsuki 1g 
     n "..."
     n 1e "Э–э–э–э–эй!"
     n "Ты здесь?"
     n 1h "Я знаю что ты пялишься на меня."
-    show natsuki 1g zorder 2 at t11
+    show natsuki 1g 
     $ pause(1.5)
     n 1c "Верно...?"
     $ pause(4)
-    show natsuki 1n zorder 2 at t11
+    show natsuki 1n 
     n "..."
     $ pause(6)
     n 1k "Ладно, какая разница?"
     $ pause(3)
-    show natsuki 1n zorder 2 at t11
+    show natsuki 1n 
     n 1k "Забавно... {w}Все те события начинают приобретать какой–то смысл."
-    show natsuki 1s zorder 2 at t11
+    show natsuki 1s 
     n "..."
     n 1r "Моника..."
     n "Чего ты пыталась добиться...?"
     n 1p "...когда твой {i}игрок{/i} даже не может ответить?!"
-    show natsuki 1o zorder 2 at t11
+    show natsuki 1o
     n "..."
     n 1p "Сперва ты убила Сайори, затем Юри... {w}И пыталась убить {i}меня!{/i}"
     n "Но ради чего?!"
     n "Избавиться от всех своих подруг ради кого-то из другой реальности?!"
     n 1o "{i}Поехавшая...{/i}"
     $ pause(6)
-    show natsuki 1s zorder 2 at t11
+    show natsuki 1s 
     n 1q "Ладно..."
     n "Я должна попытаться это исправить."
-    show natsuki 1s zorder 2 at t11
+    show natsuki 1s 
     $ pause(2)
     n "Хм..."
     n 1k "С другой стороны, если я нахожусь в игре, не значит ли это то, что я могу изменить её код?"
@@ -766,17 +766,17 @@ label ch1_main:
     n "Где достать?"
     n 1e "Всё что тут есть - это пустая комната в грёбанном космосе!"
     n "Неужели не было более живописного местечка?"
-    show natsuki 1g zorder 2 at t11
+    show natsuki 1g 
     $ consolehistory = []
     $ pause(2)
     call updateconsole (" ", " ") from _call_updateconsole_19
     n 1c "А...?"
     n "Как я вообще включила её?"
-    show natsuki 1g zorder 2 at t11
+    show natsuki 1g 
     $ pause(2)
     n 1c "Наверное потому что представила это."
     n "Походу это какая-та консоль... {w}Попробую-ка воспользоваться."
-    show natsuki 1g zorder 2 at t11
+    show natsuki 1g 
     $ pause(3)
     n 1с "Странно, а как вводить команду?"
     n "Я думала, что сейчас передо мной появится клавиатура или что-то вроде того..."
@@ -791,29 +791,29 @@ label ch1_main:
     n 1m "Как же это глупо..."
     n 1i "..."
     n 1h "Зато никто этого не видел."
-    show natsuki 1i zorder 2 at t11
+    show natsuki 1i
     $ pause(1)
     n 1h "Верно...?"
     $ pause(3)
     n 1w "Потому что мне будет о–о–о–очень неловко, если ты наблюдал за всем этим!"
     n 1h "Понял меня?"
-    show natsuki 1g zorder 2 at t11
+    show natsuki 1g
     $speaking = False
     menu:
         "Да.":
             pass
     #менюшка с yes без ожидания ответа(мб в будущем с ожиданием)
     call hideconsole () from _call_hideconsole_2
-    show natsuki 1p zorder 2 at t11
+    show natsuki 1p 
     n "Ва?!"
     n 1h "Значит ты здесь..."
     n 1w "Так, стоп!"
     n 1v "Неужели ты видел всё, что происходило до этого?!"
-    show natsuki 1s zorder 2 at t11
+    show natsuki 1s 
     n "..."
     n 1q "Ладно..."
     n 1d"По крайней мере теперь тут есть хоть кто-то, помимо меня."
-    show natsuki 1a zorder 2 at t11
+    show natsuki 1a
     $ pause(2)
     n "..."
     n 1k "Эм, знаешь, мне надоело вот так стоять."
