@@ -63,7 +63,7 @@ default persistent.first_change = False
 
 default persistent.readen = []
 
-
+define parallax_bg = True
 
 
 
@@ -112,10 +112,35 @@ image mask_3:
         xoffset 1280
         linear 180 xoffset 0
         repeat
-image monika_room= "images/cg/monika/monika_room.png"
     
+image monika_bg = "images/cg/monika/monika_room.png"
+image menu_bg:
+    subpixel True
+    topleft
+    "gui/menu_bg.png"
 
-image monika_bg = "images/cg/monika/monika_bg.png"
+    alpha 0.8 zoom 1.015
+
+    block:
+        function parallax
+        repeat
+
+
+image monika_bg_parallax:
+    subpixel True
+    topleft
+    "images/cg/monika/monika_room.png"
+
+    zoom 1.005
+
+    block:
+        function parallax
+        repeat
+screen monika_room():
+    if parallax_bg == True:
+        add "monika_bg_parallax"
+    else:
+        add "monika_bg"
 image monika_bg_highlight:
     "images/cg/monika/monika_bg_highlight.png"
     function monika_alpha
@@ -272,10 +297,9 @@ label ch0_main:
     $ gtext = glitchtext(renpy.random.randint(8, 80))
 
     play music t6s
-    scene bg club_day
+    scene bg club_day 
     "[gtext]"
     window auto
-
     n "Ну вот и начался фестиваль!"
 
     show natsuki 4k zorder 2 at t11
@@ -487,7 +511,8 @@ label ch1_main:
     show natsuki 1s zorder 2 at t11
     n "Как же болит голова..."
     $pause(1.5)
-    n 1q"Ох..."
+    show natsuki 1q at face
+    n "Ох..."
     n "Нужно вспомни–{nw}"
     n scream "А–A–A–A–A–A–A–A–A–A–A–A–A–А–{nw}"
     stop music
