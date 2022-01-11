@@ -11,11 +11,11 @@ label dia_recipes:
         $left = False
 
     if left:
-        show natsuki_room r1:
+        show natsuki r1:
             xcenter 630
             easein 1.00 xcenter 330
     if right:
-        show natsuki_room r1:
+        show natsuki r1:
             xcenter 630
             easein 1.00 xcenter 930
 
@@ -53,11 +53,11 @@ label dia_recipes:
         "{i}Как испечь вкусные кексы?{/i}":
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -103,11 +103,11 @@ label dia_recipes:
         "{i}С какого блюда ты бы посоветовала начать обучаться кулинарии?{/i}":
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -139,11 +139,11 @@ label dia_recipes:
         "{i}Почему ты решила приготовить к фестивалю именно кексы?{/i}":
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -168,33 +168,33 @@ label dia_recipes:
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_43
 
         "{i}Забей.{/i}" if refuse_ans == 2:
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_44
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_45

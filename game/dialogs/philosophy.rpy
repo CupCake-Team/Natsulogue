@@ -11,11 +11,11 @@ label dia_philosophy:
         $left = False
 
     if left:
-        show natsuki_room r1:
+        show natsuki r1:
             xcenter 630
             easein 1.00 xcenter 330
     if right:
-        show natsuki_room r1:
+        show natsuki r1:
             xcenter 630
             easein 1.00 xcenter 930
 
@@ -54,11 +54,11 @@ label dia_philosophy:
         "{i}В чём смысл жизни?{/i}":
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -93,11 +93,11 @@ label dia_philosophy:
         "{i}Веришь ли ты в любовь с первого взгляда?{/i}":
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -140,11 +140,11 @@ label dia_philosophy:
         "{i}Как думаешь, является ли наш мир симуляцией?{/i}":
             hide screen countdown
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
 
@@ -173,33 +173,33 @@ label dia_philosophy:
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_59
 
         "{i}Забей.{/i}" if refuse_ans == 2:
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_60
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
             if left:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 330
                     easein 1.00 xcenter 630
             if right:
-                show natsuki_room r1:
+                show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
             call ch1_loop from _call_ch1_loop_61
