@@ -424,7 +424,7 @@ label ch1_meet:
 
     play music m1
     call updateconsole ("os.path.exists('characters/sayori.chr')", "False") from _call_updateconsole_7
-    show natsuki 1c zorder 2 at t11
+    show natsuki 1c 
     n "Что?"
     call updateconsole ("os.path.exists('characters/yuri.chr')", "False") from _call_updateconsole_8
     n 1p "Где я?!"
