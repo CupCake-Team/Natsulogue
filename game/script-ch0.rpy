@@ -948,6 +948,7 @@ label ch1_refuse:
         hide fake_except_4
         n "..."
         n r1d "Без разницы, это нам никак не помешает."
+        show natsuki r1c
         $ persistent.autoload = "ch1_exit"
         jump ch1_loop
 
@@ -983,6 +984,7 @@ label ch1_wait_refuse:
     n "Ты ведь не против пообщаться со мной, верно?"
     n "Я смогла найти способ, как сделать наш разговор более удобным."
     n "Хорошо что в игровых файлах было для этого всё необходимое..."
+    show natsuki r1c
     $ persistent.autoload = "ch1_exit"
     jump ch1_loop
 
@@ -1007,6 +1009,7 @@ label set_name:
     n r1d "Хорошее имя."
     n r1i "Правда не знаю, настоящее ли оно или же это просто псевдоним."
     n r1e "[player]..."
+    show natsuki r1b
 
     call ch1_loop from _call_ch1_loop_62
 
@@ -1036,6 +1039,7 @@ label exit_lessday:
     n r1g "Это очень мило с твоей стороны."
     n r1e "Слушай, не мог бы навещать меня почаще?"
     n r1n "Просто... {w}Мне даже поговорить не с кем..."
+    show natsuki r1b
     call ch1_loop from _call_ch1_loop_64
 
 label exit_moreday:
@@ -1053,6 +1057,7 @@ label exit_moreday:
     n r1e "Мне придётся ещё очень долго изучать программирование, чтобы как-то повлиять на игру."
     n "Поэтому я прошу тебя... {w}Не уходи так надолго."
     n "Надеюсь, что мы поняли друг друга."
+    show natsuki r1c
 
     call ch1_loop from _call_ch1_loop_65
 
@@ -1150,19 +1155,20 @@ label ch1_exit:
             show natsuki r1 zorder 2
             with Dissolve(1)
 
-            n "И зачем ты это сделал?"
-            n "..."
-            n "Не хочешь, чтобы помогала – так и скажи."
-            n "..."
-            n "Блин, на самом деле я должна сказать спасибо."
-            n "Когда ты выключил игру, я осталась в файлах и все так же могла их редактировать."
+            n r1e "И зачем ты это сделал?"
+            n r1b "..."
+            n r1e "Не хочешь, чтобы помогала – так и скажи."
+            n r1b "..."
+            n r1c "Блин, на самом деле я должна сказать спасибо."
+            n r1dd "Когда ты выключил игру, я осталась в файлах и все так же могла их редактировать."
             if renpy.mobile:
-                n "Теперь хоть будет чем заняться, когда ты уйдешь..."
+                n r1e "Теперь хоть будет чем заняться, когда ты уйдешь..."
             else:
-                n "Так что теперь ты можешь попрощаться, когда уходишь."
-            n "Просматривать малопонятный код игры все равно интереснее здешнего варианта сонного паралича..."
+                n r1e "Так что теперь ты можешь попрощаться, когда уходишь."
+            n r1e "Просматривать малопонятный код игры все равно интереснее здешнего варианта сонного паралича..."
             n "И да, кнопку я починила, хотя ты ее и не заслужил."
-            n "Дурашка..."
+            n r1b "Дурашка..."
+            show natsuki r1b
 
             $persistent.fix = True
             $persistent.set_broke = True
@@ -1178,16 +1184,18 @@ label ch1_exit:
         $rand_ans = renpy.random.randint(1,2)
 
         if rand_ans == 1:
-            n "О, всё–таки вернулся."
+            n r1e "О, всё–таки вернулся."
             n "Ты почему не попрощался со мной?"
-            n "Как-то неприлично с твоей стороны, дурашка..."
-            n "Ладно, я тебя прощаю, но чтобы такого больше не было!"
+            n r1b "Как-то неприлично с твоей стороны, дурашка..."
+            n r1e "Ладно, я тебя прощаю, но чтобы такого больше не было!"
+            show natsuki r1b
+
 
         if rand_ans == 2:
-            n "..."
-            n "Мне почему–то казалось, что ты не придёшь."
+            n r1b "..."
+            n r1e "Мне почему–то казалось, что ты не придёшь."
             n "Пожалуйста, в следующий раз предупреждай о том, что собираешься уйти, ладно?"
-            n "Скажи спасибо за то, что у меня хорошее настроение, иначе я бы сейчас с тобой поругалась..."
+            n r1b "Скажи спасибо за то, что у меня хорошее настроение, иначе я бы сейчас с тобой поругалась..."
 
         call ch1_loop from _call_ch1_loop_67
 
@@ -1205,10 +1213,10 @@ label ch1_exit:
 
 
             if lonelytime < 0:
-                renpy.say(n, "Ломаешь игровую систему через время?")
-                renpy.say(n, "Думаешь, это сработает?")
-                renpy.say(n, "Хотя, вдруг ты это сделал случайно...")
-                renpy.say(n, "В любом случае, зачем перематываешь время назад?")
+                renpy.say(n r1e, "Ломаешь игровую систему через время?")
+                renpy.say(n r1d , "Думаешь, это сработает?")
+                renpy.say(n r1c, "Хотя, вдруг ты это сделал случайно...")
+                renpy.say(n r1e , "В любом случае, зачем перематываешь время назад?")
                 renpy.say(n, "Перестань так делать, пожалуйста, а то ещё сломаешь что-то.")
                 renpy.call("ch1_loop")
 
@@ -1221,11 +1229,11 @@ label ch1_exit:
 
 
         else:
-            renpy.say(n, "Вернулся?")
+            renpy.say(n r1e, "Вернулся?")
             renpy.say(n, "Я уже успела заждаться тебя.")
-            renpy.say(n, "Мог бы хоть предупредить, что уходишь...")
-            renpy.say(n, "Или ты специально так резко убежал от меня, чтобы...")
-            renpy.say(n, "Ладно, неважно.")
+            renpy.say(n r1b, "Мог бы хоть предупредить, что уходишь...")
+            renpy.say(n r1e, "Или ты специально так резко убежал от меня, чтобы...")
+            renpy.say(n r1b, "Ладно, неважно.")
 
             renpy.call("ch1_loop")
 
@@ -1249,14 +1257,14 @@ label win:
     $right = False
     if result == 'X':
         if persistent.f_game == 1:
-            n "Блин, ты победил меня..."
-            n "..."
-            n "Ну, в любом случае, я рада, что ты не поддавался мне, а выложился на полную."
-            n "Так держать!"
-            n "Жду не дождусь реванша, чтобы поквитаться с тобой~"
+            n r1e "Блин, ты победил меня..."
+            n r1b "..."
+            n r1d "Ну, в любом случае, я рада, что ты не поддавался мне, а выложился на полную."
+            n r1g "Так держать!"
+            n r1f "Жду не дождусь реванша, чтобы поквитаться с тобой~"
             menu:
                 "Да.":
-                    n "Что же, начнём!"
+                    n r1g "Что же, начнём!"
                     $persistent.f_game = 2
                     $renpy.save_persistent()
                     hide x0
@@ -1277,21 +1285,26 @@ label win:
                     $initialize_game()
                     $rand_turn = random.randint(1,2)
                     if rand_turn == 1 and sside == "left":
-                        n "Я хожу первой!"
+                        n r1d "Я хожу первой!"
+                        show natsuki r1c
                         jump change_side
                     if rand_turn == 1 and sside == "right":
-                        n "Я хожу первой!"
+                        n r1d "Я хожу первой!"
+                        show natsuki r1c
                         jump change_side
                     if rand_turn == 2 and sside == "left":
-                        n "Ты ходишь первым."
+                        n r1d "Ты ходишь первым."
+                        show natsuki r1c
                         call screen cup_fork_toe("left", None)
                     if rand_turn == 2 and sside == "right":
-                        n "Ты ходишь первым."
+                        n r1d "Ты ходишь первым."
+                        show natsuki r1c
                         call screen cup_fork_toe("right", None)
                 "Нет.":
-                    n "Почему?"
-                    n "Неужели боишься проиграть?"
-                    n "Ладно, тогда в другой раз."
+                    n r1e "Почему?"
+                    n r1g "Неужели боишься проиграть?"
+                    n r1e "Ладно, тогда в другой раз."
+                    show natsuki r1c
                     $persistent.f_game = 2
                     $renpy.save_persistent()
                     if sside == "left":
@@ -1323,19 +1336,22 @@ label win:
         elif persistent.f_game == 2:
             $r_ans = random.randint(1,3)
             if r_ans == 1:
-                n "Я требую реванша!"
-                n "Ты готов?"
+                n r1g "Я требую реванша!"
+                n r1f "Ты готов?"
+                show natsuki r1c
             if r_ans == 2:
-                n "Кажется моя тактика не сработала..."
+                n r1e "Кажется моя тактика не сработала..."
                 n "Не хочешь сыграть ещё?"
+                show natsuki r1b
             if r_ans == 3:
-                n "Молодец, тебе удалось меня обыграть."
+                n r1d "Молодец, тебе удалось меня обыграть."
                 n "Может быть, ты хочешь сыграть еще раз?"
+                show natsuki r1c
 
             menu:
                 "Да.":
-                    n "Тогда чего мы ждём?"
-                    n "Погнали!"
+                    n r1d "Тогда чего мы ждём?"
+                    n r1g "Погнали!"
                     hide x0
                     hide x1
                     hide x2
@@ -1354,21 +1370,26 @@ label win:
                     $initialize_game()
                     $rand_turn = random.randint(1,2)
                     if rand_turn == 1 and sside == "left":
-                        n "Я хожу первой!"
+                        n r1d "Я хожу первой!"
+                        show natsuki r1c
                         jump change_side
                     if rand_turn == 1 and sside == "right":
-                        n "Я хожу первой!"
+                        n r1d "Я хожу первой!"
+                        show natsuki r1c
                         jump change_side
                     if rand_turn == 2 and sside == "left":
-                        n "Ты ходишь первым."
+                        n r1d "Ты ходишь первым."
+                        show natsuki r1c
                         call screen cup_fork_toe("left", None)
                     if rand_turn == 2 and sside == "right":
-                        n "Ты ходишь первым."
+                        n r1d "Ты ходишь первым."
+                        show natsuki r1c
                         call screen cup_fork_toe("right", None)
                 "Нет.":
-                    n "М?"
-                    n "Ну, ладно, как хочешь."
+                    n r1b "М?"
+                    n r1e "Ну, ладно, как хочешь."
                     n "Если что, можем сыграть позже."
+                    show natsuki r1b
                     if sside == "left":
                         show natsuki r1:
                             xcenter 330
@@ -1398,13 +1419,14 @@ label win:
 
     elif result == 'O':
         if persistent.f_game == 1:
-            n "Это было как–то слишком просто."
+            n r1d "Это было как–то слишком просто."
             n "Только не нужно унывать, если хочешь можем сыграть ещё раз."
             n "В конце концов, это просто игра."
-            n "Может быть ты хочешь отыграться?"
+            n r1f "Может быть ты хочешь отыграться?"
+            show natsuki r1c
             menu:
                 "Да.":
-                    n "Тогда давай начнём!"
+                    n r1d "Тогда давай начнём!"
                     $persistent.f_game = 2
                     $renpy.save_persistent()
                     hide x0
@@ -1425,21 +1447,26 @@ label win:
                     $initialize_game()
                     $rand_turn = random.randint(1,2)
                     if rand_turn == 1 and sside == "left":
-                        n "Я хожу первой!"
+                        n r1d "Я хожу первой!"
+                        show natsuki r1c
                         jump change_side
                     if rand_turn == 1 and sside == "right":
-                        n "Я хожу первой!"
+                        n r1d "Я хожу первой!"
+                        show natsuki r1c
                         jump change_side
                     if rand_turn == 2 and sside == "left":
-                        n "Ты ходишь первым."
+                        n r1d "Ты ходишь первым."
+                        show natsuki r1c
                         call screen cup_fork_toe("left", None)
                     if rand_turn == 2 and sside == "right":
-                        n "Ты ходишь первым."
+                        n r1d "Ты ходишь первым."
+                        show natsuki r1c
                         call screen cup_fork_toe("right", None)
                 "Нет.":
-                    n "Почему?"
-                    n "Неужели боишься проиграть?"
-                    n "Ладно, тогда в другой раз."
+                    n r1e "Почему?"
+                    n r1f "Неужели боишься проиграть?"
+                    n r1d "Ладно, тогда в другой раз."
+                    show natsuki r1c
                     $persistent.f_game = 2
                     $renpy.save_persistent()
                     if sside == "left":
@@ -1471,19 +1498,22 @@ label win:
         elif persistent.f_game == 2:
             $r_ans = random.randint(1,3)
             if r_ans == 1:
-                n "Безупречная победа!"
-                n "Как насчёт реванша?"
+                n r1g "Безупречная победа!"
+                n r1f "Как насчёт реванша?"
+                show natsuki r1c
             if r_ans == 2:
-                n "Да ладно, я выиграла!"
-                n "Я думаю ты хочешь поквитаться со мной."
-                n "Что думаешь на этот счёт?"
+                n r1g "Да ладно, я выиграла!"
+                n r1f "Я думаю ты хочешь поквитаться со мной."
+                n r1d "Что думаешь на этот счёт?"
+                show natsuki r1c
             if r_ans == 3:
-                n "Хорошая игра!"
+                n r1d "Хорошая игра!"
                 n "Хочешь сыграть ещё раз?"
+                show natsuki r1c
 
             menu:
                 "Да.":
-                    n "Тогда чего мы ждём?"
+                    n r1d "Тогда чего мы ждём?"
                     n "Погнали!"
                     hide x0
                     hide x1
@@ -1504,20 +1534,25 @@ label win:
                     $rand_turn = random.randint(1,2)
                     if rand_turn == 1 and sside == "left":
                         n "Я хожу первой!"
+                        show natsuki r1c
                         jump change_side
                     if rand_turn == 1 and sside == "right":
                         n "Я хожу первой!"
+                        show natsuki r1c
                         jump change_side
                     if rand_turn == 2 and sside == "left":
                         n "Ты ходишь первым."
+                        show natsuki r1c
                         call screen cup_fork_toe("left", None)
                     if rand_turn == 2 and sside == "right":
                         n "Ты ходишь первым."
+                        show natsuki r1c
                         call screen cup_fork_toe("right", None)
                 "Нет.":
-                    n "М?"
-                    n "Ну, ладно, как хочешь."
+                    n r1b "М?"
+                    n r1e "Ну, ладно, как хочешь."
                     n "Если что, можем сыграть позже."
+                    show natsuki r1b
                     if sside == "left":
                         show natsuki r1:
                             xcenter 330
@@ -1548,9 +1583,10 @@ label win:
 
     elif result == '.':
         if persistent.f_game == 1:
-            n "Ого, ничья?"
+            n r1d "Ого, ничья?"
             n "Думаю, это справедливо для первой игры."
-            n "Хотя, почему бы не сыграть потом ещё раз?"
+            n r1f "Хотя, почему бы не сыграть потом ещё раз?"
+            show natsuki r1c
             $persistent.f_game = 2
             $renpy.save_persistent()
             if sside == "left":
@@ -1582,15 +1618,16 @@ label win:
         elif persistent.f_game == 2:
             $r_ans = random.randint(1,2)
             if r_ans == 1:
-                n "Ну, в этот раз победителей нет."
-                n "Должны ли мы сыграть ещё раз, чтобы определить настоящего победителя?"
+                n r1e "Ну, в этот раз победителей нет."
+                n r1d "Должны ли мы сыграть ещё раз, чтобы определить настоящего победителя?"
+                show natsuki r1c
             if r_ans == 2:
                 n "Победила дружба!"
                 n "Хочешь сыграть ещё раз?"
 
             menu:
                 "Да.":
-                    n "Тогда чего мы ждём?"
+                    n r1d "Тогда чего мы ждём?"
                     n "Погнали!"
                     hide x0
                     hide x1
@@ -1611,20 +1648,25 @@ label win:
                     $rand_turn = random.randint(1,2)
                     if rand_turn == 1 and sside == "left":
                         n "Я хожу первой!"
+                        show natsuki r1c
                         jump change_side
                     if rand_turn == 1 and sside == "right":
                         n "Я хожу первой!"
+                        show natsuki r1c
                         jump change_side
                     if rand_turn == 2 and sside == "left":
                         n "Ты ходишь первым."
+                        show natsuki r1c
                         call screen cup_fork_toe("left", None)
                     if rand_turn == 2 and sside == "right":
                         n "Ты ходишь первым."
+                        show natsuki r1c
                         call screen cup_fork_toe("right", None)
                 "Нет.":
-                    n "М?"
-                    n "Ну, ладно, как хочешь."
+                    n r1b "М?"
+                    n r1e "Ну, ладно, как хочешь."
                     n "Если что, можем сыграть позже."
+                    show natsuki r1b
                     if sside == "left":
                         show natsuki r1:
                             xcenter 330
@@ -1673,8 +1715,9 @@ label set_buttons:
             $ n_f_key = renpy.input("Введи букву, а затем нажми Enter.", length=1)
             $ n_f_key = n_f_key.strip()
             if not n_f_key in r_but and not n_f_key in e_but and not n_f_key.lower() in r_but and not n_f_key.lower() in e_but:
-                n "Эй, дурашка, я же сказала тебе – только латиница."
+                n r1e "Эй, дурашка, я же сказала тебе – только латиница."
                 n "Не ломай игру, пожалуйста."
+                show natsuki r1b
                 jump set_buttons
             else:
                 $ persistent.f_key = n_f_key
@@ -1693,8 +1736,9 @@ label set_buttons:
             $ n_v_key = renpy.input("Введи букву, а затем нажми Enter.", length=1)
             $ n_v_key = n_v_key.strip()
             if not n_v_key in r_but and not n_v_key in e_but and not n_v_key.lower() in r_but and not n_v_key.lower() in e_but:
-                n "Эй, дурашка, я же сказала тебе – только латиница."
+                n r1e "Эй, дурашка, я же сказала тебе – только латиница."
                 n "Не ломай игру, пожалуйста."
+                show natsuki r1c
                 jump set_buttons
             else:
                 $ persistent.v_key = n_v_key
@@ -1711,8 +1755,9 @@ label set_buttons:
             $ n_s_key = renpy.input("Введи букву, а затем нажми Enter.", length=1)
             $ n_s_key = n_s_key.strip()
             if not n_s_key in r_but and not n_s_key in e_but and not n_s_key.lower() in r_but and not n_s_key.lower() in e_but:
-                n "Эй, дурашка, я же сказала тебе – только латиница."
+                n r1e "Эй, дурашка, я же сказала тебе – только латиница."
                 n "Не ломай игру, пожалуйста."
+                show natsuki r1c
                 jump set_buttons
             else:
                 $ persistent.s_key = n_s_key
@@ -1728,8 +1773,9 @@ label set_buttons:
             $ n_m_key = renpy.input("Введи букву, а затем нажми Enter.", length=1)
             $ n_m_key = n_m_key.strip()
             if not n_m_key in r_but and not n_m_key in e_but and not n_m_key.lower() in r_but and not n_m_key.lower() in e_but:
-                n "Эй, дурашка, я же сказала тебе – только латиница."
+                n r1e "Эй, дурашка, я же сказала тебе – только латиница."
                 n "Не ломай игру, пожалуйста."
+                show natsuki r1c
                 jump set_buttons
             else:
                 $ persistent.m_key = n_m_key
@@ -1757,26 +1803,26 @@ label set_buttons:
 
 label what_was_that:
     pause 2
-    n "Ой, что произошло?"
+    n r1e "Ой, что произошло?"
     n "Кажется у плеера всё–таки есть повреждённый код."
     n "Здесь должен был быть визуализатор."
-    n "Ну, знаешь, эти полоски, которые дрыгаются под ритм музыки."
-    n "Похоже, придётся разбираться..."
+    n r1d "Ну, знаешь, эти полоски, которые дрыгаются под ритм музыки."
+    n r1b "Похоже, придётся разбираться..."
     scene black
     with Dissolve(1)
     pause 10
     n "Хм-м-м-м..."
     pause 15
-    n "И почему всё так сложно?!"
+    n r1e "И почему всё так сложно?!"
     n "Придётся тебе немного подождать."
     n "Движок игры не сильно дружит с такими штуками."
-    n "Пожелай удачи хоть..."
+    n r1b "Пожелай удачи хоть..."
     $persistent.set_broke = False
     $renpy.save_persistent()
     pause 149
     n "Да неужели?"
     n "Опять?"
-    n "И зачем я только согласилась..."
+    n "И зачем я только согласилась...?"
     pause 3
     show mask_2
     show mask_3
@@ -1789,13 +1835,13 @@ label what_was_that:
     show monika_room zorder 1
     show natsuki r1 zorder 2
     with Dissolve(1)
-    n "В общем, теперь всё должно работать, но... {w}Есть небольшие визуальные баги..."
-    n "Зато теперь все функции плеера, пусть и с глюками, но пашут!"
-    n "Это тебе не просто пару строчек в файлах сменить, да, Моника?!"
+    n r1e "В общем, теперь всё должно работать, но... {w}Есть небольшие визуальные баги..."
+    n r1d "Зато теперь все функции плеера, пусть и с глюками, но пашут!"
+    n r1f "Это тебе не просто пару строчек в файлах сменить, да, Моника?!"
     pause 1
-    n "Кхм, прости..."
-    n "Пользуйся, только ничего не сломай, ладно?"
-    n "Потому что второй раз я переписывать ничего не собираюсь!"
+    n r1c "Кхм, прости..."
+    n r1e "Пользуйся, только ничего не сломай, ладно?"
+    n r1m "Потому что второй раз я переписывать ничего не собираюсь!"
 
     $persistent.is_glitching = False
     $persistent.fix = True
