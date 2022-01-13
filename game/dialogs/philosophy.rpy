@@ -80,6 +80,7 @@ label dia_philosophy:
             n "Если вдруг тебе будет грустно на душе – можешь заглянуть ко мне, поговорим."
             n r1e "Не забывай об этом, ладно?"
             n r1n "И не подумай о чём-то таком, дурашка..."
+            show natsuki r1c
             if persistent.glitched_name == True:
                 pause(2)
                 $persistent.glitched_name = False
@@ -126,6 +127,7 @@ label dia_philosophy:
             n r1b "..."
             n r1e "Как всегда, начала говорить на одну тему, а закончила совсем другой."
             n "Ладно, я думаю ты понял мои мысли, нет смысла продолжать."
+            show natsuki r1b
 
             if persistent.glitched_name == True:
                 pause(2)
@@ -166,6 +168,7 @@ label dia_philosophy:
             n r1e "Блин, об этом сложно рассуждать..."
             n r1b "В любом случае..."
             n r1e "Шанс того, что именно твой мир находится в каком–то компьютере тоже существует, и точка."
+            show natsuki r1b
 
             call ch1_loop from _call_ch1_loop_58
 
