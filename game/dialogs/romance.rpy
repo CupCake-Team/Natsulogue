@@ -74,6 +74,7 @@ label dia_romance:
             n "Раньше я старалась это игнорировать, но потом..."
             n "Ух... {w}Неважно."
             n "Просто знай, что мне было приятно услышать это от тебя, только не нужно повторяться, ладно?"
+            show natsuki r1b
             $persistent.is_cute = True
             $renpy.save_persistent
             call ch1_loop from _call_ch1_loop_30
@@ -94,6 +95,7 @@ label dia_romance:
             n r1n "Так... {w}Решил поиздеваться надо мной?"
             n r1l "Вместо кучи слов я сделаю гораздо проще."
             n r1n "Не видать тебе этой кнопки, дурак."
+            show natsuki r1c
             $persistent.is_cute = "baka"
             $renpy.save_persistent
             call ch1_loop from _call_ch1_loop_31
@@ -120,6 +122,7 @@ label dia_romance:
             n r1n "Сейчас красота в какой-то абсолют возведена."
             n r1l "Ладно, опять начинаю философствовать..."
             n r1o "В общем, мне было приятно услышать от тебя это, всё..."
+            show natsuki r1c
 
 
             call ch1_loop from _call_ch1_loop_32
@@ -148,6 +151,7 @@ label dia_romance:
             n r1l "И да..."
             n r1h "Пусть я тебя и не видела, но мне кажется, что ты тоже очаровашка."
             n "Хи–хи–хи..."
+            show natsuki r1c
 
             if persistent.glitched_name == True:
                 pause(2)
@@ -183,6 +187,7 @@ label dia_romance:
             n r1c "Я, конечно, человек не глупый, но и гением мысли никогда не являлась."
             n r1d "Хотя, сейчас мы остались лишь вдвоём, можно развиваться сколько душе угодно."
             n "Тот же игровой код, сколько же он ещё в себе таит?"
+            show natsuki r1c
 
             if persistent.glitched_name == True:
                 pause(2)
@@ -218,6 +223,7 @@ label dia_romance:
             n "Н–не подумай ни о чём таком!"
             n r1n "И не вздумывай обманывать."
             n "Иначе я пойму, что ты только льстить умеешь."
+            show natsuki r1b
 
 
 
@@ -246,6 +252,7 @@ label dia_romance:
             n r1b "Это ненавязчивая попытка подкатить, или что?"
             n "Я бы посоветовала тебе следить за своим языком, [player]."
             n r1e "Так ведь и девушку задеть можно."
+            show natsuki r1b
 
             if persistent.glitched_name == True:
                 pause(2)
