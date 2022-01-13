@@ -102,6 +102,7 @@ label dia_requests:
                         n r1d "Там как раз были свободные кнопки."
                         n "Свайпаешь вверх – увеличиваешь громкость, все просто."
                 n r1g "Пользуйся!"
+                show natsuki r1c
                 $persistent.ch_vol = True
                 $persistent.repeat = 1
                 $renpy.save_persistent()
@@ -126,6 +127,7 @@ label dia_requests:
                     n r1b "Ладно, объясню ещё раз."
                     n r1e "Сверху кнопка, выбираешь настройку, свайпаешь вверх - увеличиваешь громкость"
                 n r1b "Надеюсь, вопросов больше нет."
+                show natsuki r1b
                 $persistent.repeat = 2
                 $renpy.save_persistent()
                 call ch1_loop from _call_ch1_loop_47
@@ -137,6 +139,7 @@ label dia_requests:
                 n "Неужели мало?"
                 n "Так, всё, достал меня, разбирайся сам."
                 n r1m "Метод тыка тебе в помощь, болвашка."
+                show natsuki r1b
                 call ch1_loop from _call_ch1_loop_48
 
         "{i}Я бы хотел поменять музыку...{/i}" if persistent.mus_repeat == 0 or persistent.mus_repeat == 1:
@@ -176,6 +179,7 @@ label dia_requests:
                 if (not renpy.mobile):
                     n r1d "Не знаю, работает ли эта штука, но попробуй потыкать."
                     n "Если что, открывается на клавишу M."
+                    show natsuki r1c
                 else:
                     if persistent.ch_vol == True:
                         n r1d "Если что, я закинула ее к настройке громкости."
@@ -186,6 +190,7 @@ label dia_requests:
                         n r1d "Я конечно, не специалист, но мне кажется, что встретить новеллу на телефоне – это та еще редкость."
                         n "В любом случае, пришлось повозиться, чтобы сделать все удобным."
                         n "Где-то наверху должна появиться кнопка, там будут все настройки."
+                        show natsuki r1c
                 $persistent.ch_mus = True
                 $persistent.mus_repeat = 1
                 $renpy.save_persistent()
@@ -242,10 +247,13 @@ label dia_requests:
 
             if rand_mus_answer == 1:
                 n r1e "Как скажешь."
+                show natsuki r1c
             if rand_mus_answer == 2:
                 n r1e "Хорошо, я поставлю эту мелодию."
+                show natsuki r1c
             if rand_mus_answer == 3:
                 n r1e "Ладно, пусть будет... {w}эта."
+                show natsuki r1b
 
             $prefered_track_num = renpy.random.randint(0,5)
             $full_mus_name = renpy.music.get_playing(channel="music")
@@ -285,6 +293,7 @@ label dia_requests:
             n r1d "По правде говоря, это обычные крестики–нолики, просто вместо них вилки и кексы."
             n r1e "Правила игры абсолютно такие же, думаю тебе не нужно их разъяснять."
             n r1f "Хочешь сыграть со мной?"
+            show natsuki r1c
             menu:
                 "Да.":
                     $lr = renpy.random.randint(1,2)
@@ -305,28 +314,28 @@ label dia_requests:
                     $rand_turn = random.randint(1,2)
                     if rand_turn == 1 and left == True:
                         n r1d "Я хожу первой!"
-                        show natsuki r1:
+                        show natsuki r1с:
                             xcenter 630
                             easein 1.00 xcenter 330
                         show cft_pole zorder 2 at for_field_l
                         jump change_side
                     if rand_turn == 1 and right == True:
                         n r1d "Я хожу первой!"
-                        show natsuki r1:
+                        show natsuki r1с:
                             xcenter 630
                             easein 1.00 xcenter 930
                         show cft_pole zorder 2 at for_field_r
                         jump change_side
                     if rand_turn == 2 and left == True:
                         n r1d "Ты ходишь первым."
-                        show natsuki r1:
+                        show natsuki r1с:
                             xcenter 630
                             easein 1.00 xcenter 330
                         show cft_pole zorder 2 at for_field_l
                         call screen cup_fork_toe("left", None)
                     if rand_turn == 2 and right == True:
                         n r1d "Ты ходишь первым."
-                        show natsuki r1:
+                        show natsuki r1с:
                             xcenter 630
                             easein 1.00 xcenter 930
                         show cft_pole zorder 2 at for_field_r
@@ -362,33 +371,33 @@ label dia_requests:
             if r_ans == 1:
                 n r1d "Хорошо, почему бы и нет?"
             if r_ans == 2:
-                n "Давай, я не против."
+                n r1d "Давай, я не против."
             $initialize_game()
             $rand_turn = random.randint(1,2)
             if rand_turn == 1 and left == True:
                 n r1d "Я хожу первой!"
-                show natsuki r1:
+                show natsuki r1c:
                     xcenter 630
                     easein 1.00 xcenter 330
                 show cft_pole zorder 2 at for_field_l
                 jump change_side
             if rand_turn == 1 and right == True:
                 n r1d "Я хожу первой!"
-                show natsuki r1:
+                show natsuki r1c:
                     xcenter 630
                     easein 1.00 xcenter 930
                 show cft_pole zorder 2 at for_field_r
                 jump change_side
             if rand_turn == 2 and left == True:
                 n r1d "Ты ходишь первым."
-                show natsuki r1:
+                show natsuki r1c:
                     xcenter 630
                     easein 1.00 xcenter 330
                 show cft_pole zorder 2 at for_field_l
                 call screen cup_fork_toe("left", None)
             if rand_turn == 2 and right == True:
                 n r1d "Ты ходишь первым."
-                show natsuki r1:
+                show natsuki r1с:
                     xcenter 630
                     easein 1.00 xcenter 930
                 show cft_pole zorder 2 at for_field_r
