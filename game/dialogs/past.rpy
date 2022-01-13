@@ -86,6 +86,7 @@ label dia_past:
             n r1a "После такого я не могу воспринимать это место в положительном ключе."
             n r1b "Хорошо, что тебя не было на моём месте..."
             n r1e "Это был ужас."
+            show natsuki r1b
 
             call ch1_loop from _call_ch1_loop_15
 
@@ -116,6 +117,7 @@ label dia_past:
                 n r1k "..."
                 n r1l "Наверное сейчас это выглядело глупо, но мне нужно было выговориться."
                 n r1n "Мне хочется высказать ей лично куда больше ласковых слов..."
+                show natsuki r1b
             else:
                 n r1e "VGhhdCdzIHB1dHRpbmcgaXQgbWlsZGx5Li4u"
                 n "SSBuZXZlciB0aG91Z2h0IHNoZSBjb3VsZCBhY3Qgc28gcmVja2xlc3NseS4="
@@ -131,6 +133,7 @@ label dia_past:
                 n r1k "Li4u"
                 n r1l "SXQgbXVzdCBoYXZlIHNlZW1lZCBzaWxseSBub3csIGJ1dCBJIG5lZWRlZCB0byBnZXQgaXQgb3V0Lg=="
                 n r1n "SSB3YW50IHRvIHNheSBtb3JlIMKrc3dlZXTCuyB0aGluZ3MgdG8gaGVyIGluIHBlcnNvbi4="
+                show natsuki r1b
 
             call ch1_loop from _call_ch1_loop_16
 
@@ -226,6 +229,7 @@ label dia_past:
             n r1n "Она не предоставляет такой возможности."
             n r1h "Но ничего, если у меня всё получится, мы избавимся от этих барьеров!"
             n r1n "И, надеюсь, вернём обратно остальных..."
+            show natsuki r1b
 
             call ch1_loop from _call_ch1_loop_19
 
