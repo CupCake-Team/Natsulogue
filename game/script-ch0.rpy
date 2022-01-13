@@ -114,17 +114,6 @@ image mask_3:
         repeat
     
 image monika_bg = "images/cg/monika/monika_room.png"
-image menu_bg:
-    subpixel True
-    topleft
-    "gui/menu_bg.png"
-
-    alpha 0.8 zoom 1.015
-
-    block:
-        function parallax
-        repeat
-
 
 image monika_bg_parallax:
     subpixel True
