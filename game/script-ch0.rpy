@@ -721,7 +721,7 @@ label ch1_main:
     n 1h "Я знаю что ты пялишься на меня."
     show natsuki 1g 
     $ pause(1.5)
-    n 1c "Верно...?"
+    n 1c "Верно?.."
     $ pause(4)
     show natsuki 1n 
     n "..."
@@ -733,7 +733,7 @@ label ch1_main:
     show natsuki 1s 
     n "..."
     n 1r "Моника..."
-    n "Чего ты пыталась добиться...?"
+    n "Чего ты пыталась добиться?.."
     n 1p "...когда твой {i}игрок{/i} даже не может ответить?!"
     show natsuki 1o
     n "..."
@@ -759,7 +759,7 @@ label ch1_main:
     $ consolehistory = []
     $ pause(2)
     call updateconsole (" ", " ") from _call_updateconsole_19
-    n 1c "А...?"
+    n 1c "А?.."
     n "Как я вообще включила её?"
     show natsuki 1g 
     $ pause(2)
@@ -782,7 +782,7 @@ label ch1_main:
     n 1h "Зато никто этого не видел."
     show natsuki 1i
     $ pause(1)
-    n 1h "Верно...?"
+    n 1h "Верно?.."
     $ pause(3)
     n 1w "Потому что мне будет о–о–о–очень неловко, если ты наблюдал за всем этим!"
     n 1h "Понял меня?"
@@ -978,7 +978,7 @@ label ch1_wait_refuse:
     show natsuki r1 zorder 2
     play music m1
 
-    n r1e "А...?"
+    n r1e "А?.."
     n "Ты всё же пришёл..."
     n r1d "Ну... {w}В таком случае, добро пожаловать."
     n "Ты ведь не против пообщаться со мной, верно?"
@@ -1049,7 +1049,7 @@ label exit_moreday:
     $ config.skipping = False
     $ allow_skipping = False
     $ quick_menu = False
-    n r1e "И что это было...?"
+    n r1e "И что это было?.."
     n "Почему ты не заходил ко мне так долго?"
     n "Мне почему-то показалось, что ты пошутил и скоро вернёшься."
     n "Ты хоть знаешь, насколько здесь скучно?"
@@ -1213,10 +1213,14 @@ label ch1_exit:
 
 
             if lonelytime < 0:
-                renpy.say(n r1e, "Ломаешь игровую систему через время?")
-                renpy.say(n r1d , "Думаешь, это сработает?")
-                renpy.say(n r1c, "Хотя, вдруг ты это сделал случайно...")
-                renpy.say(n r1e , "В любом случае, зачем перематываешь время назад?")
+                renpy.show("natsuki r1e")
+                renpy.say(n, "Ломаешь игровую систему через время?")
+                renpy.show("natsuki r1d")
+                renpy.say(n, "Думаешь, это сработает?")
+                renpy.show("natsuki r1c")
+                renpy.say(n, "Хотя, вдруг ты это сделал случайно...")
+                renpy.show("natsuki r1e")
+                renpy.say(n, "В любом случае, зачем перематываешь время назад?")
                 renpy.say(n, "Перестань так делать, пожалуйста, а то ещё сломаешь что-то.")
                 renpy.call("ch1_loop")
 
@@ -1229,11 +1233,15 @@ label ch1_exit:
 
 
         else:
-            renpy.say(n r1e, "Вернулся?")
+            renpy.show("natsuki r1e")
+            renpy.say(n, "Вернулся?")
             renpy.say(n, "Я уже успела заждаться тебя.")
-            renpy.say(n r1b, "Мог бы хоть предупредить, что уходишь...")
-            renpy.say(n r1e, "Или ты специально так резко убежал от меня, чтобы...")
-            renpy.say(n r1b, "Ладно, неважно.")
+            renpy.show("natsuki r1b")
+            renpy.say(n, "Мог бы хоть предупредить, что уходишь...")
+            renpy.show("natsuki r1e")
+            renpy.say(n, "Или ты специально так резко убежал от меня, чтобы...")
+            renpy.show("natsuki r1b")
+            renpy.say(n, "Ладно, неважно.")
 
             renpy.call("ch1_loop")
 
@@ -1822,7 +1830,7 @@ label what_was_that:
     pause 149
     n "Да неужели?"
     n "Опять?"
-    n "И зачем я только согласилась...?"
+    n "И зачем я только согласилась?.."
     pause 3
     show mask_2
     show mask_3
