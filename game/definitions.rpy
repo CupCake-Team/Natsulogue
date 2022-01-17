@@ -247,7 +247,7 @@ image natsuki r1b:
     im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/b.png")
     zoom 0.5
 image natsuki r1c:
-    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/c.png")
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/с.png")
     zoom 0.5
 image natsuki r1d:
     im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/d.png")
