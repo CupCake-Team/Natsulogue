@@ -2,7 +2,7 @@
 
 
 label start:
-
+    #plese work!
     $ _dismiss_pause = config.developer
 
     $ s_name = "Сайори"
