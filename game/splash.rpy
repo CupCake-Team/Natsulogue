@@ -4,7 +4,7 @@
 
 
 init python:
-    import sys, pickle
+    import sys, pickle, random
     from os.path import abspath
     import os
     import json
@@ -45,6 +45,8 @@ init python:
 
     vis_folders = ["dai_vis", "heart_vis", "herewego_vis", "just_vis", "nattheme_vis", "cup_vis"]
 
+    ref_ans = ["Неважно.", "Забей.", "Забудь."]
+
     is_esc_pressed = False
     themes = 0
     is_shown_vis = False
@@ -68,6 +70,9 @@ init python:
         version_list = json.loads(str(f.read()))
         f.close()
         return version_list["last_version"]
+
+    def random_ans():
+        return random.choice(ref_ans)
 
 
 

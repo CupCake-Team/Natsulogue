@@ -2,7 +2,6 @@ label dia_recipes:
     $left = False
     $right = False
     $lr = renpy.random.randint(1,2)
-    $refuse_ans = renpy.random.randint(1,3)
     if lr == 1:
         $left = True
         $right = False
@@ -11,6 +10,8 @@ label dia_recipes:
         $left = False
 
     $side()
+
+    $ans = random_ans()
 
     hide screen talk_button
 
@@ -135,18 +136,8 @@ label dia_recipes:
             n r1f "Пришлось выложиться по полной, чтобы выставить наш клуб в хорошем свете."
             n r1c "Чувствуется ответственность, знаешь ли..."
 
-
             call ch1_loop
 
-
-        "{i}Неважно.{/i}" if refuse_ans == 1:
-            $side_return()
-            call ch1_loop
-
-        "{i}Забей.{/i}" if refuse_ans == 2:
-            $side_return()
-            call ch1_loop
-
-        "{i}Забудь.{/i}" if refuse_ans == 3:
+        "{i}[ans]{/i}":
             $side_return()
             call ch1_loop

@@ -2,7 +2,6 @@ label dia_hobbies:
     $left = False
     $right = False
     $lr = renpy.random.randint(1,2)
-    $refuse_ans = renpy.random.randint(1,3)
     if lr == 1:
         $left = True
         $right = False
@@ -11,6 +10,8 @@ label dia_hobbies:
         $left = False
 
     $side()
+
+    $ans = random_ans()
 
 
 
@@ -118,6 +119,7 @@ label dia_hobbies:
         "{i}Ты играешь в видеоигры?{/i}":
             hide screen countdown
             $side_return()
+            $random_ans()
 
             n r1g "Конечно, ведь это прекрасная возможность уйти на некоторое время от реального мира."
             n r1e "Если при чтении манги всё равно приходится напрягать воображение, а при просмотре аниме лишь наблюдать за происходящим, то игра даёт возможность во всём поучаствовать."
@@ -159,16 +161,6 @@ label dia_hobbies:
 
             call ch1_loop
 
-
-
-        "{i}Неважно.{/i}" if refuse_ans == 1:
-            $side_return()
-            call ch1_loop
-
-        "{i}Забей.{/i}" if refuse_ans == 2:
-            $side_return()
-            call ch1_loop
-
-        "{i}Забудь.{/i}" if refuse_ans == 3:
+        "{i}[ans]{/i}":
             $side_return()
             call ch1_loop
