@@ -123,7 +123,7 @@ screen navigation():
         if not persistent.autoload or not main_menu:
 
             if main_menu:
-                textbutton _("ŔŗñĮ¼»ŧþŀÂŻŕěōì«") action If(persistent.playername, false=Start())
+                textbutton _("ŔŗñĮ¼»ŧþŀÂŻŕěōì«") action Start()
 
             else:
 

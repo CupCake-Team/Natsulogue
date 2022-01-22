@@ -10,14 +10,7 @@ label dia_romance:
         $right = True
         $left = False
 
-    if left:
-        show natsuki r1:
-            xcenter 630
-            easein 1.00 xcenter 330
-    if right:
-        show natsuki r1:
-            xcenter 630
-            easein 1.00 xcenter 930
+    $side()
 
     hide screen talk_button
 
@@ -52,14 +45,7 @@ label dia_romance:
     menu:
         "{i}Ты милая!{/i}" if persistent.is_cute == False:
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
             n r1k "..!"
             n r1m "Я..."
             n r1n "Не..."
@@ -77,41 +63,27 @@ label dia_romance:
             show natsuki r1b
             $persistent.is_cute = True
             $renpy.save_persistent
-            call ch1_loop from _call_ch1_loop_30
+            call ch1_loop
 
 
 
 
         "{i}Ты милая!{/i}" if persistent.is_cute == True:
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
             n r1n "Так... {w}Решил поиздеваться надо мной?"
             n r1l "Вместо кучи слов я сделаю гораздо проще."
             n r1n "Не видать тебе этой кнопки, дурак."
             show natsuki r1c
             $persistent.is_cute = "baka"
             $renpy.save_persistent
-            call ch1_loop from _call_ch1_loop_31
+            call ch1_loop
 
 
 
         "{i}Ты красивая!{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             n r1n "Э... {w}Ну..."
             n "Спасибо, наверное..."
@@ -125,21 +97,14 @@ label dia_romance:
             show natsuki r1c
 
 
-            call ch1_loop from _call_ch1_loop_32
+            call ch1_loop
 
 
 
 
         "{i}Ты очаровашка!{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
 
 
@@ -159,7 +124,7 @@ label dia_romance:
                 $renpy.save_persistent()
                 jump set_name
             else:
-                call ch1_loop from _call_ch1_loop_33
+                call ch1_loop
 
 
 
@@ -168,14 +133,7 @@ label dia_romance:
 
         "{i}Ты умная!{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
 
 
@@ -195,7 +153,7 @@ label dia_romance:
                 $renpy.save_persistent()
                 jump set_name
             else:
-                call ch1_loop from _call_ch1_loop_34
+                call ch1_loop
 
 
 
@@ -204,14 +162,7 @@ label dia_romance:
 
         "{i}Ты лучшая!{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
 
 
@@ -229,21 +180,14 @@ label dia_romance:
 
 
 
-            call ch1_loop from _call_ch1_loop_35
+            call ch1_loop
 
 
 
 
         "{i}Ты хороша!{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
 
 
@@ -260,7 +204,7 @@ label dia_romance:
                 $renpy.save_persistent()
                 jump set_name
             else:
-                call ch1_loop from _call_ch1_loop_36
+                call ch1_loop
 
 
 
@@ -269,34 +213,13 @@ label dia_romance:
 
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_37
+            $side_return()
+            call ch1_loop
 
         "{i}Забей.{/i}" if refuse_ans == 2:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_38
+            $side_return()
+            call ch1_loop
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_39
+            $side_return()
+            call ch1_loop

@@ -10,14 +10,7 @@ label dia_requests:
         $right = True
         $left = False
 
-    if left:
-        show natsuki r1:
-            xcenter 630
-            easein 1.00 xcenter 330
-    if right:
-        show natsuki r1:
-            xcenter 630
-            easein 1.00 xcenter 930
+    $side()
 
     hide screen talk_button
 
@@ -52,14 +45,7 @@ label dia_requests:
     menu:
         "{i}Я бы хотел изменить громкость звука...{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             if persistent.repeat == 0:
                 n r1d "Ах да, совсем забыла предупредить о том, что главного меню у игры больше нет."
@@ -114,7 +100,7 @@ label dia_requests:
                 $soungrad = persistent.soundgrad
                 $renpy.music.set_volume(vlm, channel="music")
                 $renpy.music.set_volume(soundvlm, channel="sound")
-                call ch1_loop from _call_ch1_loop_46
+                call ch1_loop
 
             if persistent.repeat == 1:
                 n " r1e Я же ведь всё объясняла, разве нет?"
@@ -130,7 +116,7 @@ label dia_requests:
                 show natsuki r1b
                 $persistent.repeat = 2
                 $renpy.save_persistent()
-                call ch1_loop from _call_ch1_loop_47
+                call ch1_loop
 
             if persistent.repeat == 2:
                 n r1l "Знаешь, уже не смешно..."
@@ -140,18 +126,11 @@ label dia_requests:
                 n "Так, всё, достал меня, разбирайся сам."
                 n r1m "Метод тыка тебе в помощь, болвашка."
                 show natsuki r1b
-                call ch1_loop from _call_ch1_loop_48
+                call ch1_loop
 
         "{i}Я бы хотел поменять музыку...{/i}" if persistent.mus_repeat == 0 or persistent.mus_repeat == 1:
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
             if persistent.mus_repeat == 0:
                 n r1a "Хм..."
                 n r1d "Думаю, я смогу устроить нечто подобное, если найду способ, как это сделать."
@@ -194,7 +173,7 @@ label dia_requests:
                 $persistent.ch_mus = True
                 $persistent.mus_repeat = 1
                 $renpy.save_persistent()
-                call ch1_loop from _call_ch1_loop_49
+                call ch1_loop
 
             if persistent.mus_repeat == 1:
                 n r1e "Хорошо, но зачем ты просишь меня об этом?"
@@ -230,18 +209,11 @@ label dia_requests:
                         $renpy.save_persistent()
 
 
-                call ch1_loop from _call_ch1_loop_50
+                call ch1_loop
 
         "{i}Можешь поставить музыку, которая тебе нравится?{/i}" if persistent.mus_repeat == 2:
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             $rand_mus_answer = renpy.random.randint(1,3)
 
@@ -270,19 +242,12 @@ label dia_requests:
             python:
                 set_back_on_prefered()
 
-            call ch1_loop from _call_ch1_loop_51
+            call ch1_loop
 
 
         "{i}Мне бы хотелось поиграть с тобой во что-то...{/i}" if persistent.f_game == 0:
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
             $left = False
             $right = False
             n r1e "Поиграть?"
@@ -314,28 +279,28 @@ label dia_requests:
                     $rand_turn = random.randint(1,2)
                     if rand_turn == 1 and left == True:
                         n r1d "Я хожу первой!"
-                        show natsuki r1с:
+                        show natsuki r1c:
                             xcenter 630
                             easein 1.00 xcenter 330
                         show cft_pole zorder 2 at for_field_l
                         jump change_side
                     if rand_turn == 1 and right == True:
                         n r1d "Я хожу первой!"
-                        show natsuki r1с:
+                        show natsuki r1c:
                             xcenter 630
                             easein 1.00 xcenter 930
                         show cft_pole zorder 2 at for_field_r
                         jump change_side
                     if rand_turn == 2 and left == True:
                         n r1d "Ты ходишь первым."
-                        show natsuki r1с:
+                        show natsuki r1c:
                             xcenter 630
                             easein 1.00 xcenter 330
                         show cft_pole zorder 2 at for_field_l
                         call screen cup_fork_toe("left", None)
                     if rand_turn == 2 and right == True:
                         n r1d "Ты ходишь первым."
-                        show natsuki r1с:
+                        show natsuki r1c:
                             xcenter 630
                             easein 1.00 xcenter 930
                         show cft_pole zorder 2 at for_field_r
@@ -354,19 +319,12 @@ label dia_requests:
                     n r1c "Ладно, тогда в другой раз."
                     $persistent.f_game = 1
                     $renpy.save_persistent()
-                    call ch1_loop from _call_ch1_loop_52
+                    call ch1_loop
 
 
         "{i}Я бы хотел поиграть с тобой в вилочки-кексики...{/i}" if persistent.f_game >= 1:
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
             $r_ans = random.randint(1,2)
             if r_ans == 1:
                 n r1d "Хорошо, почему бы и нет?"
@@ -397,7 +355,7 @@ label dia_requests:
                 call screen cup_fork_toe("left", None)
             if rand_turn == 2 and right == True:
                 n r1d "Ты ходишь первым."
-                show natsuki r1с:
+                show natsuki r1c:
                     xcenter 630
                     easein 1.00 xcenter 930
                 show cft_pole zorder 2 at for_field_r
@@ -407,14 +365,7 @@ label dia_requests:
 
         "{i}Я бы хотел поменять режим экрана...{/i}" if persistent.ch_vol == False and persistent.ch_mus == False and persistent.first_change == False and (not renpy.mobile):
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
 
 
@@ -430,31 +381,7 @@ label dia_requests:
             n r1c "Не будь дурашкой, хорошо?"
 
 
-            if left:
-                show natsuki r1:
-                    xcenter 630
-                    easein 1.00 xcenter 330
-            if right:
-                show natsuki r1:
-                    xcenter 630
-                    easein 1.00 xcenter 930
-
-            $persistent.first_change = True
-            $renpy.save_persistent()
-
-            jump set_buttons
-
-
-        "{i}Я бы хотел поменять горячие клавиши на другие...{/i}" if (persistent.ch_vol == True or persistent.ch_mus == True) and persistent.first_change == False and (not renpy.mobile):
-            hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             n r1e "Тебе не понравились те, что назначила я?"
             n r1c "Ну, хорошо..."
@@ -465,33 +392,7 @@ label dia_requests:
             n r1c "Не будь дурашкой, хорошо?"
 
 
-            if left:
-                show natsuki r1:
-                    xcenter 630
-                    easein 1.00 xcenter 330
-            if right:
-                show natsuki r1:
-                    xcenter 630
-                    easein 1.00 xcenter 930
-
-            $persistent.first_change = True
-            $renpy.save_persistent()
-
-            jump set_buttons
-
-
-
-        "{i}Я бы хотел поменять горячие клавиши на другие...{/i}" if persistent.first_change == True and (not renpy.mobile):
-
-            hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             $ rand_ans = renpy.random.randint(1,3)
 
@@ -503,29 +404,7 @@ label dia_requests:
                 n r1f "Только ничего не сломай."
 
 
-            if left:
-                show natsuki r1:
-                    xcenter 630
-                    easein 1.00 xcenter 330
-            if right:
-                show natsuki r1:
-                    xcenter 630
-                    easein 1.00 xcenter 930
-
-            jump set_buttons
-
-
-        
-        "{i}Я бы хотел попрощаться с тобой, мне скоро нужно уходить...{/i}" if persistent.set_broke == True or renpy.mobile:
-            hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             $rand_ans = renpy.random.randint(1,3)
 
@@ -564,51 +443,23 @@ label dia_requests:
 
         "Я бы хотел включить параллакс...":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
             n r1d "Хорошо."
             if parallax_bg == True:
                 $ parallax_bg = False
             if parallax_bg == False:
                 $ parallax_bg = True
             n r1e "Вроде готово."
-            call ch1_loop from _call_ch1_loop_15
+            call ch1_loop
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_53
+            $side_return()
+            call ch1_loop
 
         "{i}Забей.{/i}" if refuse_ans == 2:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_54
+            $side_return()
+            call ch1_loop
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_55
+            $side_return()
+            call ch1_loop

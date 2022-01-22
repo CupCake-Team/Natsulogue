@@ -10,14 +10,7 @@ label dia_recipes:
         $right = True
         $left = False
 
-    if left:
-        show natsuki r1:
-            xcenter 630
-            easein 1.00 xcenter 330
-    if right:
-        show natsuki r1:
-            xcenter 630
-            easein 1.00 xcenter 930
+    $side()
 
     hide screen talk_button
 
@@ -52,14 +45,7 @@ label dia_recipes:
     menu:
         "{i}Как испечь вкусные кексы?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             n r1f "Ого, так тебя заинтересовала лучшая часть моей выпечки?"
             n r1d "Говорю сразу, никакого секретного ингредиента в них нет, просто нужно уметь их печь."
@@ -97,20 +83,13 @@ label dia_recipes:
             n r1g "Вуаля, кексы готовы!"
             n r1d "Осталось нанести глазурь и можешь наслаждаться ими."
             n r1c "Желаю удачи повторить рецепт, если надумаешь."
-            call ch1_loop from _call_ch1_loop_40
+            call ch1_loop
 
 
 
         "{i}С какого блюда ты бы посоветовала начать обучаться кулинарии?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
 
             n r1e "Знаешь, ты задал довольно интересный вопрос."
@@ -133,20 +112,13 @@ label dia_recipes:
                 $renpy.save_persistent()
                 jump set_name
             else:
-                call ch1_loop from _call_ch1_loop_41
+                call ch1_loop
 
 
 
         "{i}Почему ты решила приготовить к фестивалю именно кексы?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
 
             n r1e "Ха?"
@@ -164,38 +136,17 @@ label dia_recipes:
             n r1c "Чувствуется ответственность, знаешь ли..."
 
 
-            call ch1_loop from _call_ch1_loop_42
+            call ch1_loop
 
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_43
+            $side_return()
+            call ch1_loop
 
         "{i}Забей.{/i}" if refuse_ans == 2:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_44
+            $side_return()
+            call ch1_loop
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_45
+            $side_return()
+            call ch1_loop

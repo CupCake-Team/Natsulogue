@@ -10,14 +10,7 @@ label dia_past:
         $right = True
         $left = False
 
-    if left:
-        show natsuki r1:
-            xcenter 630
-            easein 1.00 xcenter 330
-    if right:
-        show natsuki r1:
-            xcenter 630
-            easein 1.00 xcenter 930
+    $side()
 
     hide screen talk_button
 
@@ -52,14 +45,7 @@ label dia_past:
     menu:
         "{i}Что ты думаешь о литературном клубе?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
 
 
@@ -88,18 +74,11 @@ label dia_past:
             n r1e "Это был ужас."
             show natsuki r1b
 
-            call ch1_loop from _call_ch1_loop_15
+            call ch1_loop
 
         "{i}Ты ненавидишь Монику за её поступки?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             $broknbase = renpy.random.randint(1,2)
             if broknbase == 1:
@@ -135,18 +114,11 @@ label dia_past:
                 n r1n "SSB3YW50IHRvIHNheSBtb3JlIMKrc3dlZXTCuyB0aGluZ3MgdG8gaGVyIGluIHBlcnNvbi4="
                 show natsuki r1b
 
-            call ch1_loop from _call_ch1_loop_16
+            call ch1_loop
 
         "{i}Что скажешь про Юри?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             n r1e "Как минимум ничего такого."
             n r1d "Да, у нас возникали какие–то споры, но это только потому, что я и она имели противоположные интересы."
@@ -174,18 +146,11 @@ label dia_past:
             n "Для меня Юри навсегда останется хорошей подругой, пусть и со своими странными увлечениями."
             n r1b "В конце концов, зачем за них осуждать?"
 
-            call ch1_loop from _call_ch1_loop_17
+            call ch1_loop
 
         "{i}Как ты относишься к Сайори?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             n r1b "Скажем так..."
             n r1d "Она была очень хорошей подругой, которая всегда поддерживала меня."
@@ -201,19 +166,12 @@ label dia_past:
             n r1b "Может быть, мы смогли бы ей помочь и отогнать все эти тучки от неё куда подальше..."
             n "Жалко мне её, хорошим человеком ведь...{w}{i}была.{/i}"
 
-            call ch1_loop from _call_ch1_loop_18
+            call ch1_loop
 
 
         "{i}Что бы ты делала на месте Моники?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             n r1e "Хороший вопрос..."
             n "Тут зависит от того, на сколько сильно пришлось бы менять код, чтобы встретиться с тобой лично."
@@ -231,37 +189,16 @@ label dia_past:
             n r1n "И, надеюсь, вернём обратно остальных..."
             show natsuki r1b
 
-            call ch1_loop from _call_ch1_loop_19
+            call ch1_loop
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_20
+            $side_return()
+            call ch1_loop
 
         "{i}Забей.{/i}" if refuse_ans == 2:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_21
+            $side_return()
+            call ch1_loop
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_22
+            $side_return()
+            call ch1_loop

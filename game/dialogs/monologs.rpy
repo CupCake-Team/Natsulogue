@@ -1,12 +1,5 @@
 label mono1:
-    if left:
-        show natsuki r1:
-            xcenter 330
-            easein 1.00 xcenter 630
-    if right:
-        show natsuki r1:
-            xcenter 930
-            easein 1.00 xcenter 630
+    $side_return()
     $left = False
     $right = False
     hide screen talk_button
@@ -56,14 +49,7 @@ label mono1:
 
 
 label mono2:
-    if left:
-        show natsuki r1:
-            xcenter 330
-            easein 1.00 xcenter 630
-    if right:
-        show natsuki r1:
-            xcenter 930
-            easein 1.00 xcenter 630
+    $side_return()
     $left = False
     $right = False
     hide screen talk_button
@@ -97,14 +83,7 @@ label mono2:
 
 
 label mono3:
-    if left:
-        show natsuki r1:
-            xcenter 330
-            easein 1.00 xcenter 630
-    if right:
-        show natsuki r1:
-            xcenter 930
-            easein 1.00 xcenter 630
+    $side_return()
     $ left = False
     $ right = False
     hide screen talk_button
@@ -152,14 +131,7 @@ label mono3:
 
 
 label mono4:
-    if left:
-        show natsuki r1:
-            xcenter 330
-            easein 1.00 xcenter 630
-    if right:
-        show natsuki r1:
-            xcenter 930
-            easein 1.00 xcenter 630
+    $side_return()
     $left = False
     $right = False
     hide screen talk_button
@@ -205,14 +177,7 @@ label mono4:
 
 
 label mono5:
-    if left:
-        show natsuki r1:
-            xcenter 330
-            easein 1.00 xcenter 630
-    if right:
-        show natsuki r1:
-            xcenter 930
-            easein 1.00 xcenter 630
+    $side_return()
     $left = False
     $right = False
     hide screen talk_button
@@ -254,14 +219,7 @@ label mono5:
 label ch1_monologchoice:
     $t = renpy.random.randint(1,5)
 
-    if left:
-        show natsuki r1:
-            xcenter 330
-            easein 1.00 xcenter 630
-    if right:
-        show natsuki r1:
-            xcenter 930
-            easein 1.00 xcenter 630
+    $side_return()
 
 
     if len(persistent.readen) != 5:

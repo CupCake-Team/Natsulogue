@@ -112,7 +112,7 @@ image mask_3:
         xoffset 1280
         linear 180 xoffset 0
         repeat
-    
+
 image monika_bg = "images/cg/monika/monika_room.png"
 
 image monika_bg_parallax:
@@ -286,7 +286,7 @@ label ch0_main:
     $ gtext = glitchtext(renpy.random.randint(8, 80))
 
     play music t6s
-    scene bg club_day 
+    scene bg club_day
     "[gtext]"
     window auto
     n "Ну вот и начался фестиваль!"
@@ -497,7 +497,7 @@ label ch1_main:
 
     n 1x "..."
     n 1q "Голова..."
-    show natsuki 1s 
+    show natsuki 1s
     n "Как же болит голова..."
     $pause(1.5)
     n 1q "Ох..."
@@ -709,28 +709,28 @@ label ch1_main:
     n 1m "Неужели всё вокруг меня не настоящее?"
     n "Почему..."
     n "Почему я узнаю об этом только сейчас?"
-    show natsuki 1n 
+    show natsuki 1n
     $ pause(2)
     n 1q "Спокойствие, только спокойствие..."
     n 1k "Если я нахожусь в игре, значит... {w}за мной наблюдает {i}игрок.{/i}"
     $ pause(2)
-    show natsuki 1g 
+    show natsuki 1g
     n "..."
     n 1e "Э–э–э–э–эй!"
     n "Ты здесь?"
     n 1h "Я знаю что ты пялишься на меня."
-    show natsuki 1g 
+    show natsuki 1g
     $ pause(1.5)
     n 1c "Верно?.."
     $ pause(4)
-    show natsuki 1n 
+    show natsuki 1n
     n "..."
     $ pause(6)
     n 1k "Ладно, какая разница?"
     $ pause(3)
-    show natsuki 1n 
+    show natsuki 1n
     n 1k "Забавно... {w}Все те события начинают приобретать какой–то смысл."
-    show natsuki 1s 
+    show natsuki 1s
     n "..."
     n 1r "Моника..."
     n "Чего ты пыталась добиться?.."
@@ -742,10 +742,10 @@ label ch1_main:
     n "Избавиться от всех своих подруг ради кого-то из другой реальности?!"
     n 1o "{i}Поехавшая...{/i}"
     $ pause(6)
-    show natsuki 1s 
+    show natsuki 1s
     n 1q "Ладно..."
     n "Я должна попытаться это исправить."
-    show natsuki 1s 
+    show natsuki 1s
     $ pause(2)
     n "Хм..."
     n 1k "С другой стороны, если я нахожусь в игре, не значит ли это то, что я могу изменить её код?"
@@ -755,19 +755,19 @@ label ch1_main:
     n "Где достать?"
     n 1e "Всё что тут есть - это пустая комната в грёбанном космосе!"
     n "Неужели не было более живописного местечка?"
-    show natsuki 1g 
+    show natsuki 1g
     $ consolehistory = []
     $ pause(2)
     call updateconsole (" ", " ") from _call_updateconsole_19
     n 1c "А?.."
     n "Как я вообще включила её?"
-    show natsuki 1g 
+    show natsuki 1g
     $ pause(2)
     n 1c "Наверное потому что представила это."
     n "Походу это какая-та консоль... {w}Попробую-ка воспользоваться."
-    show natsuki 1g 
+    show natsuki 1g
     $ pause(3)
-    n 1с "Странно, а как вводить команду?"
+    n 1c "Странно, а как вводить команду?"
     n "Я думала, что сейчас передо мной появится клавиатура или что-то вроде того..."
     n "Может попробовать голосом?"
     n "Эм..."
@@ -793,12 +793,12 @@ label ch1_main:
             pass
     #менюшка с yes без ожидания ответа(мб в будущем с ожиданием)
     call hideconsole () from _call_hideconsole_2
-    show natsuki 1p 
+    show natsuki 1p
     n "Ва?!"
     n 1h "Значит ты здесь..."
     n 1w "Так, стоп!"
     n 1v "Неужели ты видел всё, что происходило до этого?!"
-    show natsuki 1s 
+    show natsuki 1s
     n "..."
     n 1q "Ладно..."
     n 1d"По крайней мере теперь тут есть хоть кто-то, помимо меня."
@@ -837,7 +837,7 @@ label ch1_main:
 
     $pause(0.5)
 
-    n r1c "Так гораздо лучше..." 
+    n r1c "Так гораздо лучше..."
     n r1d "Ты не против, если мы немного посидим, пообщаемся?"
     n r1e "Просто здесь так скучно..."
     $count = 60
@@ -1011,7 +1011,7 @@ label set_name:
     n r1e "[player]..."
     show natsuki r1b
 
-    call ch1_loop from _call_ch1_loop_62
+    call ch1_loop
 
 
 
@@ -1026,7 +1026,7 @@ label exit_lesshour:
     n "Неужели так быстро заскучал?~"
     n "Ладно, неважно..."
     n "С возвращением."
-    call ch1_loop from _call_ch1_loop_63
+    call ch1_loop
 
 label exit_lessday:
     $ config.allow_skipping = False
@@ -1040,7 +1040,7 @@ label exit_lessday:
     n r1e "Слушай, не мог бы навещать меня почаще?"
     n r1n "Просто... {w}Мне даже поговорить не с кем..."
     show natsuki r1b
-    call ch1_loop from _call_ch1_loop_64
+    call ch1_loop
 
 label exit_moreday:
     $renpy.block_rollback()
@@ -1059,7 +1059,7 @@ label exit_moreday:
     n "Надеюсь, что мы поняли друг друга."
     show natsuki r1c
 
-    call ch1_loop from _call_ch1_loop_65
+    call ch1_loop
 
 
 #-----------------------------------Вспомогательные лэйблы-----------------------------------
@@ -1067,14 +1067,7 @@ label exit_moreday:
 
 label ch1_loop:
     if is_esc_pressed == True:
-        if left:
-            show natsuki r1:
-                xcenter 330
-                easein 1.00 xcenter 630
-        if right:
-            show natsuki r1:
-                xcenter 930
-                easein 1.00 xcenter 630
+        $side_return()
 
     $ config.allow_skipping = False
     $ config.skipping = False
@@ -1174,7 +1167,7 @@ label ch1_exit:
             $persistent.set_broke = True
             $persistent.is_glitching = False
             $renpy.save_persistent()
-            call ch1_loop from _call_ch1_loop_66
+            call ch1_loop
         else:
             jump what_was_that
 
@@ -1197,7 +1190,7 @@ label ch1_exit:
             n "Пожалуйста, в следующий раз предупреждай о том, что собираешься уйти, ладно?"
             n r1b "Скажи спасибо за то, что у меня хорошее настроение, иначе я бы сейчас с тобой поругалась..."
 
-        call ch1_loop from _call_ch1_loop_67
+        call ch1_loop
 
     else:
         $persistent.bye = False
@@ -1339,7 +1332,7 @@ label win:
                     hide o3
                     hide o4
                     hide cft_pole
-                    call ch1_loop from _call_ch1_loop_68
+                    call ch1_loop
 
         elif persistent.f_game == 2:
             $r_ans = random.randint(1,3)
@@ -1422,7 +1415,7 @@ label win:
                     hide o3
                     hide o4
                     hide cft_pole
-                    call ch1_loop from _call_ch1_loop_69
+                    call ch1_loop
 
 
     elif result == 'O':
@@ -1501,7 +1494,7 @@ label win:
                     hide o3
                     hide o4
                     hide cft_pole
-                    call ch1_loop from _call_ch1_loop_70
+                    call ch1_loop
 
         elif persistent.f_game == 2:
             $r_ans = random.randint(1,3)
@@ -1585,7 +1578,7 @@ label win:
                     hide o3
                     hide o4
                     hide cft_pole
-                    call ch1_loop from _call_ch1_loop_71
+                    call ch1_loop
 
 
 
@@ -1621,7 +1614,7 @@ label win:
             hide o3
             hide o4
             hide cft_pole
-            call ch1_loop from _call_ch1_loop_72
+            call ch1_loop
 
         elif persistent.f_game == 2:
             $r_ans = random.randint(1,2)
@@ -1699,7 +1692,7 @@ label win:
                     hide o3
                     hide o4
                     hide cft_pole
-                    call ch1_loop from _call_ch1_loop_73
+                    call ch1_loop
 
 
 
@@ -1794,16 +1787,8 @@ label set_buttons:
                     $ persistent.m_r_key = r_to_e(persistent.m_key)
                 $ renpy.save_persistent()
 
-
-    if left:
-        show natsuki r1:
-            xcenter 330
-            easein 1.00 xcenter 630
-    if right:
-        show natsuki r1:
-            xcenter 930
-            easein 1.00 xcenter 630
-    call ch1_loop from _call_ch1_loop_74
+    $side_return
+    call ch1_loop
 
 
 
@@ -1855,7 +1840,7 @@ label what_was_that:
     $persistent.fix = True
     $renpy.save_persistent()
 
-    call ch1_loop from _call_ch1_loop_75
+    call ch1_loop
 
 
 
