@@ -11,14 +11,7 @@ label dia_other:
         $right = True
         $left = False
 
-    if left:
-        show natsuki r1:
-            xcenter 630
-            easein 1.00 xcenter 330
-    if right:
-        show natsuki r1:
-            xcenter 630
-            easein 1.00 xcenter 930
+    $side()
 
     hide screen talk_button
 
@@ -53,14 +46,7 @@ label dia_other:
     menu:
         "{i}Где бы тебе сейчас хотелось оказаться?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
             n r1e "Думаю, далеко отсюда."
             n r1b "Мне здесь не очень нравится..."
             n r1e "Несмотря на то, что я никогда не страдала клаустрофобией, эти стены вокруг выносят мне мозг."
@@ -79,21 +65,14 @@ label dia_other:
             n "Или ей казалось, что ты будешь сидеть с ней целую вечность?"
             n "Как недальновидно с её стороны, оказывается."
             n r1c "Ничего, со скуки я уж точно не умру, хи-хи-хи..."
-            call ch1_loop from _call_ch1_loop_23
+            call ch1_loop
 
 
 
 
         "{i}Чего тебе не хватает в этой комнате?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             n r1e "Много чего, на самом деле..."
             n "Плиты, например, нет."
@@ -112,20 +91,13 @@ label dia_other:
             show natsuki r1b
 
 
-            call ch1_loop from _call_ch1_loop_24
+            call ch1_loop
 
 
 
         "{i}2+2*2?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
 
             n r1f "А–ха–ха–ха, что за глупый вопрос?"
@@ -136,20 +108,13 @@ label dia_other:
             n r1a "Тебе совсем не о чем поговорить со мной, или что?"
 
 
-            call ch1_loop from _call_ch1_loop_25
+            call ch1_loop
 
 
 
         "{i}Как ты относишься к Новому Году?{/i}" if cur_time.strftime("%d") >= "24" and cur_time.strftime("%d") <= "31" and cur_time.strftime("%m") == "12":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
 
             n r1e "Ты спрашиваешь у меня только потому, что у тебя скоро этот праздник?"
@@ -172,40 +137,19 @@ label dia_other:
             n "Ладно, не буду портить тебе настроение."
             show natsuki r1b
 
-            call ch1_loop from _call_ch1_loop_26
+            call ch1_loop
 
 
 
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_27
+            $side_return()
+            call ch1_loop
 
         "{i}Забей.{/i}" if refuse_ans == 2:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_28
+            $side_return()
+            call ch1_loop
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_29
+            $side_return()
+            call ch1_loop

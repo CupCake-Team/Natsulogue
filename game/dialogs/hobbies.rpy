@@ -10,14 +10,9 @@ label dia_hobbies:
         $right = True
         $left = False
 
-    if left:
-        show natsuki r1:
-            xcenter 630
-            easein 1.00 xcenter 330
-    if right:
-        show natsuki r1:
-            xcenter 630
-            easein 1.00 xcenter 930
+    $side()
+
+
 
     hide screen talk_button
 
@@ -52,14 +47,7 @@ label dia_hobbies:
     menu:
         "{i}Почему тебе так нравится готовка?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
             n r1g "Я рада, что ты спросил меня об этом."
             n r1d "Готовка для меня не просто увлечение, на которое я трачу свободное время, а ещё и прекрасная возможность стать настоящим шеф–поваром и связать с этим жизнь."
             n r1b "Правда теперь это не имеет смысла..."
@@ -93,18 +81,11 @@ label dia_hobbies:
                 $renpy.save_persistent()
                 jump set_name
             else:
-                call ch1_loop from _call_ch1_loop_8
+                call ch1_loop
 
         "{i}Как ты полюбила мангу?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             n r1e "Ну... {w}На самом деле это долгая история."
             n "Как и многим детям, родители иногда читали мне мангу, в основном перед сном."
@@ -132,18 +113,11 @@ label dia_hobbies:
             n "Интересно, какая?"
             n r1c "Мне было бы интересно её полистать..."
 
-            call ch1_loop from _call_ch1_loop_9
+            call ch1_loop
 
         "{i}Ты играешь в видеоигры?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             n r1g "Конечно, ведь это прекрасная возможность уйти на некоторое время от реального мира."
             n r1e "Если при чтении манги всё равно приходится напрягать воображение, а при просмотре аниме лишь наблюдать за происходящим, то игра даёт возможность во всём поучаствовать."
@@ -163,20 +137,13 @@ label dia_hobbies:
             n r1d "Может быть в будущем я создам ещё какие-то игры, заодно немного разовью свои навыки программирования."
             show natsuki r1c
 
-            call ch1_loop from _call_ch1_loop_10
+            call ch1_loop
 
 
 
         "{i}Как ты относишься к серьёзной литературе?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             n r1a "Эм... {w}В каком плане?"
             n r1e "Ты про те книжки что читала Юри или в целом?"
@@ -190,39 +157,18 @@ label dia_hobbies:
             show natsuki r1b
 
 
-            call ch1_loop from _call_ch1_loop_11
+            call ch1_loop
 
 
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_12
+            $side_return()
+            call ch1_loop
 
         "{i}Забей.{/i}" if refuse_ans == 2:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_13
+            $side_return()
+            call ch1_loop
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_14
+            $side_return()
+            call ch1_loop

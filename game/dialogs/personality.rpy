@@ -10,14 +10,7 @@ label dia_personality:
         $right = True
         $left = False
 
-    if left:
-        show natsuki r1:
-            xcenter 630
-            easein 1.00 xcenter 330
-    if right:
-        show natsuki r1:
-            xcenter 630
-            easein 1.00 xcenter 930
+    $side()
 
     hide screen talk_button
 
@@ -52,14 +45,7 @@ label dia_personality:
     menu:
         "{i}Какой жанр музыки ты предпочитаешь?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             n r1e "Сложно сказать."
             n r1c "У меня нет явного фаворита среди музыкальных жанров."
@@ -78,14 +64,7 @@ label dia_personality:
 
         "{i}Как ты обрела самосозание?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             n r1e "Ну... {w}А с чего бы тебе вообще интересоваться этим?"
             n "Раз уж ты здесь, ты должен прекрасно знать обо всём произошедшем."
@@ -111,18 +90,11 @@ label dia_personality:
             n "Тут как с кексами – одна ошибка и получится корм для животных."
             n r1b "Ладно, что-то я отошла от темы..."
 
-            call ch1_loop from _call_ch1_loop_1
+            call ch1_loop
 
         "{i}Какой твой любимый цвет?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             n r1d "Хах..."
             n "Думаю, это слишком очевидно."
@@ -136,18 +108,11 @@ label dia_personality:
             n r1b "Уверена в том, что приводимые аргументы каждой из сторон спора были бы клоунскими."
             show natsuki r1c
 
-            call ch1_loop from _call_ch1_loop_2
+            call ch1_loop
 
         "{i}Как ты относишься к своему отцу?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
 
             n r1b "..."
@@ -167,21 +132,14 @@ label dia_personality:
             n r1b "В любом случае отца больше нет..."
             n "Надеюсь, что так всё и останется."
 
-            call ch1_loop from _call_ch1_loop_3
+            call ch1_loop
 
 
 
 
         "{i}Какое твоё любимое время года?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             n r1a "Хм–м–м…"
             n r1d "Сложно сказать."
@@ -203,40 +161,19 @@ label dia_personality:
 
 
 
-            call ch1_loop from _call_ch1_loop_4
+            call ch1_loop
 
 
 
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_5
+            $side_return()
+            call ch1_loop
 
         "{i}Забей.{/i}" if refuse_ans == 2:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_6
+            $side_return()
+            call ch1_loop
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_7
+            $side_return()
+            call ch1_loop

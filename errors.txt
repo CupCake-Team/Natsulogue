@@ -1,0 +1,27 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/new_screens.rpy", line 680: expected ':' not found.
+    transform left_$side():
+                   ^
+
+File "game/new_screens.rpy", line 683: expected ':' not found.
+    transform right_$side():
+                    ^
+
+File "game/new_screens.rpy", line 687: expected ':' not found.
+    transform r_left_$side():
+                     ^
+
+File "game/new_screens.rpy", line 690: expected ':' not found.
+    transform r_right_$side():
+                      ^
+
+File "game/new_screens.rpy", line 240: invalid syntax
+    def $side():
+         ^
+    
+
+Ren'Py Version: Ren'Py 7.4.11.2266
+Sat Jan 22 22:17:45 2022

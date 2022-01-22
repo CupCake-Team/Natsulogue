@@ -237,6 +237,24 @@ init python:
         renpy.save_persistent()
 
 
+    def side():
+        if left:
+            renpy.show("natsuki r1", at_list = [left_side])
+
+        if right:
+            renpy.show("natsuki r1", at_list = [right_side])
+
+    def side_return():
+        if left:
+            renpy.show("natsuki r1", at_list = [r_left_side])
+
+        if right:
+            renpy.show("natsuki r1", at_list = [r_right_side])
+
+
+
+
+
 
 
 
@@ -657,6 +675,21 @@ transform for_field_l():
 transform for_field_r():
     ycenter 365
     xcenter 340
+
+
+transform left_side():
+    xcenter 630
+    easein 1.00 xcenter 330
+transform right_side():
+    xcenter 630
+    easein 1.00 xcenter 930
+
+transform r_left_side():
+    xcenter 330
+    easein 1.00 xcenter 630
+transform r_right_side():
+    xcenter 930
+    easein 1.00 xcenter 630
 
 #-----------------------------------------Плеер----------------------------------------------
 image button_back_inactive:

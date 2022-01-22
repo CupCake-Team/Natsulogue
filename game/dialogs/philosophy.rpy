@@ -10,14 +10,7 @@ label dia_philosophy:
         $right = True
         $left = False
 
-    if left:
-        show natsuki r1:
-            xcenter 630
-            easein 1.00 xcenter 330
-    if right:
-        show natsuki r1:
-            xcenter 630
-            easein 1.00 xcenter 930
+    $side()
 
 
     hide screen talk_button
@@ -53,14 +46,7 @@ label dia_philosophy:
     menu:
         "{i}В чём смысл жизни?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
             n r1e "Ты серьёзно думаешь, что я скажу что-то дельное?"
             n "Даже всякие философы не могли дать конкретный ответ, который бы всех устроил."
@@ -87,20 +73,13 @@ label dia_philosophy:
                 $renpy.save_persistent()
                 jump set_name
             else:
-                call ch1_loop from _call_ch1_loop_56
+                call ch1_loop
 
 
 
         "{i}Веришь ли ты в любовь с первого взгляда?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
 
 
@@ -135,20 +114,13 @@ label dia_philosophy:
                 $renpy.save_persistent()
                 jump set_name
             else:
-                call ch1_loop from _call_ch1_loop_57
+                call ch1_loop
 
 
 
         "{i}Как думаешь, является ли наш мир симуляцией?{/i}":
             hide screen countdown
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
+            $side_return()
 
 
 
@@ -170,39 +142,18 @@ label dia_philosophy:
             n r1e "Шанс того, что именно твой мир находится в каком–то компьютере тоже существует, и точка."
             show natsuki r1b
 
-            call ch1_loop from _call_ch1_loop_58
+            call ch1_loop
 
 
 
         "{i}Неважно.{/i}" if refuse_ans == 1:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_59
+            $side_return()
+            call ch1_loop
 
         "{i}Забей.{/i}" if refuse_ans == 2:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_60
+            $side_return()
+            call ch1_loop
 
         "{i}Забудь.{/i}" if refuse_ans == 3:
-            if left:
-                show natsuki r1:
-                    xcenter 330
-                    easein 1.00 xcenter 630
-            if right:
-                show natsuki r1:
-                    xcenter 930
-                    easein 1.00 xcenter 630
-            call ch1_loop from _call_ch1_loop_61
+            $side_return()
+            call ch1_loop

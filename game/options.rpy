@@ -2,7 +2,6 @@
 
 init -1:
    python hide:
-      config.developer = True
       config.quit_action = renpy.curried_call_in_new_context("save_exp")
 
 
@@ -208,18 +207,18 @@ init python:
     build.archive("scripts", 'mod all')
     build.archive("mod_assets", 'mod all')
 
-    ## Не трогайте это. Это нужно для того, чтобы Ren'Py мог добавить файл .sh. 
+    ## Не трогайте это. Это нужно для того, чтобы Ren'Py мог добавить файл .sh.
     ## для Linux/Mac, чтобы запустить ваш мод.
     try:
         build.renpy_patterns.remove((u'renpy.py', [u'all']))
     except:
         pass
     build.classify_renpy("renpy.py", "renpy all")
-    
+
     #############################################################
 
     # Чтобы классифицировать пакеты для pc и android, обязательно добавьте к ним all, как показано ниже.
-    
+
     build.classify("game/mod_assets/**", "mod_assets all")
     build.classify("game/**.rpyc", "scripts all")
     build.classify("game/README.md", None)
