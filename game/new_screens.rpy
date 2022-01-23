@@ -252,7 +252,22 @@ init python:
             renpy.show("natsuki r1", at_list = [r_right_side])
 
 
-
+    def dia_hide():
+        renpy.hide_screen("talk_button")
+        renpy.hide_screen("active_talk_button")
+        renpy.hide_screen("talk_round")
+        renpy.hide_screen("active_talk_round")
+        renpy.hide_screen("choice_buttons_1")
+        renpy.hide_screen("choice_buttons_2")
+        renpy.hide_screen("texts")
+        renpy.hide_screen("volume_key")
+        renpy.hide_screen("active_volume_key")
+        renpy.hide_screen("sound_volume_key")
+        renpy.hide_screen("active_sound_volume_key")
+        renpy.hide_screen("music_key")
+        renpy.hide_screen("active_music_key")
+        renpy.hide_screen("mob_but_curtain")
+        renpy.hide_screen("mob_active_but_curtain")
 
 
 
