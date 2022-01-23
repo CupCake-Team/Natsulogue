@@ -289,17 +289,22 @@ label ch0_main:
     scene bg club_day
     "[gtext]"
     window auto
-    n "Ну вот и начался фестиваль!"
+    $language(main_dia, 0, n, None)
+    #n "Ну вот и начался фестиваль!"
 
     show natsuki 4k zorder 2 at t11
 
-    n "Ого, ты пришёл сюда раньше меня?"
-    n "Я думала, что вышла довольно ра—{nw}"
+    $language(main_dia, 1, n, None)
+    #n "Ого, ты пришёл сюда раньше меня?"
+    $language(main_dia, 2, n, None)
+    #n "Я думала, что вышла довольно ра—{nw}"
 
     show natsuki scream at h11
 
-    n "А–АГХ!!"
-    n "А–А–А–А–А–А–А–А–А–А–А–А–А–А–А!!!"
+    $language(main_dia, 3, n, None)
+    #n "А–АГХ!!"
+    $language(main_dia, 4, n, None)
+    #n "А–А–А–А–А–А–А–А–А–А–А–А–А–А–А!!!"
 
     $ pause(1.0)
 
@@ -314,29 +319,45 @@ label ch0_main:
     show natsuki at lhide
     hide natsuki
 
-    "Нацуки убегает."
-    m "..."
+    $language(main_dia, 5, n, None)
+    #"Нацуки убегает."
+    $language(main_dia, 6, m, None)
+    #m "..."
 
     show monika 2b zorder 2 at t11
 
-    m "А вот и я!"
+    $language(main_dia, 7, m, None)
+    #m "А вот и я!"
 
     $ gtext = glitchtext(8)
-
-    m 2d "[gtext], что-то случилось?"
-    m "Мимо меня только что пробежала Нацуки..."
-    m 2i "...Ой..."
-    m "...Ох."
-    m 2r "..."
-    m 2l "А–ха–ха–ха!"
-    m "Вот ведь незадача."
-    m 2d "Подожди, [gtext], ты провёл здесь все выходные?"
-    m "О боже..."
-    m 2g "Я и не думала, что скрипт повреждён так сильно."
-    m "Мне очень жаль!"
-    m "Наверное, было довольно скучно..."
-    m 2e "Я всё исправлю, ладно?"
-    m "Дай мне секундочку..."
+    $language(main_dia, 8, m, "monika 2d")
+    #m 2d "[gtext], что-то случилось?"
+    $language(main_dia, 9, m, None)
+    #m "Мимо меня только что пробежала Нацуки..."
+    $language(main_dia, 10, m, "monika 2i")
+    #m 2i "...Ой..."
+    $language(main_dia, 11, m, None)
+    #m "...Ох."
+    $language(main_dia, 12, m, "monika 2r")
+    #m 2r "..."
+    $language(main_dia, 13, m, "monika 2l")
+    #m 2l "А–ха–ха–ха!"
+    $language(main_dia, 14, m, None)
+    #m "Вот ведь незадача."
+    $language(main_dia, 15, m, "monika 2d")
+    #m 2d "Подожди, [gtext], ты провёл здесь все выходные?"
+    $language(main_dia, 16, m, None)
+    #m "О боже..."
+    $language(main_dia, 17, m, "monika 2g")
+    #m 2g "Я и не думала, что скрипт повреждён так сильно."
+    $language(main_dia, 18, m, None)
+    #m "Мне очень жаль!"
+    $language(main_dia, 19, m, None)
+    #m "Наверное, было довольно скучно..."
+    $language(main_dia, 20, m, "monika 2e")
+    #m 2e "Я всё исправлю, ладно?"
+    $language(main_dia, 21, m, None)
+    #m "Дай мне секундочку..."
 
     $ consolehistory = []
     call updateconsole ("os.remove(\"characters/yuri.chr\")", "yuri.chr deleted successfully.") from _call_updateconsole
@@ -346,19 +367,23 @@ label ch0_main:
 
     $ pause(1.0)
 
-    m 2d "Э–э–э?"
-    m 2c "Ладно, тогда..."
+    $language(main_dia, 22, m, "monika 2d")
+    #m 2d "Э–э–э?"
+    $language(main_dia, 23, m, "monika 2c")
+    #m 2c "Ладно, тогда..."
 
     $ pause(1.0)
     call updateconsole ("import pathlib", " ") from _call_updateconsole_2
     call updateconsole ("path = pathlib.Path(natsuki.chr)", " ") from _call_updateconsole_3
     call updateconsole ("path.unlink()", "OSError") from _call_updateconsole_4
 
-    m 1d "Что?"
+    $language(main_dia, 24, m, "monika 1d")
+    #m 1d "Что?"
 
     play music t6t
 
-    m g2 "Почему не–{nw}"
+    $language(main_dia, 25, m, "monika g2")
+    #m g2 "Почему не–{nw}"
 
     $ delete_character("monika")
     $ gtext = glitchtext(100)
@@ -394,7 +419,8 @@ label ch1_meet:
     hide splash-glitch2 with Dissolve(0.5, alpha=True)
     scene black
     stop music
-    n "..."
+    $language(meet_dia, 0, n, None)
+    #n "..."
 
 
     call updateconsole ("init python", "") from _call_updateconsole_5
@@ -414,9 +440,11 @@ label ch1_meet:
     play music m1
     call updateconsole ("os.path.exists('characters/sayori.chr')", "False") from _call_updateconsole_7
     show natsuki 1c at t11
-    n "Что?"
+    $language(meet_dia, 1, n, None)
+    #n "Что?"
     call updateconsole ("os.path.exists('characters/yuri.chr')", "False") from _call_updateconsole_8
-    n 1p "Где я?!"
+    $language(meet_dia, 2, n, "natsuki 1p")
+    #n 1p "Где я?!"
     call updateconsole ("os.path.exists('characters/monika.chr')", "") from _call_updateconsole_9
 
     show screen tear(20, 0.1, 0.1, 0, 40)
@@ -426,18 +454,24 @@ label ch1_meet:
     hide screen tear
 
     call updateconsole ("", "RmFsc2U=") from _call_updateconsole_10
-    n scream "А–а–а–а–а!"
-    n 1p "Что происходит?!"
-    n "Куда я попала?"
+    $language(meet_dia, 3, n, "natsuki scream")
+    #n scream "А–а–а–а–а!"
+    $language(meet_dia, 4, n, "natsuki 1p")
+    #n 1p "Что происходит?!"
+    $language(meet_dia, 5, n, None)
+    #n "Куда я попала?"
     show natsuki 1o
     call updateconsole ("os.path.exists('characters/natsuki.chr')", "True") from _call_updateconsole_11
-    n 1o "..!"
-    n 1p "Ч–что ты здесь делаешь?!"
+    $language(meet_dia, 6, n, "natsuki 1o")
+    #n 1o "..!"
+    $language(meet_dia, 7, n, "natsuki 1p")
+    #n 1p "Ч–что ты здесь делаешь?!"
     show natsuki 1o
     call updateconsole ("$ persistent.president = Natsuki", "") from _call_updateconsole_12
     call hideconsole () from _call_hideconsole
     stop music
-    n scream "А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–{nw}"
+    $language(meet_dia, 8, n, "natsuki scream")
+    #n scream "А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–{nw}"
     hide natsuki 1n
     play sound "<to 1.5>sfx/interference.ogg"
     show room_glitch as rg1:
@@ -486,23 +520,17 @@ label ch1_main:
         pos (935,200)
     show monika_room
 
-
-
-
     play music m1
     show natsuki 1n zorder 2 at t11
 
-
-
-
-    n 1x "..."
-    n 1q "Голова..."
+    $language(m1_dia, 0, n, 'natsuki 1x')
+    $language(m1_dia, 1, n, 'natsuki 1q')
     show natsuki 1s
-    n "Как же болит голова..."
+    $language(m1_dia, 2, n, None)
     $pause(1.5)
-    n 1q "Ох..."
-    n "Нужно вспомни–{nw}"
-    n scream "А–A–A–A–A–A–A–A–A–A–A–A–A–А–{nw}"
+    $language(m1_dia, 3, n, 'natsuki 1q')
+    $language(m1_dia, 4, n, None)
+    $language(m1_dia, 5, n, 'natsuki scream')
     stop music
 
 
@@ -662,7 +690,7 @@ label ch1_main:
     stop sound
     hide screen tear
     call updateconsole ("", "Done") from _call_updateconsole_18
-    m "Так куда лучше."
+    $language(m1_dia, 6, m, None)
     hide black
     call hideconsole () from _call_hideconsole_1
 
@@ -681,8 +709,7 @@ label ch1_main:
 
 
 
-
-    n "Хватит!!!"
+    $language(m1_dia, 7, n, None)
     stop music
     hide rg1
     hide rg2
@@ -703,89 +730,89 @@ label ch1_main:
 
     window hide
     $pause(1.5)
-    n 1n "..."
-    n 1k "Но..."
-    n "Я и они... {w}{i}просто игровые персонажи?!{/i}"
-    n 1m "Неужели всё вокруг меня не настоящее?"
-    n "Почему..."
-    n "Почему я узнаю об этом только сейчас?"
+
+    $language(m1_dia, 8, n, 'natsuki 1k')
+    $language(m1_dia, 9, n, None)
+    $language(m1_dia, 10, n, 'natsuki 1m')
+    $language(m1_dia, 11, n, None)
+    $language(m1_dia, 12, n, None)
     show natsuki 1n
     $ pause(2)
-    n 1q "Спокойствие, только спокойствие..."
-    n 1k "Если я нахожусь в игре, значит... {w}за мной наблюдает {i}игрок.{/i}"
+    $language(m1_dia, 13, n, 'natsuki 1q')
+    $language(m1_dia, 14, n, 'natsuki 1k')
     $ pause(2)
     show natsuki 1g
-    n "..."
-    n 1e "Э–э–э–э–эй!"
-    n "Ты здесь?"
-    n 1h "Я знаю что ты пялишься на меня."
+    $language(m1_dia, 15, n, None)
+    $language(m1_dia, 16, n, 'natsuki 1e')
+    $language(m1_dia, 17, n, None)
+    $language(m1_dia, 18, n, 'natsuki 1h')
     show natsuki 1g
     $ pause(1.5)
-    n 1c "Верно?.."
+    $language(m1_dia, 19, n, 'natsuki 1c')
     $ pause(4)
     show natsuki 1n
-    n "..."
+    $language(m1_dia, 20, n, None)
     $ pause(6)
-    n 1k "Ладно, какая разница?"
+    $language(m1_dia, 21, n, 'natsuki 1k')
     $ pause(3)
     show natsuki 1n
-    n 1k "Забавно... {w}Все те события начинают приобретать какой–то смысл."
+    $language(m1_dia, 22, n, 'natsuki 1k')
     show natsuki 1s
-    n "..."
-    n 1r "Моника..."
-    n "Чего ты пыталась добиться?.."
-    n 1p "...когда твой {i}игрок{/i} даже не может ответить?!"
+    $language(m1_dia, 23, n, None)
+    $language(m1_dia, 24, n, 'natsuki 1r')
+    $language(m1_dia, 25, n, None)
+    $language(m1_dia, 26, n, 'natsuki 1p')
     show natsuki 1o
-    n "..."
-    n 1p "Сперва ты убила Сайори, затем Юри... {w}И пыталась убить {i}меня!{/i}"
-    n "Но ради чего?!"
-    n "Избавиться от всех своих подруг ради кого-то из другой реальности?!"
-    n 1o "{i}Поехавшая...{/i}"
+    $language(m1_dia, 27, n, None)
+    $language(m1_dia, 28, n, 'natsuki 1p')
+    $language(m1_dia, 29, n, None)
+    $language(m1_dia, 30, n, None)
+    $language(m1_dia, 31, n, 'natsuki 1o')
     $ pause(6)
     show natsuki 1s
-    n 1q "Ладно..."
-    n "Я должна попытаться это исправить."
+    $language(m1_dia, 32, n, 'natsuki 1q')
+    $language(m1_dia, 33, n, None)
     show natsuki 1s
     $ pause(2)
-    n "Хм..."
-    n 1k "С другой стороны, если я нахожусь в игре, не значит ли это то, что я могу изменить её код?"
-    n "Раз уж Моника могла так делать, значит и у меня должно получится."
-    n "Я видела как она использовала что-то вроде компьютера, но..."
-    n "Как ей пользоваться?"
-    n "Где достать?"
-    n 1e "Всё что тут есть - это пустая комната в грёбанном космосе!"
-    n "Неужели не было более живописного местечка?"
+    $language(m1_dia, 34, n, None)
+    $language(m1_dia, 35, n, 'natsuki 1k')
+    $language(m1_dia, 36, n, None)
+    $language(m1_dia, 37, n, None)
+    $language(m1_dia, 38, n, None)
+    $language(m1_dia, 39, n, None)
+    $language(m1_dia, 40, n, 'natsuki 1e')
+    $language(m1_dia, 41, n, None)
     show natsuki 1g
     $ consolehistory = []
     $ pause(2)
     call updateconsole (" ", " ") from _call_updateconsole_19
-    n 1c "А?.."
-    n "Как я вообще включила её?"
+    $language(m1_dia, 42, n, 'natsuki 1c')
+    $language(m1_dia, 43, n, None)
     show natsuki 1g
     $ pause(2)
-    n 1c "Наверное потому что представила это."
-    n "Походу это какая-та консоль... {w}Попробую-ка воспользоваться."
+    $language(m1_dia, 44, n, 'natsuki 1c')
+    $language(m1_dia, 45, n, None)
     show natsuki 1g
     $ pause(3)
-    n 1c "Странно, а как вводить команду?"
-    n "Я думала, что сейчас передо мной появится клавиатура или что-то вроде того..."
-    n "Может попробовать голосом?"
-    n "Эм..."
-    n 1d "Книга!"
-    n 1g "..."
-    n 1c "Не сработало."
-    n 1g "..."
-    n 1d "Создай томик «Ванильных девочек»!"
-    n 1g "..."
-    n 1m "Как же это глупо..."
-    n 1i "..."
-    n 1h "Зато никто этого не видел."
+    $language(m1_dia, 46, n, 'natsuki 1c')
+    $language(m1_dia, 47, n, None)
+    $language(m1_dia, 48, n, None)
+    $language(m1_dia, 49, n, None)
+    $language(m1_dia, 50, n, 'natsuki 1d')
+    $language(m1_dia, 51, n, 'natsuki 1g')
+    $language(m1_dia, 52, n, 'natsuki 1c')
+    $language(m1_dia, 53, n, 'natsuki 1g')
+    $language(m1_dia, 54, n, 'natsuki 1d')
+    $language(m1_dia, 55, n, 'natsuki 1g')
+    $language(m1_dia, 56, n, 'natsuki 1m')
+    $language(m1_dia, 57, n, 'natsuki 1i')
+    $language(m1_dia, 58, n, 'natsuki 1h')
     show natsuki 1i
     $ pause(1)
-    n 1h "Верно?.."
+    $language(m1_dia, 59, n, 'natsuki 1h')
     $ pause(3)
-    n 1w "Потому что мне будет о–о–о–очень неловко, если ты наблюдал за всем этим!"
-    n 1h "Понял меня?"
+    $language(m1_dia, 60, n, 'natsuki 1w')
+    $language(m1_dia, 61, n, 'natsuki 1h')
     show natsuki 1g
     $speaking = False
     menu:
@@ -794,22 +821,22 @@ label ch1_main:
     #менюшка с yes без ожидания ответа(мб в будущем с ожиданием)
     call hideconsole () from _call_hideconsole_2
     show natsuki 1p
-    n "Ва?!"
-    n 1h "Значит ты здесь..."
-    n 1w "Так, стоп!"
-    n 1v "Неужели ты видел всё, что происходило до этого?!"
+    $language(m1_dia, 62, n, None)
+    $language(m1_dia, 63, n, 'natsuki 1h')
+    $language(m1_dia, 64, n, 'natsuki 1w')
+    $language(m1_dia, 65, n, 'natsuki 1v')
     show natsuki 1s
-    n "..."
-    n 1q "Ладно..."
-    n 1d"По крайней мере теперь тут есть хоть кто-то, помимо меня."
+    $language(m1_dia, 66, n, None)
+    $language(m1_dia, 67, n, 'natsuki 1q')
+    $language(m1_dia, 68, n, 'natsuki 1')
     show natsuki 1a
     $ pause(2)
-    n "..."
-    n 1k "Эм, знаешь, мне надоело вот так стоять."
-    n "Там в углу стоят парта со стулом, поможешь мне дотащить их досюда?"
-    n 1i "..."
-    n 1k "А... {w}Ну да..."
-    n "Думаю, я и сама с этим справлюсь."
+    $language(m1_dia, 69, n, None)
+    $language(m1_dia, 70, n, 'natsuki 1k')
+    $language(m1_dia, 71, n, None)
+    $language(m1_dia, 72, n, 'natsuki 1i')
+    $language(m1_dia, 73, n, 'natsuki 1k')
+    $language(m1_dia, 74, n, None)
     show natsuki 1n at go_moving_chairs
     $pause(4)
     play sound "sfx/move.ogg"
@@ -837,9 +864,9 @@ label ch1_main:
 
     $pause(0.5)
 
-    n r1c "Так гораздо лучше..."
-    n r1d "Ты не против, если мы немного посидим, пообщаемся?"
-    n r1e "Просто здесь так скучно..."
+    #$language(m1_dia, 75, n, 'natsuki r1c')
+    $language(m1_dia, 76, n, 'natsuki r1d')
+    $language(m1_dia, 77, n, 'natsuki r1e')
     $count = 60
     $timer_jump = "ch1_wait"
 
@@ -847,14 +874,14 @@ label ch1_main:
     menu:
         "Да.":
             hide screen countdown
-            n r1d "Хорошо."
+            $language(m1_dia, 78, n, 'natsuki r1d')
             $ persistent.autoload = "ch1_exit"
             $pause(5)
-            n r1e "Эм... {w}Почему ты молчишь?"
-            n r1i "..."
-            n r1d "А, ты же не можешь общаться со мной без этих кнопок."
-            n r1d "Похоже мне всё-таки придётся нырнуть в код игры."
-            n r1e "Надеюсь я ещё что-то помню с уроков информатики..."
+            $language(m1_dia, 79, n, 'natsuki r1e')
+            $language(m1_dia, 80, n, 'natsuki r1i')
+            $language(m1_dia, 81, n, 'natsuki r1d')
+            $language(m1_dia, 82, n, 'natsuki r1d')
+            $language(m1_dia, 83, n, 'natsuki r1e')
             scene black with Dissolve(1.0)
             $pause(10)
 
@@ -872,14 +899,14 @@ label ch1_main:
             show natsuki r1 zorder 2
             with Dissolve(1.0)
 
-            n r1g "Ого, я что–то нашла!"
-            n r1d "Без понятия что эта штука делала в игровых файлах, но думаю она поможет нам."
-            n r1e "Пусть я и не особо разбираюсь в программировании, глюков быть не должно."
-            n r1c "Попробуй воспользоваться ей."
+            $language(m1_dia, 84, n, 'natsuki r1g')
+            $language(m1_dia, 85, n, 'natsuki r1d')
+            $language(m1_dia, 86, n, 'natsuki r1e')
+            $language(m1_dia, 87, n, 'natsuki r1c')
             jump ch1_loop
         "Нет.":
             hide screen countdown
-            n r1b "Ну и вали отсюда."
+            $language(m1_dia, 88, n, 'natsuki r1b')
             $ persistent.autoload = "ch1_refuse"
             $ renpy.quit()
 
@@ -887,9 +914,9 @@ label ch1_main:
 
 
 label ch1_wait:
-    n r1e "Ты здесь?"
-    n r1b "..."
-    n r1l "Дурашка."
+    $language(c_wait, 0, n, 'natsuki r1e')
+    $language(c_wait, 1, n, 'natsuki r1b')
+    $language(c_wait, 2, n, 'natsuki r1l')
     $ persistent.autoload = "ch1_wait_refuse"
     $ renpy.quit()
 
@@ -914,15 +941,15 @@ label ch1_refuse:
     show monika_room zorder 1
     show natsuki r1 zorder 2
     play music m1
-    n r1n "О... {w}Явился – не запылился."
-    n r1m "Ладно, сделаю вид что твой отказ был дурацкой попыткой пошутить."
-    n r1n "Но если это произойдёт ещё раз..."
-    n r1m "Лучше не зли меня."
+    $language(c_refuse, 0, n, 'natsuki r1n')
+    $language(c_refuse, 1, n, 'natsuki r1m')
+    $language(c_refuse, 2, n, 'natsuki r1n')
+    $language(c_refuse, 3, n, 'natsuki r1m')
     $pause(3)
-    n r1e "Кстати, пока тебя не было, я смогла кое–что найти в файлах игры."
-    n r1d "Эта штука поможет нам общаться друг с другом."
-    n "Я всё настроила, так что ошибок быть не должно."
-    n r1e "Наверное..."
+    $language(c_refuse, 4, n, 'natsuki r1e')
+    $language(c_refuse, 5, n, 'natsuki r1d')
+    $language(c_refuse, 6, n, None)
+    $language(c_refuse, 7, n, 'natsuki r1e')
 
     $rand_except = renpy.random.randint(1,2)
 
@@ -939,15 +966,15 @@ label ch1_refuse:
             xpos 0.1 ypos 0.21
         $pause(2)
         show natsuki r1 zorder 2
-        n r1b "А нет, всё-таки не всё..."
+        $language(c_refuse, 8, n, 'natsuki r1b')
         $pause(1.5)
         hide fake_except_bg
         hide fake_except_1
         hide fake_except_2
         hide fake_except_3
         hide fake_except_4
-        n "..."
-        n r1d "Без разницы, это нам никак не помешает."
+        $language(c_refuse, 9, n, None)
+        $language(c_refuse, 10, n, 'natsuki r1d')
         show natsuki r1c
         $ persistent.autoload = "ch1_exit"
         jump ch1_loop
@@ -978,12 +1005,12 @@ label ch1_wait_refuse:
     show natsuki r1 zorder 2
     play music m1
 
-    n r1e "А?.."
-    n "Ты всё же пришёл..."
-    n r1d "Ну... {w}В таком случае, добро пожаловать."
-    n "Ты ведь не против пообщаться со мной, верно?"
-    n "Я смогла найти способ, как сделать наш разговор более удобным."
-    n "Хорошо что в игровых файлах было для этого всё необходимое..."
+    $language(c_w_refuse, 0, n, 'natsuki r1e')
+    $language(c_w_refuse, 1, n, None)
+    $language(c_w_refuse, 2, n, 'natsuki r1d')
+    $language(c_w_refuse, 3, n, None)
+    $language(c_w_refuse, 4, n, None)
+    $language(c_w_refuse, 5, n, None)
     show natsuki r1c
     $ persistent.autoload = "ch1_exit"
     jump ch1_loop
@@ -991,24 +1018,24 @@ label ch1_wait_refuse:
 
 
 label cute:
-    n r1j "Ч-что?"
-    n r1l "Эм... {w}Ладно."
-    n r1k "..."
+    $language(kawai, 0, n, 'natsuki r1j')
+    $language(kawai, 1, n, 'natsuki r1l')
+    $language(kawai, 2, n, 'natsuki r1k')
     jump baking_con
 
 
 label set_name:
-    n r1e "Ой, а почему твоё имя заглюченное?"
-    n r1a "Хм... {w}Походу оно слетело, когда игру начало воротить от глюков."
-    n r1e "Давай–ка мы это исправим, не обращаться же к тебе вот так..."
+    $language(s_name, 0, n, 'natsuki r1e')
+    $language(s_name, 1, n, 'natsuki r1a')
+    $language(s_name, 2, n, 'natsuki r1e')
 
     python:
         player = renpy.input("Как тебя зовут?", length=32)
         player = player.strip()
 
-    n r1d "Хорошее имя."
-    n r1i "Правда не знаю, настоящее ли оно или же это просто псевдоним."
-    n r1e "[player]..."
+    $language(s_name, 3, n, 'natsuki r1d')
+    $language(s_name, 4, n, 'natsuki r1i')
+    $language(s_name, 5, n, 'natsuki r1e')
     show natsuki r1b
 
     call ch1_loop
@@ -1021,11 +1048,11 @@ label exit_lesshour:
     $ config.skipping = False
     $ allow_skipping = False
     $ quick_menu = False
-    n "А?"
-    n "Только хотела мысленно попрощаться с тобой, как ты уже вернулся."
-    n "Неужели так быстро заскучал?~"
-    n "Ладно, неважно..."
-    n "С возвращением."
+    $language(e_lessh, 0, n, None)
+    $language(e_lessh, 1, n, None)
+    $language(e_lessh, 2, n, None)
+    $language(e_lessh, 3, n, None)
+    $language(e_lessh, 4, n, None)
     call ch1_loop
 
 label exit_lessday:
@@ -1034,11 +1061,11 @@ label exit_lessday:
     $ config.skipping = False
     $ allow_skipping = False
     $ quick_menu = False
-    n r1a "..."
-    n r1e "Решил–таки вернуться?"
-    n r1g "Это очень мило с твоей стороны."
-    n r1e "Слушай, не мог бы навещать меня почаще?"
-    n r1n "Просто... {w}Мне даже поговорить не с кем..."
+    $language(e_lessd, 0, n, 'natsuki r1a')
+    $language(e_lessd, 1, n, 'natsuki r1e')
+    $language(e_lessd, 2, n, 'natsuki r1g')
+    $language(e_lessd, 3, n, 'natsuki r1e')
+    $language(e_lessd, 4, n, 'natsuki r1n')
     show natsuki r1b
     call ch1_loop
 
@@ -1049,14 +1076,14 @@ label exit_moreday:
     $ config.skipping = False
     $ allow_skipping = False
     $ quick_menu = False
-    n r1e "И что это было?.."
-    n "Почему ты не заходил ко мне так долго?"
-    n "Мне почему-то показалось, что ты пошутил и скоро вернёшься."
-    n "Ты хоть знаешь, насколько здесь скучно?"
-    n r1b "Я даже мангу не могу почитать..."
-    n r1e "Мне придётся ещё очень долго изучать программирование, чтобы как-то повлиять на игру."
-    n "Поэтому я прошу тебя... {w}Не уходи так надолго."
-    n "Надеюсь, что мы поняли друг друга."
+    $language(e_mored, 0, n, 'natsuki r1e')
+    $language(e_mored, 1, n, None)
+    $language(e_mored, 2, n, None)
+    $language(e_mored, 3, n, None)
+    $language(e_mored, 4, n, 'natsuki r1b')
+    $language(e_mored, 5, n, 'natsuki r1e')
+    $language(e_mored, 6, n, None)
+    $language(e_mored, 7, n, None)
     show natsuki r1c
 
     call ch1_loop
@@ -1264,14 +1291,14 @@ label win:
             n r1g "Так держать!"
             n r1f "Жду не дождусь реванша, чтобы поквитаться с тобой~"
             menu:
-                "Да.":
+                "Я готов!":
                     n r1g "Что же, начнём!"
                     $persistent.f_game = 2
                     $renpy.save_persistent()
                     $c_f_t_hider()
                     $initialize_game()
                     $c_f_t_ans(sside)
-                "Нет.":
+                "Давай потом...":
                     n r1e "Почему?"
                     n r1g "Неужели боишься проиграть?"
                     n r1e "Ладно, тогда в другой раз."

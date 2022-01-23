@@ -4,10 +4,12 @@
 
 
 init python:
-    import sys, pickle, random
+    import sys, pickle, random, locale
     from os.path import abspath
     import os
     import json
+    lang = locale.getdefaultlocale()
+    lang = lang[0][:2]
     try:
         f = open(config.basedir + '/game/update_game/settings_update.json', 'r')
         text = f.read()
@@ -46,6 +48,29 @@ init python:
     vis_folders = ["dai_vis", "heart_vis", "herewego_vis", "just_vis", "nattheme_vis", "cup_vis"]
 
     ref_ans = ["Неважно.", "Забей.", "Забудь."]
+
+    main_dia = [["Ну вот и начался фестиваль!", "Ого, ты пришёл сюда раньше меня?", "Я думала, что вышла довольно ра—{nw}", "А–АГХ!!", "А–А–А–А–А–А–А–А–А–А–А–А–А–А–А!!!", "Нацуки убегает.", "...", "А вот и я!", ", что-то случилось?", "Мимо меня только что пробежала Нацуки...", "...Ой...", "...Ох.", "...", "А–ха–ха–ха!", "Вот ведь незадача.", "Подожди, [gtext], ты провёл здесь все выходные?", "О боже...", "Я и не думала, что скрипт повреждён так сильно.", "Мне очень жаль!", "Наверное, было довольно скучно...", "Я всё исправлю, ладно?", "Дай мне секундочку...", "Э–э–э?", "Ладно, тогда...", "Что?", "Почему не–"], ["Well, the festival has begun!", "Whoa, you came here before me?", "I thought I went out pretty ear—{nw}", "А-АGH!!", "А-А-А-А-А-А-А-А-А-А-А-А-А-А-А!!!", "Natsuki runs away.", "...", "Here I am!", ", something happened?", "Natsuki just ran past me....", "...Оh..?", "...Оh.", "...", "Аh-hа-hа-hа!", "Wait, [gtext], did you spend the whole weekend here?", "О God...", "I didn’t think the script was so badly damaged.", "I'm sorry!", "It must have been pretty boring...", "I'll fix it, okay?", "Give me a second...", "Eh?", "Ok then...", "What?", "Why can't-"]]
+
+    meet_dia = [["...", "Что?", "Где я?!", "А–а–а–а–а!", "Что происходит?!", "Куда я попала?", "..!", "Ч–что ты здесь делаешь?!", "А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–{nw}"], ["...", "What?", "Where am I?!", "А-а-а-а-а!", "What's happening?!", "Where did I go?", "..!", "W-what are you doing here?!", "А-А-А-А-А-А-А-А-А-А-А-А-А-А-А-А-А-А{nw}"]]
+
+    m1_dia = [["...", "Голова...", "Как же болит голова...", "Ох...", "Нужно вспомни–{nw}", "А–A–A–A–A–A–A–A–A–A–A–A–A–А–{nw}", "Хватит!!!", "...", "Но...", "Я и они... {w}{i}просто игровые персонажи?!{/i}", "Неужели всё вокруг меня не настоящее?", "Почему...", "Почему я узнаю об этом только сейчас?", "Спокойствие, только спокойствие...", "Если я нахожусь в игре, значит... {w}за мной наблюдает {i}игрок.{/i}", "...", "Э–э–э–э–эй!", "Ты здесь?", "Я знаю что ты пялишься на меня.", "Верно?..", "...", "Ладно, какая разница?", "Забавно... {w}Все те события начинают приобретать какой–то смысл.", "...", "Моника...", "Чего ты пыталась добиться?..", "...когда твой {i}игрок{/i} даже не может ответить?!", "...", "Сперва ты убила Сайори, затем Юри... {w}И пыталась убить {i}меня!{/i}", "Но ради чего?!", "Избавиться от всех своих подруг ради кого-то из другой реальности?!", "{i}Поехавшая...{/i}", "Ладно...", "Я должна попытаться это исправить.", "Хм...", "С другой стороны, если я нахожусь в игре, не значит ли это то, что я могу изменить её код?", "Раз уж Моника могла так делать, значит и у меня должно получится.", "Я видела как она использовала что-то вроде компьютера, но...", "Как ей пользоваться?", "Где достать?", "Всё что тут есть - это пустая комната в грёбанном космосе!", "Неужели не было более живописного местечка?", "А?..", "Как я вообще включила её?", "Наверное потому что представила это.", "Походу это какая-та консоль... {w}Попробую-ка воспользоваться.", "Странно, а как вводить команду?", "Я думала, что сейчас передо мной появится клавиатура или что-то вроде того...", "Может попробовать голосом?", "Эм...", "Книга!", "...", "Не сработало.", "...", "Создай томик «Ванильных девочек»!", "...", "Как же это глупо...", "...", "Зато никто этого не видел.", "Верно?..", "Потому что мне будет о–о–о–очень неловко, если ты наблюдал за всем этим!", "Понял меня?", "Ва?!", "Значит ты здесь...", "Так, стоп!", "Неужели ты видел всё, что происходило до этого?!", "...", "Ладно...", "По крайней мере теперь тут есть хоть кто-то, помимо меня.", "...", "Эм, знаешь, мне надоело вот так стоять.", "Там в углу стоят парта со стулом, поможешь мне дотащить их досюда?", "...", "А... {w}Ну да...", "Думаю, я и сама с этим справлюсь.", "Так гораздо лучше...", "Ты не против, если мы немного посидим, пообщаемся?", "Просто здесь так скучно...", "Хорошо.", "Эм... {w}Почему ты молчишь?", "...", "А, ты же не можешь общаться со мной без этих кнопок.", "Похоже мне всё-таки придётся нырнуть в код игры.", "Надеюсь я ещё что-то помню с уроков информатики...", "Ого, я что–то нашла!", "Без понятия что эта штука делала в игровых файлах, но думаю она поможет нам.", "Пусть я и не особо разбираюсь в программировании, глюков быть не должно.", "Попробуй воспользоваться ей.", "Ну и вали отсюда."], ["...", "Ugh...", "My head hurts...", "Oh...", "I just need to remem-{nw}", "А-A-A-A-A-A-A-A-A-A-A-A-A-А{nw}", "Стоп!!!", "...", "But...", "The whole club... {w}{i}We're just game characters?!{/i}", "Is nothing real?", "Why?...", "Why am I only learning about this now?", "I just need to think...", "If I'm in the game... {w}then you're watching me {i}player.{/i}", "...", "H-h-h-h-hey!", "Are you here?", "I know you're watching me.", "Right...?", "...", "Oh, what difference does it make anyway?", "Funny... {w}It's all starting to make sense now.", "...", "Monika...", "What were you doing...?", "...When the {i}player{/i} doesn't ever answer you?!", "...", "First you killed Sayori, then Yuri... {w}Then tried to kill {i}me!{/i}", "But for what?!", "We should all die so you could have some guy from a different reality?!", "{i}Psycho...{/i}", "Okay...", "I need to fix this.", "Hm...", "On the other hand, if I'm in a game, doesn't that mean that I can change its code?", "If Monika could do it, then I should be able to, too!", "She used something like a computer interface right?...", "How do I use it?", "Is it somewhere around me?", "But there's nothing here! This is just an empty room!", "Isn't there a better place to go?", "А...?", "I think I turned it on?", "Наверное потому что представила это.", "This must be some kind of console... {w}What if I just...?", "That's weird, how do I enter the command?", "I thought a keyboard or something would appear...", "Maybe I should use my voice?", "Ahem!...", "Book!", "...", "Didn't work.", "...", "Create a volume of «Parfait Girls»!", "...", "This is so stupid...", "...", "At least nobody is watching.", "Right...?", "It's a little bit awkward to know I'm being stared at.", "Do you hear me?", "What?", "So you are here...", "Does this mean..", "So you've seen everything that happened before?", "...", "Okay...", "At least I'm not alone anymore", "...", "I'm getting kind of tired of standing like this", "There is a desk with a chair in the corner, can you help me get them here?", "...", "Hey... {w}I think...", "Actually, I think I can do this myself", "Much better.", "Could we just sit here and talk for a bit?", "There's not really anything else for me to do here...", "Thanks.", "Hm... {w}Why aren't you talking?", "...", "Oh, it doesn't look you can talk to me without these buttons.", "I guess I don't have a choice but to tinker with the game code.", "I hope I remember something from computer science class...", "Wow, I found something!", "I don't know what this thing was meant to do originally, but it should help us here.", "It's part of the original game material, so there should be no glitches.", "Here, try to use it.", "Leave, then."]]
+
+    c_wait = [["Ты здесь?", "...", "Дурашка."], ["Are you here?", "...", "Dummy."]]
+
+    c_refuse = [["О... {w}Явился – не запылился.", "Ладно, сделаю вид что твой отказ был дурацкой попыткой пошутить.", "Но если это произойдёт ещё раз...", "Лучше не зли меня.", "Кстати, пока тебя не было, я смогла кое–что найти в файлах игры.", "Эта штука поможет нам общаться друг с другом.", "Я всё настроила, так что ошибок быть не должно.", "Наверное...", "А нет, всё-таки не всё...", "...", "Без разницы, это нам никак не помешает."], ["Ha... {w}look what the cat dragged in!", "I'll pretend that your refusal was supposed to be a joke.", "But if you want to try that again...", "don't.", "By the way, while you were gone, I was able to find something in the game files.", "This thing will help us communicate with each other.", "I set everything up, so there should be no mistakes.", "Probably...", "Oh, not all of it...", "...", "It doesn't matter, it won't hurt us in any way.", ]]
+
+    c_w_refuse = [["А?..", "Ты всё же пришёл...", "Ну... {w}В таком случае, добро пожаловать.", "Ты ведь не против пообщаться со мной, верно?", "Я смогла найти способ, как сделать наш разговор более удобным.", "Хорошо что в игровых файлах было для этого всё необходимое..."], ["А...?", "You're here...", "Well... {w}В welcome.", "You don't mind talking to me, right?", "I found something to make our conversation more convenient", "Fortunately the game already has everything you would need for this.."]]
+
+    kawai = [["Ч-что?", "Эм... {w}Ладно.", "..."], ["W-what?", "Hm... {w}Ok.", "..."]]
+
+    s_name = [["Ой, а почему твоё имя заглюченное?", "Хм... {w}Походу оно слетело, когда игру начало воротить от глюков.", "Давай–ка мы это исправим, не обращаться же к тебе вот так...", "Хорошее имя.", "Правда не знаю, настоящее ли оно или же это просто псевдоним.", "[player]..."], ["Oops, why is your name jammed?", "Hm... {w}It seems to have gone off when the game started to spin with glitches.", "Let's fix this, we can't address you like this...", "It's a good name.", "I don't know if it's real or if it's just a pseudonym.", "[player]..."]]
+
+    e_lessh = [["А?", "Только хотела мысленно попрощаться с тобой, как ты уже вернулся.", "Неужели так быстро заскучал?~", "Ладно, неважно...", "С возвращением."], ["А?", "I just wanted to say goodbye to you in my head when you came back.", "Did you get bored so quickly or did you just accidentally close the game?", "I guess it doesn't really matter...", "Welcome back."]]
+
+    e_lessd = [["...", "Решил–таки вернуться?", "Это очень мило с твоей стороны.", "Слушай, не мог бы навещать меня почаще?", "Просто... {w}Мне даже поговорить не с кем..."], ["...", "Decided to come back after all?", "That's very nice of you.", "Listen, could you come and visit me more often?", "Just... {w}I have no one to talk to..."]]
+
+    e_mored = [["И что это было?..", "Почему ты не заходил ко мне так долго?", "Мне почему-то показалось, что ты пошутил и скоро вернёшься.", "Ты хоть знаешь, насколько здесь скучно?", "Я даже мангу не могу почитать...", "Мне придётся ещё очень долго изучать программирование, чтобы как-то повлиять на игру.", "Поэтому я прошу тебя... {w}Не уходи так надолго.", "Надеюсь, что мы поняли друг друга."], ["And what was it...?", "Why didn't you come and see me for so long?", "For some reason I thought you were joking and would be back soon.", "Do you have any idea how boring it is here?", "I can't even read manga...", "I will have to study programming for a very long time to have any effect on the game.", "So please don't go... {w}at least not for very long.", "I hope we have reached an understanding."]]
+
 
     is_esc_pressed = False
     themes = 0
@@ -113,6 +138,15 @@ init python:
         renpy.hide("o2")
         renpy.hide("o3")
         renpy.hide("o4")
+
+
+    def language(lbl, r, name, s):
+        if s != None:
+            renpy.show(s)
+        if lang == "ru":
+            renpy.say(name, lbl[0][r])
+        if lang == "en":
+            renpy.say(name, lbl[0][r])
 
 
 
