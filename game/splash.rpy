@@ -74,6 +74,46 @@ init python:
     def random_ans():
         return random.choice(ref_ans)
 
+    def c_f_t_ans(sside):
+        rand_turn = random.randint(1,2)
+        if rand_turn == 1:
+            renpy.show("natsuki r1d")
+            renpy.say(n, "Я хожу первой!")
+            #n r1d
+            renpy.show("natsuki r1c")
+            renpy.jump("change_side")
+
+        if rand_turn == 2 and sside == "left":
+            renpy.show("natsuki r1d")
+            renpy.say(n, "Ты ходишь первым.")
+            renpy.show("natsuki r1c")
+            renpy.show_screen("cup_fork_toe", "left", None)
+            #call screen cup_fork_toe("left", None)
+
+        if rand_turn == 2 and sside == "right":
+            renpy.show("natsuki r1d")
+            renpy.say(n, "Ты ходишь первым.")
+            renpy.show("natsuki r1c")
+            renpy.show_screen("cup_fork_toe", "right", None)
+            #call screen cup_fork_toe("right", None)
+
+    def c_f_t_hider():
+        renpy.hide("x0")
+        renpy.hide("x1")
+        renpy.hide("x2")
+        renpy.hide("x3")
+        renpy.hide("x4")
+        renpy.hide("x_p0")
+        renpy.hide("x_p1")
+        renpy.hide("x_p2")
+        renpy.hide("x_p3")
+        renpy.hide("x_p4")
+        renpy.hide("o0")
+        renpy.hide("o1")
+        renpy.hide("o2")
+        renpy.hide("o3")
+        renpy.hide("o4")
+
 
 
 

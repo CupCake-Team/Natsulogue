@@ -1268,39 +1268,9 @@ label win:
                     n r1g "Что же, начнём!"
                     $persistent.f_game = 2
                     $renpy.save_persistent()
-                    hide x0
-                    hide x1
-                    hide x2
-                    hide x3
-                    hide x4
-                    hide x_p0
-                    hide x_p1
-                    hide x_p2
-                    hide x_p3
-                    hide x_p4
-                    hide o0
-                    hide o1
-                    hide o2
-                    hide o3
-                    hide o4
+                    $c_f_t_hider()
                     $initialize_game()
-                    $rand_turn = random.randint(1,2)
-                    if rand_turn == 1 and sside == "left":
-                        n r1d "Я хожу первой!"
-                        show natsuki r1c
-                        jump change_side
-                    if rand_turn == 1 and sside == "right":
-                        n r1d "Я хожу первой!"
-                        show natsuki r1c
-                        jump change_side
-                    if rand_turn == 2 and sside == "left":
-                        n r1d "Ты ходишь первым."
-                        show natsuki r1c
-                        call screen cup_fork_toe("left", None)
-                    if rand_turn == 2 and sside == "right":
-                        n r1d "Ты ходишь первым."
-                        show natsuki r1c
-                        call screen cup_fork_toe("right", None)
+                    $c_f_t_ans(sside)
                 "Нет.":
                     n r1e "Почему?"
                     n r1g "Неужели боишься проиграть?"
@@ -1316,21 +1286,7 @@ label win:
                         show natsuki r1:
                             xcenter 930
                             easein 1.00 xcenter 630
-                    hide x0
-                    hide x1
-                    hide x2
-                    hide x3
-                    hide x4
-                    hide x_p0
-                    hide x_p1
-                    hide x_p2
-                    hide x_p3
-                    hide x_p4
-                    hide o0
-                    hide o1
-                    hide o2
-                    hide o3
-                    hide o4
+                    $c_f_t_hider()
                     hide cft_pole
                     call ch1_loop
 
@@ -1353,39 +1309,9 @@ label win:
                 "Да.":
                     n r1d "Тогда чего мы ждём?"
                     n r1g "Погнали!"
-                    hide x0
-                    hide x1
-                    hide x2
-                    hide x3
-                    hide x4
-                    hide x_p0
-                    hide x_p1
-                    hide x_p2
-                    hide x_p3
-                    hide x_p4
-                    hide o0
-                    hide o1
-                    hide o2
-                    hide o3
-                    hide o4
+                    $c_f_t_hider()
                     $initialize_game()
-                    $rand_turn = random.randint(1,2)
-                    if rand_turn == 1 and sside == "left":
-                        n r1d "Я хожу первой!"
-                        show natsuki r1c
-                        jump change_side
-                    if rand_turn == 1 and sside == "right":
-                        n r1d "Я хожу первой!"
-                        show natsuki r1c
-                        jump change_side
-                    if rand_turn == 2 and sside == "left":
-                        n r1d "Ты ходишь первым."
-                        show natsuki r1c
-                        call screen cup_fork_toe("left", None)
-                    if rand_turn == 2 and sside == "right":
-                        n r1d "Ты ходишь первым."
-                        show natsuki r1c
-                        call screen cup_fork_toe("right", None)
+                    $c_f_t_ans(sside)
                 "Нет.":
                     n r1b "М?"
                     n r1e "Ну, ладно, как хочешь."
@@ -1399,21 +1325,7 @@ label win:
                         show natsuki r1:
                             xcenter 930
                             easein 1.00 xcenter 630
-                    hide x0
-                    hide x1
-                    hide x2
-                    hide x3
-                    hide x4
-                    hide x_p0
-                    hide x_p1
-                    hide x_p2
-                    hide x_p3
-                    hide x_p4
-                    hide o0
-                    hide o1
-                    hide o2
-                    hide o3
-                    hide o4
+                    $c_f_t_hider()
                     hide cft_pole
                     call ch1_loop
 
@@ -1430,39 +1342,9 @@ label win:
                     n r1d "Тогда давай начнём!"
                     $persistent.f_game = 2
                     $renpy.save_persistent()
-                    hide x0
-                    hide x1
-                    hide x2
-                    hide x3
-                    hide x4
-                    hide x_p0
-                    hide x_p1
-                    hide x_p2
-                    hide x_p3
-                    hide x_p4
-                    hide o0
-                    hide o1
-                    hide o2
-                    hide o3
-                    hide o4
+                    $c_f_t_hider()
                     $initialize_game()
-                    $rand_turn = random.randint(1,2)
-                    if rand_turn == 1 and sside == "left":
-                        n r1d "Я хожу первой!"
-                        show natsuki r1c
-                        jump change_side
-                    if rand_turn == 1 and sside == "right":
-                        n r1d "Я хожу первой!"
-                        show natsuki r1c
-                        jump change_side
-                    if rand_turn == 2 and sside == "left":
-                        n r1d "Ты ходишь первым."
-                        show natsuki r1c
-                        call screen cup_fork_toe("left", None)
-                    if rand_turn == 2 and sside == "right":
-                        n r1d "Ты ходишь первым."
-                        show natsuki r1c
-                        call screen cup_fork_toe("right", None)
+                    $c_f_t_ans(sside)
                 "Нет.":
                     n r1e "Почему?"
                     n r1f "Неужели боишься проиграть?"
@@ -1478,21 +1360,7 @@ label win:
                         show natsuki r1:
                             xcenter 930
                             easein 1.00 xcenter 630
-                    hide x0
-                    hide x1
-                    hide x2
-                    hide x3
-                    hide x4
-                    hide x_p0
-                    hide x_p1
-                    hide x_p2
-                    hide x_p3
-                    hide x_p4
-                    hide o0
-                    hide o1
-                    hide o2
-                    hide o3
-                    hide o4
+                    $c_f_t_hider()
                     hide cft_pole
                     call ch1_loop
 
@@ -1516,39 +1384,9 @@ label win:
                 "Да.":
                     n r1d "Тогда чего мы ждём?"
                     n "Погнали!"
-                    hide x0
-                    hide x1
-                    hide x2
-                    hide x3
-                    hide x4
-                    hide x_p0
-                    hide x_p1
-                    hide x_p2
-                    hide x_p3
-                    hide x_p4
-                    hide o0
-                    hide o1
-                    hide o2
-                    hide o3
-                    hide o4
+                    $c_f_t_hider()
                     $initialize_game()
-                    $rand_turn = random.randint(1,2)
-                    if rand_turn == 1 and sside == "left":
-                        n "Я хожу первой!"
-                        show natsuki r1c
-                        jump change_side
-                    if rand_turn == 1 and sside == "right":
-                        n "Я хожу первой!"
-                        show natsuki r1c
-                        jump change_side
-                    if rand_turn == 2 and sside == "left":
-                        n "Ты ходишь первым."
-                        show natsuki r1c
-                        call screen cup_fork_toe("left", None)
-                    if rand_turn == 2 and sside == "right":
-                        n "Ты ходишь первым."
-                        show natsuki r1c
-                        call screen cup_fork_toe("right", None)
+                    $c_f_t_ans(sside)
                 "Нет.":
                     n r1b "М?"
                     n r1e "Ну, ладно, как хочешь."
@@ -1562,21 +1400,7 @@ label win:
                         show natsuki r1:
                             xcenter 930
                             easein 1.00 xcenter 630
-                    hide x0
-                    hide x1
-                    hide x2
-                    hide x3
-                    hide x4
-                    hide x_p0
-                    hide x_p1
-                    hide x_p2
-                    hide x_p3
-                    hide x_p4
-                    hide o0
-                    hide o1
-                    hide o2
-                    hide o3
-                    hide o4
+                    $c_f_t_hider()
                     hide cft_pole
                     call ch1_loop
 
@@ -1598,21 +1422,7 @@ label win:
                 show natsuki r1:
                     xcenter 930
                     easein 1.00 xcenter 630
-            hide x0
-            hide x1
-            hide x2
-            hide x3
-            hide x4
-            hide x_p0
-            hide x_p1
-            hide x_p2
-            hide x_p3
-            hide x_p4
-            hide o0
-            hide o1
-            hide o2
-            hide o3
-            hide o4
+            $c_f_t_hider()
             hide cft_pole
             call ch1_loop
 
@@ -1630,39 +1440,9 @@ label win:
                 "Да.":
                     n r1d "Тогда чего мы ждём?"
                     n "Погнали!"
-                    hide x0
-                    hide x1
-                    hide x2
-                    hide x3
-                    hide x4
-                    hide x_p0
-                    hide x_p1
-                    hide x_p2
-                    hide x_p3
-                    hide x_p4
-                    hide o0
-                    hide o1
-                    hide o2
-                    hide o3
-                    hide o4
+                    $c_f_t_hider()
                     $initialize_game()
-                    $rand_turn = random.randint(1,2)
-                    if rand_turn == 1 and sside == "left":
-                        n "Я хожу первой!"
-                        show natsuki r1c
-                        jump change_side
-                    if rand_turn == 1 and sside == "right":
-                        n "Я хожу первой!"
-                        show natsuki r1c
-                        jump change_side
-                    if rand_turn == 2 and sside == "left":
-                        n "Ты ходишь первым."
-                        show natsuki r1c
-                        call screen cup_fork_toe("left", None)
-                    if rand_turn == 2 and sside == "right":
-                        n "Ты ходишь первым."
-                        show natsuki r1c
-                        call screen cup_fork_toe("right", None)
+                    $c_f_t_ans(sside)
                 "Нет.":
                     n r1b "М?"
                     n r1e "Ну, ладно, как хочешь."
@@ -1676,21 +1456,7 @@ label win:
                         show natsuki r1:
                             xcenter 930
                             easein 1.00 xcenter 630
-                    hide x0
-                    hide x1
-                    hide x2
-                    hide x3
-                    hide x4
-                    hide x_p0
-                    hide x_p1
-                    hide x_p2
-                    hide x_p3
-                    hide x_p4
-                    hide o0
-                    hide o1
-                    hide o2
-                    hide o3
-                    hide o4
+                    $c_f_t_hider()
                     hide cft_pole
                     call ch1_loop
 
