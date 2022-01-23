@@ -1396,7 +1396,7 @@ screen mob_active_volume_but():
     imagebutton xalign 0.5 yalign 0.95:
         idle im.Scale("gui/button/custom/cup_button.png", 80, 80)
         hover im.Scale("gui/button/custom/cup_button_hover.png", 80, 80)
-        action [Play("sound", "gui/sfx/select.ogg"), Show("mob_but_curtain"), Function(renpy.show, "anim_cir", at_list=[hide_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[hide_vol_level_animation], zorder=4), Hide("vol_texts", transition=dissolve), Hide("vol_mob_enable_change"), Hide("vol_mob_disable_change"), Hide("vol_mob_set_volume"), Hide("mob_active_volume_but"), Jump("ch1_loop"),]
+        action [Play("sound", "gui/sfx/select.ogg"), Show("mob_but_curtain"), Function(renpy.show, "anim_cir", at_list=[hide_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[hide_vol_level_animation], zorder=4), Hide("vol_texts", transition=dissolve), Hide("vol_mob_enable_change"), Hide("vol_mob_disable_change"), Hide("vol_mob_set_volume"), Hide("mob_active_volume_but"), Jump("ch1_loop"), Function(renpy.hide, "move nat")]
 
 
 screen mob_active_sound_but():
@@ -1407,7 +1407,7 @@ screen mob_active_sound_but():
         idle im.Scale("gui/button/custom/cup_button.png", 80, 80)
         hover im.Scale("gui/button/custom/cup_button_hover.png", 80, 80)
         hovered [Play("sound", "gui/sfx/hover.ogg")]
-        action [Play("sound", "gui/sfx/select.ogg"), Show("mob_but_curtain"), Function(renpy.show, "anim_cir", at_list=[hide_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[hide_vol_level_animation], zorder=4), Hide("vol_texts", transition=dissolve), Hide("sound_mob_enable_change"), Hide("sound_mob_disable_change"), Hide("sound_mob_set_volume"), Hide("mob_active_sound_but"), Jump("ch1_loop")]
+        action [Play("sound", "gui/sfx/select.ogg"), Show("mob_but_curtain"), Function(renpy.show, "anim_cir", at_list=[hide_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[hide_vol_level_animation], zorder=4), Hide("vol_texts", transition=dissolve), Hide("sound_mob_enable_change"), Hide("sound_mob_disable_change"), Hide("sound_mob_set_volume"), Hide("mob_active_sound_but"), Function(renpy.hide, "move nat"), Jump("ch1_loop")]
 
 
 
@@ -1485,7 +1485,7 @@ screen sound_mob_set_volume():
 screen con_volume():
     on "show" action [Function(renpy.show, "anim_cir", at_list=[show_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[show_vol_level_animation], zorder=4), Function(renpy.show, "move nat", at_list=[volume_mask], zorder=5), Show("vol_texts", transition=dissolve)]
 
-    on "hide" action [Function(renpy.show, "anim_cir", at_list=[hide_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[hide_vol_level_animation], zorder=4), Hide("vol_texts", transition=dissolve)]
+    on "hide" action [Function(renpy.show, "anim_cir", at_list=[hide_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[hide_vol_level_animation], zorder=4), Hide("vol_texts", transition=dissolve), Function(renpy.hide, "move nat")]
 
 
     if num > 99:
@@ -1518,7 +1518,7 @@ screen con_volume():
 screen con_sound_volume():
     on "show" action [Function(renpy.show, "anim_cir", at_list=[show_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[show_sound_vol_level_animation], zorder=4), Function(renpy.show, "move nat", at_list=[volume_mask], zorder=5), Show("vol_texts", transition=dissolve)]
 
-    on "hide" action [Function(renpy.show, "anim_cir", at_list=[hide_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[hide_vol_level_animation], zorder=4), Hide("vol_texts", transition=dissolve)]
+    on "hide" action [Function(renpy.show, "anim_cir", at_list=[hide_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[hide_vol_level_animation], zorder=4), Hide("vol_texts", transition=dissolve), Function(renpy.hide, "move nat")]
 
 
     if sounum > 99:
@@ -1872,6 +1872,3 @@ screen set_on_window():
 
 screen set_on_beginning():
     on "show" action Preference("display", "fullscreen")
-
-
-#-----------------------------------------------Оригинальные экраны----------------------------------------------------
