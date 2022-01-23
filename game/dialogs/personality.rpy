@@ -11,37 +11,9 @@ label dia_personality:
 
     $side()
 
+    $dia_hide()
+
     $ans = random_ans()
-
-    hide screen talk_button
-
-    hide screen active_talk_button
-
-    hide screen talk_round
-
-    hide screen active_talk_round
-
-    hide screen choice_buttons_1
-
-    hide screen choice_buttons_2
-
-    hide screen texts
-
-    hide screen volume_key
-
-    hide screen active_volume_key
-
-    hide screen sound_volume_key
-
-    hide screen active_sound_volume_key
-
-    hide screen music_key
-
-    hide screen active_music_key
-
-    hide screen mob_but_curtain
-
-    hide screen mob_active_but_curtain
 
     menu:
         "{i}Какой жанр музыки ты предпочитаешь?{/i}":

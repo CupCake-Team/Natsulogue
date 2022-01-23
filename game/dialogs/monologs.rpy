@@ -2,17 +2,7 @@ label mono1:
     $side_return()
     $left = False
     $right = False
-    hide screen talk_button
-    hide screen active_talk_button
-    hide screen talk_round
-    hide screen active_talk_round
-    hide screen choice_buttons_1
-    hide screen choice_buttons_2
-    hide screen texts
-    hide screen sound_volume_key
-    hide screen volume_key
-    hide screen mob_but_curtain
-    hide screen mob_active_but_curtain
+    $dia_hide()
     $ config.allow_skipping = False
     $ renpy.save_persistent()
     $ config.skipping = False
@@ -52,17 +42,7 @@ label mono2:
     $side_return()
     $left = False
     $right = False
-    hide screen talk_button
-    hide screen active_talk_button
-    hide screen talk_round
-    hide screen active_talk_round
-    hide screen choice_buttons_1
-    hide screen choice_buttons_2
-    hide screen texts
-    hide screen sound_volume_key
-    hide screen volume_key
-    hide screen mob_but_curtain
-    hide screen mob_active_but_curtain
+    $dia_hide()
     $ config.allow_skipping = False
     $ renpy.save_persistent()
     $ config.skipping = False
@@ -86,17 +66,7 @@ label mono3:
     $side_return()
     $ left = False
     $ right = False
-    hide screen talk_button
-    hide screen active_talk_button
-    hide screen talk_round
-    hide screen active_talk_round
-    hide screen choice_buttons_1
-    hide screen choice_buttons_2
-    hide screen texts
-    hide screen sound_volume_key
-    hide screen volume_key
-    hide screen mob_but_curtain
-    hide screen mob_active_but_curtain
+    $dia_hide()
     $ config.allow_skipping = False
     $ renpy.save_persistent()
     $ config.skipping = False
@@ -134,17 +104,7 @@ label mono4:
     $side_return()
     $left = False
     $right = False
-    hide screen talk_button
-    hide screen active_talk_button
-    hide screen talk_round
-    hide screen active_talk_round
-    hide screen choice_buttons_1
-    hide screen choice_buttons_2
-    hide screen texts
-    hide screen sound_volume_key
-    hide screen volume_key
-    hide screen mob_but_curtain
-    hide screen mob_active_but_curtain
+    $dia_hide()
     $ config.allow_skipping = False
     $ renpy.save_persistent()
     $ config.skipping = False
@@ -180,17 +140,7 @@ label mono5:
     $side_return()
     $left = False
     $right = False
-    hide screen talk_button
-    hide screen active_talk_button
-    hide screen talk_round
-    hide screen active_talk_round
-    hide screen choice_buttons_1
-    hide screen choice_buttons_2
-    hide screen texts
-    hide screen sound_volume_key
-    hide screen volume_key
-    hide screen mob_but_curtain
-    hide screen mob_active_but_curtain
+    $dia_hide()
     $ config.allow_skipping = False
     $ renpy.save_persistent()
     $ config.skipping = False
@@ -231,14 +181,7 @@ label ch1_monologchoice:
         call expression "mono" + str(t) from _call_expression
 
     else:
-
-        hide screen talk_button
-        hide screen active_talk_button
-        hide screen talk_round
-        hide screen active_talk_round
-        hide screen choice_buttons_1
-        hide screen choice_buttons_2
-        hide screen texts
+        $dia_hide()
         if persistent.topc == 0:
             n r1c "Кстати, почему тебе не хочется самому найти тему для разговора?"
             $ persistent.topc = 1
