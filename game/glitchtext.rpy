@@ -8,4 +8,5 @@ init python:
         for x in range(length):
             output += random.choice(nonunicode)
         return output
+default gtext = glitchtext(14)
 # Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

@@ -1,6 +1,6 @@
-﻿# TODO: Translation updated at 2022-01-04 23:27
+﻿# TODO: Translation updated at 2022-01-24 09:26
 
-translate English strings:
+translate eng strings:
 
     # game/gui.rpy:425
     old "Вы уверены?"
