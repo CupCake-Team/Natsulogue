@@ -1,6 +1,6 @@
-﻿# TODO: Translation updated at 2022-01-04 23:27
+﻿# TODO: Translation updated at 2022-01-24 09:26
 
-translate English strings:
+translate eng strings:
 
     # renpy/common/00accessibility.rpy:28
     old "Self-voicing disabled."
@@ -430,43 +430,43 @@ translate English strings:
     old "Audio Filename:"
     new ""
 
-    # renpy/common/00gui.rpy:423
+    # renpy/common/00gui.rpy:384
     old "Are you sure?"
     new ""
 
-    # renpy/common/00gui.rpy:424
+    # renpy/common/00gui.rpy:385
     old "Are you sure you want to delete this save?"
     new ""
 
-    # renpy/common/00gui.rpy:425
+    # renpy/common/00gui.rpy:386
     old "Are you sure you want to overwrite your save?"
     new ""
 
-    # renpy/common/00gui.rpy:426
+    # renpy/common/00gui.rpy:387
     old "Loading will lose unsaved progress.\nAre you sure you want to do this?"
     new ""
 
-    # renpy/common/00gui.rpy:427
+    # renpy/common/00gui.rpy:388
     old "Are you sure you want to quit?"
     new ""
 
-    # renpy/common/00gui.rpy:428
+    # renpy/common/00gui.rpy:389
     old "Are you sure you want to return to the main menu?\nThis will lose unsaved progress."
     new ""
 
-    # renpy/common/00gui.rpy:429
+    # renpy/common/00gui.rpy:390
     old "Are you sure you want to end the replay?"
     new ""
 
-    # renpy/common/00gui.rpy:430
+    # renpy/common/00gui.rpy:391
     old "Are you sure you want to begin skipping?"
     new ""
 
-    # renpy/common/00gui.rpy:431
+    # renpy/common/00gui.rpy:392
     old "Are you sure you want to skip to the next choice?"
     new ""
 
-    # renpy/common/00gui.rpy:432
+    # renpy/common/00gui.rpy:393
     old "Are you sure you want to skip unseen dialogue to the next choice?"
     new ""
 
@@ -934,7 +934,7 @@ translate English strings:
     old "Proceed"
     new ""
 
-    # renpy/common/00compat.rpy:327
+    # renpy/common/00compat.rpy:324
     old "Fullscreen"
     new ""
 
