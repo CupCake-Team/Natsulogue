@@ -148,6 +148,42 @@ init python:
 
 
 
+
+    class Parallax(renpy.Displayable):
+        def __init__(self, child, paramod, mode, **kwargs):
+            super(Parallax, self).__init__()
+            self.child = renpy.displayable(child)
+
+            self.x = None
+            self.y = None
+            self.paramod = paramod
+            self.mode = mode
+
+        def render(self, width, height, st, at):
+
+            rv = renpy.Render(width, height)
+
+            if self.x is not None:
+                cr = renpy.render(self.child, width, height, st, at)
+                cw, ch = cr.get_size()
+                rv.blit(cr, (self.x, self.y))
+
+            return rv
+
+        def event(self, ev, x, y, st):
+
+            if (x != self.x) or (y != self.y):
+                if self.mode == "back":
+                    self.x = (x - renpy.get_physical_size()[0]/2) / self.paramod
+                    self.y = (y - renpy.get_physical_size()[1]/2) / self.paramod
+                    renpy.redraw(self, 0)
+                else:
+                    self.x = (x / self.paramod) - renpy.get_physical_size()[0]/8
+                    self.y = (y / self.paramod) - renpy.get_physical_size()[1]*1.15
+                    renpy.redraw(self, 0)
+
+
+
 default l_u_l = True
 default r_u_l = True
 default r_d_l = True

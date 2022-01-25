@@ -37,7 +37,7 @@ label dia_requests:
                 show room_mask2 as rm2:
                     size (320,180)
                     pos (935,200)
-                show monika_room zorder 1
+                show monika_bg zorder 1
                 show natsuki r1 zorder 2
                 with Dissolve(1.0)
                 show screen wowcup
@@ -122,7 +122,7 @@ label dia_requests:
                 show room_mask2 as rm2:
                     size (320,180)
                     pos (935,200)
-                show monika_room zorder 1
+                show monika_bg zorder 1
                 show natsuki r1 zorder 2
                 with Dissolve(1.0)
                 show screen wowcup
@@ -414,16 +414,21 @@ label dia_requests:
 
 
 
-        "{i}Я бы хотел включить параллакс...{/i}":
+        "{i}Я бы хотел включить параллакс...{/i}" if parallax_bg == False:
             hide screen countdown
             $side_return()
             n r1d "Хорошо."
-            if parallax_bg == True:
-                $ parallax_bg = False
-            if parallax_bg == False:
-                $ parallax_bg = True
+            $ parallax_bg = True
             n r1e "Вроде готово."
             call ch1_loop
+
+        "{i}Можешь выключить параллакс?{/i}" if parallax_bg == True:
+            hide screen countdown
+            $side_return()
+            n r1d "Хорошо."
+            $parallax_bg = False
+            call ch1_loop
+
 
         "{i}[ans]{/i}":
             $side_return()

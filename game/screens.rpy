@@ -23,15 +23,10 @@ init python:
             return Show(screen="dialog", message="There's no point in saving anymore.\nDon't worry, I'm not going anywhere.", ok_action=Hide("dialog"))
         else:
             return FileAction(name)
-    def parallax(tf, st, tb):
-        x, y = renpy.get_mouse_pos()
-        w, h = renpy.get_physical_size()
-        tf.align = (float(x) / w, float(y) / h)
-        return 0
+
 
 
 #-----------------------------------------------Оригинальные экраны----------------------------------------------------
-
 
 
 screen say(who, what):
@@ -425,7 +420,7 @@ screen preferences():
                     for i in lang_dict.values():
                         python:
                             if type(i) == tuple:
-                                i = i[0] 
+                                i = i[0]
                         if not i.wip or config.developer:
                             textbutton i.name sensitive Language(i.code) action [Language(i.code)]
 

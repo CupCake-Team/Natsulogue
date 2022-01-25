@@ -113,23 +113,12 @@ image mask_3:
         linear 180 xoffset 0
         repeat
 
-image monika_bg = "images/cg/monika/monika_room.png"
+image monika_bg:
+    ConditionSwitch("parallax_bg == True", Parallax("images/cg/monika/monika_room.png", 50, "back"), "True", "images/cg/monika/monika_room.png")
+    zoom 1.05
 
-image monika_bg_parallax:
-    subpixel True
-    topleft
-    "images/cg/monika/monika_room.png"
 
-    zoom 1.005
 
-    block:
-        function parallax
-        repeat
-screen monika_room():
-    if parallax_bg == True:
-        add "monika_bg_parallax"
-    else:
-        add "monika_bg"
 image monika_bg_highlight:
     "images/cg/monika/monika_bg_highlight.png"
     function monika_alpha
@@ -409,7 +398,7 @@ label ch1_meet:
     show room_mask2 as rm2:
         size (320,180)
         pos (935,200)
-    show monika_room
+    show monika_bg
 
     play music m1
     call updateconsole ("os.path.exists('characters/sayori.chr')", "False") from _call_updateconsole_7
@@ -484,7 +473,7 @@ label ch1_main:
     show room_mask2 as rm2:
         size (320,180)
         pos (935,200)
-    show monika_room
+    show monika_bg
 
 
 
@@ -697,7 +686,7 @@ label ch1_main:
     show room_mask2 as rm2:
         size (320,180)
         pos (935,200)
-    show monika_room
+    show monika_bg
     show natsuki 1n at t11 zorder 2
     with Dissolve(1.0)
 
@@ -828,7 +817,7 @@ label ch1_main:
         size (320,180)
         pos (935,200)
 
-    show monika_room
+    show monika_bg
     show natsuki r1
 
     with Dissolve(1.0)
@@ -868,7 +857,7 @@ label ch1_main:
                 size (320,180)
                 pos (935,200)
 
-            show monika_room zorder 1
+            show monika_bg zorder 1
             show natsuki r1 zorder 2
             with Dissolve(1.0)
 
@@ -911,7 +900,7 @@ label ch1_refuse:
         size (320,180)
         pos (935,200)
 
-    show monika_room zorder 1
+    show monika_bg zorder 1
     show natsuki r1 zorder 2
     play music m1
     n r1n "О... {w}Явился – не запылился."
@@ -974,7 +963,7 @@ label ch1_wait_refuse:
         size (320,180)
         pos (935,200)
 
-    show monika_room zorder 1
+    show monika_bg zorder 1
     show natsuki r1 zorder 2
     play music m1
 
@@ -1076,7 +1065,6 @@ label ch1_loop:
     $ count = 60
     $ timer_jump = "ch1_monologchoice"
     show screen countdown
-
     $ left = False
     $ right = False
     $is_esc_pressed = False
@@ -1114,7 +1102,7 @@ label ch1_exit:
     show room_mask2 as rm2:
         size (320,180)
         pos (935,200)
-    show monika_room zorder 1
+    show monika_bg zorder 1
     show natsuki r1 zorder 2
     $track_num = persistent.back_music
     $renpy.music.play(music_list[track_num], channel="music")
@@ -1144,7 +1132,7 @@ label ch1_exit:
             show room_mask2 as rm2:
                 size (320,180)
                 pos (935,200)
-            show monika_room zorder 1
+            show monika_bg zorder 1
             show natsuki r1 zorder 2
             with Dissolve(1)
 
@@ -1591,7 +1579,7 @@ label what_was_that:
     show room_mask2 as rm2:
         size (320,180)
         pos (935,200)
-    show monika_room zorder 1
+    show monika_bg zorder 1
     show natsuki r1 zorder 2
     with Dissolve(1)
     n r1e "В общем, теперь всё должно работать, но... {w}Есть небольшие визуальные баги..."
