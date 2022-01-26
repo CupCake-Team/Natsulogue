@@ -286,7 +286,7 @@ label ch0_main:
     $ gtext = glitchtext(renpy.random.randint(8, 80))
 
     play music t6s
-    scene bg club_day
+    scene bg club_day at ParallaxBG
     "[gtext]"
     window auto
     n "Ну вот и начался фестиваль!"
@@ -974,7 +974,7 @@ label ch1_wait_refuse:
         size (320,180)
         pos (935,200)
 
-    show monika_room zorder 1
+    show monika_room with ParallaxBG
     show natsuki r1 zorder 2
     play music m1
 
