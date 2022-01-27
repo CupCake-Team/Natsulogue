@@ -34,9 +34,19 @@ init python:
 
     react_names = [
         "yuri", "юри", 
-        "monika", "моника",
-        "sayori", "сайори",
-        "natsuki", "нацуки"
+        "monica", "monika", "моника",
+        "sayori", "сайори", "саёри", "саери",
+        "natsuki", "нацуки", "натсуки"
+        
+    ]
+    react_n = [
+        "natsuki", "нацуки", "натсуки"
+    ]
+    react_s = [
+        "sayori", "сайори", "саёри", "саери"
+    ]
+    react_m = [
+        "monica", "monika", "моника"
     ]
 
     ref_ans = ["Неважно.", "Забей.", "Забудь."]
