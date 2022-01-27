@@ -32,6 +32,13 @@ init python:
 
     vis_folders = ["dai_vis", "heart_vis", "herewego_vis", "just_vis", "nattheme_vis", "cup_vis"]
 
+    react_names = [
+        "yuri", "юри", 
+        "monika", "моника",
+        "sayori", "сайори",
+        "natsuki", "нацуки"
+    ]
+
     ref_ans = ["Неважно.", "Забей.", "Забудь."]
 
     is_esc_pressed = False
