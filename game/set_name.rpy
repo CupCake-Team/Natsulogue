@@ -1,3 +1,14 @@
+init python: 
+    react_names = [
+        "yuri", "юри", 
+        "monica", "monika", "моника",
+        "sayori", "сайори", "саёри", "саери",
+        "natsuki", "нацуки", "натсуки", "насуки"
+    ]
+    react_n = [ "natsuki", "нацуки", "натсуки", "насуки"]
+    react_s = ["sayori", "сайори", "саёри", "саери"]
+    react_m = ["monica", "monika", "моника"]
+
 label set_name_input: 
     $ player = renpy.input("Как тебя зовут?", length=32)
     $ player = player.strip()

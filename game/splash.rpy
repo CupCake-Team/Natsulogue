@@ -32,22 +32,7 @@ init python:
 
     vis_folders = ["dai_vis", "heart_vis", "herewego_vis", "just_vis", "nattheme_vis", "cup_vis"]
 
-    react_names = [
-        "yuri", "юри", 
-        "monica", "monika", "моника",
-        "sayori", "сайори", "саёри", "саери",
-        "natsuki", "нацуки", "натсуки"
-        
-    ]
-    react_n = [
-        "natsuki", "нацуки", "натсуки"
-    ]
-    react_s = [
-        "sayori", "сайори", "саёри", "саери"
-    ]
-    react_m = [
-        "monica", "monika", "моника"
-    ]
+
 
     ref_ans = ["Неважно.", "Забей.", "Забудь."]
 
