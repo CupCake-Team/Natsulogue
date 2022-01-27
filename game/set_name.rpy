@@ -40,6 +40,8 @@ label set_name:
         $ input_count_s = 0
     call set_name_input 
     $ print(player.lower())
+    if player.lower() == "":
+        $ pass
     if player.lower() == "natsuki" or player.lower() == "нацуки":
         # НАЦ НАЗЫВАЕТ КЛОУНОМ
         call set_name_joker
