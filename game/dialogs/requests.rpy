@@ -430,7 +430,12 @@ label dia_requests:
             $ persistent.parallax_bg = False
             
             call ch1_loop
-
+        
+        "{i}Set name{/i}":
+            hide screen countdown
+            $side_return()
+            $ input_count = 0
+            jump set_name
 
         "{i}[ans]{/i}":
             $side_return()
