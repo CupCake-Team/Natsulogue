@@ -4,36 +4,23 @@
 
 
 init python:
-    import sys, pickle, random
+    import sys, pickle, random, os
     from os.path import abspath
-    import os
-    import json
-    try:
-        f = open(config.basedir + '/game/update_game/settings_update.json', 'r')
-        text = f.read()
-        f.close()
-        j = json.loads(text)
-        j.update(current_version=config.version)
-        f = open(config.basedir + '/game/update_game/settings_update.json', 'w')
-        f.write(str(j).replace("'", '"').replace("u\"", '"'))
-        f.close()
-    except:
-        pass
     menu_trans_time = 1
     splash_message_default = _("Эта игра не предназначена для детей,\nбеременных женщин и лиц с неустойчивой психикой.")
     splash_messages = [
-    "Ты мой лучик света \nв этом темном царстве...",
-    "Я скучала по тебе.",
-    "Поиграй со мной",
-    "Это всего лишь игра... по большей части.",
-    "Эта игра не предназначена для детей,\nбеременных женщин и лиц с неустойчивой психикой?",
-    "sdfasdklfgsdfgsgoinrfoenlvbd",
-    "null",
-    "Я отправил детей в ад",
-    "За это умер Проект М",
-    "Это была лишь отчасти твоя вина.",
-    "Эта игра не предназначена для детей,\nбеременных женщин и скоропостижно забытых.",
-    "Не забудь сделать копию файла персонажа Моники."
+        "Ты мой лучик света \nв этом темном царстве...",
+        "Я скучала по тебе.",
+        "Поиграй со мной",
+        "Это всего лишь игра... по большей части.",
+        "Эта игра не предназначена для детей,\nбеременных женщин и лиц с неустойчивой психикой?",
+        "sdfasdklfgsdfgsgoinrfoenlvbd",
+        "null",
+        "Я отправил детей в ад",
+        "За это умер Проект М",
+        "Это была лишь отчасти твоя вина.",
+        "Эта игра не предназначена для детей,\nбеременных женщин и скоропостижно забытых.",
+        "Не забудь сделать копию файла персонажа Моники."
     ]
     music_list = ["music/dai.ogg", "music/heart.ogg", "music/herewego.ogg", "music/just.ogg", "music/nattheme.ogg", "music/cupcake.ogg"]
 
@@ -50,27 +37,9 @@ init python:
     is_esc_pressed = False
     themes = 0
     is_shown_vis = False
-
-    cwd = str(os.getcwd())
-    music_path = cwd + "\\game\\"
+    music_path = os.getcwd() + "\\game\\"
     music_path = music_path.replace("\\", "/")
     sys.setrecursionlimit(1000000)
-
-
-    def check_update():
-        os.system('"' + config.basedir + '/game/update_game/update" check')
-        f = open(config.basedir + '/game/update_game/settings_update.json', 'r')
-        version_list = json.loads(str(f.read()))
-        f.close()
-        return version_list["last_version"]
-
-    def download_update():
-        os.system('"' + config.basedir + '/game/update_game/update" download')
-        f = open(config.basedir + '/game/update_game/settings_update.json', 'r')
-        version_list = json.loads(str(f.read()))
-        f.close()
-        return version_list["last_version"]
-
     def random_ans():
         return random.choice(ref_ans)
 
@@ -149,39 +118,11 @@ init python:
 
 
 
-    class Parallax(renpy.Displayable):
-        def __init__(self, child, paramod, mode, **kwargs):
-            super(Parallax, self).__init__()
-            self.child = renpy.displayable(child)
-
-            self.x = None
-            self.y = None
-            self.paramod = paramod
-            self.mode = mode
-
-        def render(self, width, height, st, at):
-
-            rv = renpy.Render(width, height)
-
-            if self.x is not None:
-                cr = renpy.render(self.child, width, height, st, at)
-                cw, ch = cr.get_size()
-                rv.blit(cr, (self.x, self.y))
-
-            return rv
-
-        def event(self, ev, x, y, st):
-
-            if (x != self.x) or (y != self.y):
-                if self.mode == "back":
-                    self.x = (x - renpy.get_physical_size()[0]/2) / self.paramod
-                    self.y = (y - renpy.get_physical_size()[1]/2) / self.paramod
-                    renpy.redraw(self, 0)
-                else:
-                    self.x = (x / self.paramod) - renpy.get_physical_size()[0]/8
-                    self.y = (y / self.paramod) - renpy.get_physical_size()[1]*1.15
-                    renpy.redraw(self, 0)
-
+    def parallax(tf, st, tb):
+        x, y = renpy.get_mouse_pos()
+        w, h = renpy.get_physical_size()
+        tf.align = (float(x) / w, float(y) / h)
+        return 0
 
 
 default l_u_l = True
@@ -413,8 +354,6 @@ label splashscreen:
         $persistent.has_load = True
         $renpy.save_persistent()
 
-   # if config.version != check_update() and persistent.f_update_show:
-    #    call update_say
 
     if persistent.autoload == "ch1_exit":
         python:

@@ -770,44 +770,30 @@ transform fade_vis_resume:
     linear 0.5 ycenter 0.79
 
 screen music_name:
-    if not renpy.mobile:
-        if track_num == 0:
-            text "{size=20}Dan Salvato{/size}" xalign 0.5 yalign 0.80
-            text "{size=20}Daijobu!{/size}" xalign 0.5 yalign 0.85
-        if track_num == 1:
-            text "{size=20}Vincienty{/size}" xalign 0.5 yalign 0.80
-            text "{size=20}Heartbroken{/size}" xalign 0.5 yalign 0.85
-        if track_num == 2:
-            text "{size=20}Vincienty{/size}" xalign 0.5 yalign 0.80
-            text "{size=20}Here We Go Again, Natsuki!{/size}" xalign 0.5 yalign 0.85
-        if track_num == 3:
-            text "{size=20}Dan Salvato{/size}" xalign 0.5 yalign 0.80
-            text "{size=20}SnVzdCBNb25pa2E={/size}" xalign 0.5 yalign 0.85
-        if track_num == 4:
-            text "{size=20}Dan Salvato{/size}" xalign 0.5 yalign 0.80
-            text "{size=20}Okay, Everyone! (Natsuki){/size}" xalign 0.5 yalign 0.85
-        if track_num == 5:
-            text "{size=20}Vincienty{/size}" xalign 0.5 yalign 0.80
-            text "{size=20}Sweetest Cupcake{/size}" xalign 0.5 yalign 0.85
-    else:
-        if track_num == 0:
-            text "{size=20}Dan Salvato{/size}" xalign 0.5 yalign 0.90
-            text "{size=20}Daijobu!{/size}" xalign 0.5 yalign 0.95
-        if track_num == 1:
-            text "{size=20}Vincienty{/size}" xalign 0.5 yalign 0.90
-            text "{size=20}Heartbroken{/size}" xalign 0.5 yalign 0.95
-        if track_num == 2:
-            text "{size=20}Vincienty{/size}" xalign 0.5 yalign 0.90
-            text "{size=20}Here We Go Again, Natsuki!{/size}" xalign 0.5 yalign 0.95
-        if track_num == 3:
-            text "{size=20}Dan Salvato{/size}" xalign 0.5 yalign 0.90
-            text "{size=20}SnVzdCBNb25pa2E={/size}" xalign 0.5 yalign 0.95
-        if track_num == 4:
-            text "{size=20}Dan Salvato{/size}" xalign 0.5 yalign 0.90
-            text "{size=20}Okay, Everyone! (Natsuki){/size}" xalign 0.5 yalign 0.95
-        if track_num == 5:
-            text "{size=20}Vincienty{/size}" xalign 0.5 yalign 0.90
-            text "{size=20}Sweetest Cupcake{/size}" xalign 0.5 yalign 0.95
+    $ y_music_name_1 = 0.80 
+    $ y_music_name_2 = 0.85
+    if renpy.mobile:
+        $ y_music_name_1 = 0.90
+        $ y_music_name_2 = 0.95
+    
+    if track_num == 0:
+        text "{size=20}Dan Salvato{/size}" xalign 0.5 yalign y_music_name_1
+        text "{size=20}Daijobu!{/size}" xalign 0.5 yalign y_music_name_2
+    if track_num == 1:
+        text "{size=20}Vincienty{/size}" xalign 0.5 yalign y_music_name_1
+        text "{size=20}Heartbroken{/size}" xalign 0.5 yalign y_music_name_2
+    if track_num == 2:
+        text "{size=20}Vincienty{/size}" xalign 0.5 yalign y_music_name_1
+        text "{size=20}Here We Go Again, Natsuki!{/size}" xalign 0.5 yalign y_music_name_2
+    if track_num == 3:
+        text "{size=20}Dan Salvato{/size}" xalign 0.5 yalign y_music_name_1
+        text "{size=20}SnVzdCBNb25pa2E={/size}" xalign 0.5 yalign y_music_name_2
+    if track_num == 4:
+        text "{size=20}Dan Salvato{/size}" xalign 0.5 yalign y_music_name_1
+        text "{size=20}Okay, Everyone! (Natsuki){/size}" xalign 0.5 yalign y_music_name_2
+    if track_num == 5:
+        text "{size=20}Vincienty{/size}" xalign 0.5 yalign y_music_name_1
+        text "{size=20}Sweetest Cupcake{/size}" xalign 0.5 yalign y_music_name_2
 
 
 screen actions_name:

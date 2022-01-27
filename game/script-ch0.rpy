@@ -16,7 +16,7 @@ default persistent.sgrad = 180
 default persistent.soundvol = 1.0
 default persistent.soundnum = 100
 default persistent.soundgrad = 180
-
+default persistent.parallax_bg = False
 
 
 default persistent.repeat = 0
@@ -113,10 +113,26 @@ image mask_3:
         linear 180 xoffset 0
         repeat
 
-image monika_bg:
-    ConditionSwitch("parallax_bg == True", Parallax("images/cg/monika/monika_room.png", 50, "back"), "True", "images/cg/monika/monika_room.png")
-    zoom 1.05
+image monika_bg = "images/cg/monika/monika_room.png"
 
+image monika_bg_parallax:
+    subpixel True
+    topleft
+    "images/cg/monika/monika_room.png"
+
+    zoom 1.005
+
+    block:
+        function parallax
+        repeat
+
+screen monika_room:
+    if persistent.parallax_bg == True:
+        add "monika_bg_parallax"
+    else:
+        add "monika_bg"
+
+    
 
 
 image monika_bg_highlight:
@@ -1608,20 +1624,3 @@ label mob_sound:
     show screen sound_mob_enable_change
     $ui.interact()
     jump mob_sound
-
-
-
-
-
-#label update_say:
-
- #   n "ТУТ ТИПА ДИАЛОГИ, В КОТОРЫХ НАЦУКИ ПРЕДЛАГАЕТ ОБНОВИТЬСЯ"
-
-  #  menu:
-   #     "Обновиться сейчас":
-    #        $ download_update()
-     #       $ persistent.f_update = True
-
-      #  "Потом":
-       #     $ persistent.f_update = True
-        #    $ persistent.f_update_show = False

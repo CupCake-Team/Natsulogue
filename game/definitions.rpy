@@ -238,67 +238,52 @@ image glitch_color2:
         linear 0.45 alpha 0
 
 image natsuki r1:
-    ConditionSwitch("parallax_bg == True", Parallax(im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/a.png"), 60, "s"), "True", im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/a.png"))
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/a.png",)
     zoom 0.5
-
 image natsuki r1a:
-    ConditionSwitch("parallax_bg == True", Parallax(im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/a.png"), 60, "s"), "True", im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/a.png"))
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/a.png")
     zoom 0.5
-
 image natsuki r1b:
-    ConditionSwitch("parallax_bg == True", Parallax(im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/b.png"), 60, "s"), "True", im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/b.png"))
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/b.png")
     zoom 0.5
-
 image natsuki r1c:
-    ConditionSwitch("parallax_bg == True", Parallax(im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/c.png"), 60, "s"), "True", im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/c.png"))
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/c.png")
     zoom 0.5
-
 image natsuki r1d:
-    ConditionSwitch("parallax_bg == True", Parallax(im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/d.png"), 60, "s"), "True", im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/d.png"))
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/d.png")
     zoom 0.5
-
 image natsuki r1e:
-    ConditionSwitch("parallax_bg == True", Parallax(im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/e.png"), 60, "s"), "True", im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/e.png"))
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/e.png")
     zoom 0.5
-
 image natsuki r1f:
-    ConditionSwitch("parallax_bg == True", Parallax(im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/f.png"), 60, "s"), "True", im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/f.png"))
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/f.png")
     zoom 0.5
-
 image natsuki r1g:
-    ConditionSwitch("parallax_bg == True", Parallax(im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/g.png"), 60, "s"), "True", im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/g.png"))
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/g.png")
     zoom 0.5
-
 image natsuki r1h:
-    ConditionSwitch("parallax_bg == True", Parallax(im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/h.png"), 60, "s"), "True", im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/h.png"))
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/h.png")
     zoom 0.5
-
 image natsuki r1i:
-    ConditionSwitch("parallax_bg == True", Parallax(im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/i.png"), 60, "s"), "True", im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/i.png"))
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/i.png")
     zoom 0.5
-
 image natsuki r1j:
-    ConditionSwitch("parallax_bg == True", Parallax(im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/j.png"), 60, "s"), "True", im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/j.png"))
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/j.png")
     zoom 0.5
-
 image natsuki r1k:
-    ConditionSwitch("parallax_bg == True", Parallax(im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/k.png"), 60, "s"), "True", im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/k.png"))
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/k.png")
     zoom 0.5
-
 image natsuki r1l:
-    ConditionSwitch("parallax_bg == True", Parallax(im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/l.png"), 60, "s"), "True", im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/l.png"))
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/l.png")
     zoom 0.5
-
 image natsuki r1m:
-    ConditionSwitch("parallax_bg == True", Parallax(im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/m.png"), 60, "s"), "True", im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/m.png"))
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/m.png")
     zoom 0.5
-
 image natsuki r1n:
-    ConditionSwitch("parallax_bg == True", Parallax(im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/m.png"), 60, "s"), "True", im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/m.png"))
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/n.png")
     zoom 0.5
-
 image natsuki r1o:
-    ConditionSwitch("parallax_bg == True", Parallax(im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/o.png"), 60, "s"), "True", im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/o.png"))
+    im.Composite((1600, 1500), (0, 0), "mod_assets/natsuki/1.png", (0, 0), "mod_assets/natsuki/o.png")
     zoom 0.5
 
 

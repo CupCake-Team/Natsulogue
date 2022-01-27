@@ -414,19 +414,21 @@ label dia_requests:
 
 
 
-        "{i}Я бы хотел включить параллакс...{/i}" if parallax_bg == False:
+        "{i}Я бы хотел включить параллакс...{/i}" if persistent.parallax_bg == False:
             hide screen countdown
             $side_return()
             n r1d "Хорошо."
-            $ parallax_bg = True
+            $ persistent.parallax_bg = True
+            $ print(persistent.parallax_bg)
             n r1e "Вроде готово."
             call ch1_loop
 
-        "{i}Можешь выключить параллакс?{/i}" if parallax_bg == True:
+        "{i}Можешь выключить параллакс?{/i}" if persistent.parallax_bg == True:
             hide screen countdown
             $side_return()
             n r1d "Хорошо."
-            $parallax_bg = False
+            $ persistent.parallax_bg = False
+            
             call ch1_loop
 
 
