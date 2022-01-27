@@ -30,6 +30,7 @@ label mono1:
         pause(2)
         $persistent.glitched_name = False
         $renpy.save_persistent()
+        $input_count = 0
         jump set_name
     else:
         jump ch1_loop
@@ -93,6 +94,7 @@ label mono3:
         pause(2)
         $persistent.glitched_name = False
         $renpy.save_persistent()
+        $input_count = 0
         jump set_name
     else:
 

@@ -50,6 +50,7 @@ label dia_hobbies:
                 pause(2)
                 $persistent.glitched_name = False
                 $renpy.save_persistent()
+                $input_count = 0
                 jump set_name
             else:
                 call ch1_loop
