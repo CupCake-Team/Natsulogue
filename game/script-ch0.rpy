@@ -113,26 +113,13 @@ image mask_3:
         linear 180 xoffset 0
         repeat
 
-image monika_bg = "images/cg/monika/monika_room.png"
+image monika_bg:
+    ConditionSwitch("persistent.parallax_bg == True", Parallax("images/cg/monika/monika_room.png", 140), "True", "images/cg/monika/monika_room.png")
+    zoom 1.05
 
-image monika_bg_parallax:
-    subpixel True
-    topleft
-    "images/cg/monika/monika_room.png"
 
-    zoom 1.005
 
-    block:
-        function parallax
-        repeat
 
-screen monika_room:
-    if persistent.parallax_bg == True:
-        add "monika_bg_parallax"
-    else:
-        add "monika_bg"
-
-    
 
 
 image monika_bg_highlight:
