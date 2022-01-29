@@ -3,8 +3,8 @@
 .vscode
 log.txt
 error.txt
-game/cache
-game/saves
+game/cache/*
+game/saves/*
 /eng_scripts
 traceback.txt
 .android.json
