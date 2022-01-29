@@ -31,12 +31,8 @@ label dia_requests:
                 n "Всё, я закончила!"
                 show mask_2
                 show mask_3
-                show room_mask as rm:
-                    size (320,180)
-                    pos (30,200)
-                show room_mask2 as rm2:
-                    size (320,180)
-                    pos (935,200)
+                show room_mask
+                show room_mask2
                 show monika_bg zorder 1
                 show natsuki r1 zorder 2
                 with Dissolve(1.0)
@@ -116,12 +112,8 @@ label dia_requests:
                 pause(10)
                 show mask_2
                 show mask_3
-                show room_mask as rm:
-                    size (320,180)
-                    pos (30,200)
-                show room_mask2 as rm2:
-                    size (320,180)
-                    pos (935,200)
+                show room_mask
+                show room_mask2
                 show monika_bg zorder 1
                 show natsuki r1 zorder 2
                 with Dissolve(1.0)
@@ -428,9 +420,9 @@ label dia_requests:
             $side_return()
             n r1d "Хорошо."
             $ persistent.parallax_bg = False
-            
+
             call ch1_loop
-        
+
         "{i}Set name{/i}":
             hide screen countdown
             $side_return()

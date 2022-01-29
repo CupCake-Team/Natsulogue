@@ -113,12 +113,33 @@ image mask_3:
         linear 180 xoffset 0
         repeat
 
-image monika_bg:
-    ConditionSwitch("persistent.parallax_bg == True", Parallax("images/cg/monika/monika_room.png", 140), "True", "images/cg/monika/monika_room.png")
+image room_mask:
+    LiveComposite((1280, 720), (0, 0), "mask_test", (0, 0), "mask_test2")
+    size (320, 180)
+    xpos 170
+    ypos 385
+    zoom 1.05
+
+image room_mask2:
+    LiveComposite((1280, 720), (0, 0), "mask_test3", (0, 0), "mask_test4")
+    size (320, 180)
+    xpos 1130
+    ypos 385
     zoom 1.05
 
 
+image parallax_bg:
+    subpixel True
+    topleft
+    "images/cg/monika/monika_room.png"
+    zoom 1.005
+    block:
+        function parallax
+        repeat
 
+
+image monika_bg:
+    ConditionSwitch("persistent.parallax_bg == True", "parallax_bg", "True", "images/cg/monika/monika_room.png")
 
 
 
@@ -161,9 +182,11 @@ image monika_body_glitch2:
     0.15
 
 image room_glitch = "images/cg/monika/monika_bg_glitch.png"
-image room_mask = LiveComposite((1280, 720), (0, 0), "mask_test", (0, 0), "mask_test2")
 
-image room_mask2 = LiveComposite((1280, 720), (0, 0), "mask_test3", (0, 0), "mask_test4")
+
+
+
+
 image splash-glitch2 = "images/bg/splash-glitch2.png"
 
 image memory_glitch = "images/bg/memory.png"
@@ -395,12 +418,8 @@ label ch1_meet:
     $ renpy.save_persistent()
     show mask_2
     show mask_3
-    show room_mask as rm:
-        size (320,180)
-        pos (30,200)
-    show room_mask2 as rm2:
-        size (320,180)
-        pos (935,200)
+    show room_mask
+    show room_mask2
     show monika_bg
 
     play music m1
@@ -470,12 +489,8 @@ label ch1_main:
 
     show mask_2
     show mask_3
-    show room_mask as rm:
-        size (320,180)
-        pos (30,200)
-    show room_mask2 as rm2:
-        size (320,180)
-        pos (935,200)
+    show room_mask
+    show room_mask2
     show monika_bg
 
 
@@ -683,12 +698,8 @@ label ch1_main:
     play music m1
     show mask_2
     show mask_3
-    show room_mask as rm:
-        size (320,180)
-        pos (30,200)
-    show room_mask2 as rm2:
-        size (320,180)
-        pos (935,200)
+    show room_mask
+    show room_mask2
     show monika_bg
     show natsuki 1n at t11 zorder 2
     with Dissolve(1.0)
@@ -812,13 +823,8 @@ label ch1_main:
     $pause(2.0)
     show mask_2
     show mask_3
-    show room_mask as rm:
-        size (320,180)
-        pos (30,200)
-
-    show room_mask2 as rm2:
-        size (320,180)
-        pos (935,200)
+    show room_mask
+    show room_mask2
 
     show monika_bg
     show natsuki r1
@@ -852,13 +858,8 @@ label ch1_main:
 
             show mask_2
             show mask_3
-            show room_mask as rm:
-                size (320,180)
-                pos (30,200)
-
-            show room_mask2 as rm2:
-                size (320,180)
-                pos (935,200)
+            show room_mask
+            show room_mask2
 
             show monika_bg zorder 1
             show natsuki r1 zorder 2
@@ -895,13 +896,8 @@ label ch1_refuse:
     $ quick_menu = False
     show mask_2
     show mask_3
-    show room_mask as rm:
-        size (320,180)
-        pos (30,200)
-
-    show room_mask2 as rm2:
-        size (320,180)
-        pos (935,200)
+    show room_mask
+    show room_mask2
 
     show monika_bg zorder 1
     show natsuki r1 zorder 2
@@ -958,13 +954,8 @@ label ch1_wait_refuse:
     $ quick_menu = False
     show mask_2
     show mask_3
-    show room_mask as rm:
-        size (320,180)
-        pos (30,200)
-
-    show room_mask2 as rm2:
-        size (320,180)
-        pos (935,200)
+    show room_mask
+    show room_mask2
 
     show monika_bg zorder 1
     show natsuki r1 zorder 2
@@ -1081,12 +1072,8 @@ label ch1_exit:
     $ quick_menu = False
     show mask_2
     show mask_3
-    show room_mask as rm:
-        size (320,180)
-        pos (30,200)
-    show room_mask2 as rm2:
-        size (320,180)
-        pos (935,200)
+    show room_mask
+    show room_mask2
     show monika_bg zorder 1
     show natsuki r1 zorder 2
     $track_num = persistent.back_music
@@ -1111,12 +1098,8 @@ label ch1_exit:
             pause 10
             show mask_2
             show mask_3
-            show room_mask as rm:
-                size (320,180)
-                pos (30,200)
-            show room_mask2 as rm2:
-                size (320,180)
-                pos (935,200)
+            show room_mask
+            show room_mask2
             show monika_bg zorder 1
             show natsuki r1 zorder 2
             with Dissolve(1)
@@ -1558,12 +1541,8 @@ label what_was_that:
     pause 3
     show mask_2
     show mask_3
-    show room_mask as rm:
-        size (320,180)
-        pos (30,200)
-    show room_mask2 as rm2:
-        size (320,180)
-        pos (935,200)
+    show room_mask
+    show room_mask2
     show monika_bg zorder 1
     show natsuki r1 zorder 2
     with Dissolve(1)
