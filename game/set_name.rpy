@@ -23,8 +23,6 @@ label set_name_input:
     $ input_count += 1
     return
 label set_name_joker:
-    $ print(input_count_s + input_count_m + input_count_y == 1 and input_count_n == 2)
-    $ print(input_count_s + input_count_m + input_count_y == 2 and input_count_n == 1)
     if (input_count_s + input_count_m + input_count_y == 1 and input_count_n == 2) or (input_count_s + input_count_m + input_count_y == 2 and input_count_n == 1):
         n r1b "Ты мне надоел..."
         n r1d "Отныне я буду величать тебе Клоуном, хи-хи-хи."
@@ -53,7 +51,6 @@ label set_name:
         $ input_count_s = 0    
     show natsuki r1b    
     call set_name_input 
-    $ print(player.lower())
     if player.lower() in react_n:
         # НАЦ НАЗЫВАЕТ КЛОУНОМ
         call set_name_joker
