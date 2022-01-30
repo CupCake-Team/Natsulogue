@@ -234,12 +234,10 @@ define gui.choice_button_text_font = gui.default_font
 define gui.choice_button_text_size = gui.text_size
 define gui.choice_button_text_xalign = 0.5
 define gui.choice_button_text_idle_color = "#000"
-define gui.choice_button_text_hover_color = "#fa9"
-
-
-
-
-
+if !persistent.is_theme_default:
+    define gui.choice_button_text_hover_color = persistent.theme_choice_color
+else:
+    define gui.choice_button_text_hover_color = "#fa9"    
 
 
 
