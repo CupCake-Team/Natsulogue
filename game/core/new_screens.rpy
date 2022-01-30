@@ -1544,34 +1544,62 @@ screen hide_all_talk():
 
 
 
+image round_full:
+    ConditionSwitch(
+            "persistent.is_theme_default == False",
+            im.MatrixColor(
+                im.Scale("gui/button/custom/round_full.png", 400, 200),
+                im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
+            ),
+            "True",
+            im.Scale("gui/button/custom/round_full.png", 400, 200)
+        )
 
-image round_full = im.Scale("gui/button/custom/round_full.png", 400, 200)
 
+image round_1_hit_styled:
+    ConditionSwitch(
+        "persistent.is_theme_default == False",
+        im.MatrixColor(
+            im.Scale("gui/button/custom/round_hit.png", 110, 195),
+            im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
+        ),
+        "True",
+        im.Scale("gui/button/custom/round_hit.png", 110, 195))
 
 image round_1_hit:
-    im.Scale("gui/button/custom/round_hit.png", 110, 195)
+    "round_1_hit_styled"
     rotate -72
 image round_2_hit:
-    im.Scale("gui/button/custom/round_hit.png", 110, 195)
+    "round_1_hit_styled"
     rotate -36
-image round_3_hit = im.Scale("gui/button/custom/round_hit.png", 110, 195)
+image round_3_hit:
+    "round_1_hit_styled"
 image round_4_hit:
-    im.Scale("gui/button/custom/round_hit.png", 110, 195)
+    "round_1_hit_styled"
     rotate 36
 image round_5_hit:
-    im.Scale("gui/button/custom/round_hit.png", 110, 195)
+    "round_1_hit_styled"
     rotate 72
 
+image round_1_styled:
+    ConditionSwitch(
+        "persistent.is_theme_default == False",
+        im.MatrixColor(
+            im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)),
+            im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
+        ),
+        "True",
+        im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)))
 
 image i_1:
-    im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1))
+    "round_1_styled"
     rotate -72
     alpha 0.0
     xalign but_coord("1a", 0)
     yalign but_coord("1a", 1)
     easein 0.3 xalign but_coord("1", 0) yalign but_coord("1", 1) alpha 1.0
 image a_1:
-    im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1))
+    "round_1_styled"
     rotate -72
     alpha 0.0
     xalign but_coord("1", 0)
@@ -1582,14 +1610,14 @@ image a_1:
 
 
 image a_2:
-    im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1))
+    "round_1_styled"
     rotate -36.0
     alpha 0.0
     xalign but_coord("2", 0)
     yalign but_coord("2", 1)
     easein 0.3 xalign but_coord("2a", 0) yalign but_coord("2a", 1) alpha 1.0
 image i_2:
-    im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1))
+    "round_1_styled"
     rotate -36.0
     alpha 0.0
     xalign but_coord("2a", 0)
@@ -1600,25 +1628,25 @@ image i_2:
 
 
 image a_3:
-    im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1))
+    "round_1_styled"
     alpha 0.0
     yalign but_coord("3", 1)
     easein 0.3 yalign but_coord("3a", 1)-0.06+0.05 alpha 1.0
 image i_3:
-    im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1))
+    "round_1_styled"
     alpha 0.0
     yalign but_coord("3a", 1)
     easein 0.3 yalign but_coord("3", 1) alpha 1.0
 
 image a_4:
-    im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1))
+    "round_1_styled"
     rotate 36.0
     alpha 0.0
     xalign but_coord("4", 0)
     yalign but_coord("4", 1)
     easein 0.3 xalign but_coord("4a", 0) yalign but_coord("4a", 1) alpha 1.0
 image i_4:
-    im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1))
+    "round_1_styled"
     rotate 36.0
     alpha 0.0
     xalign but_coord("4a", 0)
@@ -1629,28 +1657,50 @@ image i_4:
 
 
 image a_5:
-    im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1))
+    "round_1_styled"
     rotate 72
     alpha 0.0
     xalign but_coord("5", 0)
     yalign but_coord("5", 1)
     easein 0.3 xalign but_coord("5a", 0) yalign but_coord("5a", 1) alpha 1.0
+
+
+
 image i_5:
-    im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1))
+    "round_1_styled"
     rotate 72
     alpha 0.0
     xalign but_coord("5a", 0)
     yalign but_coord("5a", 1)
     easein 0.3 xalign but_coord("5", 0) yalign but_coord("5", 1) alpha 1.0
 
+image talk_styled:
+    ConditionSwitch(
+        "persistent.is_theme_default == False",
+            im.MatrixColor(
+                im.Scale("gui/button/custom/talk.png", 100, 100),
+                im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
+            ),
+            "True",
+            im.Scale("gui/button/custom/talk.png", 100, 100)
+        )
 
-
+image talk_hover_styled:
+    ConditionSwitch(
+        "persistent.is_theme_default == False",
+            im.MatrixColor(
+                im.Scale("gui/button/custom/talk_hover.png", 100, 100),
+                im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
+            ),
+            "True",
+            im.Scale("gui/button/custom/talk_hover.png", 100, 100)
+        )
 
 screen talk_button():
     zorder 10
     imagebutton xalign 0.5 yalign 0.95:
-        idle im.Scale("gui/button/custom/talk.png", 100, 100)
-        hover im.Scale("gui/button/custom/talk_hover.png", 100, 100)
+        idle "talk_styled"
+        hover "talk_hover_styled"
         hovered [Play("sound", "gui/sfx/hover.ogg")]
         action [Show("talk_round"), Hide("volume_key"), Hide("sound_volume_key"), Hide("music_key"), Play("sound", "gui/sfx/select.ogg"), Show("key_hider_talk")]
 
@@ -1658,8 +1708,8 @@ screen talk_button():
 screen active_talk_button():
     zorder 10
     imagebutton xalign 0.5 yalign 0.95:
-        idle im.Scale("gui/button/custom/talk.png", 100, 100)
-        hover im.Scale("gui/button/custom/talk_hover.png", 100, 100)
+        idle "talk_styled"
+        hover "talk_hover_styled"
         hovered [Play("sound", "gui/sfx/hover.ogg")]
         action [Show("active_talk_round"), Show("volume_key"), Show("sound_volume_key"), Show("music_key"), Play("sound", "gui/sfx/select.ogg"), Hide("key_hider_talk")]
 
