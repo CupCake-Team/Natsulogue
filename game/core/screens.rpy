@@ -414,15 +414,15 @@ screen preferences():
                     label _("Пропускать")
                     textbutton _("Непрочитанное") action Preference("skip", "toggle")
                     textbutton _("После выбора") action Preference("after choices", "toggle")
-                vbox:
-                    style_prefix "radio"
-                    label _("Язык игры")
-                    for i in lang_dict.values():
-                        python:
-                            if type(i) == tuple:
-                                i = i[0]
-                        if not i.wip or config.developer:
-                            textbutton i.name sensitive Language(i.code) action [Language(i.code)]
+                #vbox:
+                #    style_prefix "radio"
+                #    label _("Язык игры")
+                #    for i in lang_dict.values():
+                #        python:
+                #            if type(i) == tuple:
+                #                i = i[0]
+                #        if not i.wip or config.developer:
+                #            textbutton i.name sensitive Language(i.code) action [Language(i.code)]
 
 
             null height (4 * gui.pref_spacing)
