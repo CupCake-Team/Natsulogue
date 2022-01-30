@@ -782,15 +782,10 @@ style say_thought is say_dialogue
 style namebox is default
 style namebox_label is say_label
 
+
+
 image textbox_styled:
-    ConditionSwitch(
-        "persistent.is_theme_default == False",
-        im.MatrixColor(
-            "gui/textbox.png",
-            im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
-        ),
-        "True",
-        "gui/textbox.png")
+    DynamicDisplayable(set_t_b)
     xalign 0.5
     yalign 1.0
 
@@ -806,15 +801,7 @@ style window_monika is window:
     background Image("gui/textbox_monika.png", xalign=0.5, yalign=1.0)
 
 image namebox_styled:
-    ConditionSwitch(
-        "persistent.is_theme_default == False",
-        im.MatrixColor(
-            "gui/namebox.png",
-            im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
-        ),
-        "True",
-        "gui/namebox.png"
-    )
+    DynamicDisplayable(set_n_b)
 
 style namebox:
     xpos gui.name_xpos

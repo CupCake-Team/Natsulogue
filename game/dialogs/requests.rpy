@@ -423,11 +423,35 @@ label dia_requests:
 
             call ch1_loop
 
-        "{i}Set name{/i}":
+        "{i}Зеленая тема{/i}":
             hide screen countdown
             $side_return()
-            $ input_count = 0
-            jump set_name
+            $ ColorTheme().green()
+            call ch1_loop
+
+        "{i}Синяя тема{/i}":
+            hide screen countdown
+            $side_return()
+            $ ColorTheme().blue()
+            call ch1_loop
+
+        "{i}purple тема{/i}":
+            hide screen countdown
+            $side_return()
+            $ ColorTheme().purple()
+            call ch1_loop
+
+        "{i}Желтая тема{/i}":
+            hide screen countdown
+            $side_return()
+            $ ColorTheme().yellow()
+            call ch1_loop
+
+        "{i}Красная тема{/i}":
+            hide screen countdown
+            $side_return()
+            $ ColorTheme().red()
+            call ch1_loop
 
         "{i}[ans]{/i}":
             $side_return()
