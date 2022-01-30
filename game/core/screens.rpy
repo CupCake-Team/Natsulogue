@@ -800,7 +800,7 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background "textbox"
+    background "textbox_styled"
 
 style window_monika is window:
     background Image("gui/textbox_monika.png", xalign=0.5, yalign=1.0)
