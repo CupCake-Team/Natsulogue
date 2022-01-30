@@ -1581,6 +1581,8 @@ image round_5_hit:
     "round_1_hit_styled"
     rotate 72
 
+
+
 image round_1_styled:
     ConditionSwitch(
         "persistent.is_theme_default == False",
