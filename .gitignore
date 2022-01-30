@@ -1,4 +1,5 @@
 *.rpyc
+*.rpa
 *.rpymc
 .vscode
 log.txt
