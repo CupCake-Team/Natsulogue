@@ -220,12 +220,22 @@ init python:
     # Чтобы классифицировать пакеты для pc и android, обязательно добавьте к ним all, как показано ниже.
 
     build.classify("game/mod_assets/**", "mod_assets all")
+    build.classify("game/bgm/**", "mod_assets all")
+    build.classify("game/gui/**", "mod_assets all")
+    build.classify("game/images/**", "mod_assets all")
+    build.classify("game/music/**", "mod_assets all")
+    build.classify("game/sfx/**", "mod_assets all")
     build.classify("game/**.rpyc", "scripts all")
     build.classify("game/README.md", None)
     build.classify("game/**.txt", "scripts all")
     build.classify("game/**.chr", "scripts all")
     build.classify("game/advanced_scripts/**","scripts all") ## Обратная совместимость
     build.classify("game/tl/**", "scripts all") ## Папка переводов
+    build.classify("game/core/**.rpyc", "scripts all") 
+    build.classify("game/additional/**.rpyc", "scripts all")
+    build.classify("game/dialogs/**.rpyc", "scripts all") 
+    
+
 
     build.classify('**~', None)
     build.classify('**.bak', None)
