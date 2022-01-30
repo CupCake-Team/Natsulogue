@@ -1077,8 +1077,8 @@ translate eng ch1_exit_10e51b81:
 # game/script-ch0.rpy:1156
 translate eng ch1_exit_dc71a286:
 
-    # n r1dd "Когда ты выключил игру, я осталась в файлах и все так же могла их редактировать."
-    n r1dd ""
+    # n r1d "Когда ты выключил игру, я осталась в файлах и все так же могла их редактировать."
+    n r1d ""
 
 # game/script-ch0.rpy:1158
 translate eng ch1_exit_48892a94:

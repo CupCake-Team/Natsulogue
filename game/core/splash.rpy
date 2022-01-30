@@ -26,11 +26,11 @@ init python:
         "Эта игра не предназначена для детей,\nбеременных женщин и скоропостижно забытых.",
         "Не забудь сделать копию файла персонажа Моники."
     ]
-    music_list = ["music/dai.ogg", "music/heart.ogg", "music/herewego.ogg", "music/just.ogg", "music/nattheme.ogg", "music/cupcake.ogg"]
+    music_list = ["bgm/5.ogg", "music/heart.ogg", "music/herewego.ogg", "bgm/m1.ogg", "music/nattheme.ogg", "music/cupcake.ogg"]
 
-    broken_list = ["music/dai_broken.ogg", "music/heart_broken.ogg", "music/herewego_broken.ogg", "music/just.ogg", "music/nattheme_broken.ogg", "music/cupcake_broken.ogg"]
+    broken_list = ["music/dai_broken.ogg", "music/heart_broken.ogg", "music/herewego_broken.ogg", "bgm/m1.ogg", "music/nattheme_broken.ogg", "music/cupcake_broken.ogg"]
 
-    reversed_list = ["music/dai_reverse.ogg", "music/heart_reverse.ogg", "music/herewego_reverse.ogg", "music/just.ogg", "music/nattheme_reverse.ogg", "music/cupcake_reverse.ogg"]
+    reversed_list = ["music/dai_reverse.ogg", "music/heart_reverse.ogg", "music/herewego_reverse.ogg", "bgm/m1.ogg", "music/nattheme_reverse.ogg", "music/cupcake_reverse.ogg"]
 
     vis_list = ["music/vis_data/dai_vis/dai_vis.avi", "music/vis_data/heart_vis/heart_vis.avi", "music/vis_data/herewego_vis/herewego_vis.avi", "music/vis_data/just_vis/just_vis.avi", "music/vis_data/nattheme_vis/nattheme_vis.avi", "music/vis_data/cup_vis/cup_vis.avi"]
 
