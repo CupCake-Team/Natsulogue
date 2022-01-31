@@ -435,22 +435,22 @@ label dia_requests:
             $ ColorTheme().blue()
             call ch1_loop
 
-        "{i}purple тема{/i}":
-            hide screen countdown
-            $side_return()
-            $ ColorTheme().purple()
-            call ch1_loop
-
         "{i}Желтая тема{/i}":
             hide screen countdown
             $side_return()
             $ ColorTheme().yellow()
             call ch1_loop
 
-        "{i}Красная тема{/i}":
+        "{i}Оранжевая тема{/i}":
             hide screen countdown
             $side_return()
-            $ ColorTheme().red()
+            $ ColorTheme().orange()
+            call ch1_loop
+
+        "{i}Дефолт тема{/i}":
+            hide screen countdown
+            $side_return()
+            $ ColorTheme().default()
             call ch1_loop
 
         "{i}[ans]{/i}":

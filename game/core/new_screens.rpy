@@ -1549,7 +1549,8 @@ image round_full:
             "persistent.is_theme_default == False",
             im.MatrixColor(
                 im.Scale("gui/button/custom/round_full.png", 400, 200),
-                im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
+                #im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
+                im.matrix.hue(persistent.theme)
             ),
             "True",
             im.Scale("gui/button/custom/round_full.png", 400, 200)
@@ -1561,7 +1562,8 @@ image round_1_hit_styled:
         "persistent.is_theme_default == False",
         im.MatrixColor(
             im.Scale("gui/button/custom/round_hit.png", 110, 195),
-            im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
+            #im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
+            im.matrix.hue(persistent.theme)
         ),
         "True",
         im.Scale("gui/button/custom/round_hit.png", 110, 195))
@@ -1588,7 +1590,8 @@ image round_1_styled:
         "persistent.is_theme_default == False",
         im.MatrixColor(
             im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)),
-            im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
+            #im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
+            im.matrix.hue(persistent.theme)
         ),
         "True",
         im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)))
@@ -1681,7 +1684,8 @@ image talk_styled:
         "persistent.is_theme_default == False",
             im.MatrixColor(
                 im.Scale("gui/button/custom/talk.png", 100, 100),
-                im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
+                #im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
+                im.matrix.hue(persistent.theme)
             ),
             "True",
             im.Scale("gui/button/custom/talk.png", 100, 100)
@@ -1692,7 +1696,8 @@ image talk_hover_styled:
         "persistent.is_theme_default == False",
             im.MatrixColor(
                 im.Scale("gui/button/custom/talk_hover.png", 100, 100),
-                im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
+                #im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
+                im.matrix.hue(persistent.theme)
             ),
             "True",
             im.Scale("gui/button/custom/talk_hover.png", 100, 100)
