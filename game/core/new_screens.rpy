@@ -6,36 +6,33 @@ init python:
 
     def next_song():
         global track_num, delta, mus_pos, dur
-        track_num = track_num + 1
-        if track_num == 6:
-            track_num = 0
+        if persistent.track_num + 1 == 6:
+            persistent.track_num = 0
+        else:
+            persistent.track_num = persistent.track_num + 1
 
         if not renpy.mobile:
-            if track_num == persistent.back_music:
+            if persistent.track_num == persistent.back_music:
                 renpy.hide_screen("button_set_back")
                 renpy.show_screen("inactive_set_back")
             else:
                 renpy.show_screen("button_set_back")
                 renpy.hide_screen("inactive_set_back")
 
-        renpy.music.play(music_list[track_num], channel="music")
+        renpy.music.play(music_list[persistent.track_num], channel="music")
 
-        if renpy.get_screen("vis_button") == False:
-            mus_pos = 0
-            while not renpy.music.is_playing(channel='music'):
-                dur = renpy.music.get_duration()
-
-            renpy.show("resumed_visual", zorder=1)
 
 
 
     def previous_song():
         global track_num, delta, mus_pos, dur
-        track_num = track_num - 1
-        if track_num == -1:
-            track_num = 5
+        if persistent.track_num - 1 == -1:
+            persistent.track_num = 5
+        else:
+            persistent.track_num = persistent.track_num - 1
+
         if not renpy.mobile:
-            if track_num == persistent.back_music:
+            if persistent.track_num == persistent.back_music:
                 renpy.hide_screen("button_set_back")
                 renpy.show_screen("inactive_set_back")
             else:
@@ -43,63 +40,13 @@ init python:
                 renpy.hide_screen("inactive_set_back")
 
 
-        renpy.music.play(music_list[track_num], channel="music")
-
-        if renpy.get_screen("vis_button") == False:
-            mus_pos = 0
-            while not renpy.music.is_playing(channel='music'):
-                dur = renpy.music.get_duration()
-
-            renpy.show("resumed_visual", zorder=1)
-
-
-
-
-
-
-
-    def vis_pause(st, at):
-        global track_num, cadre
-
-        c = "music/vis_data/" + vis_folders[track_num] + "/c" + str(int(cadre)) + ".png"
-        return c, None
-
-
-
-    def vis_res(st, at):
-        global track_num, mus_pos, dur
-        name = '<from ' + str(int(mus_pos)) + ' to ' + str(dur) + '>' + vis_list[track_num]
-
-        ost = Movie(play = name, channel='movie', mask = name, side_mask=True)
-
-        return ost, None
-
-
-    def ani_vis_pause():
-        global cadre
-        mus_pos = renpy.music.get_pos()
-        cadre = 25 * mus_pos
-        is_shown_vis = False
-        renpy.music.set_pause(True)
-        renpy.show("pause_visual", zorder=1, at_list=[slow_vis_fade])
-        renpy.hide("resumed_visual")
-
-
-
-    def ani_vis_resume():
-        global delta, mus_pos, dur
-        mus_pos = renpy.music.get_pos()
-        dur = renpy.music.get_duration()
-        delta = dur - mus_pos
-        renpy.music.set_pause(False)
-        renpy.show("resumed_visual", zorder=1, at_list=[fade_vis_resume])
-        renpy.hide("pause_visual")
+        renpy.music.play(music_list[persistent.track_num], channel="music")
 
 
 
     def save_back():
         global track_num
-        persistent.back_music = track_num
+        persistent.back_music = persistent.track_num
         renpy.save_persistent()
         renpy.show_screen("inactive_set_back")
         renpy.show_screen("music_name")
@@ -108,7 +55,7 @@ init python:
 
     def set_back_on_exit():
         global track_num
-        persistent.back_music = track_num
+        persistent.back_music = persistent.track_num
         renpy.save_persistent()
 
     def set_back_on_prefered():
@@ -729,17 +676,7 @@ image Youshouldnthavedonethat = LiveComposite((1280,720), (560,315), "n_rects1",
 
 image Reverse = "images/cg/monika/reverse.png"
 
-
-image pause_visual:
-    DynamicDisplayable(vis_pause)
-    xcenter 0.5
-    ycenter 0.79
-    size (673, 192)
-image resumed_visual:
-    DynamicDisplayable(vis_res)
-    xcenter 0.5
-    ycenter 0.79
-    size (673, 192)
+image full_vis = Visualiser()
 
 image curtain:
     ConditionSwitch("persistent.ch_vol==True and persistent.ch_mus==True", "gui/button/custom/mob_curtain_all.png",
@@ -761,37 +698,29 @@ transform hide_cur():
 
 
 
-transform slow_vis_fade:
-    ycenter 0.79
-    linear 1 ycenter 1.1
-
-transform fade_vis_resume:
-    ycenter 1.1
-    linear 0.5 ycenter 0.79
-
 screen music_name:
-    $ y_music_name_1 = 0.80 
+    $ y_music_name_1 = 0.80
     $ y_music_name_2 = 0.85
     if renpy.mobile:
         $ y_music_name_1 = 0.90
         $ y_music_name_2 = 0.95
-    
-    if track_num == 0:
+
+    if persistent.track_num == 0:
         text "{size=20}Dan Salvato{/size}" xalign 0.5 yalign y_music_name_1
         text "{size=20}Daijobu!{/size}" xalign 0.5 yalign y_music_name_2
-    if track_num == 1:
+    if persistent.track_num == 1:
         text "{size=20}Vincienty{/size}" xalign 0.5 yalign y_music_name_1
         text "{size=20}Heartbroken{/size}" xalign 0.5 yalign y_music_name_2
-    if track_num == 2:
+    if persistent.track_num == 2:
         text "{size=20}Vincienty{/size}" xalign 0.5 yalign y_music_name_1
         text "{size=20}Here We Go Again, Natsuki!{/size}" xalign 0.5 yalign y_music_name_2
-    if track_num == 3:
+    if persistent.track_num == 3:
         text "{size=20}Dan Salvato{/size}" xalign 0.5 yalign y_music_name_1
         text "{size=20}SnVzdCBNb25pa2E={/size}" xalign 0.5 yalign y_music_name_2
-    if track_num == 4:
+    if persistent.track_num == 4:
         text "{size=20}Dan Salvato{/size}" xalign 0.5 yalign y_music_name_1
         text "{size=20}Okay, Everyone! (Natsuki){/size}" xalign 0.5 yalign y_music_name_2
-    if track_num == 5:
+    if persistent.track_num == 5:
         text "{size=20}Vincienty{/size}" xalign 0.5 yalign y_music_name_1
         text "{size=20}Sweetest Cupcake{/size}" xalign 0.5 yalign y_music_name_2
 
@@ -818,17 +747,15 @@ screen actions_name:
 
 screen broke_music():
     $broke_pos = get_pos()
-    $broke = "<from " + str(broke_pos) + ">" + broken_list[track_num]
+    $broke = "<from " + str(broke_pos) + ">" + broken_list[persistent.track_num]
     $renpy.music.play(broke, channel="music")
 
 screen reverse_music():
     $reverse_pos = get_pos()
-    $reverse = "<from " + str(reverse_pos) + ">" + reversed_list[track_num]
+    $reverse = "<from " + str(reverse_pos) + ">" + reversed_list[persistent.track_num]
     $renpy.music.play(reverse, channel="music")
 
 
-screen set_to_normal_vis():
-    timer delta action [SetVariable("mus_pos", 0), Function(renpy.show, "resumed_visual", zorder=1)]
 
 
 
@@ -908,7 +835,7 @@ screen button_pause():
         hovered [Hide("music_name", transition = Dissolve(0.2)), Function(set_value, 3), Function(renpy.show, "a_3", zorder=2), Function(renpy.hide, "i_3"), Show("actions_name", transition = Dissolve(0.2))]
         unhovered [Show("music_name", transition = Dissolve(0.2)), Hide("actions_name", transition = Dissolve(0.2)), Function(set_value, 0), Function(renpy.hide, "a_3"), Function(renpy.show, "i_3", zorder=2)]
         focus_mask "round_3_hit"
-        action [Hide("button_pause"), Show("button_active_pause"), Function(renpy.music.set_pause, True, channel=u'music'), If(renpy.get_screen("vis_button") != None, true=NullAction(), false=[Function(ani_vis_pause), Hide("set_to_normal_vis")])]
+        action [Hide("button_pause"), Show("button_active_pause"), If(renpy.get_screen("vis_button") != None, true=NullAction(), false=Function(renpy.hide, "full_vis")), Function(renpy.music.set_pause, True, channel=u'music')]
 
 
 
@@ -917,7 +844,7 @@ screen mob_button_pause():
     on "hide" action Function(renpy.hide, "mob_pause")
     imagebutton xalign 0.4 yalign 0.578:
         idle "mob_player_but_hit"
-        action [Hide("mob_button_pause"), Show("mob_button_active_pause"), Function(renpy.music.set_pause, True, channel=u'music'), If(is_shown_vis == False, true=NullAction(), false=[Function(ani_vis_pause), Hide("set_to_normal_vis")])]
+        action [Hide("mob_button_pause"), Show("mob_button_active_pause"), If(is_shown_vis == False, true=NullAction(), false=Function(renpy.hide, "full_vis")), Function(renpy.music.set_pause, True, channel=u'music')]
 
 
 screen button_active_pause():
@@ -926,7 +853,7 @@ screen button_active_pause():
         hovered [Hide("music_name", transition = Dissolve(0.2)), Function(set_value, 6), Function(renpy.show, "a_3", zorder=2), Function(renpy.hide, "i_3"), Show("actions_name", transition = Dissolve(0.2))]
         unhovered [Show("music_name", transition = Dissolve(0.2)), Hide("actions_name", transition = Dissolve(0.2)), Function(set_value, 0), Function(renpy.hide, "a_3"), Function(renpy.show, "i_3", zorder=2)]
         focus_mask "round_3_hit"
-        action [Hide("button_active_pause"), Show("button_pause"), Function(renpy.music.set_pause, False, channel=u'music'), If(renpy.get_screen("vis_button") != None, true=NullAction(), false=[Function(ani_vis_resume), Show("set_to_normal_vis")])]
+        action [Hide("button_active_pause"), Show("button_pause"), Function(renpy.music.set_pause, False, channel=u'music'), If(renpy.get_screen("vis_button") != None, true=NullAction(), false=Function(renpy.show, "full_vis", zorder = 1))]
 
 
 
@@ -935,7 +862,7 @@ screen mob_button_active_pause():
     on "hide" action Function(renpy.hide, "mob_active_pause")
     imagebutton xalign 0.4 yalign 0.578:
         idle "mob_player_but_hit"
-        action [Hide("mob_button_active_pause"), Show("mob_button_pause"), Function(renpy.music.set_pause, False, channel=u'music'), If(is_shown_vis == False, true=NullAction(), false=[Show("set_to_normal_vis"), Function(ani_vis_resume)])]
+        action [Hide("mob_button_active_pause"), Show("mob_button_pause"), Function(renpy.music.set_pause, False, channel=u'music'), If(is_shown_vis == False, true=NullAction(), false=Function(renpy.show, "full_vis", zorder = 1))]
 
 
 
@@ -1008,7 +935,7 @@ screen vis_button():
         hovered [Hide("music_name", transition = Dissolve(0.2)), Function(set_value, 7), Function(renpy.show, "a_4", zorder=2), Function(renpy.hide, "i_4"), Show("actions_name", transition = Dissolve(0.2))]
         unhovered [Show("music_name", transition = Dissolve(0.2)), Hide("actions_name", transition = Dissolve(0.2)), Function(set_value, 0), Function(renpy.hide, "a_4"), Function(renpy.show, "i_4", zorder=2),]
         focus_mask "round_4_hit"
-        action [Function(ani_vis_resume), Show("set_to_normal_vis"), Hide("vis_button"), Show("active_vis_button"), SetVariable("is_shown_vis", True)]
+        action [Hide("vis_button"), Show("active_vis_button"), SetVariable("is_shown_vis", True), Function(renpy.show, "full_vis", zorder = 1)]
 
 
 screen mob_vis_button():
@@ -1017,7 +944,7 @@ screen mob_vis_button():
     imagebutton xalign 0.6 yalign 0.578:
         idle "mob_player_but_hit"
         action [If(renpy.music.get_pause(channel=u'music') == False,
-            true=[Show("set_to_normal_vis"), Function(ani_vis_resume), SetVariable("is_shown_vis", True)],
+            true=[SetVariable("is_shown_vis", True), Function(renpy.show, "full_vis", zorder = 1)],
             false=NullAction()), Hide("mob_vis_button"), Show("mob_active_vis_button")]
 
 
@@ -1028,7 +955,7 @@ screen active_vis_button():
         hovered [Hide("music_name", transition = Dissolve(0.2)), Function(set_value, 9), Function(renpy.show, "a_4", zorder=2), Function(renpy.hide, "i_4"), Show("actions_name", transition = Dissolve(0.2))]
         unhovered [Show("music_name", transition = Dissolve(0.2)), Hide("actions_name", transition = Dissolve(0.2)), Function(set_value, 0), Function(renpy.hide, "a_4"), Function(renpy.show, "i_4", zorder=2),]
         focus_mask "round_4_hit"
-        action [Function(renpy.hide, "pause_visual"), Function(renpy.hide, "resumed_visual"), Hide("set_to_normal_vis"), Show("vis_button"), Hide("active_vis_button"), SetVariable("is_shown_vis", False)]
+        action [Show("vis_button"), Hide("active_vis_button"), SetVariable("is_shown_vis", False), Function(renpy.hide, "full_vis")]
 
 
 screen mob_active_vis_button():
@@ -1036,7 +963,7 @@ screen mob_active_vis_button():
     on "hide" action Function(renpy.hide, "act_vis")
     imagebutton xalign 0.6 yalign 0.578:
         idle "mob_player_but_hit"
-        action [Function(renpy.hide, "pause_visual"), Function(renpy.hide, "resumed_visual"), Hide("set_to_normal_vis"), Show("mob_vis_button"), Hide("mob_active_vis_button"), SetVariable("is_shown_vis", False)]
+        action [Show("mob_vis_button"), Hide("mob_active_vis_button"), SetVariable("is_shown_vis", False), Function(renpy.hide, "full_vis")]
 
 
 
@@ -1094,7 +1021,7 @@ screen mob_menu_player():                #менюшка для остальны
             true=If(is_shown_vis == True,
                     true=[Show("mob_active_vis_button"),
                     If(renpy.music.get_pause(channel=u'music') == False,
-                        true=[Show("set_to_normal_vis"), Function(ani_vis_resume)],
+                        true=[],
                         false=NullAction())],
                     false=Show("mob_vis_button")),
             false=Show("mob_broken_cycle")),
@@ -1109,7 +1036,7 @@ screen mob_menu_player():                #менюшка для остальны
 screen mob_active_menu_player():                    #активная менюшка для кнопок
     imagebutton xalign 0.5 yalign 0.8:
         idle "mob_player_but_hit"
-        action [Hide("mob_button_pause"), Hide("mob_button_active_pause"), Hide("set_to_normal_vis"), Hide("mob_active_vis_button"),
+        action [Hide("mob_button_pause"), Hide("mob_button_active_pause"), Hide("mob_active_vis_button"),
         Hide("mob_vis_button"), Hide("mob_broken_cycle"), Show("mob_menu_player"), Hide("mob_active_menu_player")]
 
 
@@ -1117,10 +1044,10 @@ screen mob_active_menu_player():                    #активная менюш
 
 screen mob_music_player():
 
-    on "show" action [Show("mob_menu_player"), Function(renpy.show, "mob_menu_but", at_list = [mob_menu_coord], zorder=2), Function(renpy.show, "prev", at_list = [prev_but], zorder=2), Function(renpy.show, "next", at_list = [next_but], zorder=2), Show("music_name"), If(persistent.fix == True and is_shown_vis == True, true=[Show("set_to_normal_vis"), Function(ani_vis_resume)], false=NullAction())]
+    on "show" action [Show("mob_menu_player"), Function(renpy.show, "mob_menu_but", at_list = [mob_menu_coord], zorder=2), Function(renpy.show, "prev", at_list = [prev_but], zorder=2), Function(renpy.show, "next", at_list = [next_but], zorder=2), Show("music_name"), If(persistent.fix == True and is_shown_vis == True, true=Function(renpy.show, "full_vis", zorder = 1), false=NullAction())]
 
     on "hide" action [Hide("mob_menu_player"), Hide("mob_active_menu_player"), Hide("mob_button_pause"), Hide("mob_button_active_pause"), Hide("mob_broken_cycle"), Hide("music_name"), Hide("actions_name"), Hide("mob_vis_button"),
-    Hide("mob_active_vis_button"), Function(renpy.hide, "pause_visual"), Function(renpy.hide, "resumed_visual"), Hide("set_to_normal_vis"), Hide("music_name"), Function(renpy.hide, "mob_menu_but"), Function(renpy.hide, "prev"), Function(renpy.hide, "next")]
+    Hide("mob_active_vis_button"), Function(renpy.hide, "pause_visual"), Function(renpy.hide, "resumed_visual"), Hide("music_name"), Function(renpy.hide, "mob_menu_but"), Function(renpy.hide, "prev"), Function(renpy.hide, "next")]
 
 
 
@@ -1134,13 +1061,13 @@ screen mob_music_player():
 
     imagebutton xalign 0.3 yalign 0.8:      #пред. песня
         idle "mob_player_but_hit"
-        action [Function(previous_song), Hide("set_to_normal_vis")]
+        action [Function(previous_song)]
 
 
 
     imagebutton xalign 0.7 yalign 0.8:            #след. песня
         idle "mob_player_but_hit"
-        action [Function(next_song), Hide("set_to_normal_vis")]
+        action [Function(next_song)]
 
 
 
@@ -1157,13 +1084,13 @@ screen music_player_buttons():
         false=Show("button_set_back")),
         If(persistent.fix == True,
             true=If(is_shown_vis == True,
-                    true=[Show("active_vis_button"), Function(ani_vis_resume), Show("set_to_normal_vis")],
+                    true=[Show("active_vis_button")],
                     false=Show("vis_button")),
             false=Show("button_broken_cycle")),
         Show("music_name"), Hide("talk_button"), Hide("countdown"), Function(renpy.show, "i_1", zorder=2), Function(renpy.show, "i_3", zorder=2), Function(renpy.show, "i_4", zorder=2), Function(renpy.show, "i_5", zorder=2), Function(renpy.show, "button_back_inactive", zorder=2)]
 
     on "hide" action [Hide("button_pause"), Hide("button_active_pause"), Hide("button_set_back"), Hide("inactive_set_back"), Hide("button_broken_cycle"), Hide("music_name"), Hide("actions_name"), Hide("vis_button"),
-    Hide("active_vis_button"), Function(renpy.hide, "pause_visual"), Function(renpy.hide, "resumed_visual"), Hide("set_to_normal_vis"),
+    Hide("active_vis_button"), Function(renpy.hide, "pause_visual"), Function(renpy.hide, "resumed_visual"),
     Function(renpy.hide, "i_1"), Function(renpy.hide, "i_2"), Function(renpy.hide, "i_3"), Function(renpy.hide, "i_4"),
     Function(renpy.hide, "i_5"), Function(renpy.hide, "button_back_inactive"), Function(renpy.hide, "button_eq_inactive"),
     Function(renpy.hide, "a_1"), Function(renpy.hide, "a_2"), Function(renpy.hide, "a_3"), Function(renpy.hide, "a_4"), Function(renpy.hide, "a_5"),]
@@ -1177,14 +1104,14 @@ screen music_player_buttons():
         hovered [Hide("music_name", transition = Dissolve(0.2)), Function(set_value, 1), Function(renpy.show, "a_1", zorder=2), Function(renpy.hide, "i_1"), Show("actions_name", transition = Dissolve(0.2))]
         unhovered [Function(set_value, 0), Function(renpy.hide, "a_1"), Function(renpy.show, "i_1", zorder=2), Hide("actions_name", transition = Dissolve(0.2)), Show("music_name", transition = Dissolve(0.2))]
         focus_mask "round_1_hit"
-        action [Function(previous_song), Hide("set_to_normal_vis")]
+        action [Function(previous_song)]
 
     imagebutton xalign 0.580 yalign 1.032:
         idle "round_5_hit"
         hovered [Hide("music_name", transition = Dissolve(0.2)), Function(set_value, 5), Function(renpy.show, "a_5", zorder=2), Function(renpy.hide, "i_5"),Show("actions_name", transition = Dissolve(0.2))]
         unhovered [Function(set_value, 0), Function(renpy.hide, "a_5"), Function(renpy.show, "i_5", zorder=2), Hide("actions_name", transition = Dissolve(0.2)), Show("music_name", transition = Dissolve(0.2))]
         focus_mask "round_5_hit"
-        action [Function(next_song), Hide("set_to_normal_vis")]
+        action [Function(next_song)]
 
 
 
