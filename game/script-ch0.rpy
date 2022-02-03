@@ -999,7 +999,7 @@ label exit_lessday:
     $ config.skipping = False
     $ allow_skipping = False
     $ quick_menu = False
-    n r1a "..."
+    n "..."
     n r1e "Решил–таки вернуться?"
     n r1g "Это очень мило с твоей стороны."
     n r1e "Слушай, не мог бы навещать меня почаще?"
@@ -1025,6 +1025,7 @@ label exit_moreday:
     show natsuki r1c
 
     call ch1_loop
+
 
 
 #-----------------------------------Вспомогательные лэйблы-----------------------------------
@@ -1076,8 +1077,8 @@ label ch1_exit:
     show room_mask2
     show monika_bg zorder 1
     show natsuki r1 zorder 2
-    $track_num = persistent.back_music
-    $renpy.music.play(music_list[track_num], channel="music")
+    $persistent.track_num = persistent.back_music
+    $renpy.music.play(music_list[persistent.track_num], channel="music")
     if persistent.ch_vol == True:
         $vlm = persistent.svol
         $num = persistent.snum
