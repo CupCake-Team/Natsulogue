@@ -43,6 +43,21 @@ init python:
         renpy.music.play(music_list[persistent.track_num], channel="music")
 
 
+    def vis_sens():
+        if renpy.music.get_pause() == True:
+            return False
+        else:
+            return True
+
+    def inactive_but(num):
+        if num == "vis":
+            return At(im.Scale("gui/button/custom/round_inactive.png", 120, 214), v_but)
+        if num == "prev":
+            return At(im.Scale("gui/button/custom/round_inactive.png", 120, 214), p_but)
+        if num == "next":
+            return At(im.Scale("gui/button/custom/round_inactive.png", 120, 214), n_but)
+
+
 
     def save_back():
         global track_num
@@ -835,7 +850,7 @@ screen button_pause():
         hovered [Hide("music_name", transition = Dissolve(0.2)), Function(set_value, 3), Function(renpy.show, "a_3", zorder=2), Function(renpy.hide, "i_3"), Show("actions_name", transition = Dissolve(0.2))]
         unhovered [Show("music_name", transition = Dissolve(0.2)), Hide("actions_name", transition = Dissolve(0.2)), Function(set_value, 0), Function(renpy.hide, "a_3"), Function(renpy.show, "i_3", zorder=2)]
         focus_mask "round_3_hit"
-        action [Hide("button_pause"), Show("button_active_pause"), If(renpy.get_screen("vis_button") != None, true=NullAction(), false=Function(renpy.hide, "full_vis")), Function(renpy.music.set_pause, True, channel=u'music')]
+        action [Hide("button_pause"), Show("button_active_pause"), Function(renpy.music.set_pause, True, channel=u'music'), If(renpy.get_screen("active_vis_button") == None, true=NullAction(), false=Function(renpy.hide, "full_vis"))]
 
 
 
@@ -844,7 +859,7 @@ screen mob_button_pause():
     on "hide" action Function(renpy.hide, "mob_pause")
     imagebutton xalign 0.4 yalign 0.578:
         idle "mob_player_but_hit"
-        action [Hide("mob_button_pause"), Show("mob_button_active_pause"), If(is_shown_vis == False, true=NullAction(), false=Function(renpy.hide, "full_vis")), Function(renpy.music.set_pause, True, channel=u'music')]
+        action [Hide("mob_button_pause"), Show("mob_button_active_pause"), Function(renpy.music.set_pause, True, channel=u'music'), If(renpy.get_screen("mob_active_vis_button") == None, true=NullAction(), false=Function(renpy.hide, "full_vis"))]
 
 
 screen button_active_pause():
@@ -892,7 +907,7 @@ screen button_broken_cycle():
         hovered [Hide("music_name", transition = Dissolve(0.2)), Function(set_value, 4), Function(renpy.show, "a_4", zorder=2), Function(renpy.hide, "i_4"), Show("actions_name", transition = Dissolve(0.2))]
         unhovered [Show("music_name", transition = Dissolve(0.2)), Hide("actions_name", transition = Dissolve(0.2)), Function(set_value, 0), Function(renpy.hide, "a_4"), Function(renpy.show, "i_4", zorder=2)]
         focus_mask "round_4_hit"
-        action [If(glitch_action == 1,
+        action [Function(renpy.music.set_pause, False), If(glitch_action == 1,
             true=[Function(renpy.play, "gui/sfx/baa.ogg", channel='sound'), Hide("music_player_buttons"), Hide("button_broken_cycle"), Jump("what_was_that")], false=NullAction()),
         If(glitch_action == 2,
             true=[Function(renpy.music.set_volume, 1.0, channel="music"), Function(renpy.show, "Youshouldnthavedonethat", zorder=100), Show("broke_music"), Show("broke_buttons"), Show("active_broken_cycle"), Hide("button_broken_cycle"), Hide("music_player_buttons")],
@@ -911,7 +926,7 @@ screen mob_broken_cycle():
     $glitch_action = renpy.random.randint(1,3)
     imagebutton xalign 0.6 yalign 0.578:
         idle "mob_player_but_hit"
-        action [Function(set_glitch), If(glitch_action == 1,
+        action [Function(renpy.music.set_pause, False), Function(set_glitch), If(glitch_action == 1,
             true=[Function(renpy.play, "gui/sfx/baa.ogg", channel='sound'), Hide("mob_music_player"), Hide("mob_broken_cycle"), Jump("what_was_that")], false=NullAction()),
         If(glitch_action == 2,
             true=[Function(renpy.music.set_volume, 1.0, channel="music"), Function(renpy.show, "Youshouldnthavedonethat", zorder=100), Show("broke_music"), Show("broke_buttons"), Show("active_broken_cycle"), Hide("mob_broken_cycle"), Hide("mob_music_player")],
@@ -932,6 +947,8 @@ screen active_broken_cycle():
 screen vis_button():
     imagebutton xalign 0.549 yalign 0.942:
         idle "round_4_hit"
+        sensitive vis_sens()
+        insensitive inactive_but("vis")
         hovered [Hide("music_name", transition = Dissolve(0.2)), Function(set_value, 7), Function(renpy.show, "a_4", zorder=2), Function(renpy.hide, "i_4"), Show("actions_name", transition = Dissolve(0.2))]
         unhovered [Show("music_name", transition = Dissolve(0.2)), Hide("actions_name", transition = Dissolve(0.2)), Function(set_value, 0), Function(renpy.hide, "a_4"), Function(renpy.show, "i_4", zorder=2),]
         focus_mask "round_4_hit"
@@ -943,6 +960,7 @@ screen mob_vis_button():
     on "hide" action Function(renpy.hide, "vis")
     imagebutton xalign 0.6 yalign 0.578:
         idle "mob_player_but_hit"
+        sensitive vis_sens()
         action [If(renpy.music.get_pause(channel=u'music') == False,
             true=[SetVariable("is_shown_vis", True), Function(renpy.show, "full_vis", zorder = 1)],
             false=NullAction()), Hide("mob_vis_button"), Show("mob_active_vis_button")]
@@ -952,6 +970,8 @@ screen mob_vis_button():
 screen active_vis_button():
     imagebutton xalign 0.549 yalign 0.942:
         idle "round_4_hit"
+        sensitive vis_sens()
+        insensitive inactive_but("vis")
         hovered [Hide("music_name", transition = Dissolve(0.2)), Function(set_value, 9), Function(renpy.show, "a_4", zorder=2), Function(renpy.hide, "i_4"), Show("actions_name", transition = Dissolve(0.2))]
         unhovered [Show("music_name", transition = Dissolve(0.2)), Hide("actions_name", transition = Dissolve(0.2)), Function(set_value, 0), Function(renpy.hide, "a_4"), Function(renpy.show, "i_4", zorder=2),]
         focus_mask "round_4_hit"
@@ -963,6 +983,7 @@ screen mob_active_vis_button():
     on "hide" action Function(renpy.hide, "act_vis")
     imagebutton xalign 0.6 yalign 0.578:
         idle "mob_player_but_hit"
+        sensitive vis_sens()
         action [Show("mob_vis_button"), Hide("mob_active_vis_button"), SetVariable("is_shown_vis", False), Function(renpy.hide, "full_vis")]
 
 
@@ -1009,6 +1030,25 @@ transform next_but:
     xalign 0.7
     yalign 0.8
     easein 0.5 alpha 1
+
+
+transform v_but:
+    rotate 0
+    xcenter 0.4
+    ycenter 0.5
+    linear 0 rotate 36.5 xcenter 0.488 ycenter 0.579
+
+transform p_but:
+    rotate 0
+    xcenter 0.4
+    ycenter 0.5
+    linear 0 rotate -71 ycenter 0.59 xcenter 0.49
+
+transform n_but:
+    rotate 0
+    xcenter 0.4
+    ycenter 0.5
+    linear 0 rotate 71 ycenter 0.59 xcenter 0.51
 
 
 
@@ -1061,12 +1101,14 @@ screen mob_music_player():
 
     imagebutton xalign 0.3 yalign 0.8:      #пред. песня
         idle "mob_player_but_hit"
+        sensitive vis_sens()
         action [Function(previous_song)]
 
 
 
     imagebutton xalign 0.7 yalign 0.8:            #след. песня
         idle "mob_player_but_hit"
+        sensitive vis_sens()
         action [Function(next_song)]
 
 
@@ -1101,6 +1143,8 @@ screen music_player_buttons():
 
     imagebutton xalign 0.422 yalign 1.032:
         idle "round_1_hit"
+        sensitive vis_sens()
+        insensitive inactive_but("prev")
         hovered [Hide("music_name", transition = Dissolve(0.2)), Function(set_value, 1), Function(renpy.show, "a_1", zorder=2), Function(renpy.hide, "i_1"), Show("actions_name", transition = Dissolve(0.2))]
         unhovered [Function(set_value, 0), Function(renpy.hide, "a_1"), Function(renpy.show, "i_1", zorder=2), Hide("actions_name", transition = Dissolve(0.2)), Show("music_name", transition = Dissolve(0.2))]
         focus_mask "round_1_hit"
@@ -1108,6 +1152,8 @@ screen music_player_buttons():
 
     imagebutton xalign 0.580 yalign 1.032:
         idle "round_5_hit"
+        sensitive vis_sens()
+        insensitive inactive_but("next")
         hovered [Hide("music_name", transition = Dissolve(0.2)), Function(set_value, 5), Function(renpy.show, "a_5", zorder=2), Function(renpy.hide, "i_5"),Show("actions_name", transition = Dissolve(0.2))]
         unhovered [Function(set_value, 0), Function(renpy.hide, "a_5"), Function(renpy.show, "i_5", zorder=2), Hide("actions_name", transition = Dissolve(0.2)), Show("music_name", transition = Dissolve(0.2))]
         focus_mask "round_5_hit"

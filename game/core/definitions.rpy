@@ -240,53 +240,53 @@ image glitch_color2:
         linear 0.45 alpha 0
 
 image natsuki r1:
-    im.Composite((1680, 1510), (0, 300), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/a.png",)
+    im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/a.png",)
     zoom 0.5
 
 image natsuki r1a:
-    im.Composite((1680, 1510), (0, 300), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/a.png")
+    im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/a.png")
     zoom 0.5
 image natsuki r1b:
-    im.Composite((1680, 1510), (0, 300), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/b.png")
+    im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/b.png")
     zoom 0.5
 image natsuki r1c:
-    im.Composite((1680, 1510), (0, 300), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/c.png")
+    im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/c.png")
     zoom 0.5
 image natsuki r1d:
-    im.Composite((1680, 1510), (0, 300), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/d.png")
+    im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/d.png")
     zoom 0.5
 image natsuki r1e:
-    im.Composite((1680, 1510), (0, 300), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/e.png")
+    im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/e.png")
     zoom 0.5
 image natsuki r1f:
-    im.Composite((1680, 1510), (0, 300), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/f.png")
+    im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/f.png")
     zoom 0.5
 image natsuki r1g:
-    im.Composite((1680, 1510), (0, 300), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/g.png")
+    im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/g.png")
     zoom 0.5
 image natsuki r1h:
-    im.Composite((1680, 1510), (0, 300), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/h.png")
+    im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/h.png")
     zoom 0.5
 image natsuki r1i:
-    im.Composite((1680, 1510), (0, 300), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/i.png")
+    im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/i.png")
     zoom 0.5
 image natsuki r1j:
-    im.Composite((1680, 1510), (0, 300), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/j.png")
+    im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/j.png")
     zoom 0.5
 image natsuki r1k:
-    im.Composite((1680, 1510), (0, 300), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/k.png")
+    im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/k.png")
     zoom 0.5
 image natsuki r1l:
-    im.Composite((1680, 1510), (0, 300), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/l.png")
+    im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/l.png")
     zoom 0.5
 image natsuki r1m:
-    im.Composite((1680, 1510), (0, 300), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/m.png")
+    im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/m.png")
     zoom 0.5
 image natsuki r1n:
-    im.Composite((1680, 1510), (0, 300), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/n.png")
+    im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/n.png")
     zoom 0.5
 image natsuki r1o:
-    im.Composite((1680, 1510), (0, 300), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/o.png")
+    im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/o.png")
     zoom 0.5
 
 
