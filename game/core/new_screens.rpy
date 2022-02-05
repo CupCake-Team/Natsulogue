@@ -961,6 +961,7 @@ screen mob_vis_button():
     imagebutton xalign 0.6 yalign 0.578:
         idle "mob_player_but_hit"
         sensitive vis_sens()
+        insensitive "vis_in"
         action [If(renpy.music.get_pause(channel=u'music') == False,
             true=[SetVariable("is_shown_vis", True), Function(renpy.show, "full_vis", zorder = 1)],
             false=NullAction()), Hide("mob_vis_button"), Show("mob_active_vis_button")]
@@ -984,6 +985,7 @@ screen mob_active_vis_button():
     imagebutton xalign 0.6 yalign 0.578:
         idle "mob_player_but_hit"
         sensitive vis_sens()
+        insensitive "vis_in"
         action [Show("mob_vis_button"), Hide("mob_active_vis_button"), SetVariable("is_shown_vis", False), Function(renpy.hide, "full_vis")]
 
 
@@ -991,10 +993,13 @@ screen mob_active_vis_button():
 image mob_menu_but = im.Scale("gui/button/custom/mob_menu.png", 100, 100)
 image next = im.Scale("gui/button/custom/mob_next.png", 100, 100)
 image prev = im.Scale("gui/button/custom/mob_prev.png", 100, 100)
+image next_in = im.Scale("gui/button/custom/mob_next_in.png", 100, 100)
+image prev_in = im.Scale("gui/button/custom/mob_prev_in.png", 100, 100)
 image cycle = im.Scale("gui/button/custom/mob_cycle.png", 100, 100)
 image mob_pause = im.Scale("gui/button/custom/mob_pause.png", 100, 100)
 image mob_active_pause = im.Scale("gui/button/custom/mob_active_pause.png", 100, 100)
 image vis = im.Scale("gui/button/custom/mob_vis_but.png", 100, 100)
+image vis_in = im.Scale("gui/button/custom/mob_vis_but_in.png", 100, 100)
 image act_vis = im.Scale("gui/button/custom/mob_active_vis_but.png", 100, 100)
 image mob_player_but_hit = im.Scale("gui/button/custom/mob_player_but_hit.png", 100, 100)
 
@@ -1102,6 +1107,7 @@ screen mob_music_player():
     imagebutton xalign 0.3 yalign 0.8:      #пред. песня
         idle "mob_player_but_hit"
         sensitive vis_sens()
+        insensitive "prev_in"
         action [Function(previous_song)]
 
 
@@ -1109,6 +1115,7 @@ screen mob_music_player():
     imagebutton xalign 0.7 yalign 0.8:            #след. песня
         idle "mob_player_but_hit"
         sensitive vis_sens()
+        insensitive "next_in"
         action [Function(next_song)]
 
 
