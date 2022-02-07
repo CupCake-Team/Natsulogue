@@ -10,7 +10,7 @@ init python:
             srf = renpy.display.draw.screenshot(None)
         else:
             srf = renpy.display.draw.screenshot(None, False)
-        
+
         return srf
 
     # Inverts the colors on the screen
@@ -18,7 +18,7 @@ init python:
         srf = screenshot_srf()
         inv = renpy.Render(srf.get_width(), srf.get_height()).canvas().get_surface()
         inv.fill((255,255,255,255))
-        inv.blit(srf, (0,0), None, 2) 
+        inv.blit(srf, (0,0), None, 2)
         return inv
 
     # This defines a display for the inverted screen
@@ -29,7 +29,7 @@ init python:
             self.height = self.width * 9 / 16
             self.srf = invert()
             self.delay = delay
-        
+
         def render(self, width, height, st, at):
             render = renpy.Render(self.width, self.height)
             if st >= self.delay:
@@ -66,14 +66,14 @@ init python:
             self.offset = 0
             self.offsetMin = offsetMin
             self.offsetMax = offsetMax
-        
+
         def update(self, st):
             st = st % (self.offTime + self.onTime)
             if st > self.offTime and self.offset == 0:
                 self.offset = random.randint(self.offsetMin, self.offsetMax)
             elif st <= self.offTime and self.offset != 0:
                 self.offset = 0
-    
+
     # This defines a renpy displayable made up of `number` of screen tear
     # sections, that bounce back and forth, based on `ontimeMult` & `offtimeMult`
     # and set randomly by an amount between `offsetMin` & `offsetMax`
@@ -82,7 +82,7 @@ init python:
             super(Tear, self).__init__()
             self.width, self.height = renpy.get_physical_size()
 
-            # Forces the screen to be 16:9 
+            # Forces the screen to be 16:9
             if float(self.width) / float(self.height) > 16.0/9.0:
                 self.width = self.height * 16 / 9
             else:
@@ -99,7 +99,7 @@ init python:
             tearpoints.sort()
             for i in range(number+1):
                 self.pieces.append(TearPiece(tearpoints[i], tearpoints[i+1], offtimeMult, ontimeMult, offsetMin, offsetMax))
-        
+
         # Renders the display
         def render(self, width, height, st, at):
             render = renpy.Render(self.width, self.height)
@@ -151,12 +151,12 @@ init python:
             self.numRects = numRects
             self.rectWidth = rectWidth
             self.rectHeight = rectHeight
-            
+
             # Makes copies of the display
             for i in range(self.numRects):
                 self.add(self.displayable)
                 self.timers.append(random.random() * 0.4 + 0.1)
-        
+
         # Rectangles show up on a grid
         def add(self, d):
             s = self.sm.create(d)
@@ -165,7 +165,7 @@ init python:
             s.width = self.rectWidth
             s.height = self.rectHeight
             self.rects.append(s)
-        
+
         def update(self, st):
             for i, s in enumerate(self.rects):
                 if st >= self.timers[i]:
@@ -193,10 +193,10 @@ init python:
             self.particleYSpeed = particleYSpeed
             self.gravity = 240
             self.timePassed = 0
-            
+
             for i in range(self.numParticles):
                 self.add(self.displayable, 1)
-        
+
         def add(self, d, speed):
             s = self.sm.create(d)
             speed = random.random()
@@ -207,7 +207,7 @@ init python:
             s.y = ySpeed * 24
             pTime = self.particleTime
             self.stars.append((s, ySpeed, xSpeed, pTime))
-        
+
         def update(self, st):
             sindex=0
             for s, ySpeed, xSpeed, particleTime in self.stars:
@@ -219,7 +219,7 @@ init python:
                     self.stars.pop(sindex)
                 sindex += 1
             return 0
-    
+
     # Blood
     # This defines a blood effect that is later used to make displayables for blood
     # drops and spurts. Used for creepy blood drips and also for stabbing blood
@@ -242,17 +242,17 @@ init python:
             self.burstSpeedY = burstSpeedY
             self.lastUpdate = 0
             self.delta = 0.0
-            
+
             for i in range(burstSize): self.add_burst(theDisplayable, 0)
             for i in range(numSquirts): self.add_squirt(squirtPower, squirtTime)
-        
+
         # This makes a single squirt of blood that follows an arc
         def add_squirt(self, squirtPower, squirtTime):
             angle = random.random() * 6.283
             xSpeed = squirtPower * math.cos(angle)
             ySpeed = squirtPower * math.sin(angle)
             self.squirts.append([xSpeed, ySpeed, squirtTime])
-        
+
         # This makes a burst of blood that pops out of some area
         def add_burst(self, d, startTime):
             s = self.sm.create(d)
@@ -267,7 +267,7 @@ init python:
             ySpeed = random.random() * self.dripSpeedY + 20
             pTime = self.particleTime
             self.drops.append([s, xSpeed, ySpeed, pTime, startTime])
-        
+
         # This handles the time progression of the blood effect
         def update(self, st):
             delta = st - self.lastUpdate
@@ -279,7 +279,7 @@ init python:
             for xSpeed, ySpeed, squirtTime in self.squirts:
                 if st > squirtTime: self.squirts.pop(sindex)
                 sindex += 1
-            
+
             # Follow with a dripping stream of blood for dripTime seconds
             pindex = 0
             if st < self.dripTime:
@@ -349,10 +349,10 @@ image blood_eye2:
 init python:
     import math
     class AnimatedMask(renpy.Displayable):
-        
-        def __init__(self, child, mask, maskb, oc, op, moving=True, speed=1.0, frequency=1.0, amount=0.5, **properties):
+
+        def __init__(self, child, mask, maskb, oc, op, speed=0.5, frequency=2.0, amount=0.5, **properties):
             super(AnimatedMask, self).__init__(**properties)
-            
+
             self.child = renpy.displayable(child)
             self.mask = renpy.displayable(mask)
             self.maskb = renpy.displayable(maskb)
@@ -360,50 +360,42 @@ init python:
             self.op = op
             self.null = None
             self.size = None
-            self.moving = moving
             self.speed = speed
             self.amount = amount
             self.frequency = frequency
-        
+
         def render(self, width, height, st, at):
-            
+
             cr = renpy.render(self.child, width, height, st, at)
             mr = renpy.render(self.mask, width, height, st, at)
             mb = renpy.Render(width, height)
-            
-            
-            if self.moving:
-                mb.place(self.mask, ((-st * 50) % (width * 2)) - (width * 2), 0)
-                mb.place(self.maskb, -width / 2, 0)
-            else:
-                mb.place(self.mask, 0, 0)
-                mb.place(self.maskb, 0, 0)
-            
-            
-            
+
+            mb.place(self.mask, ((-st * 50) % (width * 2)) - (width * 2), 0)
+            mb.place(self.maskb, -width / 2, 0)
+
             cw, ch = cr.get_size()
             mw, mh = mr.get_size()
-            
+
             w = min(cw, mw)
             h = min(ch, mh)
             size = (w, h)
-            
+
             if self.size != size:
                 self.null = Null(w, h)
-            
+
             nr = renpy.render(self.null, width, height, st, at)
-            
+
             rv = renpy.Render(w, h, opaque=False)
-            
+
             rv.operation = renpy.display.render.IMAGEDISSOLVE
             rv.operation_alpha = 1.0
             rv.operation_complete = self.oc + math.pow(math.sin(st * self.speed / 8), 64 * self.frequency) * self.amount
             rv.operation_parameter = self.op
-            
+
             rv.blit(mb, (0, 0), focus=False, main=False)
             rv.blit(nr, (0, 0), focus=False, main=False)
             rv.blit(cr, (0, 0))
-            
+
             renpy.redraw(self, 0)
             return rv
 
