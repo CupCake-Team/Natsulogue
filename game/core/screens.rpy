@@ -907,6 +907,7 @@ style main_menu_version is main_menu_text:
     size 16
     outlines []
 
+
 style main_menu_frame:
     xsize 310
     yfill True

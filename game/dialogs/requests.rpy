@@ -143,7 +143,8 @@ label dia_requests:
             if persistent.mus_repeat == 1:
                 n r1e "Хорошо, но зачем ты просишь меня об этом?"
                 if (not renpy.mobile):
-                    n "Просто нажми клавишу [str(persistent.m_key).upper()] и ставь любую музыку."
+                    $dbut = str(persistent.m_key).upper()
+                    n "Просто нажми клавишу [dbut] и ставь любую музыку."
                 else:
                     n r1e "Просто открой плеер и ставь что душе угодно."
                 n "Или ты хочешь, чтобы выбор сделала я?"
