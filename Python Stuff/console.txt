@@ -1,0 +1,37 @@
+reloading game... Done
+reloading script... Done
+check persistent_data... Done
+loading n_ending...
+
+	image nat_happy... corrupted
+
+	image nat_sad... corrupted
+
+	image nat_fear... corrupted
+
+	image nat_angry... corrupted
+
+	image nat_emb... corrupted
+
+	image nat_confused... Done
+
+	image n_final... corrupted
+
+	image date... corrupted
+
+	image final... corrupted
+
+	audio w_a_o_d... corrupted
+
+	audio h_b... Done
+
+	audio p_p... corrupted
+
+	renpy.start_predict*глюки*("monika *")
+
+	loading dialoges... corrupted
+
+	remove corrupted_data... Done
+
+	loading game...
+
