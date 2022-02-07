@@ -24,6 +24,7 @@ init python:
 
 
 
+
     def previous_song():
         global track_num, delta, mus_pos, dur
         if persistent.track_num - 1 == -1:
@@ -48,15 +49,6 @@ init python:
             return False
         else:
             return True
-
-    def inactive_but(num):
-        if num == "vis":
-            return At(im.Scale("gui/button/custom/round_inactive.png", 120, 214), v_but)
-        if num == "prev":
-            return At(im.Scale("gui/button/custom/round_inactive.png", 120, 214), p_but)
-        if num == "next":
-            return At(im.Scale("gui/button/custom/round_inactive.png", 120, 214), n_but)
-
 
 
     def save_back():
@@ -669,13 +661,7 @@ transform r_right_side():
     easein 1.00 xcenter 630
 
 #-----------------------------------------Плеер----------------------------------------------
-image button_back_inactive:
-    im.Scale("gui/button/custom/round_inactive.png", 120, 214)
-    xalign 0.452
-    yalign 0.980
-    alpha 0.0
-    rotate -36.0
-    easein 0.3 alpha 1.0
+image button_back_inactive = inactive_but("back")
 
 image button_eq_inactive:
     im.Scale("gui/button/custom/round_inactive.png", 120, 214)
@@ -1054,6 +1040,12 @@ transform n_but:
     xcenter 0.4
     ycenter 0.5
     linear 0 rotate 71 ycenter 0.59 xcenter 0.51
+
+transform b_but:
+    rotate 0
+    xalign 0.4
+    yalign 0.5
+    linear 0 rotate -36.5 xalign 0.453 yalign 0.980
 
 
 

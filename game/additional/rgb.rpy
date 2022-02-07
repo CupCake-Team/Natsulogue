@@ -1,7 +1,7 @@
 default persistent.is_theme_default = True
 default persistent.theme = 0.0
 
-init python:  
+init python:
 
     def set_t_b(st, at):
         return  im.MatrixColor(
@@ -17,6 +17,16 @@ init python:
             im.matrix.hue(persistent.theme)
         ), None
 
+    def inactive_but(num):
+        if num == "vis":
+            return At(im.Scale(im.MatrixColor("gui/button/custom/round_inactive.png", im.matrix.hue(persistent.theme)), 120, 214), v_but)
+        if num == "prev":
+            return At(im.Scale(im.MatrixColor("gui/button/custom/round_inactive.png", im.matrix.hue(persistent.theme)), 120, 214), p_but)
+        if num == "next":
+            return At(im.Scale(im.MatrixColor("gui/button/custom/round_inactive.png", im.matrix.hue(persistent.theme)), 120, 214), n_but)
+        if num == "back":
+            return At(im.Scale(im.MatrixColor("gui/button/custom/round_inactive.png", im.matrix.hue(persistent.theme)), 120, 214), b_but)
+
     class ColorTheme(object):
         def blue(self):
             # 90
@@ -26,7 +36,7 @@ init python:
             print(persistent.theme)
             persistent.is_theme_default = False
             return
-        
+
         def yellow(self):
             #75
             #persistent.theme = [1.0, 0.5, -0.5]
