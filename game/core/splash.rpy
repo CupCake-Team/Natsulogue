@@ -158,7 +158,7 @@ init python:
         return 3*freq, 540
 
     def Visualiser():
-        i = Composite((680,600), (vis_coord(0)), VisBar("gui/button/custom/visbar.png", 0),
+        i = LiveComposite((680,600), (vis_coord(0)), VisBar("gui/button/custom/visbar.png", 0),
         (vis_coord(1)), VisBar("gui/button/custom/visbar.png", 1),
         (vis_coord(2)), VisBar("gui/button/custom/visbar.png", 2),
         (vis_coord(3)), VisBar("gui/button/custom/visbar.png", 3),

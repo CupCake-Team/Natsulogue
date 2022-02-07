@@ -14,7 +14,7 @@ init python:
     config.keymap['self_voicing'] = []
     config.keymap['clipboard_voicing'] = []
     config.keymap['toggle_skip'] = []
-    config.gl2 = False
+    #config.gl2 = False
     renpy.music.register_channel("music_poem", mixer="music", tight=True)
     def get_pos(channel='music'):
         pos = renpy.music.get_pos(channel=channel)
