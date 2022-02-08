@@ -193,17 +193,17 @@ init python:
 
     def side():
         if left:
-            renpy.show("natsuki r1", at_list = [left_side])
+            renpy.show("natsuki r1a", at_list = [left_side])
 
         if right:
-            renpy.show("natsuki r1", at_list = [right_side])
+            renpy.show("natsuki r1a", at_list = [right_side])
 
     def side_return():
         if left:
-            renpy.show("natsuki r1", at_list = [r_left_side])
+            renpy.show("natsuki r1a", at_list = [r_left_side])
 
         if right:
-            renpy.show("natsuki r1", at_list = [r_right_side])
+            renpy.show("natsuki r1a", at_list = [r_right_side])
 
 
     def dia_hide():
