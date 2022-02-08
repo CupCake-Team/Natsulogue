@@ -630,6 +630,9 @@ image natsuki mouth = LiveComposite((960, 960), (0, 0), "natsuki/0.png", (390, 3
 
 image just1 nat = "cg/monika/nat_bg.png"
 image move nat = "cg/monika/move.png"
+image vol_mask:
+    "gui/button/custom/volume_circle_mask.png"
+    zoom 0.5
 
 image n_rects_mouth:
     RectCluster(Solid("#000"), 4, 15, 5).sm

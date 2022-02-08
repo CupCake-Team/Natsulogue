@@ -27,6 +27,15 @@ init python:
         if num == "back":
             return At(im.Scale(im.MatrixColor("gui/button/custom/round_inactive.png", im.matrix.hue(persistent.theme)), 120, 214), b_but)
 
+    def vol_cir():
+        return im.MatrixColor("gui/button/custom/volume_circle_level.png", im.matrix.hue(persistent.theme))
+
+    def place_but():
+        return LiveComposite((100,100), (0,0), im.MatrixColor(im.Scale("gui/button/custom/cup_button_back.png", 100, 100), im.matrix.hue(persistent.theme)), (0,0), im.Scale("gui/button/custom/cup_button_nat.png", 100, 100))
+
+    def place_hover_but():
+        return LiveComposite((100,100), (0,0), im.MatrixColor(im.Scale("gui/button/custom/cup_button_hover_back.png", 100, 100), im.matrix.hue(persistent.theme)), (0,0), im.Scale("gui/button/custom/cup_button_hover_nat.png", 100, 100))
+
     class ColorTheme(object):
         def blue(self):
             # 90
