@@ -241,7 +241,7 @@ image glitch_color2:
 
 image natsuki r1:
     im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/a.png",)
-    #zoom 0.5
+    zoom 0.5
 image natsuki r1a:
     im.Composite((1680, 1520), (0, 310), "mod_assets/natsuki/1.png", (40, 0), "mod_assets/natsuki/a.png")
     #zoom 0.5

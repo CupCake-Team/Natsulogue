@@ -44,6 +44,7 @@ init python:
             persistent.theme = -90
             print(persistent.theme)
             persistent.is_theme_default = False
+            renpy.save_persistent()
             return
 
         def yellow(self):
@@ -52,6 +53,7 @@ init python:
             persistent.theme = 75.0
             print(persistent.theme)
             persistent.is_theme_default = False
+            renpy.save_persistent()
             return
 
         def green(self):
@@ -60,6 +62,7 @@ init python:
             persistent.theme = -180.0
             print(persistent.theme)
             persistent.is_theme_default = False
+            renpy.save_persistent()
             return
 
         def orange(self):
@@ -68,6 +71,7 @@ init python:
             persistent.theme = 45.0
             print(persistent.theme)
             persistent.is_theme_default = False
+            renpy.save_persistent()
             return
 
         def default(self):
@@ -75,4 +79,5 @@ init python:
             #persistent.theme = [1.0, 1.0, 1.0]
             persistent.theme = 0.0
             persistent.is_theme_default = True
+            renpy.save_persistent()
             return
