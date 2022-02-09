@@ -861,6 +861,7 @@ style choice_button is default:
     properties gui.button_properties("choice_button")
     hover_sound gui.hover_sound
     activate_sound gui.activate_sound
+    background ConditionSwitch("persistent.theme == -90", "#dfe7fa", "persistent.theme == 75.0", "#f3e5d7", "persistent.theme == -180.0", "#d2ebdd", "persistent.theme == 45.0", "#f9e2df", "True", "#fae1ef")
 
 style choice_button_text is default:
     properties gui.button_text_properties("choice_button")
