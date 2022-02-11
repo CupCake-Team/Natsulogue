@@ -57,6 +57,10 @@ default persistent.f_key = "f"
 
 default persistent.f_r_key = "а"
 
+default persistent.t_key = "t"
+
+default persistent.t_r_key = "е"
+
 default persistent.is_full = False
 
 default persistent.first_change = False
@@ -1056,6 +1060,9 @@ label ch1_loop:
         if persistent.ch_vol == True or persistent.ch_mus == True:
             show screen mob_but_curtain
 
+    if persistent.themes == True:
+        show screen theme_key
+
     call screen talk_button
 
 
@@ -1434,6 +1441,15 @@ label change_side:
 
 
 label set_buttons:
+    $lr = renpy.random.randint(1,2)
+    if lr == 1:
+        $left = True
+        $right = False
+    else:
+        $right = True
+        $left = False
+
+    $side()
     menu:
         "Режим экрана":
             $ n_f_key = renpy.input("Введи букву, а затем нажми Enter.", length=1)
@@ -1441,6 +1457,13 @@ label set_buttons:
             if not n_f_key in r_but and not n_f_key in e_but and not n_f_key.lower() in r_but and not n_f_key.lower() in e_but:
                 n r1e "Эй, дурашка, я же сказала тебе – только латиница."
                 n "Не ломай игру, пожалуйста."
+                show natsuki r1b
+                jump set_buttons
+            elif n_f_key == persistent.f_key or n_f_key.lower() == persistent.f_key:
+                n "Эй, не издевайся над игрой!"
+                n "Тут и так всё кое-как работает..."
+                n "Не ставь одинаковые клавиши, пожалуйста."
+                n "Надеюсь ты просто случайно ошибся."
                 show natsuki r1b
                 jump set_buttons
             else:
@@ -1456,6 +1479,8 @@ label set_buttons:
                 else:
                     show screen set_on_full
 
+                call ch1_loop
+
         "Музыка" if persistent.ch_vol == True:
             $ n_v_key = renpy.input("Введи букву, а затем нажми Enter.", length=1)
             $ n_v_key = n_v_key.strip()
@@ -1463,6 +1488,13 @@ label set_buttons:
                 n r1e "Эй, дурашка, я же сказала тебе – только латиница."
                 n "Не ломай игру, пожалуйста."
                 show natsuki r1c
+                jump set_buttons
+            elif n_v_key == persistent.v_key or n_v_key.lower() == persistent.v_key:
+                n "Эй, не издевайся над игрой!"
+                n "Тут и так всё кое-как работает..."
+                n "Не ставь одинаковые клавиши, пожалуйста."
+                n "Надеюсь ты просто случайно ошибся."
+                show natsuki r1b
                 jump set_buttons
             else:
                 $ persistent.v_key = n_v_key
@@ -1472,6 +1504,7 @@ label set_buttons:
                 else:
                     $ persistent.v_r_key = r_to_e(persistent.v_key)
                 $ renpy.save_persistent()
+                call ch1_loop
 
 
 
@@ -1483,6 +1516,13 @@ label set_buttons:
                 n "Не ломай игру, пожалуйста."
                 show natsuki r1c
                 jump set_buttons
+            elif n_s_key == persistent.s_key or n_s_key.lower() == persistent.s_key:
+                n "Эй, не издевайся над игрой!"
+                n "Тут и так всё кое-как работает..."
+                n "Не ставь одинаковые клавиши, пожалуйста."
+                n "Надеюсь ты просто случайно ошибся."
+                show natsuki r1b
+                jump set_buttons
             else:
                 $ persistent.s_key = n_s_key
                 if persistent.s_key in r_but or persistent.s_key.lower() in r_but:
@@ -1491,6 +1531,7 @@ label set_buttons:
                 else:
                     $ persistent.s_r_key = r_to_e(persistent.s_key)
                 $ renpy.save_persistent()
+                call ch1_loop
 
 
         "Плеер" if persistent.ch_mus == True:
@@ -1501,6 +1542,13 @@ label set_buttons:
                 n "Не ломай игру, пожалуйста."
                 show natsuki r1c
                 jump set_buttons
+            elif n_m_key == persistent.m_key or n_m_key.lower() == persistent.m_key:
+                n "Эй, не издевайся над игрой!"
+                n "Тут и так всё кое-как работает..."
+                n "Не ставь одинаковые клавиши, пожалуйста."
+                n "Надеюсь ты просто случайно ошибся."
+                show natsuki r1b
+                jump set_buttons
             else:
                 $ persistent.m_key = n_m_key
                 if persistent.m_key in r_but or persistent.m_key.lower() in r_but:
@@ -1509,9 +1557,49 @@ label set_buttons:
                 else:
                     $ persistent.m_r_key = r_to_e(persistent.m_key)
                 $ renpy.save_persistent()
+                call ch1_loop
 
-    $side_return
-    call ch1_loop
+
+        "Тема":
+            $ n_t_key = renpy.input("Введи букву, а затем нажми Enter.", length=1)
+            $ n_t_key = n_t_key.strip()
+            if not n_t_key in r_but and not n_t_key in e_but and not n_t_key.lower() in r_but and not n_t_key.lower() in e_but:
+                n r1e "Эй, дурашка, я же сказала тебе – только латиница."
+                n "Не ломай игру, пожалуйста."
+                show natsuki r1c
+                jump set_buttons
+            elif n_t_key == persistent.t_key or n_t_key.lower() == persistent.t_key:
+                n "Эй, не издевайся над игрой!"
+                n "Тут и так всё кое-как работает..."
+                n "Не ставь одинаковые клавиши, пожалуйста."
+                n "Надеюсь ты просто случайно ошибся."
+                show natsuki r1b
+                jump set_buttons
+            else:
+                $ persistent.t_key = n_t_key
+                if persistent.t_key in r_but or persistent.t_key.lower() in r_but:
+                    $ persistent.t_r_key = persistent.t_key
+                    $ persistent.t_key = r_to_e(persistent.t_r_key)
+                else:
+                    $ persistent.t_r_key = r_to_e(persistent.t_key)
+                $ renpy.save_persistent()
+                call ch1_loop
+
+
+        "{i}[ans]{/i}":
+            $side_return()
+            $r_ans = random.randint(1,2)
+            if r_ans == 1:
+                n "Передумал менять управление?"
+                n "Ну, ладно, поменяешь потом, если надо будет."
+            else:
+                n "Ты уже всё?"
+                n "А где изменения?"
+                n "В любом случае, поступай как хочешь."
+                n "Тебе ведь этими клавишами пользоваться, а не мне."
+
+            call ch1_loop
+
 
 
 

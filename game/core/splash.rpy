@@ -242,6 +242,7 @@ default glitch_action = 0
 default mob_menu = True
 default persistent.fix = False
 default persistent.set_broke = None
+default persistent.themes = False
 
 
 image splash_warning = ParameterizedText(style="splash_text", xalign=0.5, yalign=0.5)

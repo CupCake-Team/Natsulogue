@@ -346,7 +346,16 @@ label dia_requests:
             n r1e "Мне ещё багов лишних не хватало..."
             n r1c "Не будь дурашкой, хорошо?"
 
+            $persistent.first_change = True
+            $renpy.save_persistent()
 
+            jump set_buttons
+
+
+
+
+        "Я бы хотел сменить клавиши..." if persistent.first_change == False and (persistent.ch_vol == True or persistent.ch_mus == True) and (not renpy.mobile):
+            hide screen countdown
             $side_return()
 
             n r1e "Тебе не понравились те, что назначила я?"
@@ -357,7 +366,11 @@ label dia_requests:
             n r1b "Мне ещё багов лишних не хватало..."
             n r1c "Не будь дурашкой, хорошо?"
 
+            jump set_buttons
 
+
+        "Я бы хотел сменить клавиши..." if persistent.first_change == True:
+            hide screen countdown
             $side_return()
 
             $ rand_ans = renpy.random.randint(1,3)
@@ -369,7 +382,44 @@ label dia_requests:
             if rand_ans == 3:
                 n r1f "Только ничего не сломай."
 
+            jump set_buttons
 
+
+        "Можешь сменить тему?" if persistent.themes == False:
+            hide screen countdown
+            $side_return()
+
+            n "Надоели розовые тона?"
+            n "Хорошо, у меня есть возможность поменять цвет интерфейса на другой."
+            n "Выбирай на свой вкус!"
+            n "Если что, открывается на клавишу T."
+            $persistent.themes = True
+            $renpy.save_persistent()
+            call ch1_loop
+
+
+
+        "{i}Я бы хотел включить параллакс...{/i}" if persistent.parallax_bg == False:
+            hide screen countdown
+            $side_return()
+            n r1d "Хорошо."
+            $ persistent.parallax_bg = True
+            $ print(persistent.parallax_bg)
+            n r1e "Вроде готово."
+            call ch1_loop
+
+        "{i}Можешь выключить параллакс?{/i}" if persistent.parallax_bg == True:
+            hide screen countdown
+            $side_return()
+            n r1d "Хорошо."
+            $ persistent.parallax_bg = False
+
+            call ch1_loop
+
+            
+
+
+        "Попрощаться...":
             $side_return()
 
             $rand_ans = renpy.random.randint(1,3)
@@ -405,54 +455,6 @@ label dia_requests:
 
 
 
-
-
-        "{i}Я бы хотел включить параллакс...{/i}" if persistent.parallax_bg == False:
-            hide screen countdown
-            $side_return()
-            n r1d "Хорошо."
-            $ persistent.parallax_bg = True
-            $ print(persistent.parallax_bg)
-            n r1e "Вроде готово."
-            call ch1_loop
-
-        "{i}Можешь выключить параллакс?{/i}" if persistent.parallax_bg == True:
-            hide screen countdown
-            $side_return()
-            n r1d "Хорошо."
-            $ persistent.parallax_bg = False
-
-            call ch1_loop
-
-        "{i}Зеленая тема{/i}":
-            hide screen countdown
-            $side_return()
-            $ ColorTheme().green()
-            call ch1_loop
-
-        "{i}Синяя тема{/i}":
-            hide screen countdown
-            $side_return()
-            $ ColorTheme().blue()
-            call ch1_loop
-
-        "{i}Желтая тема{/i}":
-            hide screen countdown
-            $side_return()
-            $ ColorTheme().yellow()
-            call ch1_loop
-
-        "{i}Оранжевая тема{/i}":
-            hide screen countdown
-            $side_return()
-            $ ColorTheme().orange()
-            call ch1_loop
-
-        "{i}Дефолт тема{/i}":
-            hide screen countdown
-            $side_return()
-            $ ColorTheme().default()
-            call ch1_loop
 
         "{i}[ans]{/i}":
             $side_return()

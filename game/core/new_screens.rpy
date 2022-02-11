@@ -172,6 +172,15 @@ init python:
                 bttn = but_num
                 renpy.show_screen("texts")
 
+
+
+    def theme_but_show():
+        k=1
+        while k < 6:
+            renpy.show("th_"+str(k), zorder=2)
+            k += 1
+
+
     def change_sens(scr):
         global mob_menu
         if scr == "idle" and mob_menu == True:
@@ -222,6 +231,7 @@ init python:
         renpy.hide_screen("active_music_key")
         renpy.hide_screen("mob_but_curtain")
         renpy.hide_screen("mob_active_but_curtain")
+        renpy.hide_screen("theme_key")
 
 
 
@@ -1566,6 +1576,91 @@ image round_1_styled:
         "True",
         im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)))
 
+
+
+
+image th_1:
+    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(-180.0))
+    rotate -72
+    alpha 0.0
+    xalign but_coord("1a", 0)
+    yalign but_coord("1a", 1)
+    easein 0.3 xalign but_coord("1", 0) yalign but_coord("1", 1) alpha 1.0
+
+image th_2:
+    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(45.0))
+    rotate -36.0
+    alpha 0.0
+    xalign but_coord("2a", 0)
+    yalign but_coord("2a", 1)
+    easein 0.3 xalign but_coord("2", 0) yalign but_coord("2", 1) alpha 1.0
+
+image th_3:
+    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(0.0))
+    alpha 0.0
+    yalign but_coord("3a", 1)
+    easein 0.3 yalign but_coord("3", 1) alpha 1.0
+
+image th_4:
+    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(75.0))
+    rotate 36.0
+    alpha 0.0
+    xalign but_coord("4a", 0)
+    yalign but_coord("4a", 1)
+    easein 0.3 xalign but_coord("4", 0) yalign but_coord("4", 1) alpha 1.0
+
+image th_5:
+    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(-90))
+    rotate 72
+    alpha 0.0
+    xalign but_coord("5a", 0)
+    yalign but_coord("5a", 1)
+    easein 0.3 xalign but_coord("5", 0) yalign but_coord("5", 1) alpha 1.0
+
+
+image a_th_1:
+    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(-180.0))
+    rotate -72
+    alpha 0.0
+    xalign but_coord("1", 0)
+    yalign but_coord("1", 1)
+    easein 0.3 xalign but_coord("1a", 0) yalign but_coord("1a", 1) alpha 1.0
+
+image a_th_2:
+    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(45.0))
+    rotate -36.0
+    alpha 0.0
+    xalign but_coord("2", 0)
+    yalign but_coord("2", 1)
+    easein 0.3 xalign but_coord("2a", 0) yalign but_coord("2a", 1) alpha 1.0
+
+image a_th_3:
+    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(0.0))
+    alpha 0.0
+    yalign but_coord("3", 1)
+    easein 0.3 yalign but_coord("3a", 1)-0.06+0.05 alpha 1.0
+
+image a_th_4:
+    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(75.0))
+    rotate 36.0
+    alpha 0.0
+    xalign but_coord("4", 0)
+    yalign but_coord("4", 1)
+    easein 0.3 xalign but_coord("4a", 0) yalign but_coord("4a", 1) alpha 1.0
+
+image a_th_5:
+    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(-90))
+    rotate 72
+    alpha 0.0
+    xalign but_coord("5", 0)
+    yalign but_coord("5", 1)
+    easein 0.3 xalign but_coord("5a", 0) yalign but_coord("5a", 1) alpha 1.0
+
+
+
+
+
+
 image i_1:
     "round_1_styled"
     rotate -72
@@ -1887,4 +1982,72 @@ screen set_on_beginning():
     on "show" action Preference("display", "fullscreen")
 
 
-#-----------------------------------------------Оригинальные экраны----------------------------------------------------
+#-----------------------------------------------Кнопки для темы----------------------------------------------------
+
+
+
+screen theme_key():
+    key persistent.t_key.upper() action [Hide("theme_key"), Show("active_theme_key"), Show("theme_buttons"), Hide("talk_button"), Hide("countdown")]
+
+    key persistent.t_key action [Hide("theme_key"), Show("active_theme_key"), Show("theme_buttons"), Hide("talk_button"), Hide("countdown")]
+
+    key persistent.t_r_key.upper() action [Hide("theme_key"), Show("active_theme_key"), Show("theme_buttons"), Hide("talk_button"), Hide("countdown")]
+
+    key persistent.t_r_key action [Hide("theme_key"), Show("active_theme_key"), Show("theme_buttons"), Hide("talk_button"), Hide("countdown")]
+
+
+
+screen active_theme_key():
+
+    key persistent.t_key action [Show("theme_key"), Hide("active_theme_key"), Hide("theme_buttons"), Show("talk_button"), Show("countdown")]
+
+    key persistent.t_key.upper() action [Show("theme_key"), Hide("active_theme_key"), Hide("theme_buttons"), Show("talk_button"), Show("countdown")]
+
+    key persistent.t_r_key.upper() action [Show("theme_key"), Hide("active_theme_key"), Hide("theme_buttons"), Show("talk_button"), Show("countdown")]
+
+    key persistent.t_r_key action [Show("theme_key"), Hide("active_theme_key"), Hide("theme_buttons"), Show("talk_button"), Show("countdown")]
+
+    key "K_ESCAPE" action [Show("theme_key"), Hide("active_theme_key"), Hide("theme_buttons"), Show("talk_button"), Show("countdown")]
+
+
+
+screen theme_buttons():
+    on "show" action Function(theme_but_show)
+
+    on "hide" action [Function(renpy.hide, "th_1"), Function(renpy.hide, "th_2"), Function(renpy.hide, "th_3"), Function(renpy.hide, "th_4"), Function(renpy.hide, "th_5"), Function(renpy.hide, "a_th_1"), Function(renpy.hide, "a_th_2"), Function(renpy.hide, "a_th_3"), Function(renpy.hide, "a_th_4"), Function(renpy.hide, "a_th_5")]
+
+    imagebutton xalign but_coord("2b", 0) yalign but_coord("2b", 1):
+        idle "round_2_hit"
+        hovered [Function(renpy.show, "a_th_2", zorder=2), Function(renpy.hide, "th_2"), Play("sound", "gui/sfx/hover.ogg")]
+        unhovered [Function(renpy.hide, "a_th_2"), Function(renpy.show, "th_2", zorder=2)]
+        focus_mask True
+        action [Function(ColorTheme().orange), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
+
+    imagebutton xalign but_coord("4b", 0) yalign but_coord("4b", 1):
+        idle "round_4_hit"
+        hovered [Function(renpy.show, "a_th_4", zorder=2), Function(renpy.hide, "th_4"), Play("sound", "gui/sfx/hover.ogg")]
+        unhovered [Function(renpy.hide, "a_th_4"), Function(renpy.show, "th_4", zorder=2)]
+        focus_mask True
+        action [Function(ColorTheme().yellow), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
+
+    imagebutton xalign 0.5 yalign but_coord("3b", 1):
+        idle "round_3_hit"
+        hovered [Function(renpy.show, "a_th_3", zorder=2), Function(renpy.hide, "th_3"), Play("sound", "gui/sfx/hover.ogg")]
+        unhovered [Function(renpy.hide, "a_th_3"), Function(renpy.show, "th_3", zorder=2)]
+        focus_mask True
+        action [Function(ColorTheme().default), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
+
+
+    imagebutton xalign but_coord("1b", 0) yalign but_coord("1b", 1):
+        idle "round_1_hit"
+        hovered [Function(renpy.show, "a_th_1", zorder=2), Function(renpy.hide, "th_1"), Play("sound", "gui/sfx/hover.ogg")]
+        unhovered [Function(renpy.hide, "a_th_1"), Function(renpy.show, "th_1", zorder=2)]
+        focus_mask True
+        action [Function(ColorTheme().green), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
+
+    imagebutton xalign but_coord("5b", 0) yalign but_coord("5b", 1):
+        idle "round_5_hit"
+        hovered [Function(renpy.show, "a_th_5", zorder=2), Function(renpy.hide, "th_5"), Play("sound", "gui/sfx/hover.ogg")]
+        unhovered [Function(renpy.hide, "a_th_5"), Function(renpy.show, "th_5", zorder=2)]
+        focus_mask True
+        action [Function(ColorTheme().blue), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
