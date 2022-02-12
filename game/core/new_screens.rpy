@@ -657,11 +657,15 @@ transform for_field_r():
 
 
 transform left_side():
+    zoom 0.5
     xcenter 630
+    linear 0 zoom 1
     easein 1.00 xcenter 330
 transform right_side():
+    zoom 0.5
     xcenter 630
-    easein 1.00 xcenter 930
+    linear 0 zoom 1
+    easein 1.00 xcenter 930 zoom 1
 
 transform r_left_side():
     xcenter 330
