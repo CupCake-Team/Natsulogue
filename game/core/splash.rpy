@@ -17,18 +17,18 @@ init python:
         "Эта игра не предназначена для детей,\nбеременных женщин и скоропостижно забытых.",
         "Не забудь сделать копию файла персонажа Моники."
     ]
-    music_list = ["bgm/5.ogg", "music/heart.ogg", "music/herewego.ogg", "bgm/m1.ogg", "music/nattheme.ogg", "music/cupcake.ogg"]
+    music_list = ["bgm/5.ogg", "mod_assets/music/heart.ogg", "mod_assets/music/herewego.ogg", "bgm/m1.ogg", "mod_assets/music/nattheme.ogg", "mod_assets/music/cupcake.ogg"]
 
-    broken_list = ["music/dai_broken.ogg", "music/heart_broken.ogg", "music/herewego_broken.ogg", "bgm/m1.ogg", "music/nattheme_broken.ogg", "music/cupcake_broken.ogg"]
+    broken_list = ["mod_assets/music/dai_broken.ogg", "mod_assets/music/heart_broken.ogg", "mod_assets/music/herewego_broken.ogg", "bgm/m1.ogg", "mod_assets/music/nattheme_broken.ogg", "mod_assets/music/cupcake_broken.ogg"]
 
-    reversed_list = ["music/dai_reverse.ogg", "music/heart_reverse.ogg", "music/herewego_reverse.ogg", "bgm/m1.ogg", "music/nattheme_reverse.ogg", "music/cupcake_reverse.ogg"]
+    reversed_list = ["mod_assets/music/dai_reverse.ogg", "mod_assets/music/heart_reverse.ogg", "mod_assets/music/herewego_reverse.ogg", "bgm/m1.ogg", "mod_assets/music/nattheme_reverse.ogg", "mod_assets/music/cupcake_reverse.ogg"]
 
     ref_ans = ["Неважно.", "Забей.", "Забудь."]
 
     mus_files = []
 
     for file in renpy.list_files():
-        if file.startswith("music/") and file.endswith(".txt"):
+        if file.startswith("mod_assets/music/") and file.endswith(".txt"):
             mus_files.append(file)
 
 
@@ -158,57 +158,57 @@ init python:
         return 3*freq, 540
 
     def Visualiser():
-        i = LiveComposite((680,600), (vis_coord(0)), VisBar("gui/button/custom/visbar.png", 0),
-        (vis_coord(1)), VisBar("gui/button/custom/visbar.png", 1),
-        (vis_coord(2)), VisBar("gui/button/custom/visbar.png", 2),
-        (vis_coord(3)), VisBar("gui/button/custom/visbar.png", 3),
-        (vis_coord(4)), VisBar("gui/button/custom/visbar.png", 4),
-        (vis_coord(5)), VisBar("gui/button/custom/visbar.png", 5),
-        (vis_coord(6)), VisBar("gui/button/custom/visbar.png", 6),
-        (vis_coord(7)), VisBar("gui/button/custom/visbar.png", 7),
-        (vis_coord(8)), VisBar("gui/button/custom/visbar.png", 8),
-        (vis_coord(9)), VisBar("gui/button/custom/visbar.png", 9),
-        (vis_coord(10)), VisBar("gui/button/custom/visbar.png", 10),
-        (vis_coord(11)), VisBar("gui/button/custom/visbar.png", 11),
-        (vis_coord(12)), VisBar("gui/button/custom/visbar.png", 12),
-        (vis_coord(13)), VisBar("gui/button/custom/visbar.png", 13),
-        (vis_coord(14)), VisBar("gui/button/custom/visbar.png", 14),
-        # (vis_coord(15)), VisBar("gui/button/custom/visbar.png", 15),
-        # (vis_coord(16)), VisBar("gui/button/custom/visbar.png", 16),
-        # (vis_coord(17)), VisBar("gui/button/custom/visbar.png", 17),
-        # (vis_coord(18)), VisBar("gui/button/custom/visbar.png", 18),
-        # (vis_coord(19)), VisBar("gui/button/custom/visbar.png", 19),
-        # (vis_coord(20)), VisBar("gui/button/custom/visbar.png", 20),
-        # (vis_coord(21)), VisBar("gui/button/custom/visbar.png", 21),
-        # (vis_coord(22)), VisBar("gui/button/custom/visbar.png", 22),
-        # (vis_coord(23)), VisBar("gui/button/custom/visbar.png", 23),
-        # (vis_coord(24)), VisBar("gui/button/custom/visbar.png", 24),
-        # (vis_coord(25)), VisBar("gui/button/custom/visbar.png", 25),
-        # (vis_coord(26)), VisBar("gui/button/custom/visbar.png", 26),
-        # (vis_coord(27)), VisBar("gui/button/custom/visbar.png", 27),
-        # (vis_coord(28)), VisBar("gui/button/custom/visbar.png", 28),
-        # (vis_coord(29)), VisBar("gui/button/custom/visbar.png", 29),
-        # (vis_coord(30)), VisBar("gui/button/custom/visbar.png", 30),
-        # (vis_coord(31)), VisBar("gui/button/custom/visbar.png", 31),
-        # (vis_coord(32)), VisBar("gui/button/custom/visbar.png", 32),
-        # (vis_coord(33)), VisBar("gui/button/custom/visbar.png", 33),
-        # (vis_coord(34)), VisBar("gui/button/custom/visbar.png", 34),
-        # (vis_coord(35)), VisBar("gui/button/custom/visbar.png", 35),
-        # (vis_coord(36)), VisBar("gui/button/custom/visbar.png", 36),
-        (vis_coord(37)), VisBar("gui/button/custom/visbar.png", 37),
-        (vis_coord(38)), VisBar("gui/button/custom/visbar.png", 38),
-        (vis_coord(39)), VisBar("gui/button/custom/visbar.png", 39),
-        (vis_coord(40)), VisBar("gui/button/custom/visbar.png", 40),
-        (vis_coord(41)), VisBar("gui/button/custom/visbar.png", 41),
-        (vis_coord(42)), VisBar("gui/button/custom/visbar.png", 42),
-        (vis_coord(43)), VisBar("gui/button/custom/visbar.png", 43),
-        (vis_coord(44)), VisBar("gui/button/custom/visbar.png", 44),
-        (vis_coord(45)), VisBar("gui/button/custom/visbar.png", 45),
-        (vis_coord(46)), VisBar("gui/button/custom/visbar.png", 46),
-        (vis_coord(47)), VisBar("gui/button/custom/visbar.png", 47),
-        (vis_coord(48)), VisBar("gui/button/custom/visbar.png", 48),
-        (vis_coord(49)), VisBar("gui/button/custom/visbar.png", 49),
-        (vis_coord(50)), VisBar("gui/button/custom/visbar.png", 50))
+        i = LiveComposite((680,600), (vis_coord(0)), VisBar("mod_assets/button/custom/visbar.png", 0),
+        (vis_coord(1)), VisBar("mod_assets/button/custom/visbar.png", 1),
+        (vis_coord(2)), VisBar("mod_assets/button/custom/visbar.png", 2),
+        (vis_coord(3)), VisBar("mod_assets/button/custom/visbar.png", 3),
+        (vis_coord(4)), VisBar("mod_assets/button/custom/visbar.png", 4),
+        (vis_coord(5)), VisBar("mod_assets/button/custom/visbar.png", 5),
+        (vis_coord(6)), VisBar("mod_assets/button/custom/visbar.png", 6),
+        (vis_coord(7)), VisBar("mod_assets/button/custom/visbar.png", 7),
+        (vis_coord(8)), VisBar("mod_assets/button/custom/visbar.png", 8),
+        (vis_coord(9)), VisBar("mod_assets/button/custom/visbar.png", 9),
+        (vis_coord(10)), VisBar("mod_assets/button/custom/visbar.png", 10),
+        (vis_coord(11)), VisBar("mod_assets/button/custom/visbar.png", 11),
+        (vis_coord(12)), VisBar("mod_assets/button/custom/visbar.png", 12),
+        (vis_coord(13)), VisBar("mod_assets/button/custom/visbar.png", 13),
+        (vis_coord(14)), VisBar("mod_assets/button/custom/visbar.png", 14),
+        # (vis_coord(15)), VisBar("mod_assets/button/custom/visbar.png", 15),
+        # (vis_coord(16)), VisBar("mod_assets/button/custom/visbar.png", 16),
+        # (vis_coord(17)), VisBar("mod_assets/button/custom/visbar.png", 17),
+        # (vis_coord(18)), VisBar("mod_assets/button/custom/visbar.png", 18),
+        # (vis_coord(19)), VisBar("mod_assets/button/custom/visbar.png", 19),
+        # (vis_coord(20)), VisBar("mod_assets/button/custom/visbar.png", 20),
+        # (vis_coord(21)), VisBar("mod_assets/button/custom/visbar.png", 21),
+        # (vis_coord(22)), VisBar("mod_assets/button/custom/visbar.png", 22),
+        # (vis_coord(23)), VisBar("mod_assets/button/custom/visbar.png", 23),
+        # (vis_coord(24)), VisBar("mod_assets/button/custom/visbar.png", 24),
+        # (vis_coord(25)), VisBar("mod_assets/button/custom/visbar.png", 25),
+        # (vis_coord(26)), VisBar("mod_assets/button/custom/visbar.png", 26),
+        # (vis_coord(27)), VisBar("mod_assets/button/custom/visbar.png", 27),
+        # (vis_coord(28)), VisBar("mod_assets/button/custom/visbar.png", 28),
+        # (vis_coord(29)), VisBar("mod_assets/button/custom/visbar.png", 29),
+        # (vis_coord(30)), VisBar("mod_assets/button/custom/visbar.png", 30),
+        # (vis_coord(31)), VisBar("mod_assets/button/custom/visbar.png", 31),
+        # (vis_coord(32)), VisBar("mod_assets/button/custom/visbar.png", 32),
+        # (vis_coord(33)), VisBar("mod_assets/button/custom/visbar.png", 33),
+        # (vis_coord(34)), VisBar("mod_assets/button/custom/visbar.png", 34),
+        # (vis_coord(35)), VisBar("mod_assets/button/custom/visbar.png", 35),
+        # (vis_coord(36)), VisBar("mod_assets/button/custom/visbar.png", 36),
+        (vis_coord(37)), VisBar("mod_assets/button/custom/visbar.png", 37),
+        (vis_coord(38)), VisBar("mod_assets/button/custom/visbar.png", 38),
+        (vis_coord(39)), VisBar("mod_assets/button/custom/visbar.png", 39),
+        (vis_coord(40)), VisBar("mod_assets/button/custom/visbar.png", 40),
+        (vis_coord(41)), VisBar("mod_assets/button/custom/visbar.png", 41),
+        (vis_coord(42)), VisBar("mod_assets/button/custom/visbar.png", 42),
+        (vis_coord(43)), VisBar("mod_assets/button/custom/visbar.png", 43),
+        (vis_coord(44)), VisBar("mod_assets/button/custom/visbar.png", 44),
+        (vis_coord(45)), VisBar("mod_assets/button/custom/visbar.png", 45),
+        (vis_coord(46)), VisBar("mod_assets/button/custom/visbar.png", 46),
+        (vis_coord(47)), VisBar("mod_assets/button/custom/visbar.png", 47),
+        (vis_coord(48)), VisBar("mod_assets/button/custom/visbar.png", 48),
+        (vis_coord(49)), VisBar("mod_assets/button/custom/visbar.png", 49),
+        (vis_coord(50)), VisBar("mod_assets/button/custom/visbar.png", 50))
         return i
 
 

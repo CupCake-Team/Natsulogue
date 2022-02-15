@@ -4,7 +4,7 @@ image console_bg:
     alpha 0.75 size (480,180)
 
 style console_text:
-    font "gui/font/F25_Bank_Printer.ttf"
+    font "mod_assets/font/F25_Bank_Printer.ttf"
     color "#fff"
     size 16
     outlines []

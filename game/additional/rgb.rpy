@@ -19,22 +19,22 @@ init python:
 
     def inactive_but(num):
         if num == "vis":
-            return At(im.Scale(im.MatrixColor("gui/button/custom/round_inactive.png", im.matrix.hue(persistent.theme)), 120, 214), v_but)
+            return At(im.Scale(im.MatrixColor("mod_assets/button/custom/round_inactive.png", im.matrix.hue(persistent.theme)), 120, 214), v_but)
         if num == "prev":
-            return At(im.Scale(im.MatrixColor("gui/button/custom/round_inactive.png", im.matrix.hue(persistent.theme)), 120, 214), p_but)
+            return At(im.Scale(im.MatrixColor("mod_assets/button/custom/round_inactive.png", im.matrix.hue(persistent.theme)), 120, 214), p_but)
         if num == "next":
-            return At(im.Scale(im.MatrixColor("gui/button/custom/round_inactive.png", im.matrix.hue(persistent.theme)), 120, 214), n_but)
+            return At(im.Scale(im.MatrixColor("mod_assets/button/custom/round_inactive.png", im.matrix.hue(persistent.theme)), 120, 214), n_but)
         if num == "back":
-            return At(im.Scale(im.MatrixColor("gui/button/custom/round_inactive.png", im.matrix.hue(persistent.theme)), 120, 214), b_but)
+            return At(im.Scale(im.MatrixColor("mod_assets/button/custom/round_inactive.png", im.matrix.hue(persistent.theme)), 120, 214), b_but)
 
     def vol_cir():
-        return im.MatrixColor("gui/button/custom/volume_circle_level.png", im.matrix.hue(persistent.theme))
+        return im.MatrixColor("mod_assets/button/custom/volume_circle_level.png", im.matrix.hue(persistent.theme))
 
     def place_but():
-        return LiveComposite((100,100), (0,0), im.MatrixColor(im.Scale("gui/button/custom/cup_button_back.png", 100, 100), im.matrix.hue(persistent.theme)), (0,0), im.Scale("gui/button/custom/cup_button_nat.png", 100, 100))
+        return LiveComposite((100,100), (0,0), im.MatrixColor(im.Scale("mod_assets/button/custom/cup_button_back.png", 100, 100), im.matrix.hue(persistent.theme)), (0,0), im.Scale("mod_assets/button/custom/cup_button_nat.png", 100, 100))
 
     def place_hover_but():
-        return LiveComposite((100,100), (0,0), im.MatrixColor(im.Scale("gui/button/custom/cup_button_hover_back.png", 100, 100), im.matrix.hue(persistent.theme)), (0,0), im.Scale("gui/button/custom/cup_button_hover_nat.png", 100, 100))
+        return LiveComposite((100,100), (0,0), im.MatrixColor(im.Scale("mod_assets/button/custom/cup_button_hover_back.png", 100, 100), im.matrix.hue(persistent.theme)), (0,0), im.Scale("mod_assets/button/custom/cup_button_hover_nat.png", 100, 100))
 
     class ColorTheme(object):
         def blue(self):

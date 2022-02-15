@@ -510,19 +510,19 @@ screen cup_fork_toe(sst, chs):
 
     if sst == "left":
         imagebutton xcenter 810 ycenter 230:
-            idle "gui/button/custom/corner_but_hit.png"
+            idle "mod_assets/button/custom/corner_but_hit.png"
             sensitive current_state[0][0][1]
             action [Function(play, 0, 0, "X", 810, 230), Jump("change_side")]
 
 
         imagebutton xcenter 1050 ycenter 230:
-            idle "gui/button/custom/corner_but_hit.png"
+            idle "mod_assets/button/custom/corner_but_hit.png"
             sensitive current_state[0][2][1]
             action [Function(play, 0, 2, "X", 1065, 230), Jump("change_side")]
 
 
         imagebutton xcenter 1050 ycenter 495:
-            idle "gui/button/custom/corner_but_hit.png"
+            idle "mod_assets/button/custom/corner_but_hit.png"
             sensitive current_state[2][2][1]
             action [Function(play, 2, 2, "X", 1065, 495), Jump("change_side")]
 
@@ -532,7 +532,7 @@ screen cup_fork_toe(sst, chs):
 
 
         imagebutton xcenter 805 ycenter 495:
-            idle "gui/button/custom/corner_but_hit.png"
+            idle "mod_assets/button/custom/corner_but_hit.png"
             sensitive current_state[2][0][1]
             action [Function(play, 2, 0, "X", 805, 495), Jump("change_side")]
 
@@ -541,7 +541,7 @@ screen cup_fork_toe(sst, chs):
 
 
         imagebutton xcenter 930 ycenter 230:
-            idle "gui/button/custom/edge_but_hit.png"
+            idle "mod_assets/button/custom/edge_but_hit.png"
             sensitive current_state[0][1][1]
             action [Function(play, 0, 1, "X", 940, 220), Jump("change_side")]
 
@@ -550,7 +550,7 @@ screen cup_fork_toe(sst, chs):
 
 
         imagebutton xcenter 927 ycenter 495:
-            idle "gui/button/custom/edge_but_hit.png"
+            idle "mod_assets/button/custom/edge_but_hit.png"
             sensitive current_state[2][1][1]
             action [Function(play, 2, 1, "X", 940, 495), Jump("change_side")]
 
@@ -559,7 +559,7 @@ screen cup_fork_toe(sst, chs):
 
 
         imagebutton xcenter 805 ycenter 363:
-            idle "gui/button/custom/s_edge_but_hit.png"
+            idle "mod_assets/button/custom/s_edge_but_hit.png"
             sensitive current_state[1][0][1]
             action [Function(play, 1, 0, "X", 805, 363), Jump("change_side")]
 
@@ -570,7 +570,7 @@ screen cup_fork_toe(sst, chs):
 
 
         imagebutton xcenter 1055 ycenter 36:
-            idle "gui/button/custom/s_edge_but_hit.png"
+            idle "mod_assets/button/custom/s_edge_but_hit.png"
             sensitive current_state[1][2][1]
             action [Function(play, 1, 2, "X", 1070, 363), Jump("change_side")]
 
@@ -579,7 +579,7 @@ screen cup_fork_toe(sst, chs):
 
 
         imagebutton xcenter 930 ycenter 363:
-            idle "gui/button/custom/center_but_hit.png"
+            idle "mod_assets/button/custom/center_but_hit.png"
             sensitive current_state[1][1][1]
             action [Function(play, 1, 1, "X", 940, 363), Jump("change_side")]
 
@@ -588,56 +588,56 @@ screen cup_fork_toe(sst, chs):
 
 
         imagebutton xcenter 210 ycenter 230:
-            idle "gui/button/custom/corner_but_hit.png"
+            idle "mod_assets/button/custom/corner_but_hit.png"
             sensitive current_state[0][0][1]
             action [Function(play, 0, 0, "X", 210, 230), Jump("change_side")]
         imagebutton xcenter 450 ycenter 230:
-            idle "gui/button/custom/corner_but_hit.png"
+            idle "mod_assets/button/custom/corner_but_hit.png"
             sensitive current_state[0][2][1]
             action [Function(play, 0, 2, "X", 465, 230), Jump("change_side")]
 
         imagebutton xcenter 450 ycenter 495:
-            idle "gui/button/custom/corner_but_hit.png"
+            idle "mod_assets/button/custom/corner_but_hit.png"
             sensitive current_state[2][2][1]
             action [Function(play, 2, 2, "X", 465, 495), Jump("change_side")]
 
 
         imagebutton xcenter 205 ycenter 495:
-            idle "gui/button/custom/corner_but_hit.png"
+            idle "mod_assets/button/custom/corner_but_hit.png"
             sensitive current_state[2][0][1]
             action [Function(play, 2, 0, "X", 205, 495), Jump("change_side")]
 
 
 
         imagebutton xcenter 330 ycenter 230:
-            idle "gui/button/custom/edge_but_hit.png"
+            idle "mod_assets/button/custom/edge_but_hit.png"
             sensitive current_state[0][1][1]
             action [Function(play, 0, 1, "X", 340, 220), Jump("change_side")]
 
 
 
         imagebutton xcenter 327 ycenter 495:
-            idle "gui/button/custom/edge_but_hit.png"
+            idle "mod_assets/button/custom/edge_but_hit.png"
             sensitive current_state[2][1][1]
             action [Function(play, 2, 1, "X", 340, 495), Jump("change_side")]
 
 
 
         imagebutton xcenter 205 ycenter 363:
-            idle "gui/button/custom/s_edge_but_hit.png"
+            idle "mod_assets/button/custom/s_edge_but_hit.png"
             sensitive current_state[1][0][1]
             action [Function(play, 1, 0, "X", 205, 363), Jump("change_side")]
 
 
 
         imagebutton xcenter 455 ycenter 363:
-            idle "gui/button/custom/s_edge_but_hit.png"
+            idle "mod_assets/button/custom/s_edge_but_hit.png"
             sensitive current_state[1][2][1]
             action [Function(play, 1, 2, "X", 470, 363), Jump("change_side")]
 
 
         imagebutton xcenter 330 ycenter 363:
-            idle "gui/button/custom/center_but_hit.png"
+            idle "mod_assets/button/custom/center_but_hit.png"
             sensitive current_state[1][1][1]
             action [Function(play, 1, 1, "X", 340, 363), Jump("change_side")]
 
@@ -678,26 +678,26 @@ transform r_right_side():
 image button_back_inactive = inactive_but("back")
 
 image button_eq_inactive:
-    im.Scale("gui/button/custom/round_inactive.png", 120, 214)
+    im.Scale("mod_assets/button/custom/round_inactive.png", 120, 214)
     xalign 0.549
     yalign 0.982
     alpha 0.0
     rotate 36.0
     easein 0.3 alpha 1.0
 
-image cursed = im.Scale("gui/button/custom/round_glitched.png", 120, 214)
+image cursed = im.Scale("mod_assets/button/custom/round_glitched.png", 120, 214)
 
 image Youshouldnthavedonethat = LiveComposite((1280,720), (560,315), "n_rects1", (660,295), "n_rects2", (640,390), "n_rects3")
 
-image Reverse = "images/cg/monika/reverse.png"
+image Reverse = "mod_assets/images/cg/monika/reverse.png"
 
 image full_vis = Visualiser()
 
 image curtain:
-    ConditionSwitch("persistent.ch_vol==True and persistent.ch_mus==True", "gui/button/custom/mob_curtain_all.png",
-    "persistent.ch_vol == True and persistent.ch_mus != True", "gui/button/custom/mob_curtain_vol.png",
-    "persistent.ch_mus == True and persistent.ch_vol != True", "gui/button/custom/mob_curtain_vis.png",
-    "True", "gui/button/custom/mob_curtain_none.png")
+    ConditionSwitch("persistent.ch_vol==True and persistent.ch_mus==True", "mod_assets/button/custom/mob_curtain_all.png",
+    "persistent.ch_vol == True and persistent.ch_mus != True", "mod_assets/button/custom/mob_curtain_vol.png",
+    "persistent.ch_mus == True and persistent.ch_vol != True", "mod_assets/button/custom/mob_curtain_vis.png",
+    "True", "mod_assets/button/custom/mob_curtain_none.png")
     xcenter 0.5
     ycenter -0.1
 
@@ -777,7 +777,7 @@ screen reverse_music():
 
 screen mob_but_curtain():
     imagebutton xalign 0.5 yalign 0.05:
-        idle im.Scale("gui/button/custom/mob_cur_but.png", 50, 50)
+        idle im.Scale("mod_assets/button/custom/mob_cur_but.png", 50, 50)
         action [Function(renpy.show, "curtain", at_list=[show_cur], zorder=10), Hide("mob_but_curtain"), Show("mob_active_but_curtain")]
 
 
@@ -787,29 +787,29 @@ screen mob_active_but_curtain():
 
 #close buttons
     imagebutton yalign 0 xalign 0:
-        idle "gui/button/custom/mob_hide_hit.png"
+        idle "mod_assets/button/custom/mob_hide_hit.png"
         action [Function(renpy.show, "curtain", at_list=[hide_cur], zorder=10), Hide("mob_active_but_curtain"), Show("mob_but_curtain")]
 
     imagebutton yalign 0 xalign 0.9999:
-        idle "gui/button/custom/mob_hide_hit.png"
+        idle "mod_assets/button/custom/mob_hide_hit.png"
         action [Function(renpy.show, "curtain", at_list=[hide_cur], zorder=10), Hide("mob_active_but_curtain"), Show("mob_but_curtain")]
 
 
 #music player
     imagebutton xcenter 0.642 yalign 0:
-        idle "gui/button/custom/mob_but_hit.png"
+        idle "mod_assets/button/custom/mob_but_hit.png"
         sensitive persistent.ch_mus
         action [Function(renpy.show, "curtain", at_list=[hide_cur], zorder=10), Hide("mob_active_but_curtain"), Show("mob_music_player"), Hide("talk_button"), Hide("countdown")]
 
 #volume
     imagebutton xcenter 0.497 yalign 0:
-        idle "gui/button/custom/mob_but_hit.png"
+        idle "mod_assets/button/custom/mob_but_hit.png"
         sensitive persistent.ch_vol
         action [Function(renpy.show, "curtain", at_list=[hide_cur], zorder=10), Hide("mob_active_but_curtain"), SetVariable("set", "music"), Show("mob_active_volume_but"), Jump("mob_vol"), Hide("talk_button"), Hide("countdown")]
 
 #sound volume
     imagebutton xcenter 0.353 yalign 0:
-        idle "gui/button/custom/mob_but_hit.png"
+        idle "mod_assets/button/custom/mob_but_hit.png"
         sensitive persistent.ch_vol
         action [Function(renpy.show, "curtain", at_list=[hide_cur], zorder=10), Hide("mob_active_but_curtain"), SetVariable("set", "sound"), Show("mob_active_sound_but"), Jump("mob_sound"), Hide("talk_button"), Hide("countdown")]
 
@@ -908,7 +908,7 @@ screen button_broken_cycle():
         unhovered [Show("music_name", transition = Dissolve(0.2)), Hide("actions_name", transition = Dissolve(0.2)), Function(set_value, 0), Function(renpy.hide, "a_4"), Function(renpy.show, "i_4", zorder=2)]
         focus_mask "round_4_hit"
         action [Function(renpy.music.set_pause, False), If(glitch_action == 1,
-            true=[Function(renpy.play, "gui/sfx/baa.ogg", channel='sound'), Hide("music_player_buttons"), Hide("button_broken_cycle"), Jump("what_was_that")], false=NullAction()),
+            true=[Function(renpy.play, "mod_assets/sfx/baa.ogg", channel='sound'), Hide("music_player_buttons"), Hide("button_broken_cycle"), Jump("what_was_that")], false=NullAction()),
         If(glitch_action == 2,
             true=[Function(renpy.music.set_volume, 1.0, channel="music"), Function(renpy.show, "Youshouldnthavedonethat", zorder=100), Show("broke_music"), Show("broke_buttons"), Show("active_broken_cycle"), Hide("button_broken_cycle"), Hide("music_player_buttons")],
             false=NullAction()),
@@ -927,7 +927,7 @@ screen mob_broken_cycle():
     imagebutton xalign 0.6 yalign 0.578:
         idle "mob_player_but_hit"
         action [Function(renpy.music.set_pause, False), Function(set_glitch), If(glitch_action == 1,
-            true=[Function(renpy.play, "gui/sfx/baa.ogg", channel='sound'), Hide("mob_music_player"), Hide("mob_broken_cycle"), Jump("what_was_that")], false=NullAction()),
+            true=[Function(renpy.play, "mod_assets/sfx/baa.ogg", channel='sound'), Hide("mob_music_player"), Hide("mob_broken_cycle"), Jump("what_was_that")], false=NullAction()),
         If(glitch_action == 2,
             true=[Function(renpy.music.set_volume, 1.0, channel="music"), Function(renpy.show, "Youshouldnthavedonethat", zorder=100), Show("broke_music"), Show("broke_buttons"), Show("active_broken_cycle"), Hide("mob_broken_cycle"), Hide("mob_music_player")],
             false=NullAction()),
@@ -939,7 +939,7 @@ screen mob_broken_cycle():
 
 screen active_broken_cycle():
     imagebutton xanchor 0 yanchor 0:
-        idle "gui/button/custom/mob_exit_hit.png"
+        idle "mod_assets/button/custom/mob_exit_hit.png"
         action Function(renpy.quit)
 
 
@@ -990,18 +990,18 @@ screen mob_active_vis_button():
 
 
 
-image mob_menu_but = im.Scale("gui/button/custom/mob_menu.png", 100, 100)
-image next = im.Scale("gui/button/custom/mob_next.png", 100, 100)
-image prev = im.Scale("gui/button/custom/mob_prev.png", 100, 100)
-image next_in = im.Scale("gui/button/custom/mob_next_in.png", 100, 100)
-image prev_in = im.Scale("gui/button/custom/mob_prev_in.png", 100, 100)
-image cycle = im.Scale("gui/button/custom/mob_cycle.png", 100, 100)
-image mob_pause = im.Scale("gui/button/custom/mob_pause.png", 100, 100)
-image mob_active_pause = im.Scale("gui/button/custom/mob_active_pause.png", 100, 100)
-image vis = im.Scale("gui/button/custom/mob_vis_but.png", 100, 100)
-image vis_in = im.Scale("gui/button/custom/mob_vis_but_in.png", 100, 100)
-image act_vis = im.Scale("gui/button/custom/mob_active_vis_but.png", 100, 100)
-image mob_player_but_hit = im.Scale("gui/button/custom/mob_player_but_hit.png", 100, 100)
+image mob_menu_but = im.Scale("mod_assets/button/custom/mob_menu.png", 100, 100)
+image next = im.Scale("mod_assets/button/custom/mob_next.png", 100, 100)
+image prev = im.Scale("mod_assets/button/custom/mob_prev.png", 100, 100)
+image next_in = im.Scale("mod_assets/button/custom/mob_next_in.png", 100, 100)
+image prev_in = im.Scale("mod_assets/button/custom/mob_prev_in.png", 100, 100)
+image cycle = im.Scale("mod_assets/button/custom/mob_cycle.png", 100, 100)
+image mob_pause = im.Scale("mod_assets/button/custom/mob_pause.png", 100, 100)
+image mob_active_pause = im.Scale("mod_assets/button/custom/mob_active_pause.png", 100, 100)
+image vis = im.Scale("mod_assets/button/custom/mob_vis_but.png", 100, 100)
+image vis_in = im.Scale("mod_assets/button/custom/mob_vis_but_in.png", 100, 100)
+image act_vis = im.Scale("mod_assets/button/custom/mob_active_vis_but.png", 100, 100)
+image mob_player_but_hit = im.Scale("mod_assets/button/custom/mob_player_but_hit.png", 100, 100)
 
 transform mob_menu_coord:
     alpha 0
@@ -1104,7 +1104,7 @@ screen mob_music_player():
 
 
     imagebutton xanchor 0 yanchor 0:          #закрыть плеер
-        idle "gui/button/custom/mob_exit_hit.png"
+        idle "mod_assets/button/custom/mob_exit_hit.png"
         action [Function(renpy.hide, "mob_menu_but"), Function(renpy.hide, "prev"), Function(renpy.hide, "next"), Hide("mob_music_player"), Show("mob_but_curtain"), Function(set_back_on_exit), Jump("ch1_loop")]
 
 
@@ -1272,7 +1272,7 @@ transform pos_cup_button:
 
 
 image level_cir = vol_cir()
-image anim_cir = "gui/button/custom/volume_circle.png"
+image anim_cir = "mod_assets/button/custom/volume_circle.png"
 image cup_but = place_but()
 image cup_but_hover = place_hover_but()
 
@@ -1345,7 +1345,7 @@ screen sound_test():
     imagebutton xalign 0.5 yalign 0.95:
         idle "cup_but"
         hover "cup_but_hover"
-        hovered [Play("sound", "gui/sfx/hover.ogg")]
+        hovered [Play("sound", "mod_assets/sfx/hover.ogg")]
         action NullAction()
 
 
@@ -1367,9 +1367,9 @@ screen mob_active_volume_but():
     on "show" action [Function(renpy.show, "anim_cir", at_list=[show_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[show_vol_level_animation], zorder=4), Function(renpy.show, "vol_mask", at_list=[volume_mask], zorder=5), Show("vol_texts", transition=dissolve)]
     zorder 10
     imagebutton xalign 0.5 yalign 0.95:
-        idle im.Scale("gui/button/custom/cup_button.png", 80, 80)
-        hover im.Scale("gui/button/custom/cup_button_hover.png", 80, 80)
-        action [Play("sound", "gui/sfx/select.ogg"), Show("mob_but_curtain"), Function(renpy.show, "anim_cir", at_list=[hide_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[hide_vol_level_animation], zorder=4), Hide("vol_texts", transition=dissolve), Hide("vol_mob_enable_change"), Hide("vol_mob_disable_change"), Hide("vol_mob_set_volume"), Hide("mob_active_volume_but"), Jump("ch1_loop"),]
+        idle im.Scale("mod_assets/button/custom/cup_button.png", 80, 80)
+        hover im.Scale("mod_assets/button/custom/cup_button_hover.png", 80, 80)
+        action [Play("sound", "mod_assets/sfx/select.ogg"), Show("mob_but_curtain"), Function(renpy.show, "anim_cir", at_list=[hide_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[hide_vol_level_animation], zorder=4), Hide("vol_texts", transition=dissolve), Hide("vol_mob_enable_change"), Hide("vol_mob_disable_change"), Hide("vol_mob_set_volume"), Hide("mob_active_volume_but"), Jump("ch1_loop"),]
 
 
 screen mob_active_sound_but():
@@ -1377,10 +1377,10 @@ screen mob_active_sound_but():
 
     zorder 10
     imagebutton xalign 0.5 yalign 0.95:
-        idle im.Scale("gui/button/custom/cup_button.png", 80, 80)
-        hover im.Scale("gui/button/custom/cup_button_hover.png", 80, 80)
-        hovered [Play("sound", "gui/sfx/hover.ogg")]
-        action [Play("sound", "gui/sfx/select.ogg"), Show("mob_but_curtain"), Function(renpy.show, "anim_cir", at_list=[hide_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[hide_vol_level_animation], zorder=4), Hide("vol_texts", transition=dissolve), Hide("sound_mob_enable_change"), Hide("sound_mob_disable_change"), Hide("sound_mob_set_volume"), Hide("mob_active_sound_but"), Jump("ch1_loop")]
+        idle im.Scale("mod_assets/button/custom/cup_button.png", 80, 80)
+        hover im.Scale("mod_assets/button/custom/cup_button_hover.png", 80, 80)
+        hovered [Play("sound", "mod_assets/sfx/hover.ogg")]
+        action [Play("sound", "mod_assets/sfx/select.ogg"), Show("mob_but_curtain"), Function(renpy.show, "anim_cir", at_list=[hide_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[hide_vol_level_animation], zorder=4), Hide("vol_texts", transition=dissolve), Hide("sound_mob_enable_change"), Hide("sound_mob_disable_change"), Hide("sound_mob_set_volume"), Hide("mob_active_sound_but"), Jump("ch1_loop")]
 
 
 
@@ -1532,12 +1532,12 @@ image round_full:
     ConditionSwitch(
             "persistent.is_theme_default == False",
             im.MatrixColor(
-                im.Scale("gui/button/custom/round_full.png", 400, 200),
+                im.Scale("mod_assets/button/custom/round_full.png", 400, 200),
                 #im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
                 im.matrix.hue(persistent.theme)
             ),
             "True",
-            im.Scale("gui/button/custom/round_full.png", 400, 200)
+            im.Scale("mod_assets/button/custom/round_full.png", 400, 200)
         )
 
 
@@ -1545,12 +1545,12 @@ image round_1_hit_styled:
     ConditionSwitch(
         "persistent.is_theme_default == False",
         im.MatrixColor(
-            im.Scale("gui/button/custom/round_hit.png", 110, 195),
+            im.Scale("mod_assets/button/custom/round_hit.png", 110, 195),
             #im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
             im.matrix.hue(persistent.theme)
         ),
         "True",
-        im.Scale("gui/button/custom/round_hit.png", 110, 195))
+        im.Scale("mod_assets/button/custom/round_hit.png", 110, 195))
 
 image round_1_hit:
     "round_1_hit_styled"
@@ -1573,18 +1573,18 @@ image round_1_styled:
     ConditionSwitch(
         "persistent.is_theme_default == False",
         im.MatrixColor(
-            im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)),
+            im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)),
             #im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
             im.matrix.hue(persistent.theme)
         ),
         "True",
-        im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)))
+        im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)))
 
 
 
 
 image th_1:
-    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(-180.0))
+    im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(-180.0))
     rotate -72
     alpha 0.0
     xalign but_coord("1a", 0)
@@ -1592,7 +1592,7 @@ image th_1:
     easein 0.3 xalign but_coord("1", 0) yalign but_coord("1", 1) alpha 1.0
 
 image th_2:
-    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(45.0))
+    im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(45.0))
     rotate -36.0
     alpha 0.0
     xalign but_coord("2a", 0)
@@ -1600,13 +1600,13 @@ image th_2:
     easein 0.3 xalign but_coord("2", 0) yalign but_coord("2", 1) alpha 1.0
 
 image th_3:
-    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(0.0))
+    im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(0.0))
     alpha 0.0
     yalign but_coord("3a", 1)
     easein 0.3 yalign but_coord("3", 1) alpha 1.0
 
 image th_4:
-    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(75.0))
+    im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(75.0))
     rotate 36.0
     alpha 0.0
     xalign but_coord("4a", 0)
@@ -1614,7 +1614,7 @@ image th_4:
     easein 0.3 xalign but_coord("4", 0) yalign but_coord("4", 1) alpha 1.0
 
 image th_5:
-    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(-90))
+    im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(-90))
     rotate 72
     alpha 0.0
     xalign but_coord("5a", 0)
@@ -1623,7 +1623,7 @@ image th_5:
 
 
 image a_th_1:
-    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(-180.0))
+    im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(-180.0))
     rotate -72
     alpha 0.0
     xalign but_coord("1", 0)
@@ -1631,7 +1631,7 @@ image a_th_1:
     easein 0.3 xalign but_coord("1a", 0) yalign but_coord("1a", 1) alpha 1.0
 
 image a_th_2:
-    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(45.0))
+    im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(45.0))
     rotate -36.0
     alpha 0.0
     xalign but_coord("2", 0)
@@ -1639,13 +1639,13 @@ image a_th_2:
     easein 0.3 xalign but_coord("2a", 0) yalign but_coord("2a", 1) alpha 1.0
 
 image a_th_3:
-    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(0.0))
+    im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(0.0))
     alpha 0.0
     yalign but_coord("3", 1)
     easein 0.3 yalign but_coord("3a", 1)-0.06+0.05 alpha 1.0
 
 image a_th_4:
-    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(75.0))
+    im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(75.0))
     rotate 36.0
     alpha 0.0
     xalign but_coord("4", 0)
@@ -1653,7 +1653,7 @@ image a_th_4:
     easein 0.3 xalign but_coord("4a", 0) yalign but_coord("4a", 1) alpha 1.0
 
 image a_th_5:
-    im.MatrixColor(im.Scale("gui/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(-90))
+    im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(-90))
     rotate 72
     alpha 0.0
     xalign but_coord("5", 0)
@@ -1752,24 +1752,24 @@ image talk_styled:
     ConditionSwitch(
         "persistent.is_theme_default == False",
             im.MatrixColor(
-                im.Scale("gui/button/custom/talk.png", 100, 100),
+                im.Scale("mod_assets/button/custom/talk.png", 100, 100),
                 #im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
                 im.matrix.hue(persistent.theme)
             ),
             "True",
-            im.Scale("gui/button/custom/talk.png", 100, 100)
+            im.Scale("mod_assets/button/custom/talk.png", 100, 100)
         )
 
 image talk_hover_styled:
     ConditionSwitch(
         "persistent.is_theme_default == False",
             im.MatrixColor(
-                im.Scale("gui/button/custom/talk_hover.png", 100, 100),
+                im.Scale("mod_assets/button/custom/talk_hover.png", 100, 100),
                 #im.matrix.tint(persistent.theme[0],persistent.theme[1],persistent.theme[2])
                 im.matrix.hue(persistent.theme)
             ),
             "True",
-            im.Scale("gui/button/custom/talk_hover.png", 100, 100)
+            im.Scale("mod_assets/button/custom/talk_hover.png", 100, 100)
         )
 
 screen talk_button():
@@ -1777,8 +1777,8 @@ screen talk_button():
     imagebutton xalign 0.5 yalign 0.95:
         idle "talk_styled"
         hover "talk_hover_styled"
-        hovered [Play("sound", "gui/sfx/hover.ogg")]
-        action [Show("talk_round"), Hide("volume_key"), Hide("sound_volume_key"), Hide("music_key"), Play("sound", "gui/sfx/select.ogg"), Show("key_hider_talk")]
+        hovered [Play("sound", "mod_assets/sfx/hover.ogg")]
+        action [Show("talk_round"), Hide("volume_key"), Hide("sound_volume_key"), Hide("music_key"), Play("sound", "mod_assets/sfx/select.ogg"), Show("key_hider_talk")]
 
 
 screen active_talk_button():
@@ -1786,8 +1786,8 @@ screen active_talk_button():
     imagebutton xalign 0.5 yalign 0.95:
         idle "talk_styled"
         hover "talk_hover_styled"
-        hovered [Play("sound", "gui/sfx/hover.ogg")]
-        action [Show("active_talk_round"), Show("volume_key"), Show("sound_volume_key"), Show("music_key"), Play("sound", "gui/sfx/select.ogg"), Hide("key_hider_talk")]
+        hovered [Play("sound", "mod_assets/sfx/hover.ogg")]
+        action [Show("active_talk_round"), Show("volume_key"), Show("sound_volume_key"), Show("music_key"), Play("sound", "mod_assets/sfx/select.ogg"), Hide("key_hider_talk")]
 
 
 screen talk_round:
@@ -1829,23 +1829,23 @@ screen choice_buttons_1():
 
     if renpy.mobile:
         imagebutton xanchor 0 yanchor 0:
-            idle "gui/button/custom/mob_exit_hit.png"
+            idle "mod_assets/button/custom/mob_exit_hit.png"
             action [If(but_num==3, true=[Hide("choice_buttons_1", transition = Dissolve(0.2)), Show("choice_buttons_2", transition = Dissolve(0.2))], false=Function(renpy.jump, label_choose(but_num)))]
 
         imagebutton xalign 0.2 yalign 0.85:
-            idle im.Scale("gui/button/custom/page_left_but.png", 100, 100)
+            idle im.Scale("mod_assets/button/custom/page_left_but.png", 100, 100)
             focus_mask True
-            action [Function(mob_pages, True, False), Show("texts", transition = Dissolve(0.2)), Play("sound", "gui/sfx/hover.ogg")]
+            action [Function(mob_pages, True, False), Show("texts", transition = Dissolve(0.2)), Play("sound", "mod_assets/sfx/hover.ogg")]
 
         imagebutton xalign 0.8 yalign 0.85:
-            idle im.Scale("gui/button/custom/page_right_but.png", 100, 100)
+            idle im.Scale("mod_assets/button/custom/page_right_but.png", 100, 100)
             focus_mask True
-            action [Function(mob_pages, False, True), Show("texts", transition = Dissolve(0.2)), Play("sound", "gui/sfx/hover.ogg")]
+            action [Function(mob_pages, False, True), Show("texts", transition = Dissolve(0.2)), Play("sound", "mod_assets/sfx/hover.ogg")]
 
 
     imagebutton xalign but_coord("2b", 0) yalign but_coord("2b", 1):
         idle "round_2_hit"
-        hovered [Function(set_value, 2), Function(renpy.show, "a_2", zorder=2), Function(renpy.hide, "i_2"), Show("texts", transition = Dissolve(0.2)), Play("sound", "gui/sfx/hover.ogg")]
+        hovered [Function(set_value, 2), Function(renpy.show, "a_2", zorder=2), Function(renpy.hide, "i_2"), Show("texts", transition = Dissolve(0.2)), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered [Function(set_value, 0), Function(renpy.hide, "a_2"), Function(renpy.show, "i_2", zorder=2), Hide("texts", transition = Dissolve(0.2))]
         sensitive but_coord("sens", None)
         focus_mask True
@@ -1853,7 +1853,7 @@ screen choice_buttons_1():
 
     imagebutton xalign but_coord("4b", 0) yalign but_coord("4b", 1):
         idle "round_4_hit"
-        hovered [Function(set_value, 4), Function(renpy.show, "a_4", zorder=2), Function(renpy.hide, "i_4"), Show("texts", transition = Dissolve(0.2)), Play("sound", "gui/sfx/hover.ogg")]
+        hovered [Function(set_value, 4), Function(renpy.show, "a_4", zorder=2), Function(renpy.hide, "i_4"), Show("texts", transition = Dissolve(0.2)), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered [Function(set_value, 0), Function(renpy.hide, "a_4"), Function(renpy.show, "i_4", zorder=2), Hide("texts", transition = Dissolve(0.2))]
         sensitive but_coord("sens", None)
         focus_mask True
@@ -1861,7 +1861,7 @@ screen choice_buttons_1():
 
     imagebutton xalign 0.5 yalign but_coord("3b", 1):
         idle "round_3_hit"
-        hovered [Function(set_value, 3), Function(renpy.show, "a_3", zorder=2), Function(renpy.hide, "i_3"), Show("texts", transition = Dissolve(0.2)), Play("sound", "gui/sfx/hover.ogg")]
+        hovered [Function(set_value, 3), Function(renpy.show, "a_3", zorder=2), Function(renpy.hide, "i_3"), Show("texts", transition = Dissolve(0.2)), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered [Function(set_value, 0), Function(renpy.hide, "a_3"), Function(renpy.show, "i_3", zorder=2), Hide("texts", transition = Dissolve(0.2))]
         sensitive but_coord("sens", None)
         focus_mask True
@@ -1870,7 +1870,7 @@ screen choice_buttons_1():
 
     imagebutton xalign but_coord("1b", 0) yalign but_coord("1b", 1):
         idle "round_1_hit"
-        hovered [Function(set_value, 1), Function(renpy.show, "a_1", zorder=2), Function(renpy.hide, "i_1"), Show("texts", transition = Dissolve(0.2)), Play("sound", "gui/sfx/hover.ogg")]
+        hovered [Function(set_value, 1), Function(renpy.show, "a_1", zorder=2), Function(renpy.hide, "i_1"), Show("texts", transition = Dissolve(0.2)), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered [Function(set_value, 0), Function(renpy.hide, "a_1"), Function(renpy.show, "i_1", zorder=2), Hide("texts", transition = Dissolve(0.2))]
         sensitive but_coord("sens", None)
         focus_mask True
@@ -1878,7 +1878,7 @@ screen choice_buttons_1():
 
     imagebutton xalign but_coord("5b", 0) yalign but_coord("5b", 1):
         idle "round_5_hit"
-        hovered [Function(set_value, 5), Function(renpy.show, "a_5", zorder=2), Function(renpy.hide, "i_5"),Show("texts", transition = Dissolve(0.2)), Play("sound", "gui/sfx/hover.ogg")]
+        hovered [Function(set_value, 5), Function(renpy.show, "a_5", zorder=2), Function(renpy.hide, "i_5"),Show("texts", transition = Dissolve(0.2)), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered [Function(set_value, 0), Function(renpy.hide, "a_5"), Function(renpy.show, "i_5", zorder=2), Hide("texts", transition = Dissolve(0.2))]
         sensitive but_coord("sens", None)
         focus_mask True
@@ -1896,24 +1896,24 @@ screen choice_buttons_2():
 
     if renpy.mobile:
         imagebutton xanchor 0 yanchor 0:
-            idle "gui/button/custom/mob_exit_hit.png"
+            idle "mod_assets/button/custom/mob_exit_hit.png"
             action [If(but_num==3, true=[Hide("choice_buttons_2", transition = Dissolve(0.2)), Show("choice_buttons_1", transition = Dissolve(0.2))], false=Function(renpy.jump, label_choose(but_num)))]
 
         imagebutton xalign 0.2 yalign 0.85:
-            idle im.Scale("gui/button/custom/page_left_but.png", 100, 100)
+            idle im.Scale("mod_assets/button/custom/page_left_but.png", 100, 100)
             focus_mask True
-            action [Function(mob_pages, True, False), Show("texts", transition = Dissolve(0.2)), Play("sound", "gui/sfx/hover.ogg")]
+            action [Function(mob_pages, True, False), Show("texts", transition = Dissolve(0.2)), Play("sound", "mod_assets/sfx/hover.ogg")]
 
         imagebutton xalign 0.8 yalign 0.85:
-            idle im.Scale("gui/button/custom/page_right_but.png", 100, 100)
+            idle im.Scale("mod_assets/button/custom/page_right_but.png", 100, 100)
             focus_mask True
-            action [Function(mob_pages, False, True), Show("texts", transition = Dissolve(0.2)), Play("sound", "gui/sfx/hover.ogg")]
+            action [Function(mob_pages, False, True), Show("texts", transition = Dissolve(0.2)), Play("sound", "mod_assets/sfx/hover.ogg")]
 
 
 
     imagebutton xalign but_coord("2b", 0) yalign but_coord("2b", 1):
         idle "round_2_hit"
-        hovered [Function(set_value, 7), Function(renpy.show, "a_2", zorder=2), Function(renpy.hide, "i_2"), Show("texts", transition = Dissolve(0.2)), Play("sound", "gui/sfx/hover.ogg")]
+        hovered [Function(set_value, 7), Function(renpy.show, "a_2", zorder=2), Function(renpy.hide, "i_2"), Show("texts", transition = Dissolve(0.2)), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered [Function(set_value, 0), Function(renpy.hide, "a_2"), Function(renpy.show, "i_2", zorder=2), Hide("texts", transition = Dissolve(0.2))]
         focus_mask True
         sensitive but_coord("sens", None)
@@ -1921,7 +1921,7 @@ screen choice_buttons_2():
 
     imagebutton xalign but_coord("4b", 0) yalign but_coord("4b", 1):
         idle "round_4_hit"
-        hovered [Function(set_value, 9), Function(renpy.show, "a_4", zorder=2), Function(renpy.hide, "i_4"), Show("texts", transition = Dissolve(0.2)), Play("sound", "gui/sfx/hover.ogg")]
+        hovered [Function(set_value, 9), Function(renpy.show, "a_4", zorder=2), Function(renpy.hide, "i_4"), Show("texts", transition = Dissolve(0.2)), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered [Function(set_value, 0), Function(renpy.hide, "a_4"), Function(renpy.show, "i_4", zorder=2), Hide("texts", transition = Dissolve(0.2))]
         focus_mask True
         sensitive but_coord("sens", None)
@@ -1930,7 +1930,7 @@ screen choice_buttons_2():
 
     imagebutton xalign 0.5 yalign but_coord("3b", 1):
         idle "round_3_hit"
-        hovered [Function(set_value, 8), Function(renpy.show, "a_3", zorder=2), Function(renpy.hide, "i_3"), Show("texts", transition = Dissolve(0.2)), Play("sound", "gui/sfx/hover.ogg")]
+        hovered [Function(set_value, 8), Function(renpy.show, "a_3", zorder=2), Function(renpy.hide, "i_3"), Show("texts", transition = Dissolve(0.2)), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered [Function(set_value, 0), Function(renpy.hide, "a_3"), Function(renpy.show, "i_3", zorder=2), Hide("texts", transition = Dissolve(0.2))]
         focus_mask True
         sensitive but_coord("sens", None)
@@ -1942,7 +1942,7 @@ screen choice_buttons_2():
 
     imagebutton xalign but_coord("1b", 0) yalign but_coord("1b", 1):
         idle "round_1_hit"
-        hovered [Function(set_value, 6), Function(renpy.show, "a_1", zorder=2), Function(renpy.hide, "i_1"), Show("texts", transition = Dissolve(0.2)), Play("sound", "gui/sfx/hover.ogg")]
+        hovered [Function(set_value, 6), Function(renpy.show, "a_1", zorder=2), Function(renpy.hide, "i_1"), Show("texts", transition = Dissolve(0.2)), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered [Function(set_value, 0), Function(renpy.hide, "a_1"), Function(renpy.show, "i_1", zorder=2), Hide("texts", transition = Dissolve(0.2))]
         focus_mask True
         sensitive but_coord("sens", None)
@@ -1950,7 +1950,7 @@ screen choice_buttons_2():
 
     imagebutton xalign but_coord("5b", 0) yalign but_coord("5b", 1):
         idle "round_5_hit"
-        hovered [Function(set_value, 10), Function(renpy.show, "a_5", zorder=2), Function(renpy.hide, "i_5"), Show("texts", transition = Dissolve(0.2)), Play("sound", "gui/sfx/hover.ogg")]
+        hovered [Function(set_value, 10), Function(renpy.show, "a_5", zorder=2), Function(renpy.hide, "i_5"), Show("texts", transition = Dissolve(0.2)), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered [Function(set_value, 0), Function(renpy.hide, "a_5"), Function(renpy.show, "i_5", zorder=2), Hide("texts", transition = Dissolve(0.2))]
         focus_mask True
         sensitive but_coord("sens", None)
@@ -2022,21 +2022,21 @@ screen theme_buttons():
 
     imagebutton xalign but_coord("2b", 0) yalign but_coord("2b", 1):
         idle "round_2_hit"
-        hovered [Function(renpy.show, "a_th_2", zorder=2), Function(renpy.hide, "th_2"), Play("sound", "gui/sfx/hover.ogg")]
+        hovered [Function(renpy.show, "a_th_2", zorder=2), Function(renpy.hide, "th_2"), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered [Function(renpy.hide, "a_th_2"), Function(renpy.show, "th_2", zorder=2)]
         focus_mask True
         action [Function(ColorTheme().orange), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
 
     imagebutton xalign but_coord("4b", 0) yalign but_coord("4b", 1):
         idle "round_4_hit"
-        hovered [Function(renpy.show, "a_th_4", zorder=2), Function(renpy.hide, "th_4"), Play("sound", "gui/sfx/hover.ogg")]
+        hovered [Function(renpy.show, "a_th_4", zorder=2), Function(renpy.hide, "th_4"), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered [Function(renpy.hide, "a_th_4"), Function(renpy.show, "th_4", zorder=2)]
         focus_mask True
         action [Function(ColorTheme().yellow), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
 
     imagebutton xalign 0.5 yalign but_coord("3b", 1):
         idle "round_3_hit"
-        hovered [Function(renpy.show, "a_th_3", zorder=2), Function(renpy.hide, "th_3"), Play("sound", "gui/sfx/hover.ogg")]
+        hovered [Function(renpy.show, "a_th_3", zorder=2), Function(renpy.hide, "th_3"), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered [Function(renpy.hide, "a_th_3"), Function(renpy.show, "th_3", zorder=2)]
         focus_mask True
         action [Function(ColorTheme().default), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
@@ -2044,14 +2044,14 @@ screen theme_buttons():
 
     imagebutton xalign but_coord("1b", 0) yalign but_coord("1b", 1):
         idle "round_1_hit"
-        hovered [Function(renpy.show, "a_th_1", zorder=2), Function(renpy.hide, "th_1"), Play("sound", "gui/sfx/hover.ogg")]
+        hovered [Function(renpy.show, "a_th_1", zorder=2), Function(renpy.hide, "th_1"), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered [Function(renpy.hide, "a_th_1"), Function(renpy.show, "th_1", zorder=2)]
         focus_mask True
         action [Function(ColorTheme().green), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
 
     imagebutton xalign but_coord("5b", 0) yalign but_coord("5b", 1):
         idle "round_5_hit"
-        hovered [Function(renpy.show, "a_th_5", zorder=2), Function(renpy.hide, "th_5"), Play("sound", "gui/sfx/hover.ogg")]
+        hovered [Function(renpy.show, "a_th_5", zorder=2), Function(renpy.hide, "th_5"), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered [Function(renpy.hide, "a_th_5"), Function(renpy.show, "th_5", zorder=2)]
         focus_mask True
         action [Function(ColorTheme().blue), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
