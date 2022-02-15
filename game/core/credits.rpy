@@ -178,21 +178,21 @@ image credits_ts:
     linear 2.0 alpha 0
 
 style credits_header:
-    font "gui/font/RifficFree-Bold.ttf"
+    font "mod_assets/font/RifficFree-Bold.ttf"
     color "#ffaae6"
     size 36
     text_align 0.5
     outlines []
 
 style credits_text:
-    font "gui/font/Halogen.ttf"
+    font "mod_assets/font/Halogen.ttf"
     color "#fff"
     size 36
     text_align 0.5
     outlines []
 
 style monika_credits_text:
-    font "gui/font/m1.ttf"
+    font "mod_assets/font/m1.ttf"
     color "#fff"
     size 40
     text_align 0.5

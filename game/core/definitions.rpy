@@ -105,22 +105,22 @@ define audio.closet_close = "sfx/closet-close.ogg"
 define audio.page_turn = "sfx/pageflip.ogg"
 define audio.fall = "sfx/fall.ogg"
 
-define audio.dai = "music/dai.ogg"
-define audio.dai_broken = "music/dai_broken.ogg"
-define audio.dai_reverse = "music/dai_reverse.ogg"
-define audio.heart = "music/heart.ogg"
-define audio.heart_broken = "music/heart_broken.ogg"
-define audio.heart_reverse = "music/heart_reverse.ogg"
-define audio.herewego = "music/herewego.ogg"
-define audio.herewego_broken = "music/herewego_broken.ogg"
-define audio.herewego_reverse = "music/herewego_reverse.ogg"
-define audio.just = "music/just.ogg"
-define audio.nattheme = "music/nattheme.ogg"
-define audio.nattheme_broken = "music/nattheme_broken.ogg"
-define audio.nattheme_reverse = "music/nattheme_reverse.ogg"
-define audio.cupcake = "music/cupcake.ogg"
-define audio.cupcake_broken = "music/cupcake_broken.ogg"
-define audio.cupcake_reverse = "music/cupcake_reverse.ogg"
+define audio.dai = "mod_assets/music/dai.ogg"
+define audio.dai_broken = "mod_assets/music/dai_broken.ogg"
+define audio.dai_reverse = "mod_assets/music/dai_reverse.ogg"
+define audio.heart = "mod_assets/music/heart.ogg"
+define audio.heart_broken = "mod_assets/music/heart_broken.ogg"
+define audio.heart_reverse = "mod_assets/music/heart_reverse.ogg"
+define audio.herewego = "mod_assets/music/herewego.ogg"
+define audio.herewego_broken = "mod_assets/music/herewego_broken.ogg"
+define audio.herewego_reverse = "mod_assets/music/herewego_reverse.ogg"
+define audio.just = "mod_assets/music/just.ogg"
+define audio.nattheme = "mod_assets/music/nattheme.ogg"
+define audio.nattheme_broken = "mod_assets/music/nattheme_broken.ogg"
+define audio.nattheme_reverse = "mod_assets/music/nattheme_reverse.ogg"
+define audio.cupcake = "mod_assets/music/cupcake.ogg"
+define audio.cupcake_broken = "mod_assets/music/cupcake_broken.ogg"
+define audio.cupcake_reverse = "mod_assets/music/cupcake_reverse.ogg"
 
 
 image black = "#000000"
@@ -630,10 +630,10 @@ image natsuki 5 = im.Composite((960, 960), (18, 22), "natsuki/1t.png", (0, 0), "
 image natsuki mouth = LiveComposite((960, 960), (0, 0), "natsuki/0.png", (390, 340), "n_rects_mouth", (480, 334), "n_rects_mouth")
 
 
-image just1 nat = "cg/monika/nat_bg.png"
-image move nat = "cg/monika/move.png"
+image just1 nat = "mod_assets/images/cg/monika/nat_bg.png"
+image move nat = "mod_assets/images/cg/monika/move.png"
 image vol_mask:
-    "gui/button/custom/volume_circle_mask.png"
+    "mod_assets/button/custom/volume_circle_mask.png"
     zoom 0.5
 
 image n_rects_mouth:

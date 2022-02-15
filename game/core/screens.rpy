@@ -665,7 +665,7 @@ style default_monika is normal:
     slow_cps 30
 
 style edited is default:
-    font "gui/font/comic.ttf"
+    font "mod_assets/font/comic.ttf"
     kerning 8
     outlines [(10, "#000", 0, 0)]
     xpos gui.text_xpos
@@ -891,7 +891,7 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.button_text_properties("navigation_button")
-    font "gui/font/Rotonda.ttf"
+    font "mod_assets/font/Rotonda.ttf"
     color "#fff"
     outlines [(4, "#b59", 0, 0), (2, "#b59", 2, 2)]
     hover_outlines [(4, "#fac", 0, 0), (2, "#fac", 2, 2)]
@@ -975,7 +975,7 @@ style game_menu_label:
     ysize 120
 
 style game_menu_label_text:
-    font "gui/font/Rotonda.ttf"
+    font "mod_assets/font/Rotonda.ttf"
     size gui.title_text_size
     color "#fff"
     outlines [(6, "#b59", 0, 0), (3, "#b59", 2, 2)]
@@ -1066,7 +1066,7 @@ style pref_label:
     bottom_margin 2
 
 style pref_label_text:
-    font "gui/font/Rotonda.ttf"
+    font "mod_assets/font/Rotonda.ttf"
     size 24
     color "#fff"
     outlines [(3, "#b59", 0, 0), (1, "#b59", 1, 1)]
@@ -1084,7 +1084,7 @@ style radio_button:
 
 style radio_button_text:
     properties gui.button_text_properties("radio_button")
-    font "gui/font/comic.ttf"
+    font "mod_assets/font/comic.ttf"
     outlines []
 
 style check_vbox:
@@ -1096,7 +1096,7 @@ style check_button:
 
 style check_button_text:
     properties gui.button_text_properties("check_button")
-    font "gui/font/comic.ttf"
+    font "mod_assets/font/comic.ttf"
     outlines []
 
 style slider_slider:

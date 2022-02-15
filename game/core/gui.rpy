@@ -17,9 +17,9 @@ init python:
 
 
 
-define gui.hover_sound = "gui/sfx/hover.ogg"
-define gui.activate_sound = "gui/sfx/select.ogg"
-define gui.activate_sound_glitch = "gui/sfx/select_glitch.ogg"
+define gui.hover_sound = "mod_assets/sfx/hover.ogg"
+define gui.activate_sound = "mod_assets/sfx/select.ogg"
+define gui.activate_sound_glitch = "mod_assets/sfx/select_glitch.ogg"
 
 
 
@@ -59,13 +59,13 @@ define gui.interface_text_color = '#ffffff'
 
 
 
-define gui.default_font = "gui/font/comic.ttf"
+define gui.default_font = "mod_assets/font/comic.ttf"
 
 
-define gui.name_font = "gui/font/Rotonda.ttf"
+define gui.name_font = "mod_assets/font/Rotonda.ttf"
 
 
-define gui.interface_font = "gui/font/DejaVuSans.ttf"
+define gui.interface_font = "mod_assets/font/DejaVuSans.ttf"
 
 
 define gui.splash_text_size = 26
