@@ -96,9 +96,9 @@ image maskb:
     "images/cg/monika/maskb.png"
     xtile 3
 
-image mask_test = AnimatedMask("#ff6000", "mask_mask", "maskb", 0.10, 32)
+image mask_test = AnimatedMask("#ff00ea", "mask_mask", "maskb", 0.10, 32)
 image mask_test2 = AnimatedMask("#ffffff", "mask_mask", "maskb", 0.03, 16)
-image mask_test3 = AnimatedMask("#ff6000", "mask_mask_flip", "maskb", 0.10, 32)
+image mask_test3 = AnimatedMask("#ff00ea", "mask_mask_flip", "maskb", 0.10, 32)
 image mask_test4 = AnimatedMask("#ffffff", "mask_mask_flip", "maskb", 0.03, 16)
 
 image mask_2:
@@ -193,8 +193,8 @@ image room_glitch = "images/cg/monika/monika_bg_glitch.png"
 
 image splash-glitch2 = "images/bg/splash-glitch2.png"
 
-image memory_glitch = "images/bg/memory.png"
-image flash_monika = "images/bg/moni_flash.png"
+image memory_glitch = "mod_assets/images/bg/memory.png"
+image flash_monika = "mod_assets/images/bg/moni_flash.png"
 
 image cupcake:
     "images/bg/cupcake.png"
@@ -215,17 +215,17 @@ image fake_except_4 = Text("      please, please, please, work!", size=20, style
 
 
 image cft_pole:
-    "gui/button/custom/field.png"
+    "mod_assets/button/custom/field.png"
     size(1056,594)
 
 image fork:
-    "gui/button/custom/fork_X.png"
+    "mod_assets/button/custom/fork_X.png"
     size(310,174)
 image fork_print:
-    "gui/button/custom/fork_print.png"
+    "mod_assets/button/custom/fork_print.png"
     size(330,420)
 image cup_O:
-    "gui/button/custom/cup_0.png"
+    "mod_assets/button/custom/cup_0.png"
     size(300,169)
 
 
@@ -371,7 +371,7 @@ label ch0_main:
     $ pause(1.0)
     call updateconsole ("import pathlib", " ") from _call_updateconsole_2
     call updateconsole ("path = pathlib.Path(natsuki.chr)", " ") from _call_updateconsole_3
-    call updateconsole ("path.unlink()", "OSError") from _call_updateconsole_4
+    call updateconsole ("path.unlink()", "OSError") from _call_updateconsole_4К
 
     m 1d "Что?"
 
@@ -420,11 +420,7 @@ label ch1_meet:
     call updateconsole ("import os", "") from _call_updateconsole_6
 
     $ renpy.save_persistent()
-    show mask_2
-    show mask_3
-    show room_mask
-    show room_mask2
-    show monika_bg
+    call natsuki_room
 
     play music m1
     call updateconsole ("os.path.exists('characters/sayori.chr')", "False") from _call_updateconsole_7
@@ -454,7 +450,7 @@ label ch1_meet:
     stop music
     n scream "А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–{nw}"
     hide natsuki 1n
-    play sound "<to 1.5>sfx/interference.ogg"
+    play sound "<to 1.5>mod_assets/sfx/interference.ogg"
     show room_glitch as rg1:
         yoffset 720
         linear 0.3 yoffset 0
@@ -478,34 +474,15 @@ label ch1_main:
     $ config.skipping = False
     $ allow_skipping = False
     $ quick_menu = False
-
-
-
     transform go_moving_chairs:
         easein 2.00 xcenter -300
-
     transform return_moving_chairs:
         ypos 50
         xcenter -400
         easein 6.00 xcenter 630
-
-
-
-    show mask_2
-    show mask_3
-    show room_mask
-    show room_mask2
-    show monika_bg
-
-
-
-
+    call natsuki_room
     play music m1
     show natsuki 1n zorder 2 at t11
-
-
-
-
     n 1x "..."
     n 1q "Голова..."
     show natsuki 1s
@@ -518,7 +495,7 @@ label ch1_main:
 
 
     hide natsuki 1n
-    play sound "<to 1.5>sfx/interference.ogg"
+    play sound "<to 1.5>mod_assets/sfx/interference.ogg"
     show memory_glitch as rg1:
         yoffset 720
         linear 0.3 yoffset 0
@@ -592,7 +569,7 @@ label ch1_main:
 
 
 
-    play sound "<to 1.5>sfx/interference.ogg"
+    play sound "<to 1.5>mod_assets/sfx/interference.ogg"
     show memory_glitch as rg1:
         yoffset 720
         linear 0.3 yoffset 0
@@ -645,7 +622,7 @@ label ch1_main:
         pos (635,335)
 
 
-    play sound "<to 1.5>sfx/interference.ogg"
+    play sound "<to 1.5>mod_assets/sfx/interference.ogg"
     show bg glitch:
         yoffset 480 ytile 2
         linear 0.25 yoffset 0
@@ -679,7 +656,7 @@ label ch1_main:
 
 
 
-    play music "sfx/interference.ogg"
+    play music "mod_assets/sfx/interference.ogg"
     show memory_glitch as rg1:
         yoffset 720
         linear 0.3 yoffset 0
@@ -700,11 +677,7 @@ label ch1_main:
     scene black
     $pause(3)
     play music m1
-    show mask_2
-    show mask_3
-    show room_mask
-    show room_mask2
-    show monika_bg
+    call natsuki_room
     show natsuki 1n at t11 zorder 2
     with Dissolve(1.0)
 
@@ -819,17 +792,13 @@ label ch1_main:
     n "Думаю, я и сама с этим справлюсь."
     show natsuki 1n at go_moving_chairs
     $pause(4)
-    play sound "sfx/move.ogg"
+    play sound "mod_assets/sfx/move.ogg"
     show move nat at return_moving_chairs
     $pause(6.5)
     hide natsuki
     scene black with Dissolve(1.0)
     $pause(2.0)
-    show mask_2
-    show mask_3
-    show room_mask
-    show room_mask2
-
+    call natsuki_room
     show monika_bg
     show natsuki r1
 
@@ -898,11 +867,7 @@ label ch1_refuse:
     $ allow_skipping = False
     $ renpy.save_persistent()
     $ quick_menu = False
-    show mask_2
-    show mask_3
-    show room_mask
-    show room_mask2
-
+    call natsuki_room
     show monika_bg zorder 1
     show natsuki r1 zorder 2
     play music m1
@@ -956,11 +921,7 @@ label ch1_wait_refuse:
     $ allow_skipping = False
     $ renpy.save_persistent()
     $ quick_menu = False
-    show mask_2
-    show mask_3
-    show room_mask
-    show room_mask2
-
+    call natsuki_room
     show monika_bg zorder 1
     show natsuki r1 zorder 2
     play music m1
@@ -1078,11 +1039,7 @@ label ch1_exit:
     $ config.skipping = False
     $ allow_skipping = False
     $ quick_menu = False
-    show mask_2
-    show mask_3
-    show room_mask
-    show room_mask2
-    show monika_bg zorder 1
+    call natsuki_room 
     show natsuki r1 zorder 2
     $persistent.track_num = persistent.back_music
     $renpy.music.play(music_list[persistent.track_num], channel="music")
@@ -1104,11 +1061,7 @@ label ch1_exit:
         if persistent.set_broke == False:
             scene black
             pause 10
-            show mask_2
-            show mask_3
-            show room_mask
-            show room_mask2
-            show monika_bg zorder 1
+            call natsuki_room
             show natsuki r1 zorder 2
             with Dissolve(1)
 
@@ -1628,11 +1581,7 @@ label what_was_that:
     n "Опять?"
     n "И зачем я только согласилась?.."
     pause 3
-    show mask_2
-    show mask_3
-    show room_mask
-    show room_mask2
-    show monika_bg zorder 1
+    call natsuki_room 
     show natsuki r1 zorder 2
     with Dissolve(1)
     n r1e "В общем, теперь всё должно работать, но... {w}Есть небольшие визуальные баги..."

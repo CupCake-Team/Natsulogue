@@ -629,7 +629,8 @@ image natsuki 5 = im.Composite((960, 960), (18, 22), "natsuki/1t.png", (0, 0), "
 
 image natsuki mouth = LiveComposite((960, 960), (0, 0), "natsuki/0.png", (390, 340), "n_rects_mouth", (480, 334), "n_rects_mouth")
 
-
+image space1 = Movie(play="mod_assets/vid_mask_2.webm")
+image space2 = Movie(play="mod_assets/vid_mask_3.webm")
 image just1 nat = "mod_assets/images/cg/monika/nat_bg.png"
 image move nat = "mod_assets/images/cg/monika/move.png"
 image vol_mask:
