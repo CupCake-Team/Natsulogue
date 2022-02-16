@@ -180,7 +180,7 @@ init python:
     # Эти функции объявляют архивы, которые будут сделаны для упаковки вашей модификации.
     # Чтобы добавить ещё один архив, пропишите отдельный «build.archive», взяв в качестве примера одну из уже имеющихся функций:
     build.archive("scripts", "mod renpy")
-    build.archive("game-parameters/mod_assets", "mod renpy")
+    build.archive("mod_assets", "mod renpy")
 
     # Не трогайте эти строчки. Это нужно для того, чтобы Ren'Py добавил файл формата «.py» вашей модификации
     # и специальный лаунчер для систем Linux и macOS, необходимый для запуска.
@@ -201,7 +201,7 @@ init python:
     # в которые они уже упакованы, а аффтару советую выпить йаду за «рекомендацию», которую он написал в оригинальном скрипте.
     # Поэтому здесь, в тех местах, где это наиболее уместно, вместо «all» будет написано «android».
     
-    build.classify("game/game-parameters/mod_assets/**", "game-parameters/mod_assets android")
+    build.classify("game/mod_assets/**", "mod_assets android")
     build.classify("game/**.rpyc", "scripts android")
     build.classify("game/README.md", None)
     build.classify("game/**.txt", "scripts android")

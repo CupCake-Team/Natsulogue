@@ -399,22 +399,22 @@ label dia_requests:
 
 
 
-        "{i}Я бы хотел включить параллакс...{/i}" if persistent.parallax_bg == False:
-            hide screen countdown
-            $side_return()
-            n r1d "Хорошо."
-            $ persistent.parallax_bg = True
-            $ print(persistent.parallax_bg)
-            n r1e "Вроде готово."
-            call ch1_loop
+        if renpy.window:
+            "{i}Я бы хотел включить параллакс...{/i}" if persistent.parallax_bg == False:
+                hide screen countdown
+                $side_return()
+                n r1d "Хорошо."
+                $ persistent.parallax_bg = True
+                $ print(persistent.parallax_bg)
+                n r1e "Вроде готово."
+                call ch1_loop
 
-        "{i}Можешь выключить параллакс?{/i}" if persistent.parallax_bg == True:
-            hide screen countdown
-            $side_return()
-            n r1d "Хорошо."
-            $ persistent.parallax_bg = False
-
-            call ch1_loop
+            "{i}Можешь выключить параллакс?{/i}" if persistent.parallax_bg == True:
+                hide screen countdown
+                $side_return()
+                n r1d "Хорошо."
+                $ persistent.parallax_bg = False
+                call ch1_loop
 
             
 
