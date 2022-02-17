@@ -96,9 +96,9 @@ image maskb:
     "images/cg/monika/maskb.png"
     xtile 3
 
-image mask_test = AnimatedMask("#ff00ea", "mask_mask", "maskb", 0.10, 32)
+image mask_test = AnimatedMask("#ff6000", "mask_mask", "maskb", 0.10, 32)
 image mask_test2 = AnimatedMask("#ffffff", "mask_mask", "maskb", 0.03, 16)
-image mask_test3 = AnimatedMask("#ff00ea", "mask_mask_flip", "maskb", 0.10, 32)
+image mask_test3 = AnimatedMask("#ff6000", "mask_mask_flip", "maskb", 0.10, 32)
 image mask_test4 = AnimatedMask("#ffffff", "mask_mask_flip", "maskb", 0.03, 16)
 
 image mask_2:
@@ -197,11 +197,11 @@ image memory_glitch = "mod_assets/images/bg/memory.png"
 image flash_monika = "mod_assets/images/bg/moni_flash.png"
 
 image cupcake:
-    "images/bg/cupcake.png"
+    "mod_assets/images/bg/cupcake.png"
     size(25,31)
 
 image cup_high:
-    "images/bg/cupcake_high.png"
+    "mod_assets/images/bg/cupcake_high.png"
     size(25,31)
 
 image fake_except_bg = "#c7c7c7"
@@ -799,7 +799,6 @@ label ch1_main:
     scene black with Dissolve(1.0)
     $pause(2.0)
     call natsuki_room
-    show monika_bg
     show natsuki r1
 
     with Dissolve(1.0)
@@ -814,10 +813,10 @@ label ch1_main:
     $count = 60
     $timer_jump = "ch1_wait"
 
-    show screen countdown
+    #show screen countdown
     menu:
         "Да.":
-            hide screen countdown
+            #hide screen countdown
             n r1d "Хорошо."
             $ persistent.autoload = "ch1_exit"
             $pause(5)
@@ -829,12 +828,7 @@ label ch1_main:
             scene black with Dissolve(1.0)
             $pause(10)
 
-            show mask_2
-            show mask_3
-            show room_mask
-            show room_mask2
-
-            show monika_bg zorder 1
+            call natsuki_room
             show natsuki r1 zorder 2
             with Dissolve(1.0)
 
@@ -844,7 +838,7 @@ label ch1_main:
             n r1c "Попробуй воспользоваться ей."
             jump ch1_loop
         "Нет.":
-            hide screen countdown
+            #hide screen countdown
             n r1b "Ну и вали отсюда."
             $ persistent.autoload = "ch1_refuse"
             $ renpy.quit()
@@ -868,7 +862,6 @@ label ch1_refuse:
     $ renpy.save_persistent()
     $ quick_menu = False
     call natsuki_room
-    show monika_bg zorder 1
     show natsuki r1 zorder 2
     play music m1
     n r1n "О... {w}Явился – не запылился."
@@ -922,7 +915,6 @@ label ch1_wait_refuse:
     $ renpy.save_persistent()
     $ quick_menu = False
     call natsuki_room
-    show monika_bg zorder 1
     show natsuki r1 zorder 2
     play music m1
 
@@ -1006,7 +998,7 @@ label ch1_loop:
     $ quick_menu = False
     $ count = 60
     $ timer_jump = "ch1_monologchoice"
-    show screen countdown
+    #show screen countdown
     $ left = False
     $ right = False
     $is_esc_pressed = False
@@ -1166,7 +1158,7 @@ label save_exp:
 
 
 label win:
-    hide screen countdown
+    #hide screen countdown
     if left:
         $sside = "left"
     if right:

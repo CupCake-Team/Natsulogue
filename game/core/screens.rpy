@@ -612,8 +612,8 @@ screen confirm(message, yes_action, no_action):
             xalign 0.5
             spacing 100
 
-            textbutton _("Yes") action yes_action
-            textbutton _("No") action no_action
+            textbutton _("Да") action yes_action
+            textbutton _("Нет") action no_action
 
 
 
@@ -630,7 +630,7 @@ screen skip_indicator():
         has hbox:
             spacing 6
 
-        text _("Skipping")
+        text _("Пропуск")
 
         text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
         text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"

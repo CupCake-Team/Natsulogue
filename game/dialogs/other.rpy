@@ -19,7 +19,7 @@ label dia_other:
 
     menu:
         "{i}Где бы тебе сейчас хотелось оказаться?{/i}":
-            hide screen countdown
+            #hide screen countdown
             $side_return()
             n r1e "Думаю, далеко отсюда."
             n r1b "Мне здесь не очень нравится..."
@@ -45,7 +45,7 @@ label dia_other:
 
 
         "{i}Чего тебе не хватает в этой комнате?{/i}":
-            hide screen countdown
+            #hide screen countdown
             $side_return()
 
             n r1e "Много чего, на самом деле..."
@@ -70,7 +70,7 @@ label dia_other:
 
 
         "{i}2+2*2?{/i}":
-            hide screen countdown
+            #hide screen countdown
             $side_return()
 
 
@@ -87,7 +87,7 @@ label dia_other:
 
 
         "{i}Как ты относишься к Новому Году?{/i}" if cur_time.strftime("%d") >= "24" and cur_time.strftime("%d") <= "31" and cur_time.strftime("%m") == "12":
-            hide screen countdown
+            #hide screen countdown
             $side_return()
 
 

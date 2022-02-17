@@ -17,7 +17,7 @@ label dia_philosophy:
 
     menu:
         "{i}В чём смысл жизни?{/i}":
-            hide screen countdown
+            #hide screen countdown
             $side_return()
 
             n r1e "Ты серьёзно думаешь, что я скажу что-то дельное?"
@@ -51,7 +51,7 @@ label dia_philosophy:
 
 
         "{i}Веришь ли ты в любовь с первого взгляда?{/i}":
-            hide screen countdown
+            #hide screen countdown
             $side_return()
 
 
@@ -93,7 +93,7 @@ label dia_philosophy:
 
 
         "{i}Как думаешь, является ли наш мир симуляцией?{/i}":
-            hide screen countdown
+            #hide screen countdown
             $side_return()
 
 

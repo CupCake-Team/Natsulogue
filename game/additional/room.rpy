@@ -15,4 +15,3 @@ label natsuki_room:
             pos(925, 200)
         show monika_bg
     pass
-
