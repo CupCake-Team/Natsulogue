@@ -1972,7 +1972,7 @@ screen wowcup:
 
 
 screen wowitscupcake:
-    on "show" action Function(renpy.show, "cupcake", at_list = [poscup], zorder = 0)
+    on "show" action Function(renpy.show, "cupcake", at_list = [poscup], zorder = 2)
 
 
 

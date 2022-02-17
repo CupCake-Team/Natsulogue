@@ -17,23 +17,19 @@ label dia_requests:
 
     menu:
         "{i}Я бы хотел изменить громкость звука...{/i}":
-            hide screen countdown
+            #hide screen countdown
             $side_return()
 
             if persistent.repeat == 0:
                 n r1d "Ах да, совсем забыла предупредить о том, что главного меню у игры больше нет."
                 n r1c "Не волнуйся за это, сейчас всё исправлю."
                 n r1b "Подожди немного..."
-                hide screen wowcup
-                hide screen wowitscupcake
+                #hide screen wowcup
+                #hide screen wowitscupcake
                 scene black with Dissolve(1.0)
                 pause(10)
                 n "Всё, я закончила!"
-                show mask_2
-                show mask_3
-                show room_mask
-                show room_mask2
-                show monika_bg zorder 1
+                call natsuki_room
                 show natsuki r1 zorder 2
                 with Dissolve(1.0)
                 show screen wowcup
@@ -98,7 +94,7 @@ label dia_requests:
                 call ch1_loop
 
         "{i}Я бы хотел поменять музыку...{/i}" if persistent.mus_repeat == 0 or persistent.mus_repeat == 1:
-            hide screen countdown
+            #hide screen countdown
             $side_return()
             if persistent.mus_repeat == 0:
                 n r1a "Хм..."
@@ -106,18 +102,14 @@ label dia_requests:
                 n r1e "Мне и самой надоела эта мелодия на заднем фоне."
                 n "Какая-та она... {w}неприятная."
                 n r1c "Ладно, сейчас поищу в файлах игры что-то полезное."
-                hide screen wowcup
-                hide screen wowitscupcake
+                #hide screen wowcup
+                #hide screen wowitscupcake
                 scene black with Dissolve(1.0)
                 pause(10)
-                show mask_2
-                show mask_3
-                show room_mask
-                show room_mask2
-                show monika_bg zorder 1
+                call natsuki_room
                 show natsuki r1 zorder 2
                 with Dissolve(1.0)
-                show screen wowcup
+                #show screen wowcup
                 n "Ха?"
                 n "Кажется я что-то нашла..."
                 if (not renpy.mobile):
@@ -178,7 +170,7 @@ label dia_requests:
                 call ch1_loop
 
         "{i}Можешь поставить музыку, которая тебе нравится?{/i}" if persistent.mus_repeat == 2:
-            hide screen countdown
+            #hide screen countdown
             $side_return()
 
             $rand_mus_answer = renpy.random.randint(1,3)
@@ -212,7 +204,7 @@ label dia_requests:
 
 
         "{i}Мне бы хотелось поиграть с тобой во что-то...{/i}" if persistent.f_game == 0:
-            hide screen countdown
+            #hide screen countdown
             $side_return()
             $left = False
             $right = False
@@ -289,7 +281,7 @@ label dia_requests:
 
 
         "{i}Я бы хотел поиграть с тобой в вилочки-кексики...{/i}" if persistent.f_game >= 1:
-            hide screen countdown
+            #hide screen countdown
             $side_return()
             $r_ans = random.randint(1,2)
             if r_ans == 1:
@@ -330,7 +322,7 @@ label dia_requests:
 
 
         "{i}Я бы хотел поменять режим экрана...{/i}" if persistent.ch_vol == False and persistent.ch_mus == False and persistent.first_change == False and (not renpy.mobile):
-            hide screen countdown
+            #hide screen countdown
             $side_return()
 
 
@@ -354,8 +346,8 @@ label dia_requests:
 
 
 
-        "Я бы хотел сменить клавиши..." if persistent.first_change == False and (persistent.ch_vol == True or persistent.ch_mus == True) and (not renpy.mobile):
-            hide screen countdown
+        "{i}Я бы хотел сменить клавиши...{/i}" if persistent.first_change == False and (persistent.ch_vol == True or persistent.ch_mus == True) and (not renpy.mobile):
+            #hide screen countdown
             $side_return()
 
             n r1e "Тебе не понравились те, что назначила я?"
@@ -369,8 +361,8 @@ label dia_requests:
             jump set_buttons
 
 
-        "Я бы хотел сменить клавиши..." if persistent.first_change == True:
-            hide screen countdown
+        "{i}Я бы хотел сменить клавиши...{/i}" if persistent.first_change == True:
+            #hide screen countdown
             $side_return()
 
             $ rand_ans = renpy.random.randint(1,3)
@@ -385,8 +377,8 @@ label dia_requests:
             jump set_buttons
 
 
-        "Можешь сменить тему?" if persistent.themes == False:
-            hide screen countdown
+        "{i}Можешь сменить тему?{/i}" if persistent.themes == False:
+            #hide screen countdown
             $side_return()
 
             n "Надоели розовые тона?"
@@ -401,7 +393,7 @@ label dia_requests:
 
         
         "{i}Я бы хотел включить параллакс...{/i}" if persistent.parallax_bg == False:
-            hide screen countdown
+            #hide screen countdown
             $side_return()
             n r1d "Хорошо."
             $ persistent.parallax_bg = True
@@ -410,7 +402,7 @@ label dia_requests:
             call ch1_loop
 
         "{i}Можешь выключить параллакс?{/i}" if persistent.parallax_bg == True:
-            hide screen countdown
+            #hide screen countdown
             $side_return()
             n r1d "Хорошо."
             $ persistent.parallax_bg = False
@@ -419,7 +411,7 @@ label dia_requests:
             
 
 
-        "Попрощаться...":
+        "{i}Попрощаться...{/i}":
             $side_return()
 
             $rand_ans = renpy.random.randint(1,3)
