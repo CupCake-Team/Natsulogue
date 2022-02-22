@@ -1956,7 +1956,6 @@ screen choice_buttons_2():
         sensitive but_coord("sens", None)
         action Jump("dia_other")
 
-#please, please, please, work!
 
 #-------------------------------------------Модовые экраны--------------------------------------
 
@@ -1972,7 +1971,7 @@ screen wowcup:
 
 
 screen wowitscupcake:
-    on "show" action Function(renpy.show, "cupcake", at_list = [poscup], zorder = 2)
+    on "show" action Function(renpy.show, "cupcake", at_list = [poscup], zorder = 0)
 
 
 
