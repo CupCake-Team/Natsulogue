@@ -17,7 +17,7 @@ label dia_hobbies:
 
     menu:
         "{i}Почему тебе так нравится готовка?{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
             n r1g "Я рада, что ты спросил меня об этом."
             n r1d "Готовка для меня не просто увлечение, на которое я трачу свободное время, а ещё и прекрасная возможность стать настоящим шеф–поваром и связать с этим жизнь."
@@ -56,7 +56,7 @@ label dia_hobbies:
                 call ch1_loop
 
         "{i}Как ты полюбила мангу?{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
             n r1e "Ну... {w}На самом деле это долгая история."
@@ -88,7 +88,7 @@ label dia_hobbies:
             call ch1_loop
 
         "{i}Ты играешь в видеоигры?{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
             $random_ans()
 
@@ -115,7 +115,7 @@ label dia_hobbies:
 
 
         "{i}Как ты относишься к серьёзной литературе?{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
             n r1a "Эм... {w}В каком плане?"

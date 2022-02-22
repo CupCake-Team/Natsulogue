@@ -17,7 +17,7 @@ label dia_romance:
 
     menu:
         "{i}Ты милая!{/i}" if persistent.is_cute == False:
-            #hide screen countdown
+            hide screen countdown
             $side_return()
             n r1k "..!"
             n r1m "Я..."
@@ -42,7 +42,7 @@ label dia_romance:
 
 
         "{i}Ты милая!{/i}" if persistent.is_cute == True:
-            #hide screen countdown
+            hide screen countdown
             $side_return()
             n r1n "Так... {w}Решил поиздеваться надо мной?"
             n r1l "Вместо кучи слов я сделаю гораздо проще."
@@ -55,7 +55,7 @@ label dia_romance:
 
 
         "{i}Ты красивая!{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
             n r1n "Э... {w}Ну..."
@@ -76,7 +76,7 @@ label dia_romance:
 
 
         "{i}Ты очаровашка!{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
 
@@ -106,7 +106,7 @@ label dia_romance:
 
 
         "{i}Ты умная!{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
 
@@ -136,7 +136,7 @@ label dia_romance:
 
 
         "{i}Ты лучшая!{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
 
@@ -161,7 +161,7 @@ label dia_romance:
 
 
         "{i}Ты хороша!{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
 

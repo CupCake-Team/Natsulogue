@@ -17,7 +17,7 @@ label dia_recipes:
 
     menu:
         "{i}Как испечь вкусные кексы?{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
             n r1f "Ого, так тебя заинтересовала лучшая часть моей выпечки?"
@@ -38,7 +38,7 @@ label dia_recipes:
             #show screen countdown
             menu:
                 "Прямо как ты.":
-                    #hide screen countdown
+                    hide screen countdown
                     jump cute
             label baking_con:
             n r1e "Ах да, глазурь... {w}Не забудь про неё."
@@ -61,7 +61,7 @@ label dia_recipes:
 
 
         "{i}С какого блюда ты бы посоветовала начать обучаться кулинарии?{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
 
@@ -91,7 +91,7 @@ label dia_recipes:
 
 
         "{i}Почему ты решила приготовить к фестивалю именно кексы?{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
 

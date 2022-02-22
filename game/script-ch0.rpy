@@ -813,10 +813,10 @@ label ch1_main:
     $count = 60
     $timer_jump = "ch1_wait"
 
-    #show screen countdown
+    show screen countdown
     menu:
         "Да.":
-            #hide screen countdown
+            hide screen countdown
             n r1d "Хорошо."
             $ persistent.autoload = "ch1_exit"
             $pause(5)
@@ -838,7 +838,7 @@ label ch1_main:
             n r1c "Попробуй воспользоваться ей."
             jump ch1_loop
         "Нет.":
-            #hide screen countdown
+            hide screen countdown
             n r1b "Ну и вали отсюда."
             $ persistent.autoload = "ch1_refuse"
             $ renpy.quit()
@@ -998,7 +998,7 @@ label ch1_loop:
     $ quick_menu = False
     $ count = 60
     $ timer_jump = "ch1_monologchoice"
-    #show screen countdown
+    show screen countdown
     $ left = False
     $ right = False
     $is_esc_pressed = False
@@ -1016,6 +1016,8 @@ label ch1_loop:
     if persistent.themes == True:
         show screen theme_key
 
+    show screen mob_but_curtain
+
     call screen talk_button
 
 
@@ -1031,7 +1033,7 @@ label ch1_exit:
     $ config.skipping = False
     $ allow_skipping = False
     $ quick_menu = False
-    call natsuki_room 
+    call natsuki_room
     show natsuki r1 zorder 2
     $persistent.track_num = persistent.back_music
     $renpy.music.play(music_list[persistent.track_num], channel="music")
@@ -1158,7 +1160,7 @@ label save_exp:
 
 
 label win:
-    #hide screen countdown
+    hide screen countdown
     if left:
         $sside = "left"
     if right:
@@ -1573,7 +1575,7 @@ label what_was_that:
     n "Опять?"
     n "И зачем я только согласилась?.."
     pause 3
-    call natsuki_room 
+    call natsuki_room
     show natsuki r1 zorder 2
     with Dissolve(1)
     n r1e "В общем, теперь всё должно работать, но... {w}Есть небольшие визуальные баги..."
