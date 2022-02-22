@@ -17,7 +17,7 @@ label dia_requests:
 
     menu:
         "{i}Я бы хотел изменить громкость звука...{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
             if persistent.repeat == 0:
@@ -94,7 +94,7 @@ label dia_requests:
                 call ch1_loop
 
         "{i}Я бы хотел поменять музыку...{/i}" if persistent.mus_repeat == 0 or persistent.mus_repeat == 1:
-            #hide screen countdown
+            hide screen countdown
             $side_return()
             if persistent.mus_repeat == 0:
                 n r1a "Хм..."
@@ -170,7 +170,7 @@ label dia_requests:
                 call ch1_loop
 
         "{i}Можешь поставить музыку, которая тебе нравится?{/i}" if persistent.mus_repeat == 2:
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
             $rand_mus_answer = renpy.random.randint(1,3)
@@ -204,7 +204,7 @@ label dia_requests:
 
 
         "{i}Мне бы хотелось поиграть с тобой во что-то...{/i}" if persistent.f_game == 0:
-            #hide screen countdown
+            hide screen countdown
             $side_return()
             $left = False
             $right = False
@@ -281,7 +281,7 @@ label dia_requests:
 
 
         "{i}Я бы хотел поиграть с тобой в вилочки-кексики...{/i}" if persistent.f_game >= 1:
-            #hide screen countdown
+            hide screen countdown
             $side_return()
             $r_ans = random.randint(1,2)
             if r_ans == 1:
@@ -322,7 +322,7 @@ label dia_requests:
 
 
         "{i}Я бы хотел поменять режим экрана...{/i}" if persistent.ch_vol == False and persistent.ch_mus == False and persistent.first_change == False and (not renpy.mobile):
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
 
@@ -347,7 +347,7 @@ label dia_requests:
 
 
         "{i}Я бы хотел сменить клавиши...{/i}" if persistent.first_change == False and (persistent.ch_vol == True or persistent.ch_mus == True) and (not renpy.mobile):
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
             n r1e "Тебе не понравились те, что назначила я?"
@@ -362,7 +362,7 @@ label dia_requests:
 
 
         "{i}Я бы хотел сменить клавиши...{/i}" if persistent.first_change == True:
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
             $ rand_ans = renpy.random.randint(1,3)
@@ -378,7 +378,7 @@ label dia_requests:
 
 
         "{i}Можешь сменить тему?{/i}" if persistent.themes == False:
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
             n "Надоели розовые тона?"
@@ -391,9 +391,9 @@ label dia_requests:
 
 
 
-        
+
         "{i}Я бы хотел включить параллакс...{/i}" if persistent.parallax_bg == False:
-            #hide screen countdown
+            hide screen countdown
             $side_return()
             n r1d "Хорошо."
             $ persistent.parallax_bg = True
@@ -402,13 +402,13 @@ label dia_requests:
             call ch1_loop
 
         "{i}Можешь выключить параллакс?{/i}" if persistent.parallax_bg == True:
-            #hide screen countdown
+            hide screen countdown
             $side_return()
             n r1d "Хорошо."
             $ persistent.parallax_bg = False
             call ch1_loop
 
-            
+
 
 
         "{i}Попрощаться...{/i}":

@@ -776,9 +776,18 @@ screen reverse_music():
 
 
 screen mob_but_curtain():
-    imagebutton xalign 0.5 yalign 0.05:
-        idle im.Scale("mod_assets/button/custom/mob_cur_but.png", 50, 50)
-        action [Function(renpy.show, "curtain", at_list=[show_cur], zorder=10), Hide("mob_but_curtain"), Show("mob_active_but_curtain")]
+    if renpy.mobile:
+        imagebutton xalign 0.5 yalign 0.05:
+            idle im.Scale("mod_assets/button/custom/mob_cur_but.png", 50, 50)
+            action [Function(renpy.show, "curtain", at_list=[show_cur], zorder=10), Hide("mob_but_curtain"), Show("mob_active_but_curtain")]
+
+    else:
+        mousearea:
+            area (0, 0, 1280, 100)
+            hovered [Function(renpy.show, "curtain", at_list=[show_cur], zorder=10), Show("mob_active_but_curtain")]
+            unhovered [Hide("mob_active_but_curtain")]
+
+
 
 
 screen mob_active_but_curtain():

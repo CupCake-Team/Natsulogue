@@ -17,7 +17,7 @@ label dia_personality:
 
     menu:
         "{i}Какой жанр музыки ты предпочитаешь?{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
             n r1e "Сложно сказать."
@@ -36,7 +36,7 @@ label dia_personality:
 
 
         "{i}Как ты обрела самосозание?{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
             n r1e "Ну... {w}А с чего бы тебе вообще интересоваться этим?"
@@ -66,7 +66,7 @@ label dia_personality:
             call ch1_loop
 
         "{i}Какой твой любимый цвет?{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
             n r1d "Хах..."
@@ -84,7 +84,7 @@ label dia_personality:
             call ch1_loop
 
         "{i}Как ты относишься к своему отцу?{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
 
@@ -111,7 +111,7 @@ label dia_personality:
 
 
         "{i}Какое твоё любимое время года?{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
             n r1a "Хм–м–м…"

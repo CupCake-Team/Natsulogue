@@ -17,7 +17,7 @@ label dia_past:
 
     menu:
         "{i}Что ты думаешь о литературном клубе?{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
 
@@ -50,7 +50,7 @@ label dia_past:
             call ch1_loop
 
         "{i}Ты ненавидишь Монику за её поступки?{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
             $broknbase = renpy.random.randint(1,2)
@@ -90,7 +90,7 @@ label dia_past:
             call ch1_loop
 
         "{i}Что скажешь про Юри?{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
             n r1e "Как минимум ничего такого."
@@ -122,7 +122,7 @@ label dia_past:
             call ch1_loop
 
         "{i}Как ты относишься к Сайори?{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
             n r1b "Скажем так..."
@@ -143,7 +143,7 @@ label dia_past:
 
 
         "{i}Что бы ты делала на месте Моники?{/i}":
-            #hide screen countdown
+            hide screen countdown
             $side_return()
 
             n r1e "Хороший вопрос..."
