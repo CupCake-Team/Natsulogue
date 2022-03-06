@@ -474,15 +474,15 @@ label ch1_main:
     $ config.skipping = False
     $ allow_skipping = False
     $ quick_menu = False
+    call natsuki_room
     transform go_moving_chairs:
         easein 2.00 xcenter -300
     transform return_moving_chairs:
         ypos 50
         xcenter -400
         easein 6.00 xcenter 630
-    call natsuki_room
     play music m1
-    show natsuki 1n zorder 2 at t11
+    show natsuki 1n at t11 zorder 1
     n 1x "..."
     n 1q "Голова..."
     show natsuki 1s
@@ -492,6 +492,13 @@ label ch1_main:
     n "Нужно вспомни–{nw}"
     n scream "А–A–A–A–A–A–A–A–A–A–A–A–A–А–{nw}"
     stop music
+    hide mask_2
+    hide mask_3
+    hide room_mask
+    hide room_mask2
+    hide monika_bg
+    hide space1
+    hide space2
 
 
     hide natsuki 1n
@@ -793,13 +800,13 @@ label ch1_main:
     show natsuki 1n at go_moving_chairs
     $pause(4)
     play sound "mod_assets/sfx/move.ogg"
-    show move nat at return_moving_chairs
+    show move nat at return_moving_chairs zorder 1
     $pause(6.5)
     hide natsuki
     scene black with Dissolve(1.0)
     $pause(2.0)
     call natsuki_room
-    show natsuki r1
+    show natsuki r1 zorder 1
 
     with Dissolve(1.0)
 
