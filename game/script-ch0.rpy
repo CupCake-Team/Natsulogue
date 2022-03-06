@@ -424,7 +424,7 @@ label ch1_meet:
 
     play music m1
     call updateconsole ("os.path.exists('characters/sayori.chr')", "False") from _call_updateconsole_7
-    show natsuki 1c at t11
+    show natsuki 1c at t11 zorder 1
     n "Что?"
     call updateconsole ("os.path.exists('characters/yuri.chr')", "False") from _call_updateconsole_8
     n 1p "Где я?!"
@@ -450,6 +450,13 @@ label ch1_meet:
     stop music
     n scream "А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–А–{nw}"
     hide natsuki 1n
+    hide mask_2
+    hide mask_3
+    hide room_mask
+    hide room_mask2
+    hide monika_bg
+    hide space1
+    hide space2
     play sound "<to 1.5>mod_assets/sfx/interference.ogg"
     show room_glitch as rg1:
         yoffset 720
@@ -482,11 +489,11 @@ label ch1_main:
         xcenter -400
         easein 6.00 xcenter 630
     play music m1
-    show natsuki 1n at t11 zorder 1
+    show natsuki 1n at t11 zorder 2
     n 1x "..."
     n 1q "Голова..."
-    show natsuki 1s
-    n "Как же болит голова..."
+    #show natsuki 1s
+    n 1s "Как же болит голова..."
     $pause(1.5)
     n 1q "Ох..."
     n "Нужно вспомни–{nw}"
