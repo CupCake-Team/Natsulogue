@@ -245,6 +245,8 @@ default persistent.set_broke = None
 default persistent.themes = False
 
 
+
+
 image splash_warning = ParameterizedText(style="splash_text", xalign=0.5, yalign=0.5)
 
 image menu_bg:
