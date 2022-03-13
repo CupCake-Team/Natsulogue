@@ -2,7 +2,10 @@ init python:
     from random import choice
     import platform, math, json
     from os import system
-    renpy.music.register_channel("movie")
+
+    mob_dict = {"1":[0.385, 1.13], "1a":[0.36, 1.09], "2":[0.43, 0.99], "2a":[0.415, 0.95], "3":[0.5, 0.90], "3a":[0.5, 0.87], "4":[0.573, 0.99], "4a":[0.588, 0.95], "5":[0.615, 1.13], "5a":[0.64, 1.09], "but":[145, 260], "1b":[0.375, 1.032], "2b":[0.420, 0.88], "3b":[0.5, 0.8], "4b":[0.58, 0.88], "5b":[0.625, 1.032], "sens":[True, False]}
+
+    pc_dict = {"1":[0.422, 1.072], "1a":[0.398, 1.033], "2":[0.452, 0.98], "2a":[0.437, 0.943], "3":[0.5, 0.918], "3a":[0.5, 0.858], "4":[0.549, 0.982], "4a":[0.564, 0.937], "5":[0.58, 1.072], "5a":[0.607, 1.034], "but":[120, 213], "1b":[0.422, 1.032], "2b":[0.452, 0.940], "3b":[0.5, 0.878], "4b":[0.549, 0.942], "5b":[0.580, 1.032]}
 
     def next_song():
         global track_num, delta, mus_pos, dur
@@ -81,9 +84,7 @@ init python:
 
 
     def but_coord(but, coord):
-        mob_dict = {"1":[0.385, 1.13], "1a":[0.36, 1.09], "2":[0.43, 0.99], "2a":[0.415, 0.95], "3":[0.5, 0.90], "3a":[0.5, 0.87], "4":[0.573, 0.99], "4a":[0.588, 0.95], "5":[0.615, 1.13], "5a":[0.64, 1.09], "but":[145, 260], "1b":[0.375, 1.032], "2b":[0.420, 0.88], "3b":[0.5, 0.8], "4b":[0.58, 0.88], "5b":[0.625, 1.032], "sens":[True, False]}
-
-        pc_dict = {"1":[0.422, 1.072], "1a":[0.398, 1.033], "2":[0.452, 0.98], "2a":[0.437, 0.943], "3":[0.5, 0.918], "3a":[0.5, 0.858], "4":[0.549, 0.982], "4a":[0.564, 0.937], "5":[0.58, 1.072], "5a":[0.607, 1.034], "but":[120, 213], "1b":[0.422, 1.032], "2b":[0.452, 0.940], "3b":[0.5, 0.878], "4b":[0.549, 0.942], "5b":[0.580, 1.032]}
+        global mob_dict, pc_dict
 
         if renpy.mobile and but == "sens":
             return False
@@ -1691,7 +1692,6 @@ image a_1:
 
 
 
-
 image a_2:
     "round_1_styled"
     rotate -36.0
@@ -1787,7 +1787,7 @@ screen talk_button():
         idle "talk_styled"
         hover "talk_hover_styled"
         hovered [Play("sound", "mod_assets/sfx/hover.ogg")]
-        action [Show("talk_round"), Hide("volume_key"), Hide("sound_volume_key"), Hide("music_key"), Play("sound", "mod_assets/sfx/select.ogg"), Show("key_hider_talk")]
+        action [Show("talk_round"), Hide("volume_key"), Hide("sound_volume_key"), Hide("music_key"), Play("sound", "mod_assets/sfx/select.ogg"), Show("key_hider_talk"), Function(renpy.hide, "vol_mask")]
 
 
 screen active_talk_button():
@@ -1854,6 +1854,7 @@ screen choice_buttons_1():
 
     imagebutton xalign but_coord("2b", 0) yalign but_coord("2b", 1):
         idle "round_2_hit"
+
         hovered [Function(set_value, 2), Function(renpy.show, "a_2", zorder=2), Function(renpy.hide, "i_2"), Show("texts", transition = Dissolve(0.2)), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered [Function(set_value, 0), Function(renpy.hide, "a_2"), Function(renpy.show, "i_2", zorder=2), Hide("texts", transition = Dissolve(0.2))]
         sensitive but_coord("sens", None)
