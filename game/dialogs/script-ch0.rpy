@@ -1021,16 +1021,15 @@ label ch1_loop:
         if persistent.ch_vol == True:
             show screen sound_volume_key
             show screen volume_key
+
         if persistent.ch_mus == True:
             show screen music_key
-    else:
-        if persistent.ch_vol == True or persistent.ch_mus == True:
-            show screen mob_but_curtain
 
     if persistent.themes == True:
         show screen theme_key
 
-    show screen mob_but_curtain
+
+    show screen sett_curtain
 
     call screen talk_button
 
