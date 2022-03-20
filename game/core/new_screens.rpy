@@ -174,7 +174,7 @@ init python:
     def theme_but_show():
         k=1
         while k < 6:
-            renpy.show("th_"+str(k), zorder=2)
+            renpy.show("th_"+str(k), zorder=2, at_list=[but_idle(k)])
             k += 1
 
 
@@ -1527,97 +1527,39 @@ image round_5_hit:
     rotate 72
 
 
-#
-# image round_1_styled:
-#     ConditionSwitch(
-#         "persistent.is_theme_default == False",
-#         im.MatrixColor(
-#             im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)),
-#             im.matrix.hue(persistent.theme)
-#         ),
-#         "True",
-#         im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)))
 
 image round_1_styled:
-    im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1))
-
+    ConditionSwitch(
+        "persistent.is_theme_default == False",
+        im.MatrixColor(
+            im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)),
+            im.matrix.hue(persistent.theme)
+        ),
+        "True",
+        im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)))
 
 image th_1:
     im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(-180.0))
     rotate -72
-    alpha 0.0
-    xalign but_coord("1a", 0)
-    yalign but_coord("1a", 1)
-    easein 0.3 xalign but_coord("1", 0) yalign but_coord("1", 1) alpha 1.0
+
 
 image th_2:
     im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(45.0))
     rotate -36.0
-    alpha 0.0
-    xalign but_coord("2a", 0)
-    yalign but_coord("2a", 1)
-    easein 0.3 xalign but_coord("2", 0) yalign but_coord("2", 1) alpha 1.0
+
 
 image th_3:
     im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(0.0))
-    alpha 0.0
-    yalign but_coord("3a", 1)
-    easein 0.3 yalign but_coord("3", 1) alpha 1.0
+
 
 image th_4:
     im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(75.0))
     rotate 36.0
-    alpha 0.0
-    xalign but_coord("4a", 0)
-    yalign but_coord("4a", 1)
-    easein 0.3 xalign but_coord("4", 0) yalign but_coord("4", 1) alpha 1.0
+
 
 image th_5:
     im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(-90))
     rotate 72
-    alpha 0.0
-    xalign but_coord("5a", 0)
-    yalign but_coord("5a", 1)
-    easein 0.3 xalign but_coord("5", 0) yalign but_coord("5", 1) alpha 1.0
-
-
-image a_th_1:
-    im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(-180.0))
-    rotate -72
-    alpha 0.0
-    xalign but_coord("1", 0)
-    yalign but_coord("1", 1)
-    easein 0.3 xalign but_coord("1a", 0) yalign but_coord("1a", 1) alpha 1.0
-
-image a_th_2:
-    im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(45.0))
-    rotate -36.0
-    alpha 0.0
-    xalign but_coord("2", 0)
-    yalign but_coord("2", 1)
-    easein 0.3 xalign but_coord("2a", 0) yalign but_coord("2a", 1) alpha 1.0
-
-image a_th_3:
-    im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(0.0))
-    alpha 0.0
-    yalign but_coord("3", 1)
-    easein 0.3 yalign but_coord("3a", 1)-0.06+0.05 alpha 1.0
-
-image a_th_4:
-    im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(75.0))
-    rotate 36.0
-    alpha 0.0
-    xalign but_coord("4", 0)
-    yalign but_coord("4", 1)
-    easein 0.3 xalign but_coord("4a", 0) yalign but_coord("4a", 1) alpha 1.0
-
-image a_th_5:
-    im.MatrixColor(im.Scale("mod_assets/button/custom/round_1.png", but_coord("but", 0), but_coord("but", 1)), im.matrix.hue(-90))
-    rotate 72
-    alpha 0.0
-    xalign but_coord("5", 0)
-    yalign but_coord("5", 1)
-    easein 0.3 xalign but_coord("5a", 0) yalign but_coord("5a", 1) alpha 1.0
 
 
 
@@ -1925,43 +1867,43 @@ screen active_theme_key():
 
 
 screen theme_buttons():
-    on "show" action Function(theme_but_show)
+    on "show" action [Function(theme_but_show), Hide("talk_button")]
 
-    on "hide" action [Function(renpy.hide, "th_1"), Function(renpy.hide, "th_2"), Function(renpy.hide, "th_3"), Function(renpy.hide, "th_4"), Function(renpy.hide, "th_5"), Function(renpy.hide, "a_th_1"), Function(renpy.hide, "a_th_2"), Function(renpy.hide, "a_th_3"), Function(renpy.hide, "a_th_4"), Function(renpy.hide, "a_th_5")]
+    on "hide" action [Function(renpy.hide, "th_1"), Function(renpy.hide, "th_2"), Function(renpy.hide, "th_3"), Function(renpy.hide, "th_4"), Function(renpy.hide, "th_5")]
 
     imagebutton xalign but_coord("2b", 0) yalign but_coord("2b", 1):
         idle "round_2_hit"
-        hovered [Function(renpy.show, "a_th_2", zorder=2), Function(renpy.hide, "th_2"), Play("sound", "mod_assets/sfx/hover.ogg")]
-        unhovered [Function(renpy.hide, "a_th_2"), Function(renpy.show, "th_2", zorder=2)]
+        hovered [Function(renpy.show, "th_2", zorder=2, at_list=[but_hover(2)]), Play("sound", "mod_assets/sfx/hover.ogg")]
+        unhovered Function(renpy.show, "th_2", zorder=2, at_list=[but_idle(2)])
         focus_mask True
         action [Function(ColorTheme().orange), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
 
     imagebutton xalign but_coord("4b", 0) yalign but_coord("4b", 1):
         idle "round_4_hit"
-        hovered [Function(renpy.show, "a_th_4", zorder=2), Function(renpy.hide, "th_4"), Play("sound", "mod_assets/sfx/hover.ogg")]
-        unhovered [Function(renpy.hide, "a_th_4"), Function(renpy.show, "th_4", zorder=2)]
+        hovered [Function(renpy.show, "th_4", zorder=2, at_list=[but_hover(4)]), Play("sound", "mod_assets/sfx/hover.ogg")]
+        unhovered Function(renpy.show, "th_4", zorder=2, at_list=[but_idle(4)])
         focus_mask True
         action [Function(ColorTheme().yellow), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
 
     imagebutton xalign 0.5 yalign but_coord("3b", 1):
         idle "round_3_hit"
-        hovered [Function(renpy.show, "a_th_3", zorder=2), Function(renpy.hide, "th_3"), Play("sound", "mod_assets/sfx/hover.ogg")]
-        unhovered [Function(renpy.hide, "a_th_3"), Function(renpy.show, "th_3", zorder=2)]
+        hovered [Function(renpy.show, "th_3", zorder=2, at_list=[but_hover(3)]), Play("sound", "mod_assets/sfx/hover.ogg")]
+        unhovered Function(renpy.show, "th_3", zorder=2, at_list=[but_idle(3)])
         focus_mask True
         action [Function(ColorTheme().default), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
 
 
     imagebutton xalign but_coord("1b", 0) yalign but_coord("1b", 1):
         idle "round_1_hit"
-        hovered [Function(renpy.show, "a_th_1", zorder=2), Function(renpy.hide, "th_1"), Play("sound", "mod_assets/sfx/hover.ogg")]
-        unhovered [Function(renpy.hide, "a_th_1"), Function(renpy.show, "th_1", zorder=2)]
+        hovered [Function(renpy.show, "th_1", zorder=2, at_list=[but_hover(1)]), Play("sound", "mod_assets/sfx/hover.ogg")]
+        unhovered Function(renpy.show, "th_1", zorder=2, at_list=[but_idle(1)])
         focus_mask True
         action [Function(ColorTheme().green), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
 
     imagebutton xalign but_coord("5b", 0) yalign but_coord("5b", 1):
         idle "round_5_hit"
-        hovered [Function(renpy.show, "a_th_5", zorder=2), Function(renpy.hide, "th_5"), Play("sound", "mod_assets/sfx/hover.ogg")]
-        unhovered [Function(renpy.hide, "a_th_5"), Function(renpy.show, "th_5", zorder=2)]
+        hovered [Function(renpy.show, "th_5", zorder=2, at_list=[but_hover(5)]), Play("sound", "mod_assets/sfx/hover.ogg")]
+        unhovered Function(renpy.show, "th_5", zorder=2, at_list=[but_idle(5)])
         focus_mask True
         action [Function(ColorTheme().blue), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
 
