@@ -94,6 +94,7 @@ init python:
         renpy.hide("o3")
         renpy.hide("o4")
 
+
     class RectCluster(object):
         def __init__(self, theDisplayable, numRects=12, areaWidth = 30, areaHeight = 30):
             self.sm = SpriteManager(update=self.update)
