@@ -693,7 +693,7 @@ image Reverse = "mod_assets/images/cg/monika/reverse.png"
 image full_vis = Visualiser()
 
 image curtain:
-    ConditionSwitch("persistent.ch_vol==True and persistent.ch_mus==True and persistent.themes == True", "mod_assets/button/custom/mob_curtain_all.png", "persistent.ch_vol != True and persistent.ch_mus == True and persistent.themes == True", "mod_assets/button/custom/mob_curtain_theme.png",
+    ConditionSwitch("persistent.ch_vol==True and persistent.ch_mus==True and persistent.themes == True", "mod_assets/button/custom/mob_curtain_all.png", "persistent.ch_vol != True and persistent.ch_mus != True and persistent.themes == True", "mod_assets/button/custom/mob_curtain_theme.png",
     "persistent.ch_vol != True and persistent.ch_mus == True and persistent.themes != True", "mod_assets/button/custom/mob_curtain_vis.png",
     "persistent.ch_vol != True and persistent.ch_mus == True and persistent.themes == True", "mod_assets/button/custom/mob_curtain_vis_theme.png",
     "persistent.ch_vol==True and persistent.ch_mus != True and persistent.themes != True", "mod_assets/button/custom/mob_curtain_vol.png",
