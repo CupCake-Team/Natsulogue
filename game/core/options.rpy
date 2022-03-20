@@ -17,7 +17,7 @@ define gui.show_name = False
 
 
 
-define config.version = "0.0.3"
+define config.version = "0.3.5"
 
 
 
@@ -132,7 +132,7 @@ default preferences.sfx_volume = 1.0
 
 
 
-define config.save_directory = "DDLC-1454445547"
+define config.save_directory = "Natsulogue"
 
 
 
