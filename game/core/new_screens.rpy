@@ -705,18 +705,37 @@ image curtain:
 
 
 
+image mob_menu_but = ConditionSwitch("persistent.theme == -90", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_menu.png", 100, 100), im.matrix.hue(-90)), "persistent.theme == 75", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_menu.png", 100, 100), im.matrix.hue(50)), "persistent.theme == -180", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_menu.png", 100, 100), im.matrix.hue(-200)), "persistent.theme == 45", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_menu.png", 100, 100), im.matrix.hue(50)), "True", im.Scale("mod_assets/button/custom/mob_menu.png", 100, 100))
 
-image mob_menu_but = im.Scale("mod_assets/button/custom/mob_menu.png", 100, 100)
-image next = im.Scale("mod_assets/button/custom/mob_next.png", 100, 100)
-image prev = im.Scale("mod_assets/button/custom/mob_prev.png", 100, 100)
-image next_in = im.Scale("mod_assets/button/custom/mob_next_in.png", 100, 100)
-image prev_in = im.Scale("mod_assets/button/custom/mob_prev_in.png", 100, 100)
+
+image next = ConditionSwitch("persistent.theme == -90", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_next.png", 100, 100), im.matrix.hue(-90)), "persistent.theme == 75", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_next.png", 100, 100), im.matrix.hue(50)), "persistent.theme == -180", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_next.png", 100, 100), im.matrix.hue(-200)), "persistent.theme == 45", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_next.png", 100, 100), im.matrix.hue(50)), "True", im.Scale("mod_assets/button/custom/mob_next.png", 100, 100))
+
+
+
+image prev = ConditionSwitch("persistent.theme == -90", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_prev.png", 100, 100), im.matrix.hue(-90)), "persistent.theme == 75", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_prev.png", 100, 100), im.matrix.hue(50)), "persistent.theme == -180", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_prev.png", 100, 100), im.matrix.hue(-200)), "persistent.theme == 45", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_prev.png", 100, 100), im.matrix.hue(50)), "True", im.Scale("mod_assets/button/custom/mob_prev.png", 100, 100))
+
+
+image next_in = ConditionSwitch("persistent.theme == -90", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_next_in.png", 100, 100), im.matrix.hue(-90)), "persistent.theme == 75", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_next_in.png", 100, 100), im.matrix.hue(50)), "persistent.theme == -180", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_next_in.png", 100, 100), im.matrix.hue(-200)), "persistent.theme == 45", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_next_in.png", 100, 100), im.matrix.hue(50)), "True", im.Scale("mod_assets/button/custom/mob_next_in.png", 100, 100))
+
+image prev_in = ConditionSwitch("persistent.theme == -90", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_prev_in.png", 100, 100), im.matrix.hue(-90)), "persistent.theme == 75", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_prev_in.png", 100, 100), im.matrix.hue(50)), "persistent.theme == -180", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_prev_in.png", 100, 100), im.matrix.hue(-200)), "persistent.theme == 45", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_prev_in.png", 100, 100), im.matrix.hue(50)), "True", im.Scale("mod_assets/button/custom/mob_prev_in.png", 100, 100))
+
 image cycle = im.Scale("mod_assets/button/custom/mob_cycle.png", 100, 100)
-image mob_pause = im.Scale("mod_assets/button/custom/mob_pause.png", 100, 100)
-image mob_active_pause = im.Scale("mod_assets/button/custom/mob_active_pause.png", 100, 100)
-image vis = im.Scale("mod_assets/button/custom/mob_vis_but.png", 100, 100)
-image vis_in = im.Scale("mod_assets/button/custom/mob_vis_but_in.png", 100, 100)
-image act_vis = im.Scale("mod_assets/button/custom/mob_active_vis_but.png", 100, 100)
+
+image mob_pause = ConditionSwitch("persistent.theme == -90", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_pause.png", 100, 100), im.matrix.hue(-90)), "persistent.theme == 75", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_pause.png", 100, 100), im.matrix.hue(50)), "persistent.theme == -180", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_pause.png", 100, 100), im.matrix.hue(-200)), "persistent.theme == 45", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_pause.png", 100, 100), im.matrix.hue(55)), "True", im.Scale("mod_assets/button/custom/mob_pause.png", 100, 100))
+
+
+image mob_active_pause = ConditionSwitch("persistent.theme == -90", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_active_pause.png", 100, 100), im.matrix.hue(-90)), "persistent.theme == 75", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_active_pause.png", 100, 100), im.matrix.hue(50)), "persistent.theme == -180", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_active_pause.png", 100, 100), im.matrix.hue(-200)), "persistent.theme == 45", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_active_pause.png", 100, 100), im.matrix.hue(55)), "True", im.Scale("mod_assets/button/custom/mob_active_pause.png", 100, 100))
+
+
+image vis = ConditionSwitch("persistent.theme == -90", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_vis_but.png", 100, 100), im.matrix.hue(-90)), "persistent.theme == 75", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_vis_but.png", 100, 100), im.matrix.hue(50)), "persistent.theme == -180", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_vis_but.png", 100, 100), im.matrix.hue(-200)), "persistent.theme == 45", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_vis_but.png", 100, 100), im.matrix.hue(50)), "True", im.Scale("mod_assets/button/custom/mob_vis_but.png", 100, 100))
+
+
+image vis_in = ConditionSwitch("persistent.theme == -90", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_vis_but_in.png", 100, 100), im.matrix.hue(-90)), "persistent.theme == 75", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_vis_but_in.png", 100, 100), im.matrix.hue(50)), "persistent.theme == -180", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_vis_but_in.png", 100, 100), im.matrix.hue(-200)), "persistent.theme == 45", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_vis_but_in.png", 100, 100), im.matrix.hue(50)), "True", im.Scale("mod_assets/button/custom/mob_vis_but_in.png", 100, 100))
+
+#image act_vis = im.Scale("mod_assets/button/custom/mob_active_vis_but.png", 100, 100)
+
+image act_vis = ConditionSwitch("persistent.theme == -90", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_active_vis_but.png", 100, 100), im.matrix.hue(-90)), "persistent.theme == 75", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_active_vis_but.png", 100, 100), im.matrix.hue(50)), "persistent.theme == -180", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_active_vis_but.png", 100, 100), im.matrix.hue(-200)), "persistent.theme == 45", im.MatrixColor(im.Scale("mod_assets/button/custom/mob_active_vis_but.png", 100, 100), im.matrix.hue(50)), "True", im.Scale("mod_assets/button/custom/mob_active_vis_but.png", 100, 100))
+
 image mob_player_but_hit = im.Scale("mod_assets/button/custom/mob_player_but_hit.png", 100, 100)
 
 transform mob_menu_coord:
@@ -1051,6 +1070,7 @@ screen mob_active_vis_button():
 
 screen mob_menu_player():                #менюшка для остальных кнопок
 
+
     imagebutton xalign 0.5 yalign 0.8:
         idle "mob_player_but_hit"
         action [If(persistent.fix == True,
@@ -1127,7 +1147,7 @@ screen music_player_buttons():
                     true=[Show("active_vis_button")],
                     false=Show("vis_button")),
             false=Show("button_broken_cycle")),
-        Show("music_name"), Hide("talk_button"), Hide("countdown"), Function(renpy.show, "i_1", zorder=2), Function(renpy.show, "i_3", zorder=2), Function(renpy.show, "i_4", zorder=2), Function(renpy.show, "i_5", zorder=2), Function(renpy.show, "button_back_inactive", zorder=2)]
+        Show("music_name"), Hide("talk_button"), Hide("countdown"), Function(renpy.show, "i_1", zorder=2, at_list=[but_idle(1)]), Function(renpy.show, "i_3", zorder=2, at_list=[but_idle(3)]), Function(renpy.show, "i_4", zorder=2, at_list=[but_idle(4)]), Function(renpy.show, "i_5", zorder=2, at_list=[but_idle(5)]), Function(renpy.show, "button_back_inactive", zorder=2)]
 
     on "hide" action [Hide("button_pause"), Hide("button_active_pause"), Hide("button_set_back"), Hide("inactive_set_back"), Hide("button_broken_cycle"), Hide("music_name"), Hide("actions_name"), Hide("vis_button"),
     Hide("active_vis_button"), Function(renpy.hide, "pause_visual"), Function(renpy.hide, "resumed_visual"),
@@ -1254,7 +1274,7 @@ transform pos_cup_button:
 
 
 
-image level_cir = vol_cir()
+image level_cir = ConditionSwitch("persistent.theme == -90", im.MatrixColor("mod_assets/button/custom/volume_circle_level.png", im.matrix.hue(-90)), "persistent.theme == 75", im.MatrixColor("mod_assets/button/custom/volume_circle_level.png", im.matrix.hue(50)), "persistent.theme == -180", im.MatrixColor("mod_assets/button/custom/volume_circle_level.png", im.matrix.hue(-200)), "persistent.theme == 45", im.MatrixColor("mod_assets/button/custom/volume_circle_level.png", im.matrix.hue(30)), "True", "mod_assets/button/custom/volume_circle_level.png")
 image anim_cir = "mod_assets/button/custom/volume_circle.png"
 image cup_but = place_but()
 image cup_but_hover = place_hover_but()
@@ -1350,9 +1370,9 @@ screen mob_active_volume_but():
     on "show" action [Function(renpy.show, "anim_cir", at_list=[show_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[show_vol_level_animation], zorder=4), Function(renpy.show, "vol_mask", at_list=[volume_mask], zorder=5), Show("vol_texts", transition=dissolve)]
     zorder 10
     imagebutton xalign 0.5 yalign 0.95:
-        idle im.Scale("mod_assets/button/custom/cup_button.png", 80, 80)
-        hover im.Scale("mod_assets/button/custom/cup_button_hover.png", 80, 80)
-        action [Play("sound", "mod_assets/sfx/select.ogg"), Show("sett_curtain"), Function(renpy.show, "anim_cir", at_list=[hide_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[hide_vol_level_animation], zorder=4), Hide("vol_texts", transition=dissolve), Hide("vol_mob_enable_change"), Hide("vol_mob_disable_change"), Hide("vol_mob_set_volume"), Hide("mob_active_volume_but"), Jump("ch1_loop"),]
+        idle im.Scale("mod_assets/button/custom/cup_button_nat.png", 80, 80)
+        hover im.Scale("mod_assets/button/custom/cup_button_hover_nat.png", 80, 80)
+        action [Play("sound", "mod_assets/sfx/select.ogg"), Show("sett_curtain"), Function(renpy.show, "anim_cir", at_list=[hide_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[hide_vol_level_animation], zorder=4), Hide("vol_texts", transition=dissolve), Hide("vol_mob_enable_change"), Hide("vol_mob_disable_change"), Hide("vol_mob_set_volume"), Hide("mob_active_volume_but"), Jump("ch1_loop")]
 
 
 screen mob_active_sound_but():
@@ -1360,8 +1380,8 @@ screen mob_active_sound_but():
 
     zorder 10
     imagebutton xalign 0.5 yalign 0.95:
-        idle im.Scale("mod_assets/button/custom/cup_button.png", 80, 80)
-        hover im.Scale("mod_assets/button/custom/cup_button_hover.png", 80, 80)
+        idle im.Scale("mod_assets/button/custom/cup_button_nat.png", 80, 80)
+        hover im.Scale("mod_assets/button/custom/cup_button_hover_nat.png", 80, 80)
         hovered [Play("sound", "mod_assets/sfx/hover.ogg")]
         action [Play("sound", "mod_assets/sfx/select.ogg"), Show("sett_curtain"), Function(renpy.show, "anim_cir", at_list=[hide_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[hide_vol_level_animation], zorder=4), Hide("vol_texts", transition=dissolve), Hide("sound_mob_enable_change"), Hide("sound_mob_disable_change"), Hide("sound_mob_set_volume"), Hide("mob_active_sound_but"), Jump("ch1_loop")]
 
@@ -1876,21 +1896,21 @@ screen theme_buttons():
         hovered [Function(renpy.show, "th_2", zorder=2, at_list=[but_hover(2)]), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered Function(renpy.show, "th_2", zorder=2, at_list=[but_idle(2)])
         focus_mask True
-        action [Function(ColorTheme().orange), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
+        action [Function(ColorTheme().orange), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop"), Function(ui.interact)]
 
     imagebutton xalign but_coord("4b", 0) yalign but_coord("4b", 1):
         idle "round_4_hit"
         hovered [Function(renpy.show, "th_4", zorder=2, at_list=[but_hover(4)]), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered Function(renpy.show, "th_4", zorder=2, at_list=[but_idle(4)])
         focus_mask True
-        action [Function(ColorTheme().yellow), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
+        action [Function(ColorTheme().yellow), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop"), Function(ui.interact)]
 
     imagebutton xalign 0.5 yalign but_coord("3b", 1):
         idle "round_3_hit"
         hovered [Function(renpy.show, "th_3", zorder=2, at_list=[but_hover(3)]), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered Function(renpy.show, "th_3", zorder=2, at_list=[but_idle(3)])
         focus_mask True
-        action [Function(ColorTheme().default), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
+        action [Function(ColorTheme().default), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop"), Function(ui.interact)]
 
 
     imagebutton xalign but_coord("1b", 0) yalign but_coord("1b", 1):
@@ -1898,25 +1918,24 @@ screen theme_buttons():
         hovered [Function(renpy.show, "th_1", zorder=2, at_list=[but_hover(1)]), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered Function(renpy.show, "th_1", zorder=2, at_list=[but_idle(1)])
         focus_mask True
-        action [Function(ColorTheme().green), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
+        action [Function(ColorTheme().green), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop"), Function(ui.interact)]
 
     imagebutton xalign but_coord("5b", 0) yalign but_coord("5b", 1):
         idle "round_5_hit"
         hovered [Function(renpy.show, "th_5", zorder=2, at_list=[but_hover(5)]), Play("sound", "mod_assets/sfx/hover.ogg")]
         unhovered Function(renpy.show, "th_5", zorder=2, at_list=[but_idle(5)])
         focus_mask True
-        action [Function(ColorTheme().blue), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop")]
+        action [Function(ColorTheme().blue), Hide("active_theme_key"), Hide("theme_buttons"), Jump("ch1_loop"), Function(ui.interact)]
 
 
 #----------------------------------------Шторка настроек------------------------------------------------
 
 
 screen sett_curtain():
-    on "hide" action Function(renpy.hide, "curtain")
     if renpy.mobile:
         imagebutton xalign 0.5 yalign 0.05:
             idle im.Scale("mod_assets/button/custom/mob_cur_but.png", 50, 50)
-            action [Function(renpy.show, "curtain", at_list=[show_cur], zorder=10), Hide("sett_curtain"), Show("act_curtain")]
+            action [Function(renpy.show, "curtain", at_list=[show_cur], zorder=10), Hide("sett_curtain"), Show("act_curtain"), Show("cur_buttons")]
 
     else:
         mousearea:
@@ -1929,26 +1948,26 @@ screen cur_buttons():
     imagebutton xalign 0.26 yalign 0:
         idle "mod_assets/button/custom/mob_but_hit.png"
         sensitive persistent.ch_vol
-        action [SetVariable("set", "music"), Hide("volume_key"), Hide("sett_curtain"), Show("active_volume_key"), Show("con_volume"), Hide("sound_volume_key"),
+        action [Function(renpy.show, "curtain", at_list=[hide_cur], zorder=10), SetVariable("set", "music"), Hide("volume_key"), Hide("sett_curtain"), Show("active_volume_key"), If(renpy.mobile, true=[Show("mob_active_volume_but"), Jump("mob_vol")], false=Show("con_volume")), Hide("sound_volume_key"),
           Hide("talk_button"), Hide("countdown"), Function(renpy.show, "cup_but", at_list=[pos_cup_button], zorder=10),
            If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False))]
 
     imagebutton xalign 0.42 yalign 0:
         idle "mod_assets/button/custom/mob_but_hit.png"
         sensitive persistent.ch_vol
-        action [SetVariable("set", "sound"), Hide("sound_volume_key"), Hide("sett_curtain"), Show("active_sound_volume_key"), Show("con_sound_volume"),
-        Hide("volume_key"), Hide("talk_button"), Hide("countdown"), Show("sound_test"),
+        action [Function(renpy.show, "curtain", at_list=[hide_cur], zorder=10), SetVariable("set", "sound"), Hide("sound_volume_key"), Hide("sett_curtain"), If(renpy.mobile, true=[Show("mob_active_sound_but"), Jump("mob_sound")], false=[Hide("sound_volume_key"), Show("active_sound_volume_key"), Show("con_sound_volume"), Show("sound_test")]),
+         Hide("talk_button"), Hide("countdown"),
         If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False))]
 
     imagebutton xalign 0.58 yalign 0:
         idle "mod_assets/button/custom/mob_but_hit.png"
         sensitive persistent.ch_mus
-        action [Hide("music_key"), Hide("sett_curtain"), Show("active_music_key"), Show("hide_all_talk"), Hide("countdown"), Show("music_player_buttons")]
+        action [Hide("music_key"), Hide("sett_curtain"), Show("active_music_key"), Show("hide_all_talk"), Hide("talk_button"), Hide("countdown"), If(renpy.mobile, true=Show("mob_music_player"), false=Show("music_player_buttons")), Function(renpy.show, "curtain", at_list=[hide_cur], zorder=10)]
 
     imagebutton xalign 0.74 yalign 0:
         idle "mod_assets/button/custom/mob_but_hit.png"
         sensitive persistent.themes
-        action [Hide("theme_key"), Hide("sett_curtain"), Show("active_theme_key"), Show("theme_buttons"), Hide("talk_button"), Hide("countdown")]
+        action [Hide("theme_key"), Hide("sett_curtain"), Show("active_theme_key"), Show("theme_buttons"), Hide("talk_button"), Hide("countdown"), Function(renpy.show, "curtain", at_list=[hide_cur], zorder=10)]
 
 
 
