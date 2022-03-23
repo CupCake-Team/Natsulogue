@@ -1018,18 +1018,18 @@ label ch1_loop:
     $is_esc_pressed = False
     if not renpy.mobile:
         show screen set_on_full
-        if persistent.ch_vol == True:
-            show screen sound_volume_key
-            show screen volume_key
-            show screen sett_curtain
+    if persistent.ch_vol == True:
+        show screen sound_volume_key
+        show screen volume_key
+        show screen sett_curtain
 
-        if persistent.ch_mus == True:
-            show screen music_key
-            show screen sett_curtain
+    if persistent.ch_mus == True:
+        show screen music_key
+        show screen sett_curtain
 
-        if persistent.themes == True:
-            show screen theme_key
-            show screen sett_curtain
+    if persistent.themes == True:
+        show screen theme_key
+        show screen sett_curtain
 
 
     call screen talk_button
