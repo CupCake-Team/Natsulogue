@@ -525,9 +525,6 @@ screen cup_fork_toe(sst, chs):
 
 
 
-
-
-
         imagebutton xcenter 805 ycenter 495:
             idle "mod_assets/button/custom/corner_but_hit.png"
             sensitive current_state[2][0][1]
@@ -566,7 +563,7 @@ screen cup_fork_toe(sst, chs):
 
 
 
-        imagebutton xcenter 1055 ycenter 36:
+        imagebutton xcenter 1055 ycenter 363:
             idle "mod_assets/button/custom/s_edge_but_hit.png"
             sensitive current_state[1][2][1]
             action [Function(play, 1, 2, "X", 1070, 363), Jump("change_side")]
