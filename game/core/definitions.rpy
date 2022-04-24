@@ -242,7 +242,9 @@ image glitch_color2:
     parallel:
         alpha 0.7
         linear 0.45 alpha 0
-
+init -100 python:
+    base = []
+    
 image natsuki r1:
     im.Composite((1663, 1211), (0, 0), "mod_assets/natsuki/1.png", (40, -310), "mod_assets/natsuki/a.png")
     zoom 0.5
