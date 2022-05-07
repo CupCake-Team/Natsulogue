@@ -213,6 +213,17 @@ init python:
         return i
 
 
+    def relationship(points):
+        if points < 20:
+            relation = "Negative"
+        elif points > 20 and points < 80:
+            relation = "Neutral"
+        elif points > 80:
+            relation = "Positive"
+
+        return relation
+
+
 
 
 default l_u_l = True
@@ -244,7 +255,10 @@ default mob_menu = True
 default persistent.fix = False
 default persistent.set_broke = None
 default persistent.themes = False
+default persistent.relation = 50
 
+
+cur_relation = relationship(persistent.relation)
 
 
 
