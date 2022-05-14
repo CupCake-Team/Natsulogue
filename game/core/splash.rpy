@@ -223,6 +223,35 @@ init python:
 
         return relation
 
+    sprite_names = [{"d":"default.png", "q1":"quote_1.png", "q2":"quote_2.png", "a":"angry.png"},
+    {"a1":"angry_1.png", "a2":"angry_2.png", "a3":"angry_3.png", "c":"calm.png", "s1":"surprise_1.png", "s2":"surprise_2.png"},
+    {"c":"calm.png", "cute":"cute.png", "h":"happy.png", "st1":"straight_1.png", "st2":"straight_2.png", "su1":"surprise_1.png", "su2":"surprise_2.png"},
+    {"a":"angry.png", "fa":"fang.png", "fr":"fright.png", "h":"hugesmile.png", "s":"sad.png", "sh":"smile.png", "su":"surprise.png", "t1":"talk_1.png", "t2":"talk_2.png"},
+    {"l":"light", "h":"heavy"}]
+
+    def nat_sprite(body, eyebrow, eyes, mouth, blush):
+        if body[0] == "s":
+            body_name = "body/school_"+sprite_names[0][body[1:]]
+        else:
+            body_name = "body/casual_"+sprite_names[0][body[1:]]
+
+        if blush != None:
+            blush_name = "blush/blush_"+sprite_names[4][blush]
+            return LiveComposite((1280, 720), (0,0), "mod_assets/natsuki/sitting/"+body_name,
+            (0,0), "mod_assets/natsuki/sitting/eyebrows/"+sprite_names[1][eyebrow],
+            (0,0), "mod_assets/natsuki/sitting/eyes/"+sprite_names[2][eyes],
+            (0,0), "mod_assets/natsuki/sitting/mouth/"+sprite_names[3][mouth],
+            (0,0), "mod_assets/natsuki/sitting/"+blush_name,
+            (0,0), "mod_assets/natsuki/table/desk.png",
+            (0,0), "mod_assets/natsuki/table/desk_sh.png")
+        else:
+            return LiveComposite((1280, 720), (0,0), "mod_assets/natsuki/sitting/"+body_name,
+            (0,0), "mod_assets/natsuki/sitting/eyebrows/"+sprite_names[1][eyebrow],
+            (0,0), "mod_assets/natsuki/sitting/eyes/"+sprite_names[2][eyes],
+            (0,0), "mod_assets/natsuki/sitting/mouth/"+sprite_names[3][mouth],
+            (0,0), "mod_assets/natsuki/table/desk.png",
+            (0,0), "mod_assets/natsuki/table/desk_sh.png")
+
 
 
 
@@ -258,7 +287,7 @@ default persistent.themes = False
 default persistent.relation = 50
 
 
-cur_relation = relationship(persistent.relation)
+$cur_relation = relationship(persistent.relation)
 
 
 
