@@ -3,7 +3,7 @@ label natsuki_room:
         show mask_2
         show mask_3
         show room_mask
-        show room_mask2
+        #show room_mask2
         show monika_bg zorder 1
     else:
         show space1 as rw1:
