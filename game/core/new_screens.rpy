@@ -1364,7 +1364,7 @@ screen vol_texts:
 
 
 screen mob_active_volume_but():
-    on "show" action [Function(renpy.show, "anim_cir", at_list=[show_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[show_vol_level_animation], zorder=4), Function(renpy.show, "vol_mask", at_list=[volume_mask], zorder=5), Show("vol_texts", transition=dissolve)]
+    on "show" action [Function(renpy.show, "anim_cir", at_list=[show_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[show_vol_level_animation], zorder=4), Function(renpy.show, "vol_mask", zorder=5), Show("vol_texts", transition=dissolve)]
     zorder 10
     imagebutton xalign 0.5 yalign 0.95:
         idle im.Scale("mod_assets/button/custom/cup_button_nat.png", 80, 80)
@@ -1373,7 +1373,7 @@ screen mob_active_volume_but():
 
 
 screen mob_active_sound_but():
-    on "show" action [Function(renpy.show, "anim_cir", at_list=[show_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[show_sound_vol_level_animation], zorder=4), Function(renpy.show, "vol_mask", at_list=[volume_mask], zorder=5), Show("vol_texts", transition=dissolve)]
+    on "show" action [Function(renpy.show, "anim_cir", at_list=[show_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[show_sound_vol_level_animation], zorder=4), Function(renpy.show, "vol_mask"), Show("vol_texts", transition=dissolve)]
 
     zorder 10
     imagebutton xalign 0.5 yalign 0.95:
@@ -1453,7 +1453,7 @@ screen sound_mob_set_volume():
 
 
 screen con_volume():
-    on "show" action [Function(renpy.show, "anim_cir", at_list=[show_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[show_vol_level_animation], zorder=4), Function(renpy.show, "vol_mask", at_list=[volume_mask], zorder=5), Show("vol_texts", transition=dissolve)]
+    on "show" action [Function(renpy.show, "anim_cir", at_list=[show_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[show_vol_level_animation], zorder=4), Function(renpy.show, "vol_mask", zorder=5), Show("vol_texts", transition=dissolve)]
 
     on "hide" action [Function(renpy.show, "anim_cir", at_list=[hide_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[hide_vol_level_animation], zorder=4), Hide("vol_texts", transition=dissolve)]
 
@@ -1486,7 +1486,7 @@ screen con_volume():
 
 
 screen con_sound_volume():
-    on "show" action [Function(renpy.show, "anim_cir", at_list=[show_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[show_sound_vol_level_animation], zorder=4), Function(renpy.show, "vol_mask", at_list=[volume_mask], zorder=5), Show("vol_texts", transition=dissolve)]
+    on "show" action [Function(renpy.show, "anim_cir", at_list=[show_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[show_sound_vol_level_animation], zorder=4), Function(renpy.show, "vol_mask", zorder=5), Show("vol_texts", transition=dissolve)]
 
     on "hide" action [Function(renpy.show, "anim_cir", at_list=[hide_vol_animation], zorder=3), Function(renpy.show, "level_cir", at_list=[hide_vol_level_animation], zorder=4), Hide("vol_texts", transition=dissolve)]
 

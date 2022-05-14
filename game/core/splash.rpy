@@ -227,7 +227,7 @@ init python:
     {"a1":"angry_1.png", "a2":"angry_2.png", "a3":"angry_3.png", "c":"calm.png", "s1":"surprise_1.png", "s2":"surprise_2.png"},
     {"c":"calm.png", "cute":"cute.png", "h":"happy.png", "st1":"straight_1.png", "st2":"straight_2.png", "su1":"surprise_1.png", "su2":"surprise_2.png"},
     {"a":"angry.png", "fa":"fang.png", "fr":"fright.png", "h":"hugesmile.png", "s":"sad.png", "sh":"smile.png", "su":"surprise.png", "t1":"talk_1.png", "t2":"talk_2.png"},
-    {"l":"light", "h":"heavy"}]
+    {"l":"light.png", "h":"heavy.png"}]
 
     def nat_sprite(body, eyebrow, eyes, mouth, blush):
         if body[0] == "s":
