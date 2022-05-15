@@ -237,21 +237,23 @@ init python:
 
         if blush != None:
             blush_name = "blush/blush_"+sprite_names[4][blush]
-            return LiveComposite((1280, 720), (0,0), "mod_assets/natsuki/sitting/"+body_name,
-            (0,0), "mod_assets/natsuki/sitting/eyebrows/"+sprite_names[1][eyebrow],
-            (0,0), "mod_assets/natsuki/sitting/eyes/"+sprite_names[2][eyes],
-            (0,0), "mod_assets/natsuki/sitting/mouth/"+sprite_names[3][mouth],
-            (0,0), "mod_assets/natsuki/sitting/"+blush_name,
-            (0,0), "mod_assets/natsuki/table/desk.png",
-            (0,0), "mod_assets/natsuki/table/desk_sh.png")
+            return LiveComposite((1280, 720), (640-250,720-506-62), "mod_assets/natsuki/sitting/"+body_name,
+            (640-250,720-506-62), "mod_assets/natsuki/sitting/eyebrows/"+sprite_names[1][eyebrow],
+            (640-250,720-506-62), "mod_assets/natsuki/sitting/eyes/"+sprite_names[2][eyes],
+            (640-250,720-506-62), "mod_assets/natsuki/sitting/mouth/"+sprite_names[3][mouth],
+            (640-250,720-506-62), "mod_assets/natsuki/sitting/"+blush_name,
+            (0,12), "mod_assets/natsuki/table/desk.png",
+            (0,12), "mod_assets/natsuki/table/desk_sh.png")
         else:
-            return LiveComposite((1280, 720), (0,0), "mod_assets/natsuki/sitting/"+body_name,
-            (0,0), "mod_assets/natsuki/sitting/eyebrows/"+sprite_names[1][eyebrow],
-            (0,0), "mod_assets/natsuki/sitting/eyes/"+sprite_names[2][eyes],
-            (0,0), "mod_assets/natsuki/sitting/mouth/"+sprite_names[3][mouth],
-            (0,0), "mod_assets/natsuki/table/desk.png",
-            (0,0), "mod_assets/natsuki/table/desk_sh.png")
+            return LiveComposite((1280, 720), (640-250,720-506-62), "mod_assets/natsuki/sitting/"+body_name,
+            (640-250,720-506-62), "mod_assets/natsuki/sitting/eyebrows/"+sprite_names[1][eyebrow],
+            (640-250,720-506-62), "mod_assets/natsuki/sitting/eyes/"+sprite_names[2][eyes],
+            (640-250,720-506-62), "mod_assets/natsuki/sitting/mouth/"+sprite_names[3][mouth],
+            (0,12), "mod_assets/natsuki/table/desk.png",
+            (0,12), "mod_assets/natsuki/table/desk_sh.png")
 
+
+        #размеры спрайта: 500x506
 
 
 
