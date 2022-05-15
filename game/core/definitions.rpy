@@ -650,7 +650,7 @@ image natsuki mouth = LiveComposite((960, 960), (0, 0), "natsuki/0.png", (390, 3
 image space1 = Movie(play="mod_assets/vid_mask_2.webm")
 image space2 = Movie(play="mod_assets/vid_mask_3.webm")
 image just1 nat = "mod_assets/images/cg/monika/nat_bg.png"
-image move nat = "mod_assets/images/cg/monika/move.png"
+image move nat = "mod_assets/natsuki/table/desk.png"
 image vol_mask = LiveComposite((1280, 720), (0,0), "mod_assets/natsuki/table/desk.png", (0,0), "mod_assets/natsuki/table/desk_sh.png")
 
 
