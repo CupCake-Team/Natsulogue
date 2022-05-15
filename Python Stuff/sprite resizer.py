@@ -8,8 +8,8 @@ for dr in os.listdir("C://Users//User//Desktop//Natsulogue//game//mod_assets//na
     while i < len(k):
         
         img = Image.open("C://Users//User//Desktop//Natsulogue//game//mod_assets//natsuki//sitting//"+dr+"//"+k[i])
-        width = 500
-        height = 506
+        width = 597
+        height = 605
         resized_img = img.resize((width, height), Image.ANTIALIAS)
         resized_img.save("C://Users//User//Desktop//Natsulogue//game//mod_assets//natsuki//sitting//"+dr+"//"+k[i])
         i += 1
