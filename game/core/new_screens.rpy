@@ -1039,11 +1039,11 @@ screen mob_button_active_pause():
 
 
 screen button_set_back():
-    on "show" action [Function(renpy.show, "i_2", zorder=2), Function(renpy.hide, "button_back_inactive")]
+    on "show" action [Function(renpy.show, "i_2", zorder=2, at_list=[but_idle(2)]), Function(renpy.hide, "button_back_inactive")]
     imagebutton xalign 0.452 yalign 0.940:
         idle "round_2_hit"
         hovered [Hide("music_name", transition = Dissolve(0.2)), Function(set_value, 2), Function(renpy.show, "i_2", zorder=2, at_list=[but_hover(2)]), Show("actions_name", transition = Dissolve(0.2))]
-        unhovered [Show("music_name", transition = Dissolve(0.2)), Hide("actions_name", transition = Dissolve(0.2)), Function(set_value, 0), Function(renpy.show, "i_2", zorder=2, at_list=[but_idle(1)]),]
+        unhovered [Show("music_name", transition = Dissolve(0.2)), Hide("actions_name", transition = Dissolve(0.2)), Function(set_value, 0), Function(renpy.show, "i_2", zorder=2, at_list=[but_idle(2)])]
         focus_mask "round_2_hit"
         action [Function(save_back), Function(renpy.show, "button_back_inactive")]
 

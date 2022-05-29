@@ -14,8 +14,8 @@ label dia_requests:
                 n r1d "Ах да, совсем забыла предупредить о том, что главного меню у игры больше нет."
                 n r1c "Не волнуйся за это, сейчас всё исправлю."
                 n r1b "Подожди немного..."
-                #hide screen wowcup
-                #hide screen wowitscupcake
+                hide screen wowcup
+                hide screen wowitscupcake
                 scene black with Dissolve(1.0)
                 pause(10)
                 n "Всё, я закончила!"
@@ -55,6 +55,15 @@ label dia_requests:
                 $soungrad = persistent.soundgrad
                 $renpy.music.set_volume(vlm, channel="music")
                 $renpy.music.set_volume(soundvlm, channel="sound")
+
+                $avai_but = []
+                $but_count = 0
+                python:
+                    for key in curtain_buttons:
+                        if curtain_buttons[key] == True:
+                            but_count += 1
+                            avai_but.append(key)
+
                 call ch1_loop
 
             if persistent.repeat == 1:
@@ -94,14 +103,14 @@ label dia_requests:
                 n r1e "Мне и самой надоела эта мелодия на заднем фоне."
                 n "Какая-та она... {w}неприятная."
                 n r1c "Ладно, сейчас поищу в файлах игры что-то полезное."
-                #hide screen wowcup
-                #hide screen wowitscupcake
+                hide screen wowcup
+                hide screen wowitscupcake
                 scene black with Dissolve(1.0)
                 pause(10)
                 call natsuki_room
                 show natsuki r1 zorder 2
                 with Dissolve(1.0)
-                #show screen wowcup
+                show screen wowcup
                 n "Ха?"
                 n "Кажется я что-то нашла..."
                 if (not renpy.mobile):
@@ -373,6 +382,13 @@ label dia_requests:
             n "Если что, открывается на клавишу T."
             $persistent.themes = True
             $renpy.save_persistent()
+            $avai_but = []
+            $but_count = 0
+            python:
+                for key in curtain_buttons:
+                    if curtain_buttons[key] == True:
+                        but_count += 1
+                        avai_but.append(key)
             call ch1_loop
 
 

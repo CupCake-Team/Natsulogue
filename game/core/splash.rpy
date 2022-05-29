@@ -51,6 +51,8 @@ init python:
     music_path = os.getcwd() + "\\game\\"
     music_path = music_path.replace("\\", "/")
 
+    base_dir = config.basedir.replace("\\", "/")
+
     def random_ans():
         return random.choice(ref_ans)
 
@@ -455,8 +457,8 @@ default persistent.first_relation = False
 
 
 
-image rel_chibi_r = im.Scale("C:/Users/User/Desktop/Natsulogue/game/mod_assets/button/custom/cup_button_nat.png", 77, 78)
-image rel_chibi_l = im.Flip(im.Scale("C:/Users/User/Desktop/Natsulogue/game/mod_assets/button/custom/cup_button_nat.png", 77, 78), horizontal = True)
+image rel_chibi_r = im.Scale(base_dir+"/game/mod_assets/button/custom/cup_button_nat.png", 77, 78)
+image rel_chibi_l = im.Flip(im.Scale(base_dir+"/game/mod_assets/button/custom/cup_button_nat.png", 77, 78), horizontal = True)
 
 image splash_warning = ParameterizedText(style="splash_text", xalign=0.5, yalign=0.5)
 
