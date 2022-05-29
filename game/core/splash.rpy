@@ -223,6 +223,42 @@ init python:
 
         return relation
 
+    def relationcount(posi, neut, nega):
+        global cur_relation, relation, start_relation
+        if cur_relation == "Positive":
+            persistent.relation += posi
+        if cur_relation == "Neutral":
+            persistent.relation += neut
+        if cur_relation == "Negative":
+            persistent.relation += nega
+        cur_relation = relationship(persistent.relation)
+        renpy.save_persistent()
+        if cur_relation != start_relation:
+
+            renpy.show_screen("relation_chibi_show_l")
+            renpy.show_screen("relation_chibi_show_r")
+            renpy.show_screen("relation_show")
+            rel_chibi_coord_l = [get_chibi_coord("left"), 10]
+            rel_chibi_coord_r = [get_chibi_coord("right"), 10]
+
+            if start_relation == "Neutral" and cur_relation == "Positive":
+                start_relation = cur_relation
+                persistent.relation += 10
+                renpy.call("respect")
+            if start_relation == "Neutral" and cur_relation == "Negative":
+                start_relation = cur_relation
+                persistent.relation -= 10
+                renpy.call("disappointment")
+            if start_relation == "Positive" and cur_relation == "Neutral":
+                start_relation = cur_relation
+                persistent.relation -= 10
+                renpy.call("badfeelings")
+            if start_relation == "Negative" and cur_relation == "Neutral":
+                start_relation = cur_relation
+                persistent.relation += 10
+                renpy.call("muchbetter")
+
+
     sprite_names = [{"d":"default.png", "q1":"quote_1.png", "q2":"quote_2.png", "a":"angry.png"},
     {"a1":"angry_1.png", "a2":"angry_2.png", "a3":"angry_3.png", "c":"calm.png", "s1":"surprise_1.png", "s2":"surprise_2.png"},
     {"c":"calm.png", "cute":"cute.png", "h":"happy.png", "st1":"straight_1.png", "st2":"straight_2.png", "su1":"surprise_1.png", "su2":"surprise_2.png"},
@@ -257,6 +293,129 @@ init python:
 
 
 
+
+    cur_side = "left"
+
+
+
+
+    def hit_coord(b, state, coord):
+        global button_coord, avai_but, but_count, cur_side
+        if state == False:
+            return 0
+        else:
+            i = avai_but.index(b)
+            if coord == "x":
+                return button_coord[cur_side][but_count][i][0]
+            else:
+                return button_coord[cur_side][but_count][i][1]
+
+
+    def relation_chibi(s):
+        ani_var = renpy.random.randint(1,100)
+        if ani_var <= 30:
+            if cur_relation == "Positive":
+                if s == "left":
+                    if rel_chibi_coord_l[0] == 480 or rel_chibi_coord_l[0] == 520:
+                        ani_choice = renpy.random.randint(1,2)
+                        if ani_choice == 1:
+                            renpy.hide("rel_chibi_r")
+                            renpy.show("rel_chibi_l", at_list=[bounce(rel_chibi_coord_l[0], rel_chibi_coord_l[1])], zorder = 10, tag="l")
+                        else:
+                            if rel_chibi_coord_l[0] == 480:
+                                renpy.hide("rel_chibi_r")
+                                renpy.show("rel_chibi_l", at_list=[bounce_right(rel_chibi_coord_l[0], rel_chibi_coord_l[1])], zorder = 10, tag="l")
+                                rel_chibi_coord_l[0] += 10
+                            else:
+                                renpy.hide("rel_chibi_l")
+                                renpy.show("rel_chibi_r", at_list=[bounce_left(rel_chibi_coord_l[0], rel_chibi_coord_l[1])], zorder = 10, tag="l")
+                                rel_chibi_coord_l[0] -= 10
+
+                    else:
+                        ani_choice = renpy.random.randint(1,3)
+                        if ani_choice == 1:
+                            renpy.hide("rel_chibi_r")
+                            renpy.show("rel_chibi_l", at_list=[bounce(rel_chibi_coord_l[0], rel_chibi_coord_l[1])], zorder = 10, tag="l")
+                        if ani_choice == 2:
+                            renpy.hide("rel_chibi_r")
+                            renpy.show("rel_chibi_l", at_list=[bounce_right(rel_chibi_coord_l[0], rel_chibi_coord_l[1])], zorder = 10, tag="l")
+                            rel_chibi_coord_l[0] += 10
+                        if ani_choice == 3:
+                            renpy.hide("rel_chibi_l")
+                            renpy.show("rel_chibi_r", at_list=[bounce_left(rel_chibi_coord_l[0], rel_chibi_coord_l[1])], zorder = 10, tag="l")
+                            rel_chibi_coord_l[0] -= 10
+
+                else:
+                    if rel_chibi_coord_r[0] == 680 or rel_chibi_coord_r[0] == 720:
+                        ani_choice = renpy.random.randint(1,2)
+                        if ani_choice == 1:
+                            renpy.hide("rel_chibi_r")
+                            renpy.show("rel_chibi_l", at_list=[bounce(rel_chibi_coord_r[0], rel_chibi_coord_r[1])], zorder = 10, tag="r")
+                        else:
+                            if rel_chibi_coord_r[0] == 680:
+                                renpy.hide("rel_chibi_r")
+                                renpy.show("rel_chibi_l", at_list=[bounce_right(rel_chibi_coord_r[0], rel_chibi_coord_r[1])], zorder = 10, tag="r")
+                                rel_chibi_coord_r[0] += 10
+                            else:
+                                renpy.hide("rel_chibi_l")
+                                renpy.show("rel_chibi_r", at_list=[bounce_left(rel_chibi_coord_r[0], rel_chibi_coord_r[1])], zorder = 10, tag="r")
+                                rel_chibi_coord_r[0] -= 10
+
+                    else:
+                        ani_choice = renpy.random.randint(1,3)
+                        if ani_choice == 1:
+                            renpy.hide("rel_chibi_r")
+                            renpy.show("rel_chibi_l", at_list=[bounce(rel_chibi_coord_r[0], rel_chibi_coord_r[1])], zorder = 10, tag="r")
+                        if ani_choice == 2:
+                            renpy.hide("rel_chibi_r")
+                            renpy.show("rel_chibi_l", at_list=[bounce_right(rel_chibi_coord_r[0], rel_chibi_coord_r[1])], zorder = 10, tag="r")
+                            rel_chibi_coord_r[0] += 10
+                        if ani_choice == 3:
+                            renpy.hide("rel_chibi_l")
+                            renpy.show("rel_chibi_r", at_list=[bounce_left(rel_chibi_coord_r[0], rel_chibi_coord_r[1])], zorder = 10, tag="r")
+                            rel_chibi_coord_r[0] -= 10
+
+            if cur_relation == "Neutral":
+                if s == "left":
+                    ani_choice = renpy.random.randint(1,2)
+                    if ani_choice == 1:
+                        renpy.hide("rel_chibi_r")
+                        renpy.show("rel_chibi_l", at_list=[bounce(rel_chibi_coord_l[0], rel_chibi_coord_l[1])], zorder = 10, tag="l")
+                    else:
+                        renpy.hide("rel_chibi_l")
+                        renpy.show("rel_chibi_r", at_list=[bounce(rel_chibi_coord_l[0], rel_chibi_coord_l[1])], zorder = 10, tag="l")
+
+                else:
+                    ani_choice = renpy.random.randint(1,2)
+                    if ani_choice == 1:
+                        renpy.hide("rel_chibi_r")
+                        renpy.show("rel_chibi_l", at_list=[bounce(rel_chibi_coord_r[0], rel_chibi_coord_r[1])], zorder = 10, tag="r")
+                    else:
+                        renpy.hide("rel_chibi_l")
+                        renpy.show("rel_chibi_r", at_list=[bounce(rel_chibi_coord_r[0], rel_chibi_coord_r[1])], zorder = 10, tag="r")
+
+    relation_stat = {"Positive":{"ru":"Позитивное","en":"Positive"}, "Neutral":{"ru":"Нейтральное", "en":"Neutral"}, "Negative":{"ru":"Негативное", "en":"Negative"}}
+
+    def return_relation_stat(rel):
+        global lang
+        return relation_stat[rel][lang]
+
+    def get_chibi_coord(s):
+        sym_len = len(return_relation_stat(cur_relation))
+        if s == "left":
+            if sym_len%2==0:
+                return 640 - sym_len/2*16 - 77 - 20
+            else:
+                return 640 - (sym_len-1)/2*16 - 77 - 20
+        else:
+            if sym_len%2==0:
+                return 640 + sym_len/2*16 + 20
+            else:
+                return 640 + (sym_len-1)/2*16 + 20
+
+
+
+
 default l_u_l = True
 default r_u_l = True
 default r_d_l = True
@@ -286,12 +445,19 @@ default mob_menu = True
 default persistent.fix = False
 default persistent.set_broke = None
 default persistent.themes = False
-default persistent.relation = 50
+default persistent.relation = 95
+default persistent.repeats = {}
+default persistent.cur_interval = 50
+default persistent.clothes = "school"
+default persistent.change_clothes = False
+default persistent.sprite_side = "Rand"
+default persistent.show_relation = False
+default persistent.first_relation = False
 
 
-$cur_relation = relationship(persistent.relation)
 
-
+image rel_chibi_r = im.Scale("C:/Users/User/Desktop/Natsulogue/game/mod_assets/button/custom/cup_button_nat.png", 77, 78)
+image rel_chibi_l = im.Flip(im.Scale("C:/Users/User/Desktop/Natsulogue/game/mod_assets/button/custom/cup_button_nat.png", 77, 78), horizontal = True)
 
 image splash_warning = ParameterizedText(style="splash_text", xalign=0.5, yalign=0.5)
 
@@ -441,6 +607,10 @@ image tos2 = "bg/warning2.png"
 
 label splashscreen:
     default persistent.has_load = False
+    $cur_relation = relationship(persistent.relation)
+    $start_relation = cur_relation
+    $rel_chibi_coord_l = [get_chibi_coord("left"), 10]
+    $rel_chibi_coord_r = [get_chibi_coord("right"), 10]
 
     if persistent.is_full:
         show screen set_on_beginning

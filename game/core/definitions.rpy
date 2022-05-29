@@ -245,70 +245,38 @@ image glitch_color2:
 init -100 python:
     base = []
 
-# image natsuki r1:
-#     im.Composite((1663, 1211), (0, 0), "mod_assets/natsuki/1.png", (40, -310), "mod_assets/natsuki/a.png")
-#     zoom 0.5
-image natsuki r1 = nat_sprite("sd", "s2", "su1", "su", None)
-# image natsuki r1a:
-#     im.Composite((1663, 1211), (0, 0), "mod_assets/natsuki/1.png", (40, -310), "mod_assets/natsuki/a.png")
-#     zoom 0.5
-image natsuki r1a = nat_sprite("sd", "s2", "su1", "su", None)
-# image natsuki r1b:
-#     im.Composite((1663, 1211), (0, 0), "mod_assets/natsuki/1.png", (40, -310), "mod_assets/natsuki/b.png")
-#     zoom 0.5
-image natsuki r1b = nat_sprite("sd", "a3", "su1", "s", None)
-# image natsuki r1c:
-#     im.Composite((1663, 1211), (0, 0), "mod_assets/natsuki/1.png", (40, -310), "mod_assets/natsuki/c.png")
-#     zoom 0.5
-image natsuki r1c = nat_sprite("sd", "c", "st1", "sh", None)
-# image natsuki r1d:
-#     im.Composite((1663, 1211), (0, 0), "mod_assets/natsuki/1.png", (40, -310), "mod_assets/natsuki/d.png")
-#     zoom 0.5
-image natsuki r1d = nat_sprite("sd", "s1", "st1", "fa", None)
-# image natsuki r1e:
-#     im.Composite((1663, 1211), (0, 0), "mod_assets/natsuki/1.png", (40, -310), "mod_assets/natsuki/e.png")
-#     zoom 0.5
-image natsuki r1e = nat_sprite("sd", "s1", "su1", "t1", None)
-# image natsuki r1f:
-#     im.Composite((1663, 1211), (0, 0), "mod_assets/natsuki/1.png", (40, -310), "mod_assets/natsuki/f.png")
-#     zoom 0.5
-image natsuki r1f = nat_sprite("sd", "s2", "st1", "fa", None)
-# image natsuki r1g:
-#     im.Composite((1663, 1211), (0, 0), "mod_assets/natsuki/1.png", (40, -310), "mod_assets/natsuki/g.png")
-#     zoom 0.5
-image natsuki r1g = nat_sprite("sd", "s2", "su1", "t1", None)
-# image natsuki r1h:
-#     im.Composite((1663, 1211), (0, 0), "mod_assets/natsuki/1.png", (40, -310), "mod_assets/natsuki/h.png")
-#     zoom 0.5
-image natsuki r1h = nat_sprite("sd", "s1", "h", "t1", "l")
-# image natsuki r1i:
-#     im.Composite((1663, 1211), (0, 0), "mod_assets/natsuki/1.png", (40, -310), "mod_assets/natsuki/i.png")
-#     zoom 0.5
-image natsuki r1i = nat_sprite("sd", "c", "st1", "su", None)
-# image natsuki r1j:
-#     im.Composite((1663, 1211), (0, 0), "mod_assets/natsuki/1.png", (40, -310), "mod_assets/natsuki/j.png")
-#     zoom 0.5
-image natsuki r1j = nat_sprite("sd", "a3", "su1", "fr", "h")
-# image natsuki r1k:
-#     im.Composite((1663, 1211), (0, 0), "mod_assets/natsuki/1.png", (40, -310), "mod_assets/natsuki/k.png")
-#     zoom 0.5
-image natsuki r1k = nat_sprite("sd", "a1", "c", "s", "l")
-# image natsuki r1l:
-#     im.Composite((1663, 1211), (0, 0), "mod_assets/natsuki/1.png", (40, -310), "mod_assets/natsuki/l.png")
-#     zoom 0.5
-image natsuki r1l = nat_sprite("sd", "a1", "c", "t1", "l")
-# image natsuki r1m:
-#     im.Composite((1663, 1211), (0, 0), "mod_assets/natsuki/1.png", (40, -310), "mod_assets/natsuki/m.png")
-#     zoom 0.5
-image natsuki r1m = nat_sprite("sd", "a1", "st1", "s", "l")
-# image natsuki r1n:
-#     im.Composite((1663, 1211), (0, 0), "mod_assets/natsuki/1.png", (40, -310), "mod_assets/natsuki/n.png")
-#     zoom 0.5
-image natsuki r1n = nat_sprite("sd", "a1", "st1", "t1", "l")
-# image natsuki r1o:
-#     im.Composite((1663, 1211), (0, 0), "mod_assets/natsuki/1.png", (40, -310), "mod_assets/natsuki/o.png")
-#     zoom 0.5
-image natsuki r1o = nat_sprite("sd", "s1", "c", "fa", None)
+
+image natsuki r1 = ConditionSwitch("persistent.clothes == 'casual'", nat_sprite("cd", "s2", "su1", "su", None), "True", nat_sprite("sd", "s2", "su1", "su", None))
+
+image natsuki r1a = ConditionSwitch("persistent.clothes == 'casual'", nat_sprite("cd", "s2", "su1", "su", None), "True", nat_sprite("sd", "s2", "su1", "su", None))
+
+image natsuki r1b = ConditionSwitch("persistent.clothes == 'casual'", nat_sprite("cd", "a3", "su1", "s", None), "True", nat_sprite("sd", "a3", "su1", "s", None))
+
+image natsuki r1c = ConditionSwitch("persistent.clothes == 'casual'", nat_sprite("cd", "c", "st1", "sh", None), "True", nat_sprite("sd", "c", "st1", "sh", None))
+
+image natsuki r1d = ConditionSwitch("persistent.clothes == 'casual'", nat_sprite("cd", "s1", "st1", "fa", None), "True", nat_sprite("sd", "s1", "st1", "fa", None))
+
+image natsuki r1e = ConditionSwitch("persistent.clothes == 'casual'", nat_sprite("cd", "s1", "su1", "t1", None), "True", nat_sprite("sd", "s1", "su1", "t1", None))
+
+image natsuki r1f = ConditionSwitch("persistent.clothes == 'casual'", nat_sprite("cd", "s2", "st1", "fa", None), "True", nat_sprite("sd", "s2", "st1", "fa", None))
+
+image natsuki r1g = ConditionSwitch("persistent.clothes == 'casual'", nat_sprite("cd", "s2", "su1", "t1", None), "True", nat_sprite("sd", "s2", "su1", "t1", None))
+
+image natsuki r1h = ConditionSwitch("persistent.clothes == 'casual'", nat_sprite("cd", "s1", "h", "t1", "l"), "True", nat_sprite("sd", "s1", "h", "t1", "l"))
+
+image natsuki r1i = ConditionSwitch("persistent.clothes == 'casual'", nat_sprite("cd", "c", "st1", "su", None), "True", nat_sprite("sd", "c", "st1", "su", None))
+
+image natsuki r1j = ConditionSwitch("persistent.clothes == 'casual'", nat_sprite("cd", "a3", "su1", "fr", "h"), "True", nat_sprite("sd", "a3", "su1", "fr", "h"))
+
+image natsuki r1k = ConditionSwitch("persistent.clothes == 'casual'", nat_sprite("cd", "a1", "c", "s", "l"), "True", nat_sprite("sd", "a1", "c", "s", "l"))
+
+image natsuki r1l = ConditionSwitch("persistent.clothes == 'casual'", nat_sprite("cd", "a1", "c", "t1", "l"), "True", nat_sprite("sd", "a1", "c", "t1", "l"))
+
+image natsuki r1m = ConditionSwitch("persistent.clothes == 'casual'", nat_sprite("cd", "a1", "st1", "s", "l"), "True", nat_sprite("sd", "a1", "st1", "s", "l"))
+
+image natsuki r1n = ConditionSwitch("persistent.clothes == 'casual'", nat_sprite("cd", "a1", "st1", "t1", "l"), "True", nat_sprite("sd", "a1", "st1", "t1", "l"))
+
+image natsuki r1o = ConditionSwitch("persistent.clothes == 'casual'", nat_sprite("cd", "s1", "c", "fa", None), "True", nat_sprite("sd", "s1", "c", "fa", None))
 
 
 image sayori glitch:
@@ -651,7 +619,7 @@ image space1 = Movie(play="mod_assets/vid_mask_2.webm")
 image space2 = Movie(play="mod_assets/vid_mask_3.webm")
 image just1 nat = "mod_assets/images/cg/monika/nat_bg.png"
 image move nat = "mod_assets/natsuki/table/desk.png"
-image vol_mask = LiveComposite((1280, 720), (0,0), "mod_assets/natsuki/table/desk.png", (0,0), "mod_assets/natsuki/table/desk_sh.png")
+image vol_mask = LiveComposite((1280, 720), (0,12), "mod_assets/natsuki/table/desk.png", (0,12), "mod_assets/natsuki/table/desk_sh.png")
 
 
 image n_rects_mouth:
