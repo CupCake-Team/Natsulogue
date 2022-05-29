@@ -9,14 +9,14 @@ init python:
 
     curtain_buttons = {"mod_assets/button/custom/curtain_mus.png":persistent.ch_vol, "mod_assets/button/custom/curtain_sound.png":persistent.ch_vol, "mod_assets/button/custom/curtain_play.png":persistent.ch_mus, "mod_assets/button/custom/curtain_theme.png":persistent.themes, "mod_assets/button/custom/curtain_add.png":True}
 
-    button_coord = {"left":{1:[(0,360-37)],
+    button_coord = {"left":{1:[(0,360)],
     2:[(0,360-75-persistent.cur_interval/2), (0, 360+persistent.cur_interval/2)],
-    3:[(0, 360-37-persistent.cur_interval-75), (0, 360-37), (0, 360+75+persistent.cur_interval)],
+    3:[(0, 360-persistent.cur_interval-75), (0, 360), (0, 360+75+persistent.cur_interval)],
     4:[(0, 360-75-persistent.cur_interval/2-75-persistent.cur_interval), (0, 360-75-persistent.cur_interval/2), (0, 360+persistent.cur_interval/2), (0, 360+persistent.cur_interval/2+75+persistent.cur_interval)],
     5:[(0, 360-persistent.cur_interval-75-75-persistent.cur_interval), (0, 360-persistent.cur_interval-75), (0, 360), (0, 360+75+persistent.cur_interval), (0, 360+75+persistent.cur_interval+75+persistent.cur_interval)]},
-    "right":{1:[(1203,360-37)],
+    "right":{1:[(1203,360)],
     2:[(1203,360-75-persistent.cur_interval/2), (1203, 360+persistent.cur_interval/2)],
-    3:[(1203, 360-37-persistent.cur_interval-75), (1203, 360-37), (1203, 360+75+persistent.cur_interval)],
+    3:[(1203, 360-persistent.cur_interval-75), (1203, 360), (1203, 360+75+persistent.cur_interval)],
     4:[(1203, 360-75-persistent.cur_interval/2-75-persistent.cur_interval), (1203, 360-75-persistent.cur_interval/2), (1203, 360+persistent.cur_interval/2), (1203, 360+persistent.cur_interval/2+75+persistent.cur_interval)],
     5:[(1203, 360-persistent.cur_interval-75-75-persistent.cur_interval), (1203, 360-persistent.cur_interval-75), (1203, 360), (1203, 360+75+persistent.cur_interval), (1203, 360+75+persistent.cur_interval+75+persistent.cur_interval)]}}
 
