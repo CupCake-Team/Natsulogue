@@ -951,50 +951,163 @@ label cute:
     jump baking_con
 
 
-label exit_lesshour:
+label exit_lesshour(bye):
     $ config.allow_skipping = False
     $ renpy.save_persistent()
     $ config.skipping = False
     $ allow_skipping = False
     $ quick_menu = False
-    n "А?"
-    n "Только хотела мысленно попрощаться с тобой, как ты уже вернулся."
-    n "Неужели так быстро заскучал?~"
-    n "Ладно, неважно..."
-    n "С возвращением."
+    if bye == "with":
+        if cur_relation == "Neutral":
+            n "А?"
+            n "Только хотела мысленно попрощаться с тобой, как ты уже вернулся."
+            n "Неужели так быстро заскучал?~"
+            n "Ладно, неважно..."
+            n "С возвращением."
+
+        if cur_relation == "Positive":
+            n "Быстро ты, однако!"
+            n "Я даже соскучиться не успела, хи-хи-хи..."
+            n "Ну, проходи, чего в дверном проёме стоишь?"
+            n "Ладно, это было не очень смешно."
+
+        if cur_relation == "Negative":
+            n "Поглядите кто вернулся!"
+            n "Дурашка, уходи..."
+            n "Тебе здесь никто не рад."
+
+    if bye == "without":
+        if cur_relation == "Neutral":
+            n r1e "О, всё–таки вернулся."
+            n "Ты почему не попрощался со мной?"
+            n r1b "Как-то неприлично с твоей стороны, дурашка..."
+            n r1e "Ладно, я тебя прощаю, но чтобы такого больше не было!"
+
+        if cur_relation == "Positive":
+            n "Хм-м..."
+            n "Тебе срочно понадобилось отойти, как я понимаю?"
+            n "Просто ты быстро ушёл, без предупреждения и тут же вернулся."
+            n "Ладно, я тебя не виню, всякое в жизни бывает."
+            n "Присаживайся!"
+
+        if cur_relation == "Negative":
+            n "..."
+            n "Уйди, пожалуйста."
+            n "Я прекрасно проводила время, пока ты не пришёл."
+            n "Вали с глаз долой."
+
+        $relationcount(-2,-2,-2)
+        show natsuki r1b
+
     call ch1_loop
 
-label exit_lessday:
+label exit_lessday(bye):
     $ config.allow_skipping = False
     $ renpy.save_persistent()
     $ config.skipping = False
     $ allow_skipping = False
     $ quick_menu = False
-    n "..."
-    n r1e "Решил–таки вернуться?"
-    n r1g "Это очень мило с твоей стороны."
-    n r1e "Слушай, не мог бы навещать меня почаще?"
-    n r1n "Просто... {w}Мне даже поговорить не с кем..."
+    if bye == "with":
+        if cur_relation == "Neutral":
+            n "..."
+            n r1e "Решил–таки вернуться?"
+            n r1g "Это очень мило с твоей стороны."
+            n r1e "Слушай, не мог бы навещать меня почаще?"
+            n r1n "Просто... {w}Мне даже поговорить не с кем..."
+
+        if cur_relation == "Positive":
+            n "О, ты пришёл!.."
+            n "Я уже устала тебя ждать, если честно..."
+            n "Надеюсь у тебя всё хорошо, [player]."
+            n "Всё-таки я беспокоюсь о тебе."
+
+        if cur_relation == "Negative":
+            n "Поглядите кто вернулся!"
+            n "Дурашка, уходи..."
+            n "Тебе здесь никто не рад."
+
+    if bye == "without":
+        if cur_relation == "Neutral":
+            n "О, всё-таки вернулся."
+            n "Мне казалось, что ты ушёл надолго..."
+            n "Пожалуйста, не покидай меня так резко."
+            n "Предупредить ведь несложно, верно?"
+
+        if cur_relation == "Positive":
+            n "Вернулся..."
+            n "Скажи, что-то случилось?"
+            n "Понадобилось срочно уйти?"
+            n "Просто ты так резко ушёл, даже не попрощавшись..."
+            n "Если что, я пойму... {w}Просто в следующий раз не забывай о том, чтобы предупредить о своём уходе."
+            n "Не заставляй меня волноваться за тебя..."
+
+        if cur_relation == "Negative":
+            n "..."
+            n "Уйди, пожалуйста."
+            n "Я прекрасно проводила время, пока ты не пришёл."
+            n "Вали с глаз долой."
+
+        $relationcount(-2,-2,-2)
+
     show natsuki r1b
     call ch1_loop
 
-label exit_moreday:
+label exit_moreday(bye):
     $renpy.block_rollback()
     $ config.allow_skipping = False
     $ renpy.save_persistent()
     $ config.skipping = False
     $ allow_skipping = False
     $ quick_menu = False
-    n r1e "И что это было?.."
-    n "Почему ты не заходил ко мне так долго?"
-    n "Мне почему-то показалось, что ты пошутил и скоро вернёшься."
-    n "Ты хоть знаешь, насколько здесь скучно?"
-    n r1b "Я даже мангу не могу почитать..."
-    n r1e "Мне придётся ещё очень долго изучать программирование, чтобы как-то повлиять на игру."
-    n "Поэтому я прошу тебя... {w}Не уходи так надолго."
-    n "Надеюсь, что мы поняли друг друга."
-    show natsuki r1c
+    if bye == "with":
+        if cur_relation == "Neutral":
+            n r1e "И что это было?.."
+            n "Почему ты не заходил ко мне так долго?"
+            n "Мне почему-то показалось, что ты пошутил и скоро вернёшься."
+            n "Ты хоть знаешь, насколько здесь скучно?"
+            n r1b "Я даже мангу не могу почитать..."
+            n r1e "Мне придётся ещё очень долго изучать программирование, чтобы как-то повлиять на игру."
+            n "Поэтому я прошу тебя... {w}Не уходи так надолго."
+            n "Надеюсь, что мы поняли друг друга."
 
+        if cur_relation == "Positive":
+            n "..."
+            n "[player]!"
+            n "Вернулся!"
+            n "Я так сильно ждала тебя..."
+            n "Ты где был?"
+            n "Пожалуйста, не покидай меня так больше, ладно?"
+            n "А то я так с ума сойду..."
+
+        if cur_relation == "Negative":
+            n "Поглядите кто вернулся!"
+            n "Дурашка, уходи..."
+            n "Тебе здесь никто не рад."
+
+    if bye == "without":
+        if cur_relation == "Neutral":
+            n r1b "..."
+            n r1e "Мне почему–то казалось, что ты не придёшь."
+            n "Пожалуйста, в следующий раз предупреждай о том, что собираешься уйти, ладно?"
+            n r1b "Скажи спасибо за то, что у меня хорошее настроение, иначе я бы сейчас с тобой поругалась..."
+
+        if cur_relation == "Positive":
+            n "Ты где был?!"
+            n "Я уже успела не на шутку испугаться, думала, что ты уже не вернёшься..."
+            n "Сперва резко пропал, потом долго не заходил и теперь явился."
+            n "Это очень некрасиво, [player]..."
+            n "Не стоит играть на моих нервах, хорошо?"
+            n "Надеюсь мы поняли друг друга и больше такого не повторится"
+
+        if cur_relation == "Negative":
+            n "..."
+            n "Уйди, пожалуйста."
+            n "Я прекрасно проводила время, пока ты не пришёл."
+            n "Вали с глаз долой."
+
+        $relationcount(-2,-2,-2)
+
+    show natsuki r1c
     call ch1_loop
 
 
@@ -1021,16 +1134,19 @@ label ch1_loop:
     if persistent.ch_vol == True:
         show screen sound_volume_key
         show screen volume_key
-        show screen sett_curtain
 
     if persistent.ch_mus == True:
         show screen music_key
-        show screen sett_curtain
 
     if persistent.themes == True:
         show screen theme_key
-        show screen sett_curtain
 
+    show screen sett_curtain
+
+    if persistent.show_relation == True:
+        show screen relation_chibi_show_l
+        show screen relation_chibi_show_r
+        show screen relation_show
 
     call screen talk_button
 
@@ -1097,57 +1213,54 @@ label ch1_exit:
             jump what_was_that
 
 
-
-    if persistent.bye == False and persistent.set_broke == True:
-        $rand_ans = renpy.random.randint(1,2)
-
-        if rand_ans == 1:
-            n r1e "О, всё–таки вернулся."
-            n "Ты почему не попрощался со мной?"
-            n r1b "Как-то неприлично с твоей стороны, дурашка..."
-            n r1e "Ладно, я тебя прощаю, но чтобы такого больше не было!"
-            show natsuki r1b
-
-
-        if rand_ans == 2:
-            n r1b "..."
-            n r1e "Мне почему–то казалось, что ты не придёшь."
-            n "Пожалуйста, в следующий раз предупреждай о том, что собираешься уйти, ладно?"
-            n r1b "Скажи спасибо за то, что у меня хорошее настроение, иначе я бы сейчас с тобой поругалась..."
-
-        call ch1_loop
-
-    else:
-        $persistent.bye = False
-        $renpy.save_persistent()
-
-
-
     python:
         if persistent.exp_time != 0:
             nowtime = (datetime.datetime.now()-datetime.datetime(1970,1,1)).total_seconds()
             lonelytime = nowtime - persistent.exp_time
             renpy.save_persistent()
 
+            if persistent.bye == False and persistent.set_broke == True:
+                if lonelytime < 0:
+                    renpy.show("natsuki r1e")
+                    renpy.say(n, "Ломаешь игровую систему через время?")
+                    renpy.show("natsuki r1d")
+                    renpy.say(n, "Думаешь, это сработает?")
+                    renpy.show("natsuki r1c")
+                    renpy.say(n, "Хотя, вдруг ты это сделал случайно...")
+                    renpy.show("natsuki r1e")
+                    renpy.say(n, "В любом случае, зачем перематываешь время назад?")
+                    renpy.say(n, "Перестань так делать, пожалуйста, а то ещё сломаешь что-то.")
+                    renpy.call("ch1_loop")
 
-            if lonelytime < 0:
-                renpy.show("natsuki r1e")
-                renpy.say(n, "Ломаешь игровую систему через время?")
-                renpy.show("natsuki r1d")
-                renpy.say(n, "Думаешь, это сработает?")
-                renpy.show("natsuki r1c")
-                renpy.say(n, "Хотя, вдруг ты это сделал случайно...")
-                renpy.show("natsuki r1e")
-                renpy.say(n, "В любом случае, зачем перематываешь время назад?")
-                renpy.say(n, "Перестань так делать, пожалуйста, а то ещё сломаешь что-то.")
-                renpy.call("ch1_loop")
+                if lonelytime < 3600:
+                    renpy.call("exit_lesshour", "without")
+                if lonelytime > 3600 and lonelytime < 86400:
+                    renpy.call("exit_lessday", "without")
+                if lonelytime > 86400:
+                    renpy.call("exit_moreday", "without")
 
-            if lonelytime < 3600:
-                renpy.call("exit_lesshour")
-            if lonelytime > 3600 and lonelytime < 86400:
-                renpy.call("exit_lessday")
-            if lonelytime > 86400:
-                renpy.call("exit_moreday")
+            else:
+                persistent.bye = False
+                renpy.save_persistent()
+
+                if lonelytime < 0:
+                    renpy.show("natsuki r1e")
+                    renpy.say(n, "Ломаешь игровую систему через время?")
+                    renpy.show("natsuki r1d")
+                    renpy.say(n, "Думаешь, это сработает?")
+                    renpy.show("natsuki r1c")
+                    renpy.say(n, "Хотя, вдруг ты это сделал случайно...")
+                    renpy.show("natsuki r1e")
+                    renpy.say(n, "В любом случае, зачем перематываешь время назад?")
+                    renpy.say(n, "Перестань так делать, пожалуйста, а то ещё сломаешь что-то.")
+                    renpy.call("ch1_loop")
+
+                if lonelytime < 3600:
+                    renpy.call("exit_lesshour", "with")
+                if lonelytime > 3600 and lonelytime < 86400:
+                    renpy.call("exit_lessday", "with")
+                if lonelytime > 86400:
+                    renpy.call("exit_moreday", "with")
 
 
         else:
@@ -1256,6 +1369,7 @@ label win:
 
 
     elif result == 'O':
+        $relationcount(+1,+1,+1)
         if persistent.f_game == 1:
             n r1d "Это было как–то слишком просто."
             n "Только не нужно унывать, если хочешь можем сыграть ещё раз."
@@ -1402,15 +1516,8 @@ label change_side:
 
 
 label set_buttons:
-    $lr = renpy.random.randint(1,2)
-    if lr == 1:
-        $left = True
-        $right = False
-    else:
-        $right = True
-        $left = False
+    $set_side()
 
-    $side()
     menu:
         "Режим экрана":
             $ n_f_key = renpy.input("Введи букву, а затем нажми Enter.", length=1)
@@ -1618,3 +1725,58 @@ label mob_sound:
     show screen sound_mob_enable_change
     $ui.interact()
     jump mob_sound
+
+
+label additional_settings():
+    if cur_side == "right":
+        $left = True
+        $right = False
+    else:
+        $right = True
+        $left = False
+
+    $side()
+    menu:
+        "Сторона сдвига спрайта":
+            menu:
+                "Влево":
+                    $persistent.sprite_side = "left"
+                    $renpy.save_persistent()
+                    $side_return()
+                "Вправо":
+                    $persistent.sprite_side = "right"
+                    $renpy.save_persistent()
+                    $side_return()
+                "Случайно":
+                    $persistent.sprite_side = "Rand"
+                    $renpy.save_persistent()
+                    $side_return()
+
+        "???" if persistent.first_relation == False:
+            $side_return()
+            n "Э-эй!"
+            n "Так нечестно!"
+            n "Не думала я, что ты найдёшь эту функцию."
+            n "..."
+            n "Ладно, можешь оставить её включённой."
+            n "Может так мы быстрее научимся доверять друг другу?"
+            $persistent.first_relation = True
+            $persistent.show_relation = True
+            $renpy.save_persistent()
+
+        "Скрыть счетчик" if persistent.show_relation == True and persistent.first_relation == True:
+            $side_return()
+            hide screen relation_chibi_show_l
+            hide screen relation_chibi_show_r
+            hide screen relation_show
+            hide l
+            hide r
+            $persistent.show_relation = False
+            $renpy.save_persistent()
+
+        "Показать счетчик" if persistent.show_relation == False and persistent.first_relation == True:
+            $side_return()
+            $persistent.show_relation = True
+            $renpy.save_persistent()
+
+    call ch1_loop

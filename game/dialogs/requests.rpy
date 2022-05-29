@@ -1,22 +1,12 @@
 label dia_requests:
-    $left = False
-    $right = False
-    $lr = renpy.random.randint(1,2)
-    if lr == 1:
-        $left = True
-        $right = False
-    else:
-        $right = True
-        $left = False
-
-    $side()
+    $set_side()
 
     $dia_hide()
 
     $ans = random_ans()
 
     menu:
-        "{i}Я бы хотел изменить громкость звука...{/i}":
+        "{i}Я бы хотел изменить громкость звука...{/i}" if cur_relation != "Negative":
             hide screen countdown
             $side_return()
 
@@ -84,16 +74,18 @@ label dia_requests:
                 call ch1_loop
 
             if persistent.repeat == 2:
+
                 n r1l "Знаешь, уже не смешно..."
                 n r1n "Ты это делаешь ради прикола?"
                 n "Я тебе уже два раза объясняла что к чему."
                 n "Неужели мало?"
                 n "Так, всё, достал меня, разбирайся сам."
                 n r1m "Метод тыка тебе в помощь, болвашка."
+                $relationcount(-1,-1,-1)
                 show natsuki r1b
                 call ch1_loop
 
-        "{i}Я бы хотел поменять музыку...{/i}" if persistent.mus_repeat == 0 or persistent.mus_repeat == 1:
+        "{i}Я бы хотел поменять музыку...{/i}" if (persistent.mus_repeat == 0 or persistent.mus_repeat == 1) and cur_relation != "Negative" :
             hide screen countdown
             $side_return()
             if persistent.mus_repeat == 0:
@@ -169,7 +161,7 @@ label dia_requests:
 
                 call ch1_loop
 
-        "{i}Можешь поставить музыку, которая тебе нравится?{/i}" if persistent.mus_repeat == 2:
+        "{i}Можешь поставить музыку, которая тебе нравится?{/i}" if persistent.mus_repeat == 2 and cur_relation != "Negative":
             hide screen countdown
             $side_return()
 
@@ -203,11 +195,9 @@ label dia_requests:
             call ch1_loop
 
 
-        "{i}Мне бы хотелось поиграть с тобой во что-то...{/i}" if persistent.f_game == 0:
+        "{i}Мне бы хотелось поиграть с тобой во что-то...{/i}" if persistent.f_game == 0 and cur_relation != "Negative":
             hide screen countdown
             $side_return()
-            $left = False
-            $right = False
             n r1e "Поиграть?"
             n r1d "Хм... {w}О, точно!"
             n r1c "В коде игры кое–что осталось."
@@ -219,13 +209,7 @@ label dia_requests:
             show natsuki r1c
             menu:
                 "Да.":
-                    $lr = renpy.random.randint(1,2)
-                    if lr == 1:
-                        $left = True
-                        $right = False
-                    else:
-                        $right = True
-                        $left = False
+                    $set_side()
                     n r1e "Тогда чего мы ждём?"
                     n r1g "Погнали!"
                     n r1f "Кстати, я нашла функцию вероятности..."
@@ -235,34 +219,35 @@ label dia_requests:
                     $renpy.save_persistent()
                     $initialize_game()
                     $rand_turn = random.randint(1,2)
-                    if rand_turn == 1 and left == True:
+                    if rand_turn == 1:
                         n r1d "Я хожу первой!"
-                        show natsuki r1c:
-                            xcenter 630
-                            easein 1.00 xcenter 330
-                        show cft_pole zorder 2 at for_field_l
+                        if left == True:
+                            show natsuki r1c:
+                                xcenter 630
+                                easein 1.00 xcenter 330
+                            show cft_pole zorder 2 at for_field_l
+                        else:
+                            show natsuki r1c:
+                                xcenter 630
+                                easein 1.00 xcenter 930
+                            show cft_pole zorder 2 at for_field_r
                         jump change_side
-                    if rand_turn == 1 and right == True:
-                        n r1d "Я хожу первой!"
-                        show natsuki r1c:
-                            xcenter 630
-                            easein 1.00 xcenter 930
-                        show cft_pole zorder 2 at for_field_r
-                        jump change_side
-                    if rand_turn == 2 and left == True:
+
+                    if rand_turn == 2:
                         n r1d "Ты ходишь первым."
-                        show natsuki r1c:
-                            xcenter 630
-                            easein 1.00 xcenter 330
-                        show cft_pole zorder 2 at for_field_l
-                        call screen cup_fork_toe("left", None)
-                    if rand_turn == 2 and right == True:
-                        n r1d "Ты ходишь первым."
-                        show natsuki r1c:
-                            xcenter 630
-                            easein 1.00 xcenter 930
-                        show cft_pole zorder 2 at for_field_r
-                        call screen cup_fork_toe("right", None)
+                        if left == True:
+                            show natsuki r1c:
+                                xcenter 630
+                                easein 1.00 xcenter 330
+                            show cft_pole zorder 2 at for_field_l
+                            call screen cup_fork_toe("left", None)
+                        else:
+                            show natsuki r1c:
+                                xcenter 630
+                                easein 1.00 xcenter 930
+                            show cft_pole zorder 2 at for_field_r
+                            call screen cup_fork_toe("right", None)
+
 
                 "Нет.":
                     $lr = renpy.random.randint(1,2)
@@ -280,7 +265,7 @@ label dia_requests:
                     call ch1_loop
 
 
-        "{i}Я бы хотел поиграть с тобой в вилочки-кексики...{/i}" if persistent.f_game >= 1:
+        "{i}Я бы хотел поиграть с тобой в вилочки-кексики...{/i}" if persistent.f_game >= 1 and cur_relation != "Negative":
             hide screen countdown
             $side_return()
             $r_ans = random.randint(1,2)
@@ -290,38 +275,39 @@ label dia_requests:
                 n r1d "Давай, я не против."
             $initialize_game()
             $rand_turn = random.randint(1,2)
-            if rand_turn == 1 and left == True:
+            if rand_turn == 1:
                 n r1d "Я хожу первой!"
-                show natsuki r1c:
-                    xcenter 630
-                    easein 1.00 xcenter 330
-                show cft_pole zorder 2 at for_field_l
+                if left == True:
+                    show natsuki r1c:
+                        xcenter 630
+                        easein 1.00 xcenter 330
+                    show cft_pole zorder 2 at for_field_l
+                else:
+                    show natsuki r1c:
+                        xcenter 630
+                        easein 1.00 xcenter 930
+                    show cft_pole zorder 2 at for_field_r
                 jump change_side
-            if rand_turn == 1 and right == True:
-                n r1d "Я хожу первой!"
-                show natsuki r1c:
-                    xcenter 630
-                    easein 1.00 xcenter 930
-                show cft_pole zorder 2 at for_field_r
-                jump change_side
-            if rand_turn == 2 and left == True:
+
+            if rand_turn == 2:
                 n r1d "Ты ходишь первым."
-                show natsuki r1c:
-                    xcenter 630
-                    easein 1.00 xcenter 330
-                show cft_pole zorder 2 at for_field_l
-                call screen cup_fork_toe("left", None)
-            if rand_turn == 2 and right == True:
-                n r1d "Ты ходишь первым."
-                show natsuki r1c:
-                    xcenter 630
-                    easein 1.00 xcenter 930
-                show cft_pole zorder 2 at for_field_r
-                call screen cup_fork_toe("right", None)
+                if left == True:
+                    show natsuki r1c:
+                        xcenter 630
+                        easein 1.00 xcenter 330
+                    show cft_pole zorder 2 at for_field_l
+                    call screen cup_fork_toe("left", None)
+                else:
+                    show natsuki r1c:
+                        xcenter 630
+                        easein 1.00 xcenter 930
+                    show cft_pole zorder 2 at for_field_r
+                    call screen cup_fork_toe("right", None)
 
 
 
-        "{i}Я бы хотел поменять режим экрана...{/i}" if persistent.ch_vol == False and persistent.ch_mus == False and persistent.first_change == False and (not renpy.mobile):
+
+        "{i}Я бы хотел поменять режим экрана...{/i}" if persistent.ch_vol == False and persistent.ch_mus == False and persistent.first_change == False and (not renpy.mobile) and cur_relation != "Negative":
             hide screen countdown
             $side_return()
 
@@ -346,7 +332,7 @@ label dia_requests:
 
 
 
-        "{i}Я бы хотел сменить клавиши...{/i}" if persistent.first_change == False and (persistent.ch_vol == True or persistent.ch_mus == True) and (not renpy.mobile):
+        "{i}Я бы хотел сменить клавиши...{/i}" if persistent.first_change == False and (persistent.ch_vol == True or persistent.ch_mus == True) and (not renpy.mobile) and cur_relation != "Negative":
             hide screen countdown
             $side_return()
 
@@ -361,7 +347,7 @@ label dia_requests:
             jump set_buttons
 
 
-        "{i}Я бы хотел сменить клавиши...{/i}" if persistent.first_change == True:
+        "{i}Я бы хотел сменить клавиши...{/i}" if persistent.first_change == True and cur_relation != "Negative":
             hide screen countdown
             $side_return()
 
@@ -377,7 +363,7 @@ label dia_requests:
             jump set_buttons
 
 
-        "{i}Можешь сменить тему?{/i}" if persistent.themes == False:
+        "{i}Можешь сменить тему?{/i}" if persistent.themes == False and cur_relation != "Negative":
             hide screen countdown
             $side_return()
 
@@ -392,7 +378,7 @@ label dia_requests:
 
 
 
-        "{i}Я бы хотел включить параллакс...{/i}" if persistent.parallax_bg == False:
+        "{i}Я бы хотел включить параллакс...{/i}" if persistent.parallax_bg == False and cur_relation != "Negative":
             hide screen countdown
             $side_return()
             n r1d "Хорошо."
@@ -401,49 +387,133 @@ label dia_requests:
             n r1e "Вроде готово."
             call ch1_loop
 
-        "{i}Можешь выключить параллакс?{/i}" if persistent.parallax_bg == True:
+        "{i}Можешь выключить параллакс?{/i}" if persistent.parallax_bg == True and cur_relation != "Negative":
             hide screen countdown
             $side_return()
             n r1d "Хорошо."
             $ persistent.parallax_bg = False
             call ch1_loop
 
+        "{i}Можешь сменить одежду?{/i}" if persistent.change_clothes == False and cur_relation != "Negative":
+            hide screen countdown
+            $side_return()
+            if cur_relation == "Neutral":
+                n "Я пока что не хочу менять одежду."
+                n "Я конечно могу это сделать, но боюсь, что что-то сломаю."
+                n "Может когда-нибудь потом..."
+            else:
 
+                n "Хм... {w}Хорошо."
+                n "Но учти, единственный доступный вариант - это повседневная одежда, в которой я ходила к тебе готовить кексы."
+                n "Сейчас попробую сделать это."
+                scene black with Dissolve(1.0)
+                pause 3
+                $persistent.clothes = "casual"
+                $renpy.save_persistent()
+                n "Получилось!"
+                call natsuki_room
+                show natsuki r1 zorder 2
+                with Dissolve(1.0)
+                n "Наконец-то я избавилась от этой тесной формы..."
+                n "Думаю, эта одежда мне идёт куда больше."
+                n "Не люблю официальный стиль."
+                $persistent.change_clothes = True
+                $renpy.save_persistent()
+                call ch1_loop
+
+        "{i}Можешь сменить одежду?{/i}" if persistent.change_clothes == True and cur_relation == "Positive":
+            hide screen countdown
+            $side_return()
+            if persistent.clothes == "casual":
+                $rand_ans = renpy.random.randint(1,3)
+                if rand_ans == 1:
+                    n "Опять школьная форма?"
+                    n "Ладно..."
+                if rand_ans == 2:
+                    n "Тебе больше нравится мой официальный стиль?"
+                    n "Хорошо..."
+                if rand_ans == 3:
+                    n "Да, хорошо."
+                    n "Стану школьницей, хи-хи-хи..."
+                scene black with Dissolve(1.0)
+                pause 3
+                $persistent.clothes = "school"
+                $renpy.save_persistent()
+            else:
+                $rand_ans = renpy.random.randint(1,3)
+                if rand_ans == 1:
+                    n "Хорошо, эта одежда мне по душе."
+                if rand_ans == 2:
+                    n "Да, сейчас..."
+                if rand_ans == 3:
+                    n "Что же, пора скинуть с себя школьные оковы!"
+                scene black with Dissolve(1.0)
+                pause 3
+                $persistent.clothes = "casual"
+                $renpy.save_persistent()
+
+            call natsuki_room
+            show natsuki r1 zorder 2
+            with Dissolve(1.0)
+            call ch1_loop
 
 
         "{i}Попрощаться...{/i}":
             $side_return()
 
-            $rand_ans = renpy.random.randint(1,3)
+            if cur_relation == "Positive":
+                $rand_ans = renpy.random.randint(1,2)
 
-            if rand_ans == 1:
-                n r1e "А... Уже уходишь?"
-                n r1d "Хорошо, спасибо что предупредил меня."
-                n r1b "Надеюсь ты уходишь ненадолго, здесь так скучно..."
-                $persistent.bye = True
-                $renpy.save_persistent()
-                call save_exp from _call_save_exp
+                if rand_ans == 1:
+                    n "Какие-то дела вне моей реальности?"
+                    n "Хотя, не сидеть же ведь тебе со мной круглосуточно..."
+                    n "До скорого!"
 
-            if rand_ans == 2:
-                n r1e "Так быстро?"
-                n "Ладно, наверное у тебя какие–то дела или что-то вроде этого."
-                n r1d "В таком случае не буду тебя задерживать, удачи."
-                $persistent.bye = True
-                $renpy.save_persistent()
-                call save_exp from _call_save_exp_1
-
-            if rand_ans == 3:
-                if renpy.mobile:
-                    $dev = "телефоне"
                 else:
-                    $dev = "компьютере"
-                n r1b "Иногда нам нужно побыть наедине со своими мыслями, думаю ты понимаешь..."
-                n r1f "Если не вернёшься – я что–нибудь натворю на твоём [dev], хи–хи–хи...."
-                n r1o "Ладно–ладно, я просто пошутила!"
-                n r1g "Пока!"
-                $persistent.bye = True
-                $renpy.save_persistent()
-                call save_exp from _call_save_exp_2
+                    n "Пора уходить?"
+                    n "Надеюсь, что ты скоро вернёшься."
+                    n "Всё-таки в твоей компании я чувствую себя... {w}{i}нужной{/i}."
+
+            if cur_relation == "Neutral":
+                $rand_ans = renpy.random.randint(1,3)
+
+                if rand_ans == 1:
+                    n r1e "А... Уже уходишь?"
+                    n r1d "Хорошо, спасибо что предупредил меня."
+                    n r1b "Надеюсь ты уходишь ненадолго, здесь так скучно..."
+
+                if rand_ans == 2:
+                    n r1e "Так быстро?"
+                    n "Ладно, наверное у тебя какие–то дела или что-то вроде этого."
+                    n r1d "В таком случае не буду тебя задерживать, удачи."
+
+                if rand_ans == 3:
+                    if renpy.mobile:
+                        $dev = "телефоне"
+                    else:
+                        $dev = "компьютере"
+                    n r1b "Иногда нам нужно побыть наедине со своими мыслями, думаю ты понимаешь..."
+                    n r1f "Если не вернёшься – я что–нибудь натворю на твоём [dev], хи–хи–хи...."
+                    n r1o "Ладно–ладно, я просто пошутила!"
+                    n r1g "Пока!"
+
+            if cur_relation == "Negative":
+                $rand_ans = renpy.random.randint(1,3)
+
+                if rand_ans == 1:
+                    n "Угу... {w}Давай, до свидания, дурашка."
+
+                if rand_ans == 2:
+                    n "Мог и просто так уйти."
+                    n "Мне плевать на твою вежливость..."
+
+                if rand_ans == 3:
+                    n "Ура, ты уходишь!"
+                    n "Я дождалась этого."
+
+            $persistent.bye = True
+            $renpy.save_persistent()
+            call save_exp
 
 
 

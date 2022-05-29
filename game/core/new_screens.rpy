@@ -7,6 +7,19 @@ init python:
 
     pc_dict = {"1":[0.422, 1.072], "1a":[0.398, 1.033], "2":[0.452, 0.98], "2a":[0.437, 0.943], "3":[0.5, 0.918], "3a":[0.5, 0.858], "4":[0.549, 0.982], "4a":[0.564, 0.937], "5":[0.58, 1.072], "5a":[0.607, 1.034], "but":[120, 213], "1b":[0.422, 1.032], "2b":[0.452, 0.940], "3b":[0.5, 0.878], "4b":[0.549, 0.942], "5b":[0.580, 1.032]}
 
+    curtain_buttons = {"mod_assets/button/custom/curtain_mus.png":persistent.ch_vol, "mod_assets/button/custom/curtain_sound.png":persistent.ch_vol, "mod_assets/button/custom/curtain_play.png":persistent.ch_mus, "mod_assets/button/custom/curtain_theme.png":persistent.themes, "mod_assets/button/custom/curtain_add.png":True}
+
+    button_coord = {"left":{1:[(0,360-37)],
+    2:[(0,360-75-persistent.cur_interval/2), (0, 360+persistent.cur_interval/2)],
+    3:[(0, 360-37-persistent.cur_interval-75), (0, 360-37), (0, 360+75+persistent.cur_interval)],
+    4:[(0, 360-75-persistent.cur_interval/2-75-persistent.cur_interval), (0, 360-75-persistent.cur_interval/2), (0, 360+persistent.cur_interval/2), (0, 360+persistent.cur_interval/2+75+persistent.cur_interval)],
+    5:[(0, 360-persistent.cur_interval-75-75-persistent.cur_interval), (0, 360-persistent.cur_interval-75), (0, 360), (0, 360+75+persistent.cur_interval), (0, 360+75+persistent.cur_interval+75+persistent.cur_interval)]},
+    "right":{1:[(1203,360-37)],
+    2:[(1203,360-75-persistent.cur_interval/2), (1203, 360+persistent.cur_interval/2)],
+    3:[(1203, 360-37-persistent.cur_interval-75), (1203, 360-37), (1203, 360+75+persistent.cur_interval)],
+    4:[(1203, 360-75-persistent.cur_interval/2-75-persistent.cur_interval), (1203, 360-75-persistent.cur_interval/2), (1203, 360+persistent.cur_interval/2), (1203, 360+persistent.cur_interval/2+75+persistent.cur_interval)],
+    5:[(1203, 360-persistent.cur_interval-75-75-persistent.cur_interval), (1203, 360-persistent.cur_interval-75), (1203, 360), (1203, 360+75+persistent.cur_interval), (1203, 360+75+persistent.cur_interval+75+persistent.cur_interval)]}}
+
     def next_song():
         global track_num, delta, mus_pos, dur
         if persistent.track_num + 1 == 6:
@@ -226,9 +239,76 @@ init python:
         renpy.hide_screen("active_sound_volume_key")
         renpy.hide_screen("music_key")
         renpy.hide_screen("active_music_key")
-        renpy.hide_screen("sett_curtain")
         renpy.hide_screen("mob_active_but_curtain")
         renpy.hide_screen("theme_key")
+
+        renpy.hide("curtain")
+        renpy.hide_screen("sett_curtain")
+
+        renpy.hide_screen("relation_chibi_show_l")
+        renpy.hide_screen("relation_chibi_show_r")
+        renpy.hide_screen("relation_show")
+        renpy.hide("l")
+        renpy.hide("r")
+
+
+    def create_cur():
+        global curtain_buttons, button_coord, avai_but, but_count, cur_side
+        but_count = 0
+        avai_but = []
+        for key in curtain_buttons:
+            if curtain_buttons[key] == True:
+                but_count += 1
+                avai_but.append(key)
+
+        if but_count == 1:
+            return LiveComposite((1280, 77), button_coord[cur_side][but_count][0], avai_but[0])
+
+        if but_count == 2:
+            return LiveComposite((1280, 77), button_coord[cur_side][but_count][0], avai_but[0],
+            button_coord[cur_side][but_count][1], avai_but[1])
+
+        if but_count == 3:
+            return LiveComposite((1280, 77), button_coord[cur_side][but_count][0], avai_but[0],
+            button_coord[cur_side][but_count][1], avai_but[1],
+            button_coord[cur_side][but_count][2], avai_but[2])
+
+        if but_count == 4:
+            return LiveComposite((1280, 77), button_coord[cur_side][but_count][0], avai_but[0],
+            button_coord[cur_side][but_count][1], avai_but[1],
+            button_coord[cur_side][but_count][2], avai_but[2],
+            button_coord[cur_side][but_count][3], avai_but[3])
+
+        if but_count == 5:
+            return LiveComposite((1280, 77), button_coord[cur_side][but_count][0], avai_but[0],
+            button_coord[cur_side][but_count][1], avai_but[1],
+            button_coord[cur_side][but_count][2], avai_but[2],
+            button_coord[cur_side][but_count][3], avai_but[3],
+            button_coord[cur_side][but_count][4], avai_but[4])
+
+
+    def set_side():
+        global left, right
+        if persistent.sprite_side == "Rand":
+            left = False
+            right = False
+            lr = renpy.random.randint(1,2)
+            if lr == 1:
+                left = True
+                right = False
+            else:
+                right = True
+                left = False
+
+        if persistent.sprite_side == "left":
+            left = True
+            right = False
+        if persistent.sprite_side == "right":
+            left = False
+            right = True
+
+        side()
+
 
 
 
@@ -689,16 +769,9 @@ image Reverse = "mod_assets/images/cg/monika/reverse.png"
 
 image full_vis = Visualiser()
 
-image curtain:
-    ConditionSwitch("persistent.ch_vol==True and persistent.ch_mus==True and persistent.themes == True", "mod_assets/button/custom/mob_curtain_all.png", "persistent.ch_vol != True and persistent.ch_mus != True and persistent.themes == True", "mod_assets/button/custom/mob_curtain_theme.png",
-    "persistent.ch_vol != True and persistent.ch_mus == True and persistent.themes != True", "mod_assets/button/custom/mob_curtain_vis.png",
-    "persistent.ch_vol != True and persistent.ch_mus == True and persistent.themes == True", "mod_assets/button/custom/mob_curtain_vis_theme.png",
-    "persistent.ch_vol==True and persistent.ch_mus != True and persistent.themes != True", "mod_assets/button/custom/mob_curtain_vol.png",
-    "persistent.ch_vol == True and persistent.ch_mus != True and persistent.themes == True", "mod_assets/button/custom/mob_curtain_vol_theme.png",
-    "persistent.ch_vol==True and persistent.ch_mus==True and persistent.themes != True", "mod_assets/button/custom/mob_curtain_vol_vis.png",
-    "True", "mod_assets/button/custom/mob_curtain_none.png")
-    xcenter 0.5
-    ycenter -0.1
+
+
+image curtain = create_cur()
 
 
 
@@ -795,15 +868,24 @@ transform b_but:
 
 
 
-transform show_cur():
-    xcenter 0.5
-    ycenter -0.1
-    easein 0.5 ycenter 0.05
+transform show_cur_l:
+    xpos -100
+    ycenter 0
+    easein 0.5 xpos 0
+transform show_cur_r:
+    xpos 1280
+    ycenter 0
+    easein 0.5 xpos 1203
 
-transform hide_cur():
-    xcenter 0.5
-    ycenter 0.05
-    easein 0.5 ycenter -0.1
+
+transform hide_cur_l:
+    xpos 0
+    ycenter 0
+    easein 0.5 xpos -100
+transform hide_cur_r:
+    xpos 1203
+    ycenter 0
+    easein 0.5 xpos 1280
 
 
 
@@ -1258,11 +1340,6 @@ transform vol_sound_level_animation:
     xalign 0.497
     yalign 2.15
     rotate soungrad
-
-
-transform volume_mask:
-    ycenter 0.955
-    xalign 0.49
 
 
 transform pos_cup_button:
@@ -1929,6 +2006,7 @@ screen theme_buttons():
 
 
 screen sett_curtain():
+
     if renpy.mobile:
         imagebutton xalign 0.5 yalign 0.05:
             idle im.Scale("mod_assets/button/custom/mob_cur_but.png", 50, 50)
@@ -1936,35 +2014,44 @@ screen sett_curtain():
 
     else:
         mousearea:
-            area (0, 0, 1280, 100)
-            hovered [Function(renpy.show, "curtain", at_list=[show_cur], zorder=1), Show("act_curtain"), Show("cur_buttons")]
-            unhovered [Function(renpy.show, "curtain", at_list=[hide_cur], zorder=10), Hide("cur_buttons")]
+            area (0, 0, 100, 720)
+            hovered [Function(renpy.show, "curtain", at_list=[show_cur_l], zorder=1), SetVariable("cur_side", "left"), Show("act_curtain"), Show("cur_buttons")]
+            unhovered [Function(renpy.show, "curtain", at_list=[hide_cur_l], zorder=10), Hide("cur_buttons")]
+
+        mousearea:
+            area (1180, 0, 1280, 720)
+            hovered [Function(renpy.show, "curtain", at_list=[show_cur_r], zorder=1), SetVariable("cur_side", "right"), Show("act_curtain"), Show("cur_buttons")]
+            unhovered [Function(renpy.show, "curtain", at_list=[hide_cur_r], zorder=10), Hide("cur_buttons")]
 
 
 screen cur_buttons():
-    imagebutton xalign 0.26 yalign 0:
+    imagebutton xpos hit_coord("mod_assets/button/custom/curtain_mus.png", persistent.ch_vol, "x") ypos hit_coord("mod_assets/button/custom/curtain_mus.png", persistent.ch_vol, "y")-37:
         idle "mod_assets/button/custom/mob_but_hit.png"
         sensitive persistent.ch_vol
-        action [Function(renpy.show, "curtain", at_list=[hide_cur], zorder=10), SetVariable("set", "music"), Hide("volume_key"), Hide("sett_curtain"), Show("active_volume_key"), If(renpy.mobile, true=[Show("mob_active_volume_but"), Jump("mob_vol")], false=Show("con_volume")), Hide("sound_volume_key"),
+        action [If(cur_side == "left", true=Function(renpy.show, "curtain", at_list=[hide_cur_l], zorder=10), false=Function(renpy.show, "curtain", at_list=[hide_cur_r], zorder=10)), SetVariable("set", "music"), Hide("volume_key"), Hide("sett_curtain"), Show("active_volume_key"), If(renpy.mobile, true=[Show("mob_active_volume_but"), Jump("mob_vol")], false=Show("con_volume")), Hide("sound_volume_key"),
           Hide("talk_button"), Hide("countdown"), Function(renpy.show, "cup_but", at_list=[pos_cup_button], zorder=10),
            If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False))]
 
-    imagebutton xalign 0.42 yalign 0:
+    imagebutton xpos hit_coord("mod_assets/button/custom/curtain_sound.png", persistent.ch_vol, "x") ypos hit_coord("mod_assets/button/custom/curtain_sound.png", persistent.ch_vol, "y")-37:
         idle "mod_assets/button/custom/mob_but_hit.png"
         sensitive persistent.ch_vol
-        action [Function(renpy.show, "curtain", at_list=[hide_cur], zorder=10), SetVariable("set", "sound"), Hide("sound_volume_key"), Hide("sett_curtain"), If(renpy.mobile, true=[Show("mob_active_sound_but"), Jump("mob_sound")], false=[Hide("sound_volume_key"), Show("active_sound_volume_key"), Show("con_sound_volume"), Show("sound_test")]),
+        action [If(cur_side == "left", true=Function(renpy.show, "curtain", at_list=[hide_cur_l], zorder=10), false=Function(renpy.show, "curtain", at_list=[hide_cur_r], zorder=10)), SetVariable("set", "sound"), Hide("sound_volume_key"), Hide("sett_curtain"), If(renpy.mobile, true=[Show("mob_active_sound_but"), Jump("mob_sound")], false=[Hide("sound_volume_key"), Show("active_sound_volume_key"), Show("con_sound_volume"), Show("sound_test")]),
          Hide("talk_button"), Hide("countdown"),
         If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False))]
 
-    imagebutton xalign 0.58 yalign 0:
+    imagebutton xpos hit_coord("mod_assets/button/custom/curtain_play.png", persistent.ch_mus, "x") ypos hit_coord("mod_assets/button/custom/curtain_play.png", persistent.ch_mus, "y")-37:
         idle "mod_assets/button/custom/mob_but_hit.png"
         sensitive persistent.ch_mus
-        action [Hide("music_key"), Hide("sett_curtain"), Show("active_music_key"), Show("hide_all_talk"), Hide("talk_button"), Hide("countdown"), If(renpy.mobile, true=Show("mob_music_player"), false=Show("music_player_buttons")), Function(renpy.show, "curtain", at_list=[hide_cur], zorder=10)]
+        action [Hide("music_key"), Hide("sett_curtain"), Show("active_music_key"), Show("hide_all_talk"), Hide("talk_button"), Hide("countdown"), If(renpy.mobile, true=Show("mob_music_player"), false=Show("music_player_buttons")), If(cur_side == "left", true=Function(renpy.show, "curtain", at_list=[hide_cur_l], zorder=10), false=Function(renpy.show, "curtain", at_list=[hide_cur_r], zorder=10))]
 
-    imagebutton xalign 0.74 yalign 0:
+    imagebutton xpos hit_coord("mod_assets/button/custom/curtain_theme.png", persistent.themes, "x") ypos hit_coord("mod_assets/button/custom/curtain_theme.png", persistent.themes, "y")-37:
         idle "mod_assets/button/custom/mob_but_hit.png"
         sensitive persistent.themes
-        action [Hide("theme_key"), Hide("sett_curtain"), Show("active_theme_key"), Show("theme_buttons"), Hide("talk_button"), Hide("countdown"), Function(renpy.show, "curtain", at_list=[hide_cur], zorder=10)]
+        action [Hide("theme_key"), Hide("sett_curtain"), Show("active_theme_key"), Show("theme_buttons"), Hide("talk_button"), Hide("countdown"), If(cur_side == "left", true=Function(renpy.show, "curtain", at_list=[hide_cur_l], zorder=10), false=Function(renpy.show, "curtain", at_list=[hide_cur_r], zorder=10))]
+
+    imagebutton xpos hit_coord("mod_assets/button/custom/curtain_add.png", True, "x") ypos hit_coord("mod_assets/button/custom/curtain_add.png", True, "y")-37:
+        idle "mod_assets/button/custom/mob_but_hit.png"
+        action [Hide("sett_curtain"), Hide("talk_button"), Hide("countdown"), If(cur_side == "left", true=Function(renpy.show, "curtain", at_list=[hide_cur_l], zorder=10), false=Function(renpy.show, "curtain", at_list=[hide_cur_r], zorder=10)), Jump("additional_settings")]
 
 
 
@@ -1972,13 +2059,42 @@ screen cur_buttons():
 
 screen act_curtain():
 
-    on "hide" action Function(renpy.show, "curtain", at_list=[hide_cur], zorder=10)
+    on "hide" action If(cur_side == "left", true=Function(renpy.show, "curtain", at_list=[hide_cur_l], zorder=10), false=Function(renpy.show, "curtain", at_list=[hide_cur_r], zorder=10))
 
 #close buttons
     imagebutton yalign 0 xalign 0:
         idle "mod_assets/button/custom/mob_hide_hit.png"
-        action [Function(renpy.show, "curtain", at_list=[hide_cur], zorder=10), Hide("act_curtain"), Show("sett_curtain")]
+        action [If(cur_side == "left", true=Function(renpy.show, "curtain", at_list=[hide_cur_l], zorder=10), false=Function(renpy.show, "curtain", at_list=[hide_cur_r], zorder=10)), Hide("act_curtain"), Show("sett_curtain")]
 
     imagebutton yalign 0 xalign 0.9999:
         idle "mod_assets/button/custom/mob_hide_hit.png"
-        action [Function(renpy.show, "curtain", at_list=[hide_cur], zorder=10), Hide("act_curtain"), Show("sett_curtain")]
+        action [If(cur_side == "left", true=Function(renpy.show, "curtain", at_list=[hide_cur_l], zorder=10), false=Function(renpy.show, "curtain", at_list=[hide_cur_r], zorder=10)), Hide("act_curtain"), Show("sett_curtain")]
+
+
+
+transform bounce(xcur, ycur):
+    xpos xcur
+    ypos ycur
+    easein_bounce 0.1 xpos xcur ypos ycur-10
+    easein 0.1 xpos xcur ypos ycur
+
+transform bounce_left(xcur, ycur):
+    xpos xcur
+    ypos ycur
+    easein_bounce 0.1 xpos xcur-5 ypos ycur-10
+    easein 0.1 xpos xcur-10 ypos ycur
+
+transform bounce_right(xcur, ycur):
+    xpos xcur
+    ypos ycur
+    easein_bounce 0.1 xpos xcur+5 ypos ycur-10
+    easein 0.1 xpos xcur+10 ypos ycur
+
+screen relation_chibi_show_l():
+    timer 1 repeat True action [Function(relation_chibi, "left")]
+screen relation_chibi_show_r():
+    timer 1 repeat True action [Function(relation_chibi, "right")]
+
+screen relation_show():
+    on "show" action If(cur_relation != "Negative", true=[Function(renpy.show, "rel_chibi_l", at_list=[bounce(rel_chibi_coord_l[0], rel_chibi_coord_l[1])], zorder = 10, tag="l"), Function(renpy.show, "rel_chibi_r", at_list=[bounce(rel_chibi_coord_r[0], rel_chibi_coord_r[1])], zorder = 10, tag="r")], false=NullAction())
+    text return_relation_stat(cur_relation) xalign 0.5 ypos 30 size 30
