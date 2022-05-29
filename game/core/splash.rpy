@@ -610,7 +610,6 @@ label splashscreen:
     $start_relation = cur_relation
     $rel_chibi_coord_l = [get_chibi_coord("left"), 10]
     $rel_chibi_coord_r = [get_chibi_coord("right"), 10]
-    $persistent.cur_interval = 50
 
     if persistent.is_full:
         show screen set_on_beginning
