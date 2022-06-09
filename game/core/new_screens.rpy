@@ -252,7 +252,7 @@ init python:
         renpy.hide("r")
 
 
-    def create_cur():
+    def create_cur(theme):
         global curtain_buttons, button_coord, avai_but, but_count, cur_side
         but_count = 0
         avai_but = []
@@ -262,29 +262,29 @@ init python:
                 avai_but.append(key)
 
         if but_count == 1:
-            return LiveComposite((1280, 77), button_coord[cur_side][but_count][0], avai_but[0])
+            return LiveComposite((1280, 77), button_coord[cur_side][but_count][0], im.MatrixColor(avai_but[0], im.matrix.hue(theme)))
 
         if but_count == 2:
-            return LiveComposite((1280, 77), button_coord[cur_side][but_count][0], avai_but[0],
-            button_coord[cur_side][but_count][1], avai_but[1])
+            return LiveComposite((1280, 77), button_coord[cur_side][but_count][0], im.MatrixColor(avai_but[0], im.matrix.hue(theme)),
+            button_coord[cur_side][but_count][1], im.MatrixColor(avai_but[1], im.matrix.hue(theme)), )
 
         if but_count == 3:
-            return LiveComposite((1280, 77), button_coord[cur_side][but_count][0], avai_but[0],
-            button_coord[cur_side][but_count][1], avai_but[1],
-            button_coord[cur_side][but_count][2], avai_but[2])
+            return LiveComposite((1280, 77), button_coord[cur_side][but_count][0], im.MatrixColor(avai_but[0], im.matrix.hue(theme)),
+            button_coord[cur_side][but_count][1], im.MatrixColor(avai_but[1], im.matrix.hue(theme)),
+            button_coord[cur_side][but_count][2], im.MatrixColor(avai_but[2], im.matrix.hue(theme)), )
 
         if but_count == 4:
-            return LiveComposite((1280, 77), button_coord[cur_side][but_count][0], avai_but[0],
-            button_coord[cur_side][but_count][1], avai_but[1],
-            button_coord[cur_side][but_count][2], avai_but[2],
-            button_coord[cur_side][but_count][3], avai_but[3])
+            return LiveComposite((1280, 77), button_coord[cur_side][but_count][0], im.MatrixColor(avai_but[0], im.matrix.hue(theme)),
+            button_coord[cur_side][but_count][1], im.MatrixColor(avai_but[1], im.matrix.hue(theme)),
+            button_coord[cur_side][but_count][2], im.MatrixColor(avai_but[2], im.matrix.hue(theme)),
+            button_coord[cur_side][but_count][3], im.MatrixColor(avai_but[3], im.matrix.hue(theme)))
 
         if but_count == 5:
-            return LiveComposite((1280, 77), button_coord[cur_side][but_count][0], avai_but[0],
-            button_coord[cur_side][but_count][1], avai_but[1],
-            button_coord[cur_side][but_count][2], avai_but[2],
-            button_coord[cur_side][but_count][3], avai_but[3],
-            button_coord[cur_side][but_count][4], avai_but[4])
+            return LiveComposite((1280, 77), button_coord[cur_side][but_count][0], im.MatrixColor(avai_but[0], im.matrix.hue(theme)),
+            button_coord[cur_side][but_count][1], im.MatrixColor(avai_but[1], im.matrix.hue(theme)),
+            button_coord[cur_side][but_count][2], im.MatrixColor(avai_but[2], im.matrix.hue(theme)),
+            button_coord[cur_side][but_count][3], im.MatrixColor(avai_but[3], im.matrix.hue(theme)),
+            button_coord[cur_side][but_count][4], im.MatrixColor(avai_but[4], im.matrix.hue(theme)))
 
 
     def set_side():
@@ -771,7 +771,7 @@ image full_vis = Visualiser()
 
 
 
-image curtain = create_cur()
+image curtain = ConditionSwitch("persistent.theme == -90", create_cur(-90), "persistent.theme == 75", create_cur(75), "persistent.theme == -180", create_cur(-180), "persistent.theme == 45", create_cur(45), "True", create_cur(0))
 
 
 
@@ -1259,25 +1259,25 @@ screen music_player_buttons():
 
 screen music_key():
 
-    key persistent.m_key action [Hide("music_key"), Hide("sett_curtain"), Show("active_music_key"), Show("hide_all_talk"), Hide("countdown"), Show("music_player_buttons")]
+    key persistent.m_key action [Hide("music_key"), Hide("sett_curtain"), Show("active_music_key"), Show("hide_all_talk"), Hide("countdown"), Show("music_player_buttons"), Hide("theme_key")]
 
-    key persistent.m_key.upper() action [Hide("music_key"), Hide("sett_curtain"), Show("active_music_key"), Show("hide_all_talk"), Hide("countdown"), Show("music_player_buttons")]
+    key persistent.m_key.upper() action [Hide("music_key"), Hide("sett_curtain"), Show("active_music_key"), Show("hide_all_talk"), Hide("countdown"), Show("music_player_buttons"), Hide("theme_key")]
 
-    key persistent.m_r_key action [Hide("music_key"), Hide("sett_curtain"), Show("active_music_key"), Show("hide_all_talk"), Hide("countdown"), Show("music_player_buttons")]
+    key persistent.m_r_key action [Hide("music_key"), Hide("sett_curtain"), Show("active_music_key"), Show("hide_all_talk"), Hide("countdown"), Show("music_player_buttons"), Hide("theme_key")]
 
-    key persistent.m_r_key.upper() action [Hide("music_key"), Hide("sett_curtain"), Show("active_music_key"), Show("hide_all_talk"), Hide("countdown"), Show("music_player_buttons")]
+    key persistent.m_r_key.upper() action [Hide("music_key"), Hide("sett_curtain"), Show("active_music_key"), Show("hide_all_talk"), Hide("countdown"), Show("music_player_buttons"), Hide("theme_key")]
 
 screen active_music_key():
 
-    key persistent.m_key action [Hide("music_player_buttons"), Show("sett_curtain"), Show("music_key"), Hide("active_music_key"), Show("talk_button"), Show("countdown"), Function(set_back_on_exit)]
+    key persistent.m_key action [Hide("music_player_buttons"), Show("sett_curtain"), Show("music_key"), Hide("active_music_key"), Show("talk_button"), Show("countdown"), Function(set_back_on_exit), Show("theme_key")]
 
-    key persistent.m_key.upper() action [Hide("music_player_buttons"), Show("sett_curtain"), Show("music_key"), Hide("active_music_key"), Show("talk_button"), Show("countdown"), Function(set_back_on_exit)]
+    key persistent.m_key.upper() action [Hide("music_player_buttons"), Show("sett_curtain"), Show("music_key"), Hide("active_music_key"), Show("talk_button"), Show("countdown"), Function(set_back_on_exit), Show("theme_key")]
 
-    key persistent.m_r_key action [Hide("music_player_buttons"), Show("sett_curtain"), Show("music_key"), Hide("active_music_key"), Show("talk_button"), Show("countdown"), Function(set_back_on_exit)]
+    key persistent.m_r_key action [Hide("music_player_buttons"), Show("sett_curtain"), Show("music_key"), Hide("active_music_key"), Show("talk_button"), Show("countdown"), Function(set_back_on_exit), Show("theme_key")]
 
-    key persistent.m_r_key.upper() action [Hide("music_player_buttons"), Show("sett_curtain"), Show("music_key"), Hide("active_music_key"), Show("talk_button"), Show("countdown"), Function(set_back_on_exit)]
+    key persistent.m_r_key.upper() action [Hide("music_player_buttons"), Show("sett_curtain"), Show("music_key"), Hide("active_music_key"), Show("talk_button"), Show("countdown"), Function(set_back_on_exit), Show("theme_key")]
 
-    key "K_ESCAPE" action [Hide("music_player_buttons"), Show("sett_curtain"), Show("music_key"), Hide("active_music_key"), Show("talk_button"), Show("countdown"), Function(set_back_on_exit)]
+    key "K_ESCAPE" action [Hide("music_player_buttons"), Show("sett_curtain"), Show("music_key"), Hide("active_music_key"), Show("talk_button"), Show("countdown"), Function(set_back_on_exit), Show("theme_key")]
 
 
 
@@ -1356,27 +1356,27 @@ image cup_but_hover = place_hover_but()
 
 
 screen volume_key():
-    key persistent.v_key.upper() action [SetVariable("set", "music"), Hide("volume_key"), Hide("sett_curtain"), Show("active_volume_key"), Show("con_volume"), Hide("sound_volume_key"), Hide("talk_button"), Hide("countdown"), Function(renpy.show, "cup_but", at_list=[pos_cup_button], zorder=10), If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False))]
+    key persistent.v_key.upper() action [SetVariable("set", "music"), Hide("volume_key"), Hide("sett_curtain"), Show("active_volume_key"), Show("con_volume"), Hide("sound_volume_key"), Hide("talk_button"), Hide("countdown"), Function(renpy.show, "cup_but", at_list=[pos_cup_button], zorder=10), If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False)), Hide("music_key"), Hide("active_music_key"), Hide("theme_key")]
 
-    key persistent.v_key action [SetVariable("set", "music"), Hide("volume_key"), Hide("sett_curtain"), Show("active_volume_key"), Show("con_volume"), Hide("sound_volume_key"), Hide("talk_button"), Hide("countdown"), Function(renpy.show, "cup_but", at_list=[pos_cup_button], zorder=10), If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False))]
+    key persistent.v_key action [SetVariable("set", "music"), Hide("volume_key"), Hide("sett_curtain"), Show("active_volume_key"), Show("con_volume"), Hide("sound_volume_key"), Hide("talk_button"), Hide("countdown"), Function(renpy.show, "cup_but", at_list=[pos_cup_button], zorder=10), If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False)), Hide("music_key"), Hide("active_music_key"), Hide("theme_key")]
 
-    key persistent.v_r_key.upper() action [SetVariable("set", "music"), Hide("volume_key"), Hide("sett_curtain"), Show("active_volume_key"), Show("con_volume"), Hide("sound_volume_key"), Hide("talk_button"), Hide("countdown"), Function(renpy.show, "cup_but", at_list=[pos_cup_button], zorder=10), If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False))]
+    key persistent.v_r_key.upper() action [SetVariable("set", "music"), Hide("volume_key"), Hide("sett_curtain"), Show("active_volume_key"), Show("con_volume"), Hide("sound_volume_key"), Hide("talk_button"), Hide("countdown"), Function(renpy.show, "cup_but", at_list=[pos_cup_button], zorder=10), If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False)), Hide("music_key"), Hide("active_music_key"), Hide("theme_key")]
 
-    key persistent.v_r_key action [SetVariable("set", "music"), Hide("volume_key"), Hide("sett_curtain"), Show("active_volume_key"), Show("con_volume"), Hide("sound_volume_key"), Hide("talk_button"), Hide("countdown"), Function(renpy.show, "cup_but", at_list=[pos_cup_button], zorder=10), If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False))]
+    key persistent.v_r_key action [SetVariable("set", "music"), Hide("volume_key"), Hide("sett_curtain"), Show("active_volume_key"), Show("con_volume"), Hide("sound_volume_key"), Hide("talk_button"), Hide("countdown"), Function(renpy.show, "cup_but", at_list=[pos_cup_button], zorder=10), If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False)), Hide("music_key"), Hide("active_music_key"), Hide("theme_key")]
 
 
 
 screen active_volume_key():
 
-    key persistent.v_key action [Hide("con_volume"), Show("volume_key"), Hide("active_volume_key"), Show("sett_curtain"), Show("sound_volume_key"), Show("talk_button"), Show("countdown"), Function(renpy.hide, "cup_but"), If(is_playing, true=Show("music_player_buttons"), false=NullAction())]
+    key persistent.v_key action [Hide("con_volume"), Show("volume_key"), Hide("active_volume_key"), Show("sett_curtain"), Show("sound_volume_key"), Show("talk_button"), Show("countdown"), Function(renpy.hide, "cup_but"), If(is_playing, true=[Show("music_player_buttons"), Show("active_music_key")], false=Show("music_key")), Show("theme_key")]
 
-    key persistent.v_key.upper() action [Hide("con_volume"), Show("volume_key"), Hide("active_volume_key"), Show("sett_curtain"), Show("sound_volume_key"), Show("talk_button"), Show("countdown"), Function(renpy.hide, "cup_but"), If(is_playing, true=Show("music_player_buttons"), false=NullAction())]
+    key persistent.v_key.upper() action [Hide("con_volume"), Show("volume_key"), Hide("active_volume_key"), Show("sett_curtain"), Show("sound_volume_key"), Show("talk_button"), Show("countdown"), Function(renpy.hide, "cup_but"), If(is_playing, true=[Show("music_player_buttons"), Show("active_music_key")], false=Show("music_key")), Show("theme_key")]
 
-    key persistent.v_r_key.upper() action [Hide("con_volume"), Show("volume_key"), Hide("active_volume_key"), Show("sett_curtain"), Show("sound_volume_key"), Show("talk_button"), Show("countdown"), Function(renpy.hide, "cup_but"), If(is_playing, true=Show("music_player_buttons"), false=NullAction())]
+    key persistent.v_r_key.upper() action [Hide("con_volume"), Show("volume_key"), Hide("active_volume_key"), Show("sett_curtain"), Show("sound_volume_key"), Show("talk_button"), Show("countdown"), Function(renpy.hide, "cup_but"), If(is_playing, true=[Show("music_player_buttons"), Show("active_music_key")], false=Show("music_key")), Show("theme_key")]
 
-    key persistent.v_r_key action [Hide("con_volume"), Show("volume_key"), Hide("active_volume_key"), Show("sett_curtain"), Show("sound_volume_key"), Show("talk_button"), Show("countdown"), Function(renpy.hide, "cup_but"), If(is_playing, true=Show("music_player_buttons"), false=NullAction())]
+    key persistent.v_r_key action [Hide("con_volume"), Show("volume_key"), Hide("active_volume_key"), Show("sett_curtain"), Show("sound_volume_key"), Show("talk_button"), Show("countdown"), Function(renpy.hide, "cup_but"), If(is_playing, true=[Show("music_player_buttons"), Show("active_music_key")], false=Show("music_key")), Show("theme_key")]
 
-    key "K_ESCAPE" action [Hide("con_volume"), Show("volume_key"), Hide("active_volume_key"), Show("sett_curtain"), Show("sound_volume_key"), Show("talk_button"), Show("countdown"), Function(renpy.hide, "cup_but"), If(is_playing, true=Show("music_player_buttons"), false=NullAction())]
+    key "K_ESCAPE" action [Hide("con_volume"), Show("volume_key"), Hide("active_volume_key"), Show("sett_curtain"), Show("sound_volume_key"), Show("talk_button"), Show("countdown"), Function(renpy.hide, "cup_but"), If(is_playing, true=[Show("music_player_buttons"), Show("active_music_key")], false=Show("music_key")), Show("theme_key")]
 
     $persistent.svol = vlm
     $persistent.snum = num
@@ -1388,26 +1388,26 @@ screen active_volume_key():
 
 
 screen sound_volume_key():
-    key persistent.s_key.upper() action [SetVariable("set", "sound"), Hide("sound_volume_key"), Hide("sett_curtain"), Show("active_sound_volume_key"), Show("con_sound_volume"), Hide("volume_key"), Hide("talk_button"), Hide("countdown"), Show("sound_test"), If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False))]
+    key persistent.s_key.upper() action [SetVariable("set", "sound"), Hide("sound_volume_key"), Hide("sett_curtain"), Show("active_sound_volume_key"), Show("con_sound_volume"), Hide("volume_key"), Hide("talk_button"), Hide("countdown"), Show("sound_test"), If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False)), Hide("music_key"), Hide("active_music_key"), Hide("theme_key")]
 
-    key persistent.s_key action [SetVariable("set", "sound"), Hide("sound_volume_key"), Show("active_sound_volume_key"), Hide("sett_curtain"), Show("con_sound_volume"), Hide("volume_key"), Hide("talk_button"), Hide("countdown"), Show("sound_test"), If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False))]
+    key persistent.s_key action [SetVariable("set", "sound"), Hide("sound_volume_key"), Show("active_sound_volume_key"), Hide("sett_curtain"), Show("con_sound_volume"), Hide("volume_key"), Hide("talk_button"), Hide("countdown"), Show("sound_test"), If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False)), Hide("music_key"), Hide("active_music_key"), Hide("theme_key")]
 
-    key persistent.s_r_key action [SetVariable("set", "sound"), Hide("sound_volume_key"), Show("active_sound_volume_key"), Hide("sett_curtain"), Show("con_sound_volume"), Hide("volume_key"), Hide("talk_button"), Hide("countdown"), Show("sound_test"), If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False))]
+    key persistent.s_r_key action [SetVariable("set", "sound"), Hide("sound_volume_key"), Show("active_sound_volume_key"), Hide("sett_curtain"), Show("con_sound_volume"), Hide("volume_key"), Hide("talk_button"), Hide("countdown"), Show("sound_test"), If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False)), Hide("music_key"), Hide("active_music_key"), Hide("theme_key")]
 
-    key persistent.s_r_key.upper() action [SetVariable("set", "sound"), Hide("sound_volume_key"), Show("active_sound_volume_key"), Hide("sett_curtain"), Show("con_sound_volume"), Hide("volume_key"), Hide("talk_button"), Hide("countdown"), Show("sound_test"), If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False))]
+    key persistent.s_r_key.upper() action [SetVariable("set", "sound"), Hide("sound_volume_key"), Show("active_sound_volume_key"), Hide("sett_curtain"), Show("con_sound_volume"), Hide("volume_key"), Hide("talk_button"), Hide("countdown"), Show("sound_test"), If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False)), Hide("music_key"), Hide("active_music_key"), Hide("theme_key")]
 
 
 screen active_sound_volume_key():
 
-    key persistent.s_key action [Hide("con_sound_volume"), Show("sound_volume_key"), Hide("active_sound_volume_key"), Show("sett_curtain"), Show("volume_key"), Show("talk_button"), Show("countdown"), Hide("sound_test"), If(is_playing, true=Show("music_player_buttons"), false=NullAction())]
+    key persistent.s_key action [Hide("con_sound_volume"), Show("sound_volume_key"), Hide("active_sound_volume_key"), Show("sett_curtain"), Show("volume_key"), Show("talk_button"), Show("countdown"), Hide("sound_test"), If(is_playing, true=[Show("music_player_buttons"), Show("active_music_key")], false=Show("music_key")), Show("theme_key")]
 
-    key persistent.s_key.upper() action [Hide("con_sound_volume"), Show("sound_volume_key"), Hide("active_sound_volume_key"), Show("sett_curtain"), Show("volume_key"), Show("talk_button"), Show("countdown"), Hide("sound_test"), If(is_playing, true=Show("music_player_buttons"), false=NullAction())]
+    key persistent.s_key.upper() action [Hide("con_sound_volume"), Show("sound_volume_key"), Hide("active_sound_volume_key"), Show("sett_curtain"), Show("volume_key"), Show("talk_button"), Show("countdown"), Hide("sound_test"), If(is_playing, true=[Show("music_player_buttons"), Show("active_music_key")], false=Show("music_key")), Show("theme_key")]
 
-    key persistent.s_r_key action [Hide("con_sound_volume"), Show("sound_volume_key"), Hide("active_sound_volume_key"), Show("sett_curtain"), Show("volume_key"), Show("talk_button"), Show("countdown"), Hide("sound_test"), If(is_playing, true=Show("music_player_buttons"), false=NullAction())]
+    key persistent.s_r_key action [Hide("con_sound_volume"), Show("sound_volume_key"), Hide("active_sound_volume_key"), Show("sett_curtain"), Show("volume_key"), Show("talk_button"), Show("countdown"), Hide("sound_test"), If(is_playing, true=[Show("music_player_buttons"), Show("active_music_key")], false=Show("music_key")), Show("theme_key")]
 
-    key persistent.s_r_key.upper() action [Hide("con_sound_volume"), Show("sound_volume_key"), Hide("active_sound_volume_key"), Show("sett_curtain"), Show("volume_key"), Show("talk_button"), Show("countdown"), Hide("sound_test"), If(is_playing, true=Show("music_player_buttons"), false=NullAction())]
+    key persistent.s_r_key.upper() action [Hide("con_sound_volume"), Show("sound_volume_key"), Hide("active_sound_volume_key"), Show("sett_curtain"), Show("volume_key"), Show("talk_button"), Show("countdown"), Hide("sound_test"), If(is_playing, true=[Show("music_player_buttons"), Show("active_music_key")], false=Show("music_key")), Show("theme_key")]
 
-    key "K_ESCAPE" action [Hide("con_sound_volume"), Show("sound_volume_key"), Hide("active_sound_volume_key"), Show("volume_key"), Show("sett_curtain"), Show("talk_button"), Show("countdown"), Hide("sound_test"), If(is_playing, true=Show("music_player_buttons"), false=NullAction())]
+    key "K_ESCAPE" action [Hide("con_sound_volume"), Show("sound_volume_key"), Hide("active_sound_volume_key"), Show("volume_key"), Show("sett_curtain"), Show("talk_button"), Show("countdown"), Hide("sound_test"), If(is_playing, true=[Show("music_player_buttons"), Show("active_music_key")], false=Show("music_key")), Show("theme_key")]
 
 
     $persistent.soundvol = soundvlm
@@ -1723,7 +1723,7 @@ screen talk_button():
         idle "talk_styled"
         hover "talk_hover_styled"
         hovered [Play("sound", "mod_assets/sfx/hover.ogg")]
-        action [Show("talk_round"), Hide("volume_key"), Hide("sound_volume_key"), Hide("music_key"), Play("sound", "mod_assets/sfx/select.ogg"), Show("key_hider_talk"), Function(renpy.hide, "vol_mask")]
+        action [Show("talk_round"), Hide("volume_key"), Hide("sound_volume_key"), Hide("music_key"), Hide("theme_key"), Hide("sett_curtain"), Play("sound", "mod_assets/sfx/select.ogg"), Show("key_hider_talk"), Function(renpy.hide, "vol_mask")]
 
 
 screen active_talk_button():
@@ -2030,19 +2030,18 @@ screen cur_buttons():
         sensitive persistent.ch_vol
         action [If(cur_side == "left", true=Function(renpy.show, "curtain", at_list=[hide_cur_l], zorder=10), false=Function(renpy.show, "curtain", at_list=[hide_cur_r], zorder=10)), SetVariable("set", "music"), Hide("volume_key"), Hide("sett_curtain"), Show("active_volume_key"), If(renpy.mobile, true=[Show("mob_active_volume_but"), Jump("mob_vol")], false=Show("con_volume")), Hide("sound_volume_key"),
           Hide("talk_button"), Hide("countdown"), Function(renpy.show, "cup_but", at_list=[pos_cup_button], zorder=10),
-           If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False))]
+           If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False)), Hide("music_key"), Hide("active_music_key"), Hide("theme_key")]
 
     imagebutton xpos hit_coord("mod_assets/button/custom/curtain_sound.png", persistent.ch_vol, "x") ypos hit_coord("mod_assets/button/custom/curtain_sound.png", persistent.ch_vol, "y")-37:
         idle "mod_assets/button/custom/mob_but_hit.png"
         sensitive persistent.ch_vol
-        action [If(cur_side == "left", true=Function(renpy.show, "curtain", at_list=[hide_cur_l], zorder=10), false=Function(renpy.show, "curtain", at_list=[hide_cur_r], zorder=10)), SetVariable("set", "sound"), Hide("sound_volume_key"), Hide("sett_curtain"), If(renpy.mobile, true=[Show("mob_active_sound_but"), Jump("mob_sound")], false=[Hide("sound_volume_key"), Show("active_sound_volume_key"), Show("con_sound_volume"), Show("sound_test")]),
-         Hide("talk_button"), Hide("countdown"),
-        If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False))]
+        action [If(cur_side == "left", true=Function(renpy.show, "curtain", at_list=[hide_cur_l], zorder=10), false=Function(renpy.show, "curtain", at_list=[hide_cur_r], zorder=10)), SetVariable("set", "sound"), Hide("sound_volume_key"), Hide("sett_curtain"), If(renpy.mobile, true=[Show("mob_active_sound_but"), Jump("mob_sound")], false=[Show("active_sound_volume_key"), Show("con_sound_volume"), Show("sound_test")]), Hide("volume_key"), Hide("talk_button"), Hide("countdown"),
+        If(renpy.get_screen("music_player_buttons"), true=[SetVariable("is_playing", True), Hide("music_player_buttons")], false=SetVariable("is_playing", False)), Hide("music_key"), Hide("active_music_key"), Hide("theme_key")]
 
     imagebutton xpos hit_coord("mod_assets/button/custom/curtain_play.png", persistent.ch_mus, "x") ypos hit_coord("mod_assets/button/custom/curtain_play.png", persistent.ch_mus, "y")-37:
         idle "mod_assets/button/custom/mob_but_hit.png"
         sensitive persistent.ch_mus
-        action [Hide("music_key"), Hide("sett_curtain"), Show("active_music_key"), Show("hide_all_talk"), Hide("talk_button"), Hide("countdown"), If(renpy.mobile, true=Show("mob_music_player"), false=Show("music_player_buttons")), If(cur_side == "left", true=Function(renpy.show, "curtain", at_list=[hide_cur_l], zorder=10), false=Function(renpy.show, "curtain", at_list=[hide_cur_r], zorder=10))]
+        action [Hide("music_key"), Hide("sett_curtain"), Show("active_music_key"), Show("hide_all_talk"), Hide("talk_button"), Hide("countdown"), If(renpy.mobile, true=Show("mob_music_player"), false=Show("music_player_buttons")), If(cur_side == "left", true=Function(renpy.show, "curtain", at_list=[hide_cur_l], zorder=10), false=Function(renpy.show, "curtain", at_list=[hide_cur_r], zorder=10)), Hide("theme_key")]
 
     imagebutton xpos hit_coord("mod_assets/button/custom/curtain_theme.png", persistent.themes, "x") ypos hit_coord("mod_assets/button/custom/curtain_theme.png", persistent.themes, "y")-37:
         idle "mod_assets/button/custom/mob_but_hit.png"
@@ -2090,11 +2089,10 @@ transform bounce_right(xcur, ycur):
     easein_bounce 0.1 xpos xcur+5 ypos ycur-10
     easein 0.1 xpos xcur+10 ypos ycur
 
-screen relation_chibi_show_l():
-    timer 1 repeat True action [Function(relation_chibi, "left")]
-screen relation_chibi_show_r():
-    timer 1 repeat True action [Function(relation_chibi, "right")]
+screen relation_chibi_show_l(yp):
+    timer 1 repeat True action [Function(relation_chibi, "left", yp)]
+screen relation_chibi_show_r(yp):
+    timer 1 repeat True action [Function(relation_chibi, "right", yp)]
 
 screen relation_show():
-    on "show" action If(cur_relation != "Negative", true=[Function(renpy.show, "rel_chibi_l", at_list=[bounce(rel_chibi_coord_l[0], rel_chibi_coord_l[1])], zorder = 10, tag="l"), Function(renpy.show, "rel_chibi_r", at_list=[bounce(rel_chibi_coord_r[0], rel_chibi_coord_r[1])], zorder = 10, tag="r")], false=NullAction())
     text return_relation_stat(cur_relation) xalign 0.5 ypos 30 size 30

@@ -1115,6 +1115,7 @@ label exit_moreday(bye):
 #-----------------------------------Вспомогательные лэйблы-----------------------------------
 
 
+
 label ch1_loop:
     if is_esc_pressed == True:
         $side_return()
@@ -1144,9 +1145,15 @@ label ch1_loop:
     show screen sett_curtain
 
     if persistent.show_relation == True:
-        show screen relation_chibi_show_l
-        show screen relation_chibi_show_r
         show screen relation_show
+
+    if persistent.show_chibis == True:
+        if persistent.show_relation == True:
+            show screen relation_chibi_show_l("up")
+            show screen relation_chibi_show_r("up")
+        else:
+            show screen relation_chibi_show_l("down")
+            show screen relation_chibi_show_r("down")
 
     call screen talk_button
 
@@ -1214,67 +1221,66 @@ label ch1_exit:
 
 
     python:
-        if persistent.exp_time != 0:
-            nowtime = (datetime.datetime.now()-datetime.datetime(1970,1,1)).total_seconds()
-            lonelytime = nowtime - persistent.exp_time
-            renpy.save_persistent()
+        nowtime = (datetime.datetime.now()-datetime.datetime(1970,1,1)).total_seconds()
+        lonelytime = nowtime - persistent.exp_time
+        renpy.save_persistent()
 
-            if persistent.bye == False and persistent.set_broke == True:
-                if lonelytime < 0:
-                    renpy.show("natsuki r1e")
-                    renpy.say(n, "Ломаешь игровую систему через время?")
-                    renpy.show("natsuki r1d")
-                    renpy.say(n, "Думаешь, это сработает?")
-                    renpy.show("natsuki r1c")
-                    renpy.say(n, "Хотя, вдруг ты это сделал случайно...")
-                    renpy.show("natsuki r1e")
-                    renpy.say(n, "В любом случае, зачем перематываешь время назад?")
-                    renpy.say(n, "Перестань так делать, пожалуйста, а то ещё сломаешь что-то.")
-                    renpy.call("ch1_loop")
+        if persistent.bye == False and persistent.set_broke == True:
+            if lonelytime < 0:
+                renpy.show("natsuki r1e")
+                renpy.say(n, "Ломаешь игровую систему через время?")
+                renpy.show("natsuki r1d")
+                renpy.say(n, "Думаешь, это сработает?")
+                renpy.show("natsuki r1c")
+                renpy.say(n, "Хотя, вдруг ты это сделал случайно...")
+                renpy.show("natsuki r1e")
+                renpy.say(n, "В любом случае, зачем перематываешь время назад?")
+                renpy.say(n, "Перестань так делать, пожалуйста, а то ещё сломаешь что-то.")
+                renpy.call("ch1_loop")
 
-                if lonelytime < 3600:
-                    renpy.call("exit_lesshour", "without")
-                if lonelytime > 3600 and lonelytime < 86400:
-                    renpy.call("exit_lessday", "without")
-                if lonelytime > 86400:
-                    renpy.call("exit_moreday", "without")
-
-            else:
-                persistent.bye = False
-                renpy.save_persistent()
-
-                if lonelytime < 0:
-                    renpy.show("natsuki r1e")
-                    renpy.say(n, "Ломаешь игровую систему через время?")
-                    renpy.show("natsuki r1d")
-                    renpy.say(n, "Думаешь, это сработает?")
-                    renpy.show("natsuki r1c")
-                    renpy.say(n, "Хотя, вдруг ты это сделал случайно...")
-                    renpy.show("natsuki r1e")
-                    renpy.say(n, "В любом случае, зачем перематываешь время назад?")
-                    renpy.say(n, "Перестань так делать, пожалуйста, а то ещё сломаешь что-то.")
-                    renpy.call("ch1_loop")
-
-                if lonelytime < 3600:
-                    renpy.call("exit_lesshour", "with")
-                if lonelytime > 3600 and lonelytime < 86400:
-                    renpy.call("exit_lessday", "with")
-                if lonelytime > 86400:
-                    renpy.call("exit_moreday", "with")
-
+            if lonelytime < 3600:
+                renpy.call("exit_lesshour", "without")
+            if lonelytime > 3600 and lonelytime < 86400:
+                renpy.call("exit_lessday", "without")
+            if lonelytime > 86400:
+                renpy.call("exit_moreday", "without")
 
         else:
-            renpy.show("natsuki r1e")
-            renpy.say(n, "Вернулся?")
-            renpy.say(n, "Я уже успела заждаться тебя.")
-            renpy.show("natsuki r1b")
-            renpy.say(n, "Мог бы хоть предупредить, что уходишь...")
-            renpy.show("natsuki r1e")
-            renpy.say(n, "Или ты специально так резко убежал от меня, чтобы...")
-            renpy.show("natsuki r1b")
-            renpy.say(n, "Ладно, неважно.")
+            persistent.bye = False
+            renpy.save_persistent()
 
-            renpy.call("ch1_loop")
+            if lonelytime < 0:
+                renpy.show("natsuki r1e")
+                renpy.say(n, "Ломаешь игровую систему через время?")
+                renpy.show("natsuki r1d")
+                renpy.say(n, "Думаешь, это сработает?")
+                renpy.show("natsuki r1c")
+                renpy.say(n, "Хотя, вдруг ты это сделал случайно...")
+                renpy.show("natsuki r1e")
+                renpy.say(n, "В любом случае, зачем перематываешь время назад?")
+                renpy.say(n, "Перестань так делать, пожалуйста, а то ещё сломаешь что-то.")
+                renpy.call("ch1_loop")
+
+            if lonelytime < 3600:
+                renpy.call("exit_lesshour", "with")
+            if lonelytime > 3600 and lonelytime < 86400:
+                renpy.call("exit_lessday", "with")
+            if lonelytime > 86400:
+                renpy.call("exit_moreday", "with")
+
+
+        # else:
+        #     renpy.show("natsuki r1e")
+        #     renpy.say(n, "Вернулся?")
+        #     renpy.say(n, "Я уже успела заждаться тебя.")
+        #     renpy.show("natsuki r1b")
+        #     renpy.say(n, "Мог бы хоть предупредить, что уходишь...")
+        #     renpy.show("natsuki r1e")
+        #     renpy.say(n, "Или ты специально так резко убежал от меня, чтобы...")
+        #     renpy.show("natsuki r1b")
+        #     renpy.say(n, "Ладно, неважно.")
+        #
+        #     renpy.call("ch1_loop")
 
 
 
@@ -1736,6 +1742,11 @@ label additional_settings():
         $left = False
 
     $side()
+
+    $dia_hide()
+
+    $ans = random_ans()
+
     menu:
         "Сторона сдвига спрайта":
             menu:
@@ -1762,21 +1773,55 @@ label additional_settings():
             n "Может так мы быстрее научимся доверять друг другу?"
             $persistent.first_relation = True
             $persistent.show_relation = True
+            $persistent.show_chibis = True
             $renpy.save_persistent()
 
         "Скрыть счетчик" if persistent.show_relation == True and persistent.first_relation == True:
             $side_return()
+            hide screen relation_show
             hide screen relation_chibi_show_l
             hide screen relation_chibi_show_r
-            hide screen relation_show
             hide l
             hide r
             $persistent.show_relation = False
             $renpy.save_persistent()
+            $rel_chibi_coord_l = [get_chibi_coord("left"), 624]
+            $rel_chibi_coord_r = [get_chibi_coord("right"), 624]
+            if persistent.show_chibis == True:
+                show screen relation_chibi_show_l("down")
+                show screen relation_chibi_show_r("down")
 
         "Показать счетчик" if persistent.show_relation == False and persistent.first_relation == True:
             $side_return()
             $persistent.show_relation = True
             $renpy.save_persistent()
+            $rel_chibi_coord_l = [get_chibi_coord("left"), 10]
+            $rel_chibi_coord_r = [get_chibi_coord("right"), 10]
+            if persistent.show_chibis == True:
+                hide screen relation_chibi_show_l
+                hide screen relation_chibi_show_r
+                hide l
+                hide r
+                show screen relation_chibi_show_l("up")
+                show screen relation_chibi_show_r("up")
+
+        "Показать чибиков" if persistent.show_chibis == False and persistent.first_relation == True:
+            $side_return()
+            $persistent.show_chibis = True
+            $renpy.save_persistent()
+
+
+        "Скрыть чибиков" if persistent.show_chibis == True and persistent.first_relation == True:
+            $side_return()
+            hide screen relation_chibi_show_l
+            hide screen relation_chibi_show_r
+            hide l
+            hide r
+            $persistent.show_chibis = False
+            $renpy.save_persistent()
+
+        "{i}[ans]{/i}":
+            $side_return()
+            call ch1_loop
 
     call ch1_loop

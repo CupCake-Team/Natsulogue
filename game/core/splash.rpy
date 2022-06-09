@@ -240,8 +240,13 @@ init python:
             renpy.show_screen("relation_chibi_show_l")
             renpy.show_screen("relation_chibi_show_r")
             renpy.show_screen("relation_show")
-            rel_chibi_coord_l = [get_chibi_coord("left"), 10]
-            rel_chibi_coord_r = [get_chibi_coord("right"), 10]
+
+            if persistent.show_relation == True:
+                rel_chibi_coord_l = [get_chibi_coord("left"), 10]
+                rel_chibi_coord_r = [get_chibi_coord("right"), 10]
+            else:
+                rel_chibi_coord_l = [get_chibi_coord("left"), 624]
+                rel_chibi_coord_r = [get_chibi_coord("right"), 624]
 
             if start_relation == "Neutral" and cur_relation == "Positive":
                 start_relation = cur_relation
@@ -313,7 +318,7 @@ init python:
                 return button_coord[cur_side][but_count][i][1]
 
 
-    def relation_chibi(s):
+    def relation_chibi(s, yp):
         ani_var = renpy.random.randint(1,100)
         if ani_var <= 30:
             if cur_relation == "Positive":
@@ -396,6 +401,9 @@ init python:
                         renpy.hide("rel_chibi_l")
                         renpy.show("rel_chibi_r", at_list=[bounce(rel_chibi_coord_r[0], rel_chibi_coord_r[1])], zorder = 10, tag="r")
 
+
+
+
     relation_stat = {"Positive":{"ru":"Позитивное","en":"Positive"}, "Neutral":{"ru":"Нейтральное", "en":"Neutral"}, "Negative":{"ru":"Негативное", "en":"Negative"}}
 
     def return_relation_stat(rel):
@@ -404,16 +412,35 @@ init python:
 
     def get_chibi_coord(s):
         sym_len = len(return_relation_stat(cur_relation))
-        if s == "left":
-            if sym_len%2==0:
-                return 640 - sym_len/2*16 - 77 - 20
+        if persistent.show_relation == True:
+            if s == "left":
+                if sym_len%2==0:
+                    return 640 - sym_len/2*16 - 77 - 20
+                else:
+                    return 640 - (sym_len-1)/2*16 - 77 - 20
             else:
-                return 640 - (sym_len-1)/2*16 - 77 - 20
+                if sym_len%2==0:
+                    return 640 + sym_len/2*16 + 20
+                else:
+                    return 640 + (sym_len-1)/2*16 + 20
         else:
-            if sym_len%2==0:
-                return 640 + sym_len/2*16 + 20
+            if s == "left":
+                c = random.randint(330, 460)
+                return c
             else:
-                return 640 + (sym_len-1)/2*16 + 20
+                c = random.randint(830, 970)
+                return c
+
+
+    nonunicode = "¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĲĳĴĵĶķĸĹĺĻļĽľĿŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŒœŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽž"
+
+    def glitchtext(length):
+        output = ""
+        for x in range(length):
+            output += random.choice(nonunicode)
+        return output
+
+
 
 
 
@@ -454,6 +481,7 @@ default persistent.change_clothes = False
 default persistent.sprite_side = "Rand"
 default persistent.show_relation = False
 default persistent.first_relation = False
+default persistent.show_chibis = False
 
 
 
@@ -610,8 +638,12 @@ label splashscreen:
     default persistent.has_load = False
     $cur_relation = relationship(persistent.relation)
     $start_relation = cur_relation
-    $rel_chibi_coord_l = [get_chibi_coord("left"), 10]
-    $rel_chibi_coord_r = [get_chibi_coord("right"), 10]
+    if persistent.show_relation == True:
+        $rel_chibi_coord_l = [get_chibi_coord("left"), 10]
+        $rel_chibi_coord_r = [get_chibi_coord("right"), 10]
+    else:
+        $rel_chibi_coord_l = [get_chibi_coord("left"), 620]
+        $rel_chibi_coord_r = [get_chibi_coord("right"), 620]
 
     if persistent.is_full:
         show screen set_on_beginning
