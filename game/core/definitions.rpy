@@ -10,6 +10,7 @@ python early:
 init python:
     config.keymap['game_menu'].remove('mouseup_3')
     config.keymap['screenshot'].remove('s')
+    #config.keymap['screenshot'].remove('S')
     config.keymap['hide_windows'].append('mouseup_3')
     config.keymap['self_voicing'] = []
     config.keymap['clipboard_voicing'] = []
@@ -1148,8 +1149,8 @@ define ny = Character('Nat & Yuri', what_prefix='"', what_suffix='"', ctc="ctc",
 
 define _dismiss_pause = config.developer
 
-default persistent.playername = ""
-default player = glitchtext(6)
+default gplayer = glitchtext(6)
+default perisistent.player = gplayer
 default persistent.playthrough = 0
 default persistent.yuri_kill = 0
 default persistent.seen_eyes = None

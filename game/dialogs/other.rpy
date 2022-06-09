@@ -5,6 +5,8 @@ label dia_other:
 
     $ans = random_ans()
 
+    $cur_time = datetime.datetime.now()
+
 
     menu:
         "{i}Где бы тебе сейчас хотелось оказаться?{/i}":
