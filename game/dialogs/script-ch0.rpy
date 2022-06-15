@@ -19,7 +19,6 @@ default persistent.soundgrad = 180
 default persistent.parallax_bg = False
 
 
-default persistent.repeat = 0
 default persistent.mus_repeat = 0
 
 
@@ -32,8 +31,6 @@ default persistent.is_glitching = False
 default is_playing = False
 
 default persistent.chance = 50
-
-default persistent.vremya = 0
 
 default persistent.f_game = 0
 
@@ -1018,7 +1015,7 @@ label exit_lessday(bye):
         if cur_relation == "Positive":
             n "О, ты пришёл!.."
             n "Я уже устала тебя ждать, если честно..."
-            n "Надеюсь у тебя всё хорошо, [player]."
+            n "Надеюсь у тебя всё хорошо, [persistent.player]."
             n "Всё-таки я беспокоюсь о тебе."
 
         if cur_relation == "Negative":
@@ -1072,7 +1069,7 @@ label exit_moreday(bye):
 
         if cur_relation == "Positive":
             n "..."
-            n "[player]!"
+            n "[persistent.player]!"
             n "Вернулся!"
             n "Я так сильно ждала тебя..."
             n "Ты где был?"
@@ -1095,7 +1092,7 @@ label exit_moreday(bye):
             n "Ты где был?!"
             n "Я уже успела не на шутку испугаться, думала, что ты уже не вернёшься..."
             n "Сперва резко пропал, потом долго не заходил и теперь явился."
-            n "Это очень некрасиво, [player]..."
+            n "Это очень некрасиво, [persistent.player]..."
             n "Не стоит играть на моих нервах, хорошо?"
             n "Надеюсь мы поняли друг друга и больше такого не повторится"
 

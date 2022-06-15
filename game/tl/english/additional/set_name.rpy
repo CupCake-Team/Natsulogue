@@ -39,7 +39,7 @@ translate english set_name_joker_b1d55621:
 # game/additional/set_name.rpy:38
 translate english set_name_joker_88ada7c3:
 
-    # n "[player]...."
+    # n "[persistent.player]...."
     n ""
 
 # game/additional/set_name.rpy:45
@@ -147,7 +147,7 @@ translate english set_name_a05338a3:
 # game/additional/set_name.rpy:85
 translate english set_name_88ada7c3:
 
-    # n "[player]...."
+    # n "[persistent.player]...."
     n ""
 
 # game/additional/set_name.rpy:96
@@ -183,7 +183,7 @@ translate english set_name_8eed5ad9:
 # game/additional/set_name.rpy:106
 translate english set_name_88ada7c3_1:
 
-    # n "[player]...."
+    # n "[persistent.player]...."
     n ""
 
 # game/additional/set_name.rpy:112
@@ -399,13 +399,13 @@ translate english set_name_1cbc8ef8:
 # game/additional/set_name.rpy:168
 translate english set_name_9627c95c:
 
-    # n r1d "В любом случае, [player], теперь у тебя есть нормальное имя."
+    # n r1d "В любом случае, [persistent.player], теперь у тебя есть нормальное имя."
     n r1d ""
 
 # game/additional/set_name.rpy:169
 translate english set_name_de553f92:
 
-    # n r1e "[player]..."
+    # n r1e "[persistent.player]..."
     n r1e ""
 
 # game/additional/set_name.rpy:171
@@ -435,7 +435,7 @@ translate english set_name_5afa2501:
 # game/additional/set_name.rpy:175
 translate english set_name_0fe9727c:
 
-    # n "В общем, закроем тему, [player], я не хочу сейчас говорить об этом."
+    # n "В общем, закроем тему, [persistent.player], я не хочу сейчас говорить об этом."
     n ""
 
 # game/additional/set_name.rpy:178
@@ -453,6 +453,6 @@ translate english set_name_c7104b62:
 # game/additional/set_name.rpy:180
 translate english set_name_de553f92_1:
 
-    # n r1e "[player]..."
+    # n r1e "[persistent.player]..."
     n r1e ""
 

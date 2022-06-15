@@ -177,7 +177,7 @@ translate eng dia_romance_a01260b7:
 # game/dialogs/romance.rpy:87
 translate eng dia_romance_2f109564:
 
-    # n "Но всё равно, спасибо что делаешь меня счастливой, [player]."
+    # n "Но всё равно, спасибо что делаешь меня счастливой, [persistent.player]."
     n ""
 
 # game/dialogs/romance.rpy:88
@@ -225,7 +225,7 @@ translate eng dia_romance_bd247b99:
 # game/dialogs/romance.rpy:116
 translate eng dia_romance_107a2765:
 
-    # n "Мне нравится твой ход мыслей, [player]."
+    # n "Мне нравится твой ход мыслей, [persistent.player]."
     n ""
 
 # game/dialogs/romance.rpy:117
@@ -309,7 +309,7 @@ translate eng dia_romance_970231e4:
 # game/dialogs/romance.rpy:170
 translate eng dia_romance_90b7c713:
 
-    # n "Я бы посоветовала тебе следить за своим языком, [player]."
+    # n "Я бы посоветовала тебе следить за своим языком, [persistent.player]."
     n ""
 
 # game/dialogs/romance.rpy:171

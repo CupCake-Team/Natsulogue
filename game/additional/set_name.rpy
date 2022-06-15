@@ -35,7 +35,7 @@ label set_name_joker:
         $ input_count_m = 0
         $ input_count_s = 0
         $ persistent.player = "Клоун"
-        n "[player]...."
+        n "[persistent.player]...."
         show natsuki r1b
         call ch1_loop
     else:
@@ -82,7 +82,7 @@ label set_name:
             $ input_count_y = 0
             $ input_count_s = 0
             $ persistent.player = "Дурашка"
-            n "[player]...."
+            n "[persistent.player]...."
             show natsuki r1c
             call ch1_loop
 
@@ -103,7 +103,7 @@ label set_name:
                 $ input_count_y = 0
                 $ input_count_s = 0
                 $ persistent.player = "Глупышка"
-                n "[player]...."
+                n "[persistent.player]...."
                 call ch1_loop
 
         # САЙОРИ
@@ -165,18 +165,18 @@ label set_name:
         elif input_count_n == 0 and input_count_s + input_count_m + input_count_y > 0:
             n r1e "Молодец, что прекратил это."
             n "Серьёзно, подобные приколы меня очень сильно бесят."
-            n r1d "В любом случае, [player], теперь у тебя есть нормальное имя."
-            n r1e "[player]..."
+            n r1d "В любом случае, [persistent.player], теперь у тебя есть нормальное имя."
+            n r1e "[persistent.player]..."
         elif input_count_n > 0 and input_count_s + input_count_m + input_count_y > 0:
             n r1e "Неужели этот дурацкий цирк прекратился?"
             n "Я понимаю, что скорее всего ты делал это от скуки, но пожалуйста, не беси меня так больше."
             n r1b "Просто... {w}Это как-то странно, что я буду общаться с тобой, применяя одно из имён своих подруг."
             n r1e "Конечно, их сейчас нет в живых, но..."
-            n "В общем, закроем тему, [player], я не хочу сейчас говорить об этом."
+            n "В общем, закроем тему, [persistent.player], я не хочу сейчас говорить об этом."
             show natsuki r1b
         else:
             n r1d "Хорошее имя."
             n r1i "Правда не знаю, настоящее ли оно или же это просто псевдоним."
-            n r1e "[player]..."
+            n r1e "[persistent.player]..."
         show natsuki r1b
         call ch1_loop

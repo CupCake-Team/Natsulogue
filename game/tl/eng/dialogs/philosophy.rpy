@@ -87,7 +87,7 @@ translate eng dia_philosophy_3ebb9a6b:
 # game/dialogs/philosophy.rpy:37
 translate eng dia_philosophy_4bd3fd42:
 
-    # n "Верь в себя, [player], и никогда не сдавайся!"
+    # n "Верь в себя, [persistent.player], и никогда не сдавайся!"
     n ""
 
 # game/dialogs/philosophy.rpy:38
@@ -225,7 +225,7 @@ translate eng dia_philosophy_f5e0c1c7:
 # game/dialogs/philosophy.rpy:77
 translate eng dia_philosophy_323bcef1:
 
-    # n r1d "Не бросай их, [player], хорошо?"
+    # n r1d "Не бросай их, [persistent.player], хорошо?"
     n r1d ""
 
 # game/dialogs/philosophy.rpy:78

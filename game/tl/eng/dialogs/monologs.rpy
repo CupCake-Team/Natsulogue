@@ -81,7 +81,7 @@ translate eng mono1_c9ec97f4:
 # game/dialogs/monologs.rpy:24
 translate eng mono1_7f2be7cd:
 
-    # n r1c "Но не грусти по этому поводу, [player]."
+    # n r1c "Но не грусти по этому поводу, [persistent.player]."
     n r1c ""
 
 # game/dialogs/monologs.rpy:25
@@ -141,7 +141,7 @@ translate eng mono2_824ca484:
 # game/dialogs/monologs.rpy:75
 translate eng mono3_83a730b2:
 
-    # n r1d "Мне стало интересно, [player], а умеешь ли ты готовить?"
+    # n r1d "Мне стало интересно, [persistent.player], а умеешь ли ты готовить?"
     n r1d ""
 
 # game/dialogs/monologs.rpy:76
