@@ -408,7 +408,8 @@ init python:
 
     def return_relation_stat(rel):
         global lang
-        return relation_stat[rel][lang]
+        #return relation_stat[rel][lang]
+        return relation_stat[rel]["ru"]
 
     def get_chibi_coord(s):
         sym_len = len(return_relation_stat(cur_relation))
@@ -440,6 +441,54 @@ init python:
             output += random.choice(nonunicode)
         return output
 
+
+    def get_cur_persistent(old, new, current):
+        current.update(new)
+        current.update(old)
+        return current
+
+    renpy.register_persistent('visualiser', get_cur_persistent)
+    renpy.register_persistent('first_vis', get_cur_persistent)
+    renpy.register_persistent('is_cute', get_cur_persistent)
+    renpy.register_persistent('glitched_name', get_cur_persistent)
+    renpy.register_persistent('track_num', get_cur_persistent)
+    renpy.register_persistent('ch_mus', get_cur_persistent)
+    renpy.register_persistent('bye', get_cur_persistent)
+    renpy.register_persistent('fix', get_cur_persistent)
+    renpy.register_persistent('set_broke', get_cur_persistent)
+    renpy.register_persistent('themes', get_cur_persistent)
+    renpy.register_persistent('relation', get_cur_persistent)
+    renpy.register_persistent('repeats', get_cur_persistent)
+    renpy.register_persistent('clothes', get_cur_persistent)
+    renpy.register_persistent('change_clothes', get_cur_persistent)
+    renpy.register_persistent('sprite_side', get_cur_persistent)
+    renpy.register_persistent('show_relation', get_cur_persistent)
+    renpy.register_persistent('first_relation', get_cur_persistent)
+    renpy.register_persistent('show_chibis', get_cur_persistent)
+    renpy.register_persistent('topc', get_cur_persistent)
+    renpy.register_persistent('ch_vol', get_cur_persistent)
+    renpy.register_persistent('parallax_bg', get_cur_persistent)
+    renpy.register_persistent('mus_repeat', get_cur_persistent)
+    renpy.register_persistent('exp_time', get_cur_persistent)
+    renpy.register_persistent('back_music', get_cur_persistent)
+    renpy.register_persistent('is_glitching', get_cur_persistent)
+    renpy.register_persistent('chance', get_cur_persistent)
+    renpy.register_persistent('f_game', get_cur_persistent)
+    renpy.register_persistent('v_key', get_cur_persistent)
+    renpy.register_persistent('v_r_key', get_cur_persistent)
+    renpy.register_persistent('s_key', get_cur_persistent)
+    renpy.register_persistent('s_r_key', get_cur_persistent)
+    renpy.register_persistent('m_key', get_cur_persistent)
+    renpy.register_persistent('m_r_key', get_cur_persistent)
+    renpy.register_persistent('f_key', get_cur_persistent)
+    renpy.register_persistent('f_r_key', get_cur_persistent)
+    renpy.register_persistent('t_key', get_cur_persistent)
+    renpy.register_persistent('t_r_key', get_cur_persistent)
+    renpy.register_persistent('is_full', get_cur_persistent)
+    renpy.register_persistent('first_change', get_cur_persistent)
+    renpy.register_persistent('readen', get_cur_persistent)
+    renpy.register_persistent('theme', get_cur_persistent)
+    renpy.register_persistent('is_theme_default', get_cur_persistent)
 
 
 

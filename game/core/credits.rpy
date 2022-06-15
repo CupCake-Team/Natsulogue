@@ -598,7 +598,7 @@ label credits2:
         call updateconsole_clearall ("os.remove(\"images/cg/s_cg3.png\")", "s_cg3.png deleted successfully.") from _call_updateconsole_clearall_8
     show expression ("credits_cg10" + lockedtext) as credits_image_2 at credits_scroll_left
     show credits_header "Special Thanks" as credits_header_2 at credits_text_scroll_right
-    show credits_text "Monika\n[player]" as credits_text_2 at credits_text_scroll_right
+    show credits_text "Monika\n[persistent.player]" as credits_text_2 at credits_text_scroll_right
     $ pause(104.10 - (datetime.datetime.now() - starttime).total_seconds())
     if not persistent.clearall:
         call updateconsole ("os.remove(\"images/cg/m_cg1.png\")", "m_cg1.png deleted successfully.") from _call_updateconsole_30

@@ -147,7 +147,7 @@ translate english dia_hobbies_a9463f1b:
 # game/dialogs/hobbies.rpy:46
 translate english dia_hobbies_14f2376c:
 
-    # n r1g "Поэтому [player], не будь лентяем, хорошо?"
+    # n r1g "Поэтому [persistent.player], не будь лентяем, хорошо?"
     n r1g ""
 
 # game/dialogs/hobbies.rpy:62

@@ -933,7 +933,7 @@ translate eng set_name_c7104b62:
 # game/script-ch0.rpy:1011
 translate eng set_name_de553f92:
 
-    # n r1e "[player]..."
+    # n r1e "[persistent.player]..."
     n r1e ""
 
 # game/script-ch0.rpy:1024

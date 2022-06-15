@@ -219,7 +219,7 @@ translate eng baking_con_fb840a03:
 # game/dialogs/recipes.rpy:80
 translate eng baking_con_b18369ec:
 
-    # n r1c "И только потом плита, [player], только потом..."
+    # n r1c "И только потом плита, [persistent.player], только потом..."
     n r1c ""
 
 # game/dialogs/recipes.rpy:97
