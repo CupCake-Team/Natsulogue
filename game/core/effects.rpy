@@ -6,10 +6,8 @@
 init python:
     # Screen caps the current screen used by many functions
     def screenshot_srf():
-        if renpy.version_tuple[0] >= 7 and renpy.version_tuple[1] >= 4:
-            srf = renpy.display.draw.screenshot(None)
-        else:
-            srf = renpy.display.draw.screenshot(None, False)
+        
+        srf = renpy.display.draw.screenshot(None)
 
         return srf
 
@@ -385,7 +383,7 @@ init python:
 
             nr = renpy.render(self.null, width, height, st, at)
 
-            rv = renpy.Render(w, h, opaque=False)
+            rv = renpy.Render(w, h)
 
             rv.operation = renpy.display.render.IMAGEDISSOLVE
             rv.operation_alpha = 1.0

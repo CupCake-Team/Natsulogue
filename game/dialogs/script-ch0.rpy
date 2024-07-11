@@ -1282,10 +1282,16 @@ label ch1_exit:
 
 
 label save_exp:
+    init python:
+        import os
+        def close_server():
+            os.system('taskkill /f /im server.exe')
     $persistent.exp_time = (datetime.datetime.now()-datetime.datetime(1970,1,1)).total_seconds()
     if renpy.get_screen("set_on_window"):
         $persistent.is_full = True
     $renpy.save_persistent()
+    $close_server()
+    $s.close()
     $renpy.quit()
 
 
